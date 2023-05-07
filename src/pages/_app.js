@@ -1,12 +1,15 @@
 import Head from 'next/head';
+import { Provider } from 'react-redux';
 import { MantineProvider } from '@mantine/core';
 import { DM_Sans as DMSans } from 'next/font/google';
 
+import themes from '@/config/styles/themes';
+import store from '@/state/store';
 import '@/styles/globals.css';
 
 const dmSans = DMSans({
-  style: ['normal', 'italic'],
   subsets: ['latin'],
+  style: ['normal', 'italic'],
   weight: ['400', '500', '700'],
 });
 
@@ -21,16 +24,12 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
 
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          colorScheme: 'light',
-        }}
-      >
-        <main className={dmSans.className}>
-          <Component {...pageProps} />
-        </main>
+      <MantineProvider withGlobalStyles withNormalizeCSS theme={themes}>
+        <Provider store={store}>
+          <main className={dmSans.className}>
+            <Component {...pageProps} />
+          </main>
+        </Provider>
       </MantineProvider>
     </>
   );
