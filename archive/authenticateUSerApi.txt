@@ -1,0 +1,33 @@
+import { HamzryAPI } from '@/config/api/HamzryAPI';
+import { serverDown } from '../constants/feedbackMessage';
+
+export const authenticateUserApi = async (sessionToken) => {
+  const endpoint = '/api/verify-token';
+
+  const responseObj = {
+    isAvail: null,
+    userData: [],
+    statusCode: null,
+  };
+
+  try {
+    const headers = { 'auth-token': sessionToken };
+    const response = await HamzryAPI.get(endpoint, { headers });
+
+    responseObj.isAvail = response.data.success;
+    responseObj.userData = response.data.result;
+    responseObj.statusCode = response.status;
+    return responseObj;
+  } catch (error) {
+    // TODO: Log error in an Performance monitoring software
+    if (typeof error.response !== 'undefined') {
+      responseObj.isAvail = error.response.data.success;
+      responseObj.statusCode = error.response.status;
+      return responseObj;
+    }
+
+    const errorObj = new Error(serverDown.code);
+    errorObj.statusCode = 502;
+    throw errorObj;
+  }
+};
