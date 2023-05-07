@@ -5,11 +5,12 @@ import UpperCase from 'lodash/upperCase';
 import { ArrowTr } from 'iconoir-react';
 import { Title, Text, Button, Grid, Stack, Flex } from '@mantine/core';
 
-import { useStyles } from './style.Error404';
-import { LogoHeader } from '../LogoHeader/LogoHeader';
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { pageNotFound } from '@/shared/constants/feedbackMessage';
 import { PageContainer } from '@/shared/components/PageContainer';
+
+import { LogoHeader } from '../LogoHeader/LogoHeader';
+import { useStyles } from './style.Error404';
 
 export function Error404({ showHeading }) {
   const { classes, theme } = useStyles();

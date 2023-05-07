@@ -17,12 +17,32 @@ import '@/styles/globals.css';
 
 const dmSans = DMSans({
   subsets: ['latin'],
+  variable: '--dm-sans',
   style: ['normal', 'italic'],
   weight: ['400', '500', '700'],
+  fallback: [
+    'Frutiger',
+    'Frutiger Linotype',
+    'Univers',
+    'Calibri',
+    'Gill Sans',
+    'Gill Sans MT',
+    'Myriad Pro',
+    'Myriad',
+    'DejaVu Sans Condensed',
+    'Liberation Sans',
+    'Nimbus Sans L',
+    'Tahoma',
+    'Geneva',
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    'sans-serif',
+  ],
 });
 
 function AppRoot({ Component, pageProps, userData }) {
-  console.log('User data returned:', userData);
+  const getLayout = Component.getLayout || ((page) => page);
 
   return (
     <>
@@ -38,10 +58,10 @@ function AppRoot({ Component, pageProps, userData }) {
         <MantineProvider withGlobalStyles withNormalizeCSS theme={themes}>
           <Provider store={store}>
             <ErrorBoundaryAppRoot>
-              <main className={dmSans.className}>
+              <main className={dmSans.variable}>
                 <PageLoadingBar />
                 <InitUserStateProvider initialState={userData} />
-                <Component {...pageProps} />
+                {getLayout(<Component {...pageProps} />)}
               </main>
             </ErrorBoundaryAppRoot>
           </Provider>
@@ -54,7 +74,7 @@ function AppRoot({ Component, pageProps, userData }) {
 AppRoot.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
 
-  // Perform state initialization
+  // Perform initial state initialization
   const cookies = await parse(appContext.req?.headers?.cookie || '');
   const sessionToken = cookies?.sessionToken || '';
 

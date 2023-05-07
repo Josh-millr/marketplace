@@ -19,5 +19,5 @@ export const PageLoadingBar = memo(() => {
     if (!loading) ref.current.complete();
   }, [loading]);
 
-  return <LoadingBar color={colors.brandPrimary[5]} ref={ref} height={4} />;
+  return <LoadingBar color={colors.brandPrimary[6]} ref={ref} height={4} />;
 });

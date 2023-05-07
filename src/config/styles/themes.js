@@ -1,4 +1,4 @@
-import otherThemes, { fontFamilyStack } from './others-themes';
+import otherThemes from './others-themes';
 import ComponentThemes from './components-themes';
 import globalStylesThemes from './globalStyles-themes';
 
@@ -41,7 +41,7 @@ const themes = {
   primaryShade: 7,
   primaryColor: 'brandPrimary',
 
-  fontFamily: fontFamilyStack,
+  fontFamily: 'var(--dm-sans)',
   // fontFamilyMonospace: 'Monaco, Courier, monospace', // No monospace font support
 
   fontSizes: {

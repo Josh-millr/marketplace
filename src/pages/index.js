@@ -1,13 +1,36 @@
-import Link from 'next/link';
-import { Button } from '@mantine/core';
+import {
+  HomepageFaqSection,
+  HomepageHeroSection,
+  HomepageTestimonialSection,
+  HomepageBlogPreviewsSection,
+  HomepageProjectProcessSection,
+  HomepageMarketplaceStatsSection,
+  HomepagePlatformGuaranteeSection,
+  HomepageRecruitHireBannerSection,
+} from '@/shared/components/PageSections/Homepage';
+import { MainLayout } from '@/shared/components/Layout';
 
 export default function Home() {
   console.log('Index page rendered');
   return (
     <>
-    <Link href='/about'>About page</Link>
-      <p>hello there</p>
-      <Button>Click me</Button>
+      <HomepageHeroSection />
+      <HomepageProjectProcessSection />
+      <HomepageMarketplaceStatsSection />
+      <HomepagePlatformGuaranteeSection />
+      <HomepageTestimonialSection />
+      <HomepageBlogPreviewsSection />
+      <HomepageFaqSection />
+      <HomepageRecruitHireBannerSection />
     </>
   );
+}
+
+Home.getLayout = function getLayout(page) {
+  return <MainLayout>{page}</MainLayout>;
+};
+
+export async function getStaticProps() {
+  // Fetch the FAQ info from CMS
+  return { props: {} };
 }

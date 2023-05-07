@@ -1,2 +1,2 @@
 // log the error or record the error in an APM tool...
-export function handleAppRootError(error, errorInfo) {}
+export function handleAppRootError() {} // error, errorInfo

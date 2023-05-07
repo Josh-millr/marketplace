@@ -2,10 +2,10 @@ import { ColorTokenCase } from '@/shared/utils/colorTokenCase';
 
 // Other custom themes tokens goes here
 
-export const fontFamilyStack = `'__DM_Sans_89a9b2', '__DM_Sans_Fallback_89a9b2',
- Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT",
- "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L",
- Tahoma, Geneva, "Helvetica Neue",  Helvetica, Arial, sans-serif`;
+// export const fontFamilyStack = `--font-dm-sans,
+//  Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT",
+//  "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L",
+//  Tahoma, Geneva, "Helvetica Neue",  Helvetica, Arial, sans-serif`;
 
 const otherThemes = {
   // Color Tokens should be accessed using index starting from [1] to [10]
@@ -198,8 +198,8 @@ const otherThemes = {
     // than the body text to make it stand out
     link: {
       size: [
-        { font: `normal 400 14px/1.4 ${fontFamilyStack}` },
-        { font: `normal 400 16px/1.4 ${fontFamilyStack}` },
+        { font: 'normal 400 14px/1.4 var(--dm-sans)' },
+        { font: 'normal 400 16px/1.4 var(--dm-sans)' },
       ],
     },
 
@@ -207,10 +207,10 @@ const otherThemes = {
     // input field, a button, or any other UI element on a form or interface
     label: {
       size: [
-        { font: `normal 400 12px/1.4 ${fontFamilyStack}` },
-        { font: `normal 400 14px/1.4 ${fontFamilyStack}` },
-        { font: `normal 400 16px/1.4 ${fontFamilyStack}` },
-        { font: `normal 400 18px/1.4 ${fontFamilyStack}` },
+        { font: 'normal 400 12px/1.4 var(--dm-sans)' },
+        { font: 'normal 400 14px/1.4 var(--dm-sans)' },
+        { font: 'normal 400 16px/1.4 var(--dm-sans)' },
+        { font: 'normal 400 18px/1.4 var(--dm-sans)' },
       ],
     },
 
@@ -219,8 +219,8 @@ const otherThemes = {
     // size that is easy to read for long periods of time.
     body: {
       size: [
-        { font: `normal 400 14px/1.4 ${fontFamilyStack}` },
-        { font: `normal 400 16px/1.4 ${fontFamilyStack}` },
+        { font: 'normal 400 14px/1.4 var(--dm-sans)' },
+        { font: 'normal 400 16px/1.4 var(--dm-sans)' },
       ],
     },
 
@@ -229,9 +229,9 @@ const otherThemes = {
     // than other text elements.
     button: {
       size: [
-        { font: `normal 600 12px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 14px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 16px/1.4 ${fontFamilyStack}` },
+        { font: 'normal 600 12px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 14px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 16px/1.4 var(--dm-sans)' },
       ],
     },
 
@@ -240,10 +240,10 @@ const otherThemes = {
     // prominent than the heading, with a font size slightly smaller than the headings.
     subheading: {
       size: [
-        { font: `normal 600 16px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 18px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 22px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 24px/1.4 ${fontFamilyStack}` },
+        { font: 'normal 600 16px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 18px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 22px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 24px/1.4 var(--dm-sans)' },
       ],
     },
 
@@ -253,10 +253,10 @@ const otherThemes = {
     // medium font weight, with a font size slightly smaller than the sub- titles.
     heading: {
       size: [
-        { font: `normal 600 24px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 32px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 40px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 48px/1.4 ${fontFamilyStack}` },
+        { font: 'normal 600 24px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 32px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 40px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 48px/1.4 var(--dm-sans)' },
       ],
     },
 
@@ -265,10 +265,10 @@ const otherThemes = {
     // heading, with a font size slightly smaller than the title
     subtitle: {
       size: [
-        { font: `normal 400 14px/1.4 ${fontFamilyStack}` },
-        { font: `normal 400 18px/1.4 ${fontFamilyStack}` },
-        { font: `normal 400 24px/1.4 ${fontFamilyStack}` },
-        { font: `normal 400 32px/1.4 ${fontFamilyStack}` },
+        { font: 'normal 400 14px/1.4 var(--dm-sans)' },
+        { font: 'normal 400 18px/1.4 var(--dm-sans)' },
+        { font: 'normal 400 24px/1.4 var(--dm-sans)' },
+        { font: 'normal 400 32px/1.4 var(--dm-sans)' },
       ],
     },
 
@@ -278,12 +278,12 @@ const otherThemes = {
     // with a font size slightly larger than headings.
     title: {
       size: [
-        { font: `normal 600 18px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 24px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 32px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 40px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 48px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 56px/1.4 ${fontFamilyStack}` },
+        { font: 'normal 600 18px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 24px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 32px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 40px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 48px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 56px/1.4 var(--dm-sans)' },
       ],
     },
 
@@ -293,10 +293,10 @@ const otherThemes = {
     // than other text elements.
     display: {
       size: [
-        { font: `normal 600 32px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 40px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 48px/1.4 ${fontFamilyStack}` },
-        { font: `normal 600 56px/1.4 ${fontFamilyStack}` },
+        { font: 'normal 600 32px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 40px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 48px/1.4 var(--dm-sans)' },
+        { font: 'normal 600 56px/1.4 var(--dm-sans)' },
       ],
     },
   },
