@@ -6,13 +6,14 @@ import { Provider } from 'react-redux';
 import { MantineProvider } from '@mantine/core';
 import { IconoirProvider } from 'iconoir-react';
 import { DM_Sans as DMSans } from 'next/font/google';
+import { Notifications } from '@mantine/notifications';
 
 import store from '@/state/store';
 import themes from '@/config/styles/themes';
 import { PageLoadingBar } from '@/features/pageLoadingBar';
 import { ErrorBoundaryAppRoot } from '@/shared/components/ErrorBoundary';
-import { InitUserStateProvider } from '@/shared/providers/InitUserStateProvider';
 import { authenticateUserApi } from '@/shared/services/authenticateUserApi';
+import { InitUserStateProvider } from '@/shared/providers/InitUserStateProvider';
 import '@/styles/globals.css';
 
 const dmSans = DMSans({
@@ -60,6 +61,7 @@ function AppRoot({ Component, pageProps, userData }) {
             <ErrorBoundaryAppRoot>
               <main className={dmSans.variable}>
                 <PageLoadingBar />
+                <Notifications position="top-center" zIndex={2077} limit={5} />
                 <InitUserStateProvider initialState={userData} />
                 {getLayout(<Component {...pageProps} />)}
               </main>

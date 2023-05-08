@@ -1,3 +1,4 @@
+/* eslint-disable no-throw-literal */
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
@@ -5,9 +6,12 @@ import { useDispatch } from 'react-redux';
 import { userActions } from '@/state/user/userReducer';
 import { generalActions } from '@/state/general/generalReducer';
 
+import { loginUser } from '../services/loginUser';
 import { verifyEmail } from '../services/verifyEmail';
 import { registerUser } from '../services/registerUser';
 import { notificationFactory } from '../utils/notificationFactory';
+import { storeSessionToken } from '../utils/storeSessionToken';
+import { loginUnSuccessfull } from '../constants/feedbackMessage';
 
 export function useAuth() {
   const router = useRouter();
@@ -37,7 +41,30 @@ export function useAuth() {
     }
   };
 
-  const login = async () => {};
+  const login = async (credentials) => {
+    try {
+      dispatch(generalActions.startLoading());
+
+      const response = await loginUser(credentials);
+      const { success, token, status, result } = response;
+
+      // Run if the login is successful
+      if (status === 200 && success) {
+        const isTokenStored = storeSessionToken(token);
+        if (isTokenStored) return { success, result };
+      }
+
+      // Execute if the login is not successful
+      if (status === 400 && success === false) {
+        notificationFactory(loginUnSuccessfull.code);
+        throw { success };
+      }
+    } catch (error) {
+      notificationFactory(error);
+    } finally {
+      dispatch(generalActions.stopLoading());
+    }
+  };
 
   const logout = async () => {
     await Cookies.remove('sessionToken');

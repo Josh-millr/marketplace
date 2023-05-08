@@ -123,7 +123,7 @@ export const loginUnSuccessfull = {
 export const emailVerificationCodeIncorrect = {
   code: 'EMAIL_VERIFICATION_CODE_INCORRECT',
   statement: 'Incorrect email verification code.',
-  resolution: 'Incorrect email verification code, pse try again',
+  resolution: 'Incorrect email verification code, Please try again',
 };
 
 // SEARCH ERRORS

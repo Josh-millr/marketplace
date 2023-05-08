@@ -11,7 +11,6 @@ import {
 import { MainLayout } from '@/shared/components/Layout';
 
 export default function Home() {
-  console.log('Index page rendered');
   return (
     <>
       <HomepageHeroSection />

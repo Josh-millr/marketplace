@@ -13,7 +13,6 @@
     "object-curly-newline": "off",
     "class-methods-use-this": "off",
     "implicit-arrow-linebreak": "off",
-    "import/prefer-default-export": "off",
-    "no-console": "off"
+    "import/prefer-default-export": "off"
   }
 }

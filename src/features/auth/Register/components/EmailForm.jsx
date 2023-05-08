@@ -41,7 +41,6 @@ export function EmailForm({ stepControl }) {
   });
 
   const submitForm = form.onSubmit(async (values) => {
-    console.log(values);
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 

@@ -11,7 +11,7 @@ export const verifyEmail = async (code) => {
     return success;
   } catch (error) {
     // Triggered by `404` status code
-    if (error?.response) return error.response.success;
+    if (error?.response) return error.response.data.success;
 
     throw new CatchError(error).network();
   }

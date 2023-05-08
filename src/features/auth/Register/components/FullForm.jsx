@@ -131,8 +131,6 @@ export function FullForm({ stepControl }) {
       colorOveride: colors.brandPrimary[6],
     });
   }
-  console.log('Checking username:', checkingUsername);
-  console.log('isUsernameValid:', isUsernameValid);
   if (checkingUsername === false && isUsernameValid === false) {
     usernameRightIcon = iconCreator({
       sizeOveride: 16,
