@@ -44,25 +44,25 @@ export function LoginForm() {
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
-    try {
-      const response = await login(value);
-      const { role } = response.result;
+    const response = await login(value);
+    const { success, result } = response;
 
-      if (role === ROLES.BUYER) {
+    if (success) {
+      if (result.role === ROLES.BUYER) {
         router.push('/');
         // console.log('Routing `/buyer` marketplace...');
       }
-      if (role === ROLES.SELLER) {
+      if (result.role === ROLES.SELLER) {
         router.push('/');
         // console.log('Routing to the `/seller` marketplace...');
       }
-    } catch (error) {
-      if (error.success === false) {
-        form.setErrors({
-          email: emailFailedLogin.statement,
-          password: passwordFailedLogin.statement,
-        });
-      }
+    }
+
+    if (success === false) {
+      form.setErrors({
+        email: emailFailedLogin.statement,
+        password: passwordFailedLogin.statement,
+      });
     }
   });
 

@@ -11,7 +11,7 @@ import { verifyEmail } from '../services/verifyEmail';
 import { registerUser } from '../services/registerUser';
 import { notificationFactory } from '../utils/notificationFactory';
 import { storeSessionToken } from '../utils/storeSessionToken';
-import { loginUnSuccessfull } from '../constants/feedbackMessage';
+import { loginUnSuccessfull, loginSuccessfull } from '../constants/feedbackMessage';
 
 export function useAuth() {
   const router = useRouter();
@@ -51,13 +51,15 @@ export function useAuth() {
       // Run if the login is successful
       if (status === 200 && success) {
         const isTokenStored = storeSessionToken(token);
+        notificationFactory(loginSuccessfull.code);
+
         if (isTokenStored) return { success, result };
       }
 
       // Execute if the login is not successful
       if (status === 400 && success === false) {
         notificationFactory(loginUnSuccessfull.code);
-        throw { success };
+        return { success, status };
       }
     } catch (error) {
       notificationFactory(error);

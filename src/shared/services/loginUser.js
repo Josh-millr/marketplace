@@ -15,7 +15,7 @@ export const loginUser = async (credentials) => {
     if (error?.response) {
       const { data, status } = error.response;
       const { success } = data;
-
+      
       return { status, success };
     }
 
