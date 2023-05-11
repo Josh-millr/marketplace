@@ -6,6 +6,13 @@ import { getCategories } from '@/shared/services/getCategories';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { ClientMarketplaceTopServices } from '@/shared/components/PageSections/ClientMarketplace';
 
+/**
+ * 
+ * TODO:
+ * - Add the layout for client marketplace
+ * 
+ * */ 
+
 export default function BuyerHome({ category }) {
   const dispatch = useDispatch();
   dispatch(generalActions.storeCategory(category));

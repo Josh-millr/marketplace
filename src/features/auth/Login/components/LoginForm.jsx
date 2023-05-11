@@ -12,6 +12,7 @@ import {
   TextInput,
   PasswordInput,
 } from '@mantine/core';
+import toLower from 'lodash/toLower';
 
 import { useAuth } from '@/shared/hooks/useAuth';
 import {
@@ -37,14 +38,18 @@ export function LoginForm() {
       email: (value) => validateForm.email(value),
       password: isNotEmpty(passwordEmpty.resolution),
     },
+    transformValues: (values) => ({
+      ...values,
+      email: values.email.toLowerCase(),
+    }),
     validateInputOnBlur: true,
   });
 
-  const submitForm = form.onSubmit(async (value) => {
+  const submitForm = form.onSubmit(async (values) => {
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
-    const response = await login(value);
+    const response = await login(values);
     const { success, result } = response;
 
     if (success) {

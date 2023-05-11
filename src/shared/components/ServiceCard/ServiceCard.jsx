@@ -65,7 +65,7 @@ export const ServiceCard = ({ data }) => {
                 fallback={<Skeleton height={12} width="50%" radius="xl" />}
                 dependency={data?.category?.main}
               >
-                <Title className="label-sm" color="neutral.6">
+                <Title tt="capitalize" className="label-sm" color="neutral.6">
                   {data?.category?.main}
                 </Title>
               </CustomSuspense>
@@ -105,7 +105,7 @@ export const ServiceCard = ({ data }) => {
               <Group spacing="xs">
                 <HiStar size={20} color={theme.colors.brandPrimary[6]} />
                 <Text className={`${classes.rating} label-sm`}>
-                  {`${data?.ratings && calculateAverageRating(data.ratings)} `}
+                  {`${data?.ratings && calculateAverageRating(data.ratings.rating)} `}
                   <span className={classes.review}>
                     {`(${
                       data?.totalComment && roundUpNumber(data.totalComment)
