@@ -1,115 +1,153 @@
 {
-    "id": 873465923,
-    "creator": {
-        "name": "micheal james",
-        "id": "josh-miller",
-        "img": "https://picsum.photos/200",
-        "profession": "web developer",
-        "country": "nigeria",
-        "createdAt": "2022-05-05T10:30:00.000Z",
-        "languages": ["english", "french"],
-        "commentsCount": 8237,
-        "ratings": {
-        "total": 80,
-        "rating": {
-            "5": 25,
-            "4": 15,
-            "3": 15,
-            "2": 12,
-            "1": 13
-        }
-    },
-        "description":"As a highly skilled and experienced freelancer, I offer professional graphic design services to clients around the world. With over 8 years of experience in the industry, I have honed my skills in creating visually stunning and impactful designs that help businesses thrive. My passion for design and attention to detail ensure that every project I work on is crafted to perfection. I specialize in a wide range of graphic design services, including logo design, branding, social media graphics, web design, print materials, and more. Whether you're a small startup, a growing business, or an established brand, I have the expertise to create designs that resonate with your target audience and elevate your brand identity. My creative process involves understanding your specific requirements, researching your industry and competitors, and conceptualizing unique and innovative design concepts that align with your brand's vision and values. I am proficient in industry-standard design software such as Adobe Photoshop, Illustrator, and InDesign, and I stay up-to-date with the latest design trends and techniques to ensure that my work is always fresh and modern. As a freelancer, I am known for my reliability, responsiveness, and excellent communication skills. I understand the importance of meeting deadlines and keeping my clients informed throughout the design process. I am committed to delivering top-notch results that exceed my clients' expectations and provide exceptional customer service. Whether you need a complete brand overhaul, a stunning website design, or eye-catching social media graphics, I am here to bring your vision to life. Let's collaborate and create designs that make a lasting impression and help your business succeed!" 
-    },
-    "category": {
-        "main": "web development",
-        "sub": "frontend",
-        "sub_sub": "react"
-    },
-    "gallery": [
-        "https://picsum.photos/200",
-        "https://picsum.photos/200",
-        "https://picsum.photos/200",
-        "https://picsum.photos/200"
-    ],
-    "title": "Modern minimalist logo, flat logo, Custom logo design for your brand and i will design website UI UX i adobe xd of figma",
-    "description": "As a highly skilled and experienced freelancer, I offer professional graphic design services to clients around the world. With over 8 years of experience in the industry, I have honed my skills in creating visually stunning and impactful designs that help businesses thrive. My passion for design and attention to detail ensure that every project I work on is crafted to perfection. I specialize in a wide range of graphic design services, including logo design, branding, social media graphics, web design, print materials, and more. Whether you're a small startup, a growing business, or an established brand, I have the expertise to create designs that resonate with your target audience and elevate your brand identity. My creative process involves understanding your specific requirements, researching your industry and competitors, and conceptualizing unique and innovative design concepts that align with your brand's vision and values. I am proficient in industry-standard design software such as Adobe Photoshop, Illustrator, and InDesign, and I stay up-to-date with the latest design trends and techniques to ensure that my work is always fresh and modern. As a freelancer, I am known for my reliability, responsiveness, and excellent communication skills. I understand the importance of meeting deadlines and keeping my clients informed throughout the design process. I am committed to delivering top-notch results that exceed my clients' expectations and provide exceptional customer service. Whether you need a complete brand overhaul, a stunning website design, or eye-catching social media graphics, I am here to bring your vision to life. Let's collaborate and create designs that make a lasting impression and help your business succeed!",
+  "id": 873465923,
+  "creator": {
+    "name": "micheal james",
+    "id": "josh-miller",
+    "img": "https://picsum.photos/200",
+    "profession": "web developer",
+    "country": "nigeria",
+    "createdAt": "2022-05-05T10:30:00.000Z",
+    "languages": ["english", "french"],
+    "commentsCount": 8237,
     "ratings": {
-        "total": 80,
-        "rating": {
-            "5": 25,
-            "4": 15,
-            "3": 15,
-            "2": 12,
-            "1": 13
-        }
+      "total": 80,
+      "rating": {
+        "5": 25,
+        "4": 15,
+        "3": 15,
+        "2": 12,
+        "1": 13
+      }
     },
-    "startingPrice": 120000,
-    "deliveryTime": 72000,
-    "comments": {
-        "totalCount": 33,
-        "comments": [
-            {
-                "postedAt": "10 minutes ago",
-                "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
-                "author": {
-                    "name": "Bobby micheal",
-                    "image": "https://picsum.photos/200"
-                }
-            },
-            {
-                "postedAt": "10 minutes ago",
-                "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
-                "author": {
-                    "name": "Bobby micheal",
-                    "image": "https://picsum.photos/200"
-                }
-            },
-            {
-                "postedAt": "10 minutes ago",
-                "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
-                "author": {
-                    "name": "Bobby micheal",
-                    "image": "https://picsum.photos/200"
-                }
-            }
-        ]
-    },
-    "packages": {
-        "basic": {
-            "title": "Basic",
-            "price": 23000,
-            "description": "I will recreate or create your new landing page with up tp 4 sections",
-            "deliveryTime": 7,
-            "revision": 3
-        },
-        "standard": {
-            "title": "Standard",
-            "price": 59000,
-            "description": "I will recreate or create your new landing page with up tp 6 sections",
-            "deliveryTime": 9,
-            "revision": 5
-        },
-        "premium": {
-            "title": "Premium",
-            "price": 94000,
-            "description": "I will recreate or create your new landing page with up tp 10 sections",
-            "deliveryTime": 11,
-            "revision": 7
+    "description": "As a highly skilled and experienced freelancer, I offer professional graphic design services to clients around the world. With over 8 years of experience in the industry, I have honed my skills in creating visually stunning and impactful designs that help businesses thrive. My passion for design and attention to detail ensure that every project I work on is crafted to perfection. I specialize in a wide range of graphic design services, including logo design, branding, social media graphics, web design, print materials, and more. Whether you're a small startup, a growing business, or an established brand, I have the expertise to create designs that resonate with your target audience and elevate your brand identity. My creative process involves understanding your specific requirements, researching your industry and competitors, and conceptualizing unique and innovative design concepts that align with your brand's vision and values. I am proficient in industry-standard design software such as Adobe Photoshop, Illustrator, and InDesign, and I stay up-to-date with the latest design trends and techniques to ensure that my work is always fresh and modern. As a freelancer, I am known for my reliability, responsiveness, and excellent communication skills. I understand the importance of meeting deadlines and keeping my clients informed throughout the design process. I am committed to delivering top-notch results that exceed my clients' expectations and provide exceptional customer service. Whether you need a complete brand overhaul, a stunning website design, or eye-catching social media graphics, I am here to bring your vision to life. Let's collaborate and create designs that make a lasting impression and help your business succeed!"
+  },
+  "category": {
+    "main": "web development",
+    "sub": "frontend",
+    "sub_sub": "react"
+  },
+  "gallery": [
+    "https://picsum.photos/200",
+    "https://picsum.photos/200",
+    "https://picsum.photos/200",
+    "https://picsum.photos/200"
+  ],
+  "title": "Modern minimalist logo, flat logo, Custom logo design for your brand and i will design website UI UX i adobe xd of figma",
+  "description": "As a highly skilled and experienced freelancer, I offer professional graphic design services to clients around the world. With over 8 years of experience in the industry, I have honed my skills in creating visually stunning and impactful designs that help businesses thrive. My passion for design and attention to detail ensure that every project I work on is crafted to perfection. I specialize in a wide range of graphic design services, including logo design, branding, social media graphics, web design, print materials, and more. Whether you're a small startup, a growing business, or an established brand, I have the expertise to create designs that resonate with your target audience and elevate your brand identity. My creative process involves understanding your specific requirements, researching your industry and competitors, and conceptualizing unique and innovative design concepts that align with your brand's vision and values. I am proficient in industry-standard design software such as Adobe Photoshop, Illustrator, and InDesign, and I stay up-to-date with the latest design trends and techniques to ensure that my work is always fresh and modern. As a freelancer, I am known for my reliability, responsiveness, and excellent communication skills. I understand the importance of meeting deadlines and keeping my clients informed throughout the design process. I am committed to delivering top-notch results that exceed my clients' expectations and provide exceptional customer service. Whether you need a complete brand overhaul, a stunning website design, or eye-catching social media graphics, I am here to bring your vision to life. Let's collaborate and create designs that make a lasting impression and help your business succeed!",
+  "startingPrice": 120000,
+  "deliveryTime": 72000,
+  "reviews": {
+    "totalReviews": 33,
+    "comments": [
+      {
+        "createdAt": "2022-05-05T10:30:00.000Z",
+        "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "creator": {
+          "name": "Bobby micheal",
+          "img": "https://picsum.photos/200"
         }
-    },
-    "faq": [
-        {
-            "title": "How do you ensure the quality of your graphics design work?",
-            "description": "We are committed to delivering high-quality graphics design work to our clients. Our team of experienced graphics designers follow a rigorous quality assurance process that includes multiple rounds of revisions, thorough proofreading, and attention to detail. We also work closely with our clients to gather feedback and make necessary revisions to ensure the final deliverables meet their expectations"
-        },
-        {
-            "title": "What is your turnaround time for graphics design projects?",
-            "description": "The turnaround time for our graphics design projects depends on the scope and complexity of the project. We work closely with our clients to establish project timelines and deadlines to ensure timely delivery. Typically, smaller projects such as logo design may take 1-2 weeks, while larger projects like website design may take 4-6 weeks or more."
-        },
-        {
-            "title": "What types of graphics design services do you offer?",
-            "description": "Our graphics design services include logo design, branding, social media graphics, website design, packaging design, and more. We offer a wide range of graphics design services tailored to meet the unique needs of our clients."
+      },
+      {
+        "createdAt": "2022-05-05T10:30:00.000Z",
+        "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "creator": {
+          "name": "Bobby micheal",
+          "img": "https://picsum.photos/200"
         }
+      },
+      {
+        "createdAt": "2022-05-05T10:30:00.000Z",
+        "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "creator": {
+          "name": "Bobby micheal",
+          "img": "https://picsum.photos/200"
+        }
+      },
+      {
+        "createdAt": "2022-05-05T10:30:00.000Z",
+        "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "creator": {
+          "name": "Bobby micheal",
+          "img": "https://picsum.photos/200"
+        }
+      },
+      {
+        "createdAt": "2022-05-05T10:30:00.000Z",
+        "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "creator": {
+          "name": "Bobby micheal",
+          "img": "https://picsum.photos/200"
+        }
+      }
     ]
+  },
+  "packages": {
+    "basic": {
+      "title": "Basic",
+      "price": 23000,
+      "description": "I will recreate or create your new landing page with up tp 4 sections",
+      "deliveryTime": 7,
+      "revision": 3
+    },
+    "standard": {
+      "title": "Standard",
+      "price": 59000,
+      "description": "I will recreate or create your new landing page with up tp 6 sections",
+      "deliveryTime": 9,
+      "revision": 5
+    },
+    "premium": {
+      "title": "Premium",
+      "price": 94000,
+      "description": "I will recreate or create your new landing page with up tp 10 sections",
+      "deliveryTime": 11,
+      "revision": 7
+    }
+  },
+  "addons": [
+    {
+      "title": "Additional Revision",
+      "price": 59000
+    },
+    {
+      "title": "Priority Support",
+      "price": 75000
+    },
+    {
+      "title": "Enhanced Security",
+      "price": 45000
+    },
+    {
+      "title": "Custom Design Options",
+      "price": 89000
+    },
+    {
+      "title": "Extended Warranty",
+      "price": 35000
+    }
+  ],
+  "ratings": {
+    "total": 80,
+    "rating": {
+      "5": 25,
+      "4": 15,
+      "3": 15,
+      "2": 12,
+      "1": 13
+    }
+  },
+  "faq": [
+    {
+      "title": "How do you ensure the quality of your graphics design work?",
+      "description": "We are committed to delivering high-quality graphics design work to our clients. Our team of experienced graphics designers follow a rigorous quality assurance process that includes multiple rounds of revisions, thorough proofreading, and attention to detail. We also work closely with our clients to gather feedback and make necessary revisions to ensure the final deliverables meet their expectations"
+    },
+    {
+      "title": "What is your turnaround time for graphics design projects?",
+      "description": "The turnaround time for our graphics design projects depends on the scope and complexity of the project. We work closely with our clients to establish project timelines and deadlines to ensure timely delivery. Typically, smaller projects such as logo design may take 1-2 weeks, while larger projects like website design may take 4-6 weeks or more."
+    },
+    {
+      "title": "What types of graphics design services do you offer?",
+      "description": "Our graphics design services include logo design, branding, social media graphics, website design, packaging design, and more. We offer a wide range of graphics design services tailored to meet the unique needs of our clients."
+    }
+  ]
 }
