@@ -1,23 +1,31 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
-
+import { useEffect, useState, useCallback } from 'react';
 import { useLoadBatch } from './useLoadBatch';
 
 export function useFetchLazy({ action, initialBatchSize }) {
   const [result, setResult] = useState([]);
+  const [maxResult, setMaxResult] = useState(false);
 
   const { incrementBatch, currBatch } = useLoadBatch({
     batchSize: initialBatchSize,
   });
 
   const emptySlots = result.length !== currBatch ? Array(initialBatchSize) : [];
-  const resultLazy = [...result, ...emptySlots];
+  const resultLazy = maxResult ? result : [...result, ...emptySlots];
 
   useEffect(() => {
-    action(currBatch).then((data) => setResult(data));
+    const fetchData = async () => {
+      const data = await action(currBatch);
+      setResult(data);
+
+      if (data.length < currBatch) setMaxResult(true);
+    };
+
+    fetchData();
   }, [currBatch]);
 
-  const loadMore = () => incrementBatch();
+  const loadMore = useCallback(() => {
+    if (!maxResult) incrementBatch();
+  }, [maxResult, incrementBatch]);
 
-  return { loadMore, resultLazy };
+  return { loadMore, resultLazy, maxResult };
 }
