@@ -1,7 +1,7 @@
 import { HamzryAPI } from '@/config/api/HamzryAPI';
 import { CatchError } from '@/shared/utils/CatchError';
 
-export const registerUser = async (credentials) => {
+export const registerUserApi = async (credentials) => {
   const path = '/api/signup';
 
   try {

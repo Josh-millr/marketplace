@@ -12,7 +12,6 @@ import {
   TextInput,
   PasswordInput,
 } from '@mantine/core';
-import toLower from 'lodash/toLower';
 
 import { useAuth } from '@/shared/hooks/useAuth';
 import {
@@ -53,14 +52,8 @@ export function LoginForm() {
     const { success, result } = response;
 
     if (success) {
-      if (result.role === ROLES.BUYER) {
-        router.push('/');
-        // console.log('Routing `/buyer` marketplace...');
-      }
-      if (result.role === ROLES.SELLER) {
-        router.push('/');
-        // console.log('Routing to the `/seller` marketplace...');
-      }
+      if (result.role === ROLES.CLIENT) router.push('/client');
+      if (result.role === ROLES.FREELANCER) router.push('/freelancer');
     }
 
     if (success === false) {

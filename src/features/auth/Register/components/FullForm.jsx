@@ -34,7 +34,7 @@ import {
 } from '@/shared/constants/feedbackMessage';
 import { FormDataContext } from '@/shared/providers/FormDataProvider';
 import { notificationFactory } from '@/shared/utils/notificationFactory';
-import { checkUsernameExistence } from '@/shared/services/checkUsernameExistence';
+import { checkUsernameExistenceApi } from '@/shared/services/checkUsernameExistenceApi';
 import CountryListItem from '@/shared/components/CountryListItem/CountryListItem';
 
 import { ValidateForm } from '../../utils/ValidateForm';
@@ -96,7 +96,7 @@ export function FullForm({ stepControl }) {
       try {
         setCheckingUsername(true);
 
-        const isUsernameExist = await checkUsernameExistence(value);
+        const isUsernameExist = await checkUsernameExistenceApi(value);
 
         if (isUsernameExist === false) {
           setIsUsernameValid(true);

@@ -17,7 +17,7 @@ import { emailTaken } from '@/shared/constants/feedbackMessage';
 import { generalActions } from '@/state/general/generalReducer';
 import { FormDataContext } from '@/shared/providers/FormDataProvider';
 import { notificationFactory } from '@/shared/utils/notificationFactory';
-import { checkEmailExistence } from '@/shared/services/checkEmailExistence';
+import { checkEmailExistenceApi } from '@/shared/services/checkEmailExistenceApi';
 
 import { ValidateForm } from '../../utils/ValidateForm';
 
@@ -37,7 +37,7 @@ export function EmailForm({ stepControl }) {
     },
     transformValues: (values) => ({
       email: toLower(values.email),
-    })
+    }),
   });
 
   const submitForm = form.onSubmit(async (values) => {
@@ -47,7 +47,7 @@ export function EmailForm({ stepControl }) {
     try {
       dispatch(generalActions.startLoading());
 
-      const status = await checkEmailExistence(values);
+      const status = await checkEmailExistenceApi(values);
 
       if (status === false) {
         storeData(values);

@@ -1,6 +1,6 @@
 import { ServerApi } from '@/config/api/ServerApi';
 
-export const getCountryList = async () => {
+export const getCountryListApi = async () => {
   const path = '/countriesLight';
 
   try {

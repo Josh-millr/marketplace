@@ -1,4 +1,4 @@
-import { Stack, Table, Text, Title, Box, Grid } from '@mantine/core';
+import { Text, Box, Grid } from '@mantine/core';
 
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
 
@@ -32,9 +32,7 @@ export function ServicePackageTable(props) {
   const titlesArray = objectsArray.map((obj) => obj.title);
 
   const pricesArray = objectsArray.map((obj) => obj.price);
-  const priceWithFormat = pricesArray.map((price) =>
-    displayNumberInNaira(price)
-  );
+  const priceWithFormat = pricesArray.map((price) => displayNumberInNaira(price));
 
   const deliveryTimesArray = objectsArray.map((obj) => obj.deliveryTime);
   const revisionsArray = objectsArray.map((obj) => obj.revision);

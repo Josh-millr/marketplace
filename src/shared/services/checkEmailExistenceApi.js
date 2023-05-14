@@ -3,7 +3,7 @@ import { CatchError } from '@/shared/utils/CatchError';
 
 // Checks the existence of username of the database
 
-export const checkEmailExistence = async (email) => {
+export const checkEmailExistenceApi = async (email) => {
   const path = '/api/checkemail';
 
   try {

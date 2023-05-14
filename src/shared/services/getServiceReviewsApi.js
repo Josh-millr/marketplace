@@ -2,7 +2,7 @@ import service from '../../../jsonPlaceholder/service.json';
 
 // Make API request to fetch service reviews with limit
 
-export const getServiceReviews = async (limit) => {
+export const getServiceReviewsApi = async (limit) => {
   try {
     // NOTE: Only for Demo
     return new Promise((resolve) => {
@@ -13,8 +13,8 @@ export const getServiceReviews = async (limit) => {
     });
   } catch (error) {
     // Throw an error is the api failed to fetch
-    const catchError = new CatchError(error);
-    notificationFactory(catchError.network());
+    // const catchError = new CatchError(error);
+    // notificationFactory(catchError.network());
     return [];
   }
 };

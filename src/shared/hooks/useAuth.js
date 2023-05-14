@@ -6,12 +6,15 @@ import { useDispatch } from 'react-redux';
 import { userActions } from '@/state/user/userReducer';
 import { generalActions } from '@/state/general/generalReducer';
 
-import { loginUser } from '../services/loginUser';
-import { verifyEmail } from '../services/verifyEmail';
-import { registerUser } from '../services/registerUser';
+import { loginUserApi } from '../services/loginUserApi';
+import { verifyEmailApi } from '../services/verifyEmailApi';
+import { registerUserApi } from '../services/registerUserApi';
 import { notificationFactory } from '../utils/notificationFactory';
 import { storeSessionToken } from '../utils/storeSessionToken';
-import { loginUnSuccessfull, loginSuccessfull } from '../constants/feedbackMessage';
+import {
+  loginUnSuccessfull,
+  loginSuccessfull,
+} from '../constants/feedbackMessage';
 
 export function useAuth() {
   const router = useRouter();
@@ -20,7 +23,7 @@ export function useAuth() {
   const register = async (credentials) => {
     try {
       dispatch(generalActions.startLoading());
-      const response = await registerUser(credentials);
+      const response = await registerUserApi(credentials);
       return response;
     } catch (error) {
       notificationFactory(error);
@@ -32,7 +35,7 @@ export function useAuth() {
   const verifyEmailAddress = async (code) => {
     try {
       dispatch(generalActions.startLoading());
-      const response = await verifyEmail(code);
+      const response = await verifyEmailApi(code);
       return response;
     } catch (error) {
       notificationFactory(error);
@@ -45,7 +48,7 @@ export function useAuth() {
     try {
       dispatch(generalActions.startLoading());
 
-      const response = await loginUser(credentials);
+      const response = await loginUserApi(credentials);
       const { success, token, status, result } = response;
 
       // Run if the login is successful
