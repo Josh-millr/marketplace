@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
@@ -24,7 +25,7 @@ import { MobileScreenCategoryMenu } from '@/features/categoryMenu';
 
 import { ProfilePrevMenuCard, NotificationTypeLink } from '../Elements';
 
-export function MarketplaceClientNavBar({ hidden }) {
+export const MarketplaceClientNavBar = memo(({ hidden }) => {
   const router = useRouter();
   const { user } = useSelector((state) => state.user);
   const { category } = useSelector((state) => state.general);
@@ -140,4 +141,4 @@ export function MarketplaceClientNavBar({ hidden }) {
       </Navbar>
     </MediaQuery>
   );
-}
+});
