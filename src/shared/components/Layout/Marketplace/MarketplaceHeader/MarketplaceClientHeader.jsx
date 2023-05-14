@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -21,7 +22,7 @@ import { BellNotification } from 'iconoir-react';
 import { Search } from '@/features/search';
 import { PageContainer } from '@/shared/components/PageContainer';
 
-export function MarketplaceClientHeader({ isMenuOpen, openMenu }) {
+export const MarketplaceClientHeader = memo(({ isMenuOpen, openMenu }) => {
   const { colors } = useMantineTheme();
 
   const router = useRouter();
@@ -108,4 +109,4 @@ export function MarketplaceClientHeader({ isMenuOpen, openMenu }) {
       </PageContainer>
     </Center>
   );
-}
+});

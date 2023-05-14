@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle */
+import { memo } from 'react';
 import { NavLink, Box, Group, Text } from '@mantine/core';
 import {
   DesignPencil,
@@ -10,24 +10,40 @@ import {
   CoinsSwap,
   AddCircle,
 } from 'iconoir-react';
-
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { useStyles } from './style.MobileScreenCategoryMenu';
 
-export function MobileScreenCategoryMenu({ list }) {
+// Extracted Sub-components
+const CategoryNavLink = memo(({ label, icon, children }) => (
+  <NavLink label={label} icon={icon}>
+    {children}
+  </NavLink>
+));
+
+const SubCategoryNavLink = memo(({ label, children }) => (
+  <NavLink label={label} childrenOffset={28}>
+    {children}
+  </NavLink>
+));
+
+const NavItemNavLink = memo(({ label, className }) => (
+  <NavLink label={label} className={className} />
+));
+
+const categoryListIcons = [
+  DesignPencil,
+  EditPencil,
+  MediaVideo,
+  MediaVideoList,
+  AlbumOpen,
+  Code,
+  CoinsSwap,
+  AddCircle,
+];
+
+export const MobileScreenCategoryMenu = memo(({ list = [] }) => {
   const { classes } = useStyles();
   const hasList = Array.isArray(list);
-
-  const categoryListIcons = [
-    DesignPencil,
-    EditPencil,
-    MediaVideo,
-    MediaVideoList,
-    AlbumOpen,
-    Code,
-    CoinsSwap,
-    AddCircle,
-  ];
 
   return (
     <Box>
@@ -38,33 +54,33 @@ export function MobileScreenCategoryMenu({ list }) {
       </Group>
 
       {/* Categories */}
-      {(hasList ? list : []).map((category, index) => (
-        <NavLink
-          key={category._id}
-          label={category.label}
-          icon={iconCreator({
-            icon: categoryListIcons[index],
-          })}
-        >
-          {/* Sub categories */}
-          {category.subCategories.map((subCategory) => (
-            <NavLink
-              key={subCategory._id}
-              label={subCategory.label}
-              childrenOffset={28}
-            >
-              {/* Sub category items */}
-              {subCategory.navigationItems.map((link) => (
-                <NavLink
-                  key={link._id}
-                  label={link.label}
-                  className={classes.navItem}
-                />
-              ))}
-            </NavLink>
-          ))}
-        </NavLink>
-      ))}
+      {hasList &&
+        list.map((category, categoryIndex) => (
+          <CategoryNavLink
+            key={categoryIndex}
+            label={category.label}
+            icon={iconCreator({
+              icon: categoryListIcons[categoryIndex],
+            })}
+          >
+            {/* Sub categories */}
+            {category.subCategories.map((subCategory, subCategoryIndex) => (
+              <SubCategoryNavLink
+                key={subCategoryIndex}
+                label={subCategory.label}
+              >
+                {/* Sub category items */}
+                {subCategory.navigationItems.map((link, linkIndex) => (
+                  <NavItemNavLink
+                    key={linkIndex}
+                    label={link.label}
+                    className={classes.navItem}
+                  />
+                ))}
+              </SubCategoryNavLink>
+            ))}
+          </CategoryNavLink>
+        ))}
     </Box>
   );
-}
+});
