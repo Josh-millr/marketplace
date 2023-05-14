@@ -10,7 +10,7 @@ import {
   Anchor,
 } from '@mantine/core';
 
-import { getService } from '@/shared/services/getService';
+import { getServiceApi } from '@/shared/services/getServiceApi';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { RatingReviewBadge } from '@/shared/components/RatingReviewBadge';
 import { ServicePackageCard } from '@/shared/components/ServicePackageCard';
@@ -130,7 +130,7 @@ export const getServerSideProps = async (context) => {
   const { id } = context.params;
 
   try {
-    const reponse = await getService(id);
+    const reponse = await getServiceApi(id);
     const data = reponse;
 
     return { props: { data } };

@@ -2,13 +2,9 @@ import { authenticateUserApi } from '@/shared/services/authenticateUserApi';
 
 import { getSessionTokenOnServer } from '../utils/getSessionTokenOnServer';
 
-/**
- * 
- * TODO:
- * - Adds Authorization to protected pages
- * - Add role check for client and freelancer route
- * 
- * */ 
+// TODO:
+// - Adds Authorization to protected pages
+// - Add role check for client and freelancer route
 
 export const withAuthorize = (dispatchOtherAction) => async (context) => {
   const homepageRedirect = { destination: '/' };

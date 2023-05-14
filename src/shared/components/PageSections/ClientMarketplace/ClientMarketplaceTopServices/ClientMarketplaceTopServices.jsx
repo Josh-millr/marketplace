@@ -6,7 +6,7 @@ import { ServiceCard } from '@/shared/components/ServiceCard';
 import { getServicesApi } from '@/shared/services/getServicesApi';
 
 export function ClientMarketplaceTopServices() {
-  const { loadMore, resultLazy } = useFetchLazy({
+  const { loadMore, resultLazy, maxResult } = useFetchLazy({
     initialBatchSize: 2,
     action: (limit) => getServicesApi(limit),
   });
@@ -38,7 +38,9 @@ export function ClientMarketplaceTopServices() {
       </SimpleGrid>
 
       <Center my="4xl">
-        <Button onClick={loadMore}>Load more</Button>
+        <Button onClick={loadMore} disabled={maxResult}>
+          Load more
+        </Button>
       </Center>
     </Stack>
   );

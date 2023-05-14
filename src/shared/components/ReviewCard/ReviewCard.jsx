@@ -3,7 +3,7 @@ import { Group, Title, Stack, Text, Avatar, Skeleton } from '@mantine/core';
 import { RatingReviewBadge } from '../RatingReviewBadge';
 import { CustomSuspense } from '../CustomSuspense';
 
-export function ReviewCard({ name, img, date, description, rating, review }) {
+export function ReviewCard({ name, img, description, rating, review }) {
   return (
     <Stack spacing="lg">
       <Group>

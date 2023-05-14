@@ -1,7 +1,7 @@
 import { HamzryAPI } from '@/config/api/HamzryAPI';
 import { CatchError } from '@/shared/utils/CatchError';
 
-export const loginUser = async (credentials) => {
+export const loginUserApi = async (credentials) => {
   const path = '/api/login';
 
   try {
@@ -15,7 +15,7 @@ export const loginUser = async (credentials) => {
     if (error?.response) {
       const { data, status } = error.response;
       const { success } = data;
-      
+
       return { status, success };
     }
 

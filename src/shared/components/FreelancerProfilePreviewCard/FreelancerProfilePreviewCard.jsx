@@ -3,7 +3,6 @@ import {
   Avatar,
   Title,
   Text,
-  Box,
   Grid,
   Flex,
   Divider,
@@ -24,8 +23,6 @@ export function FreelancerProfilePreviewCard(props) {
     username,
     ratings,
     country,
-    createdAt,
-    languages,
     comments,
   } = props;
 
