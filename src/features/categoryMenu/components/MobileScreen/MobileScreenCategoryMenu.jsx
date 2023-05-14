@@ -54,8 +54,7 @@ export const MobileScreenCategoryMenu = memo(({ list = [] }) => {
       </Group>
 
       {/* Categories */}
-      {hasList &&
-        list.map((category, categoryIndex) => (
+      {hasList && list.map((category, categoryIndex) => (
           <CategoryNavLink
             key={categoryIndex}
             label={category.label}
