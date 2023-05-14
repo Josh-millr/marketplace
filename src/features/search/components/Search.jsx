@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useDebouncedState } from '@mantine/hooks';

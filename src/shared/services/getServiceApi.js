@@ -2,7 +2,7 @@ import { CatchError } from '@/shared/utils/CatchError';
 
 import service from '../../../jsonPlaceholder/service.json';
 
-export const getServiceApi = async (id) => {
+export const getServiceApi = async () => {
   // const path = `${id}`;
 
   try {

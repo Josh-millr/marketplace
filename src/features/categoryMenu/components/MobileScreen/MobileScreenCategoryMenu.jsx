@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { NavLink, Box, Group, Text } from '@mantine/core';
 import {
   DesignPencil,

@@ -7,7 +7,7 @@ import { MenuItem } from './MenuItem/MenuItem';
 import { useStyles } from './style.DesktopScreenCategoryMenu';
 import { SubCategoryList } from './SubCategoryList/SubCategoryList';
 
-export function DesktopScreenCategoryMenu({ list }) { 
+export function DesktopScreenCategoryMenu({ list }) {
   // Updates the active label from `list` eg `Graphics design`
   const [activeCategory, setActiveCategory] = useState('');
 

@@ -32,5 +32,4 @@ Home.getLayout = function getLayout(page) {
 
 export const getStaticProps = withAuthRedirect(async () =>
   // Fetch the FAQ info from CMS
-  ({ props: {} })
-);
+  ({ props: {} }));

@@ -6,7 +6,7 @@ import { getServiceReviewsApi } from '@/shared/services/getServiceReviewsApi';
 import { ReviewCard } from '../../../ReviewCard';
 import { RatingProgressCard } from '../../../RatingProgressCard';
 
-function Reviews({ reviews, rating, totalComment }) {
+function Reviews({ rating, totalComment }) {
   const { loadMore, resultLazy, maxResult } = useFetchLazy({
     initialBatchSize: 3,
     action: (limit) => getServiceReviewsApi(limit),
