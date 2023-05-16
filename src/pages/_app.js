@@ -1,7 +1,6 @@
 /* eslint-disable no-useless-catch */
 import App from 'next/app';
 import Head from 'next/head';
-import { parse } from 'cookie';
 import { Provider } from 'react-redux';
 import { MantineProvider } from '@mantine/core';
 import { IconoirProvider } from 'iconoir-react';
@@ -77,7 +76,7 @@ AppRoot.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
 
   // Perform initial state initialization
-  const cookies = await parse(appContext.req?.headers?.cookie || '');
+  const { cookies } = appContext.ctx.req;
   const sessionToken = cookies?.sessionToken || '';
 
   try {
