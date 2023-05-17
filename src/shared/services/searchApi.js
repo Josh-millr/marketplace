@@ -1,6 +1,25 @@
 import { HamzryAPI } from '@/config/api/HamzryAPI';
 import { CatchError } from '@/shared/utils/CatchError';
 
+import projectSearch from '../../../jsonPlaceholder/project-search.json';
+import freelancerSearch from '../../../jsonPlaceholder/freelancer-search.json';
+
+export const searchApiDemo = async (arg) => {
+  const { criteria } = arg;
+  try {
+    // NOTE: Only for Demo
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        if (criteria === 'category') resolve(projectSearch);
+        if (criteria === 'freelancer') resolve(freelancerSearch);
+      }, 3000);
+    });
+  } catch (error) {
+    // Throw an error is the api failed to fetch
+    throw new CatchError(error).network();
+  }
+};
+
 export const searchApi = async (arg) => {
   const { criteria, query, batchSize = 10, page = 2 } = arg;
 

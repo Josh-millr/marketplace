@@ -1,60 +1,50 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { ArrowRight } from 'iconoir-react';
-import {
-  ActionIcon,
-  Avatar,
-  Group,
-  Stack,
-  Text,
-  Space,
-  Skeleton,
-} from '@mantine/core';
+import { NavArrowRight } from 'iconoir-react';
+import { Avatar, Group, Stack, Text, Skeleton } from '@mantine/core';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
+import { CustomSuspense } from '@/shared/components/CustomSuspense';
 
-export function FreelancePreviewCard({ name, img, job, link }) {
-  const router = useRouter();
-
+export function FreelancePreviewCard({ name, img, job, href }) {
   return (
-    <Link href={link || '#'}>
-          <Group spacing="sm">
-      {img ? (
-        <Avatar size={48} radius={9999} src={img} />
-      ) : (
-        <Skeleton height={48} circle />
-      )}
+    <Link href={href || '#'}>
+      <Group position="apart">
+        <Group spacing="md" position="apart">
+          <CustomSuspense
+            fallback={img}
+            dependency={<Skeleton height={48} circle />}
+          >
+            <Avatar size={48} radius={9999} src={img} />
+          </CustomSuspense>
 
-      <Stack spacing={0}>
-        {name ? (
-          <Text className="label-md" fw={'500!important'}>
-            {name}
-          </Text>
-        ) : (
-          <Skeleton mb={8} height={12} width={120} radius="xl" />
-        )}
+          <div>
+            <CustomSuspense
+              dependency={name}
+              fallback={<Skeleton mb={8} height={12} width={120} radius="xl" />}
+            >
+              <Text className="label-md" tt="capitalize">
+                {name}
+              </Text>
+            </CustomSuspense>
 
-        {job ? (
-          <Text className="label-md" c="neutral.6" fz="xs">
-            {job}
-          </Text>
-        ) : (
-          <Skeleton height={12} width={120} radius="xl" />
-        )}
-      </Stack>
+            <CustomSuspense
+              fallback={job}
+              dependency={<Skeleton height={12} width={120} radius="xl" />}
+            >
+              <Text className="label-md" c="neutral.6" tt="capitalize">
+                {job}
+              </Text>
+            </CustomSuspense>
+          </div>
+        </Group>
 
-      <Space ml="auto" />
-
-      <div style={{ marginRight: '16px' }}>
-        {link ? (
-          <ActionIcon onClick={() => router.push(`${link}`)}>
-            {iconCreator({ icon: ArrowRight, sizeOveride: 16 })}
-          </ActionIcon>
-        ) : (
-          <Skeleton height={24} width={24} radius="sm" />
-        )}
-      </div>
-    </Group>
+        <CustomSuspense
+          fallback={href}
+          dependency={<Skeleton height={24} width={24} radius="sm" />}
+        >
+          {iconCreator({ icon: NavArrowRight, sizeOveride: 20 })}
+        </CustomSuspense>
+      </Group>
     </Link>
   );
 }

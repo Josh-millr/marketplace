@@ -5,38 +5,32 @@ import { useRouter } from 'next/router';
 
 import {
   Text,
-  Flex,
   Group,
-  Space,
   Burger,
   Avatar,
-  Badge,
-  Center,
   Divider,
+  Center,
   Button,
+  ActionIcon,
+  Indicator,
   MediaQuery,
   useMantineTheme,
 } from '@mantine/core';
-import { BellNotification } from 'iconoir-react';
+import { Bell, Mail } from 'iconoir-react';
 
 import { Search } from '@/features/search';
+import { iconCreator } from '@/shared/utils/iconCreator';
 import { PageContainer } from '@/shared/components/PageContainer';
 
 export const MarketplaceClientHeader = memo(({ isMenuOpen, openMenu }) => {
-  const { colors } = useMantineTheme();
-
   const router = useRouter();
+  const { colors } = useMantineTheme();
 
   return (
     <Center h="100%">
       <PageContainer layout="marketplace">
         <PageContainer.Marketplace>
-          <Flex
-            justify="flex-start"
-            align="center"
-            direction="row"
-            wrap="nowrap"
-          >
+          <Group position="apart">
             <Group spacing="xl">
               <MediaQuery largerThan="lg" styles={{ display: 'none' }}>
                 <Burger
@@ -56,55 +50,74 @@ export const MarketplaceClientHeader = memo(({ isMenuOpen, openMenu }) => {
                   src="/logo/hamzry/SVG/logo-hamzry-full-colored-115x40.svg"
                 />
               </Link>
+
+              <MediaQuery smallerThan="lg" styles={{ display: 'none' }}>
+                <Group spacing="xl">
+                  <Divider orientation="vertical" />
+
+                  <Button
+                    variant="filled"
+                    onClick={() =>
+                      router.push('/dashboard/client/create-project')
+                    }
+                  >
+                    Post Job
+                  </Button>
+
+                  <Link href="/">
+                    <Text className="link-sm">Become a seller</Text>
+                  </Link>
+                </Group>
+              </MediaQuery>
             </Group>
 
-            <Space style={{ margin: 'auto' }} />
-
-            <Search />
-
-            <MediaQuery smallerThan="lg" styles={{ display: 'none' }}>
-              <Group spacing="xl">
-                <Button
-                  variant="filled"
-                  onClick={() =>
-                    router.push('/dashboard/client/create-project')
-                  }
-                >
-                  Post Job
-                </Button>
-
-                {/* <Divider orientation="vertical" /> */}
-
-                <Link href="/dashboard/client/">
-                  <Text className="link-sm">My Dashboard</Text>
-                </Link>
-
-                <Group spacing="sm">
-                  <Badge variant="filled" size="sm">
-                    3+
-                    {/* TODO: fetch new message count */}
-                  </Badge>
-                  <Text className="link-sm">Messages</Text>
-                </Group>
-
-                <Divider orientation="vertical" />
-
+            <Group spacing="xl">
+              <MediaQuery smallerThan="lg" styles={{ display: 'none' }}>
                 <Link href="/">
-                  <Text className="link-sm">Become a seller</Text>
+                  <Text className="link-sm">Dashboard</Text>
                 </Link>
+              </MediaQuery>
 
-                {/* TODO: Add notification feature */}
-                <BellNotification width={20} height={20} />
+              <Search />
 
-                {/*  TODO: Add user avatar link to account profile */}
-                <Avatar
-                  src="https://picsum.photos/200"
-                  radius={9999}
-                  size="md"
-                />
-              </Group>
-            </MediaQuery>
-          </Flex>
+              <MediaQuery smallerThan="lg" styles={{ display: 'none' }}>
+                <Group spacing="xl">
+                  <Indicator
+                    size={24}
+                    disabled={false}
+                    withBorder
+                    inline
+                    offset={3}
+                    label="+2"
+                  >
+                    <ActionIcon variant="transparent">
+                      {iconCreator({ icon: Mail, sizeOveride: 24 })}
+                    </ActionIcon>
+                  </Indicator>
+
+                  <Indicator
+                    size={14}
+                    disabled={false}
+                    withBorder
+                    processing
+                    inline
+                    offset={4}
+                  >
+                    <ActionIcon variant="transparent">
+                      {iconCreator({ icon: Bell, sizeOveride: 24 })}
+                    </ActionIcon>
+                  </Indicator>
+
+                  {/*  TODO: Add user avatar link to account profile */}
+                  <Avatar
+                    src="https://picsum.photos/200"
+                    radius={9999}
+                    size="md"
+                  />
+                </Group>
+              </MediaQuery>
+            </Group>
+          </Group>
         </PageContainer.Marketplace>
       </PageContainer>
     </Center>

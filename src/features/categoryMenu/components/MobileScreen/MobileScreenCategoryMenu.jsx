@@ -79,7 +79,7 @@ export const MobileScreenCategoryMenu = memo(({ list = [] }) => {
               </SubCategoryNavLink>
             ))}
           </CategoryNavLink>
-        ))}
+      ))}
     </Box>
   );
 });
