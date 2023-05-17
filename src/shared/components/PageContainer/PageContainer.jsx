@@ -25,7 +25,7 @@ export function PageContainer({ layout, children }) {
 
 PageContainer.Main = function Main({ children }) {
   return (
-    <Container fluid m={0} px={{ base: 'xl', md: '3xl', lg: 0 }}>
+    <Container fluid m={0} px={{ base: 'xl', md: '3xl' }}>
       {children}
     </Container>
   );
@@ -33,15 +33,15 @@ PageContainer.Main = function Main({ children }) {
 
 PageContainer.Auth = function Auth({ children }) {
   return (
-    <Container fluid m={0} px={{ base: 'xl', md: '3xl', lg: 0 }}>
+    <Container fluid m={0} px={{ base: 'xl', md: '3xl' }}>
       {children}
     </Container>
   );
 };
 
-PageContainer.Marketplace = function Auth({ children }) {
+PageContainer.Marketplace = function Marketplace({ children }) {
   return (
-    <Container fluid m={0} px={{ base: 'xl', md: '3xl' }}>
+    <Container fluid m={0} px={{ base: 'xl', md: '2xl' }}>
       {children}
     </Container>
   );

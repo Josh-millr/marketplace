@@ -1,12 +1,15 @@
+/* eslint-disable operator-linebreak */
 import { memo } from 'react';
 import { useDisclosure } from '@mantine/hooks';
-import { Search, ArrowLeft } from 'iconoir-react';
+import { Search } from 'iconoir-react';
 import {
   ActionIcon,
   Modal,
+  ScrollArea,
+  Center,
   TextInput,
   Select,
-  Box,
+  Loader,
   Flex,
   Stack,
 } from '@mantine/core';
@@ -21,10 +24,11 @@ export const SearchMobile = memo((props) => {
   const {
     result,
     criteria,
-    criterias,
+    criteriaList,
     setCriteria,
-    searchQuery,
-    setSearchQuery,
+    query,
+    storeQuery,
+    loading,
   } = props;
 
   const { classes } = useStyles();
@@ -37,55 +41,65 @@ export const SearchMobile = memo((props) => {
         {iconCreator({ icon: Search })}
       </ActionIcon>
 
-      {opened && (
-        <Modal fullScreen opened={opened} withCloseButton={false}>
-          <Flex gap="sm" justify="center" align="center">
-            <ActionIcon onClick={close}>
-              {iconCreator({ icon: ArrowLeft })}
-            </ActionIcon>
+      <Modal.Root opened={opened} onClose={close} fullScreen>
+        <Modal.Content px="sm">
+          <Modal.Header br="sm">
+            <Flex spacing="md" w="100%">
+              <Stack spacing="sm" w="100%">
+                <TextInput
+                  w="100%"
+                  size="md"
+                  variant="filled"
+                  radius={9999}
+                  placeholder="Search"
+                  defaultValue={query}
+                  onChange={(event) => storeQuery(event.currentTarget.value)}
+                  icon={iconCreator({ icon: Search, sizeOveride: 20 })}
+                />
+                <Select
+                  size="md"
+                  w="100%"
+                  radius={9999}
+                  value={criteria}
+                  data={criteriaList}
+                  onChange={setCriteria}
+                />
+              </Stack>
+              <Modal.CloseButton size="xl" iconSize={24} />
+            </Flex>
+          </Modal.Header>
 
-            <TextInput
-              w="100%"
-              size="md"
-              placeholder="Search"
-              defaultValue={searchQuery}
-              onChange={(event) => setSearchQuery(event.currentTarget.value)}
-              icon={iconCreator({ icon: Search, sizeOveride: 16 })}
-            />
+          <Modal.Body>
+            <ScrollArea h="100vh" offsetScrollbars>
+              {loading ? (
+                <Center h={200} mx="auto">
+                  <Loader size="sm" />
+                </Center>
+              ) : (
+                <Stack spacing="lg" p="sm">
+                  {criteria === 'category' &&
+                    result.length > 1 &&
+                    result.map(({ label, href, _id }) => (
+                      <ListCard key={_id} label={label} href={href} />
+                    ))}
 
-            <Select
-              size="md"
-              w="50%"
-              value={criteria}
-              data={criterias}
-              onChange={setCriteria}
-            />
-          </Flex>
-
-          {/* Search result goes here */}
-          <Box>
-            <Stack spacing="lg" mt="2xl">
-              {(criteria === 'category' ? result : []).map(
-                ({ name, link }, index) => (
-                  <ListCard key={index} name={name} link={link} />
-                )
+                  {criteria === 'freelancer' &&
+                    result.length > 1 &&
+                    result.map(({ name, img, job, href, _id }) => (
+                      <FreelancePreviewCard
+                        key={_id}
+                        name={name}
+                        img={img}
+                        job={job}
+                        href={href}
+                      />
+                    ))}
+                </Stack>
               )}
-
-              {(criteria === 'freelancer' ? result : []).map(
-                ({ name, img, job, link }, index) => (
-                  <FreelancePreviewCard
-                    key={index}
-                    name={name}
-                    img={img}
-                    job={job}
-                    link={link}
-                  />
-                )
-              )}
-            </Stack>
-          </Box>
-        </Modal>
-      )}
+            </ScrollArea>
+          </Modal.Body>
+        </Modal.Content>
+      </Modal.Root>
     </div>
   );
 });
