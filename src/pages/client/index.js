@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 
-import { MarketplaceLayout } from '@/shared/components/Layout';
 import { withAuthorize } from '@/shared/hocs/withAuthorize';
 import { generalActions } from '@/state/general/generalReducer';
 import { getCategoriesApi } from '@/shared/services/getCategoriesApi';
@@ -30,10 +29,6 @@ export default function BuyerHome({ category }) {
     </>
   );
 }
-
-BuyerHome.getLayout = function getLayout(page) {
-  return <MarketplaceLayout layout="client">{page}</MarketplaceLayout>;
-};
 
 export const getServerSideProps = withAuthorize(async () => {
   try {
