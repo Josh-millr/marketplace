@@ -1,6 +1,7 @@
 /* eslint-disable operator-linebreak */
+/* eslint-disable react-hooks/exhaustive-deps */
 import Link from 'next/link';
-import { forwardRef, memo, useState, useEffect } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { NavArrowRight, Search } from 'iconoir-react';
 import {
   Flex,
@@ -31,7 +32,8 @@ function ListItem({ label, href }) {
 // TODO: Add specific conditioning for `projectCategory` and `serviceCategory
 
 export const SearchDesktop = memo((props) => {
-  const { storeQuery, result, loading, criteria, criteriaList, setCriteria } = props;
+  const { storeQuery, result, loading, criteria, criteriaList, setCriteria } =
+    props;
   const [showMenu, setShowMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 

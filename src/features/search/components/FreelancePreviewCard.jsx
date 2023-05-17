@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { NavArrowRight } from 'iconoir-react';
-import { Avatar, Group, Stack, Text, Skeleton } from '@mantine/core';
+import { Avatar, Group, Text, Skeleton } from '@mantine/core';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { CustomSuspense } from '@/shared/components/CustomSuspense';
