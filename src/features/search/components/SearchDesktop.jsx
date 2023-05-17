@@ -1,6 +1,6 @@
-import { forwardRef, memo } from 'react';
-import { Search, TextInput } from 'iconoir-react';
-import { Select, Flex } from '@mantine/core';
+import { forwardRef, memo, useState } from 'react';
+import { Search } from 'iconoir-react';
+import { Select, Flex, TextInput, Menu } from '@mantine/core';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 
@@ -18,6 +18,7 @@ export const SearchDesktop = memo((props) => {
     criteriaList,
     setCriteria,
   } = props;
+  const [showMenu, setShowMenu] = useState(true);
 
   const { classes } = useStyles();
 
@@ -43,7 +44,35 @@ export const SearchDesktop = memo((props) => {
   return (
     <div className={classes.wrapper}>
       <Flex>
-        <Select
+        <div style={{ position: 'relative' }}>
+          <TextInput
+            size="md"
+            radius={9999}
+            variant="filled"
+            defaultValue={query}
+            rightSectionWidth={120}
+            icon={iconCreator({ icon: Search, sizeOveride: 16 })}
+            onChange={(event) => storeQuery(event.currentTarget.value)}
+            rightSection={
+              <Select
+                radius={9999}
+                w={120}
+                value={criteria}
+                data={criteriaList}
+                onChange={setCriteria}
+              />
+            }
+          />
+          <div style={{ position: 'absolute' }}>
+            {true && (
+              <Menu width={200} shadow="md">
+                Mantine website
+              </Menu>
+            )}
+          </div>
+        </div>
+        {/* Add dropdown component */}
+        {/* <Select
           w={320}
           placeholder="Search"
           searchable
@@ -67,7 +96,7 @@ export const SearchDesktop = memo((props) => {
           }
           rightSectionWidth={120}
           filter={() => true}
-        />
+        /> */}
       </Flex>
     </div>
   );
