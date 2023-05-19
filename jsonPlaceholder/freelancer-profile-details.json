@@ -1,0 +1,110 @@
+{
+  "createdAt": "2022-04-01T12:20:00+01:00",
+  "firstname": "james",
+  "lastname": "ebuka",
+  "img": "https://picsum.photos/200",
+  "gender": "male",
+  "accountType": "individual",
+  "location": "nigeria",
+  "username": "james-ebuka",
+  "languages": ["english", "hausa", "yoruba"],
+  "occupation": "web developer",
+  "professionalTitle": "frontend web developer",
+  "skills": ["javascript", "html", "css"],
+  "description": "As a freelance frontend web developer, I specialize in creating captivating and user-friendly web experiences. With a strong foundation in HTML, CSS, and JavaScript, I have the expertise to bring designs to life through elegant and responsive interfaces. Utilizing the latest frontend frameworks and libraries, I craft dynamic websites that engage visitors and enhance their interaction. I possess a keen eye for design aesthetics, ensuring seamless integration of visuals and functionality. Through effective collaboration and excellent communication skills, I work closely with clients to understand their unique requirements and deliver tailored solutions that meet their objectives. With a focus on performance optimization and cross-browser compatibility, I strive to create robust and efficient code that ensures a smooth browsing experience.",
+  "certificate": [
+    {
+      "title": "Web Development Certification",
+      "issuer": "Code Academy",
+      "issueDate": "2022-05-15",
+      "credentialId": "CA12345",
+      "credentialUrl": "https://example.com/certificates/web-development"
+    },
+    {
+      "title": "Graphic Design Diploma",
+      "issuer": "Design Institute",
+      "issueDate": "2022-04-20",
+      "credentialId": "DI67890",
+      "credentialUrl": "https://example.com/certificates/graphic-design"
+    },
+    {
+      "title": "Data Science Specialization",
+      "issuer": "Data University",
+      "issueDate": "2022-03-10",
+      "credentialId": "DU54321",
+      "credentialUrl": "https://example.com/certificates/data-science"
+    }
+  ],
+  "contact": {
+    "portfolio": "https://jamesebuka.com",
+    "phone": "+2348092875534",
+    "social": {
+      "facebook": "https://facebook.com/jamesebuka.com",
+      "twitter": "https://twitter.com/jamesebuka.com",
+      "instagram": "https://instainstagram.com/jamesebuka.com"
+    }
+  },
+
+  "services": {
+    "active": []
+  },
+  "ratings": {
+    "total": 80,
+    "rating": {
+      "5": 25,
+      "4": 15,
+      "3": 15,
+      "2": 12,
+      "1": 13
+    }
+  },
+  "reviews": {
+    "totalReviews": 33,
+    "comments": [
+      {
+        "createdAt": "2022-05-05T10:30:00.000Z",
+        "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "creator": {
+          "name": "Bobby micheal",
+          "img": "https://picsum.photos/200"
+        }
+      },
+      {
+        "createdAt": "2022-05-05T10:30:00.000Z",
+        "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "creator": {
+          "name": "Bobby micheal",
+          "img": "https://picsum.photos/200"
+        }
+      },
+      {
+        "createdAt": "2022-05-05T10:30:00.000Z",
+        "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "creator": {
+          "name": "Bobby micheal",
+          "img": "https://picsum.photos/200"
+        }
+      },
+      {
+        "createdAt": "2022-05-05T10:30:00.000Z",
+        "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "creator": {
+          "name": "Bobby micheal",
+          "img": "https://picsum.photos/200"
+        }
+      },
+      {
+        "createdAt": "2022-05-05T10:30:00.000Z",
+        "body": "This Pokémon likes to lick its palms that are sweetened by being soaked in honey. Teddiursa concocts its own honey by blending fruits and pollen collected by Beedrill. Blastoise has water spouts that protrude from its shell. The water spouts are very accurate.",
+        "creator": {
+          "name": "Bobby micheal",
+          "img": "https://picsum.photos/200"
+        }
+      }
+    ]
+  },
+  "role": "freelancer",
+  "totalJobs": 812,
+  "totalHours": 7214,
+  "totalEarnings": 81231243000
+}

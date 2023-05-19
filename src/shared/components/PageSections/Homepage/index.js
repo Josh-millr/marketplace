@@ -6,5 +6,3 @@ export * from './HomepageProjectProcessSection/HomepageProjectProcessSection';
 export * from './HomepageMarketplaceStatsSection/HomepageMarketplaceStatsSection';
 export * from './HomepagePlatformGuaranteeSection/HomepagePlatformGuaranteeSection';
 export * from './HomepageRecruitHireBannerSection/HomepageRecruitHireBannerSection';
-export * from './HomepageSellerProfileBannerSection/HomepageSellerProfileBannerSection';
-export * from './HomepageSellerProfileStatsSection/HomepageSellerProfileStatsSection';
