@@ -1,13 +1,14 @@
 import { Group, Text, Stack, Grid } from '@mantine/core';
-import { LeaderboardStar, Clock, Page } from 'iconoir-react';
+import { LeaderboardStar, Clock, HandCash } from 'iconoir-react';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
+import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
 
 import { useStyles } from './style.FreelancerProfileStatsSection';
 
 export function FreelancerProfileStatsSection(props) {
   const { classes } = useStyles();
-  const { totalJobs, totalHours, inQueueServices } = props;
+  const { totalJobs, totalHours, totalEarnings } = props;
 
   return (
     <Grid className={classes.wrapper} spacing={54} py="2xl">
@@ -20,8 +21,12 @@ export function FreelancerProfileStatsSection(props) {
               strokeOveride: 1,
             })}
             <Stack spacing="md">
-              <Text className="label-md">Total Jobs</Text>
-              <Text className="label-sm">{totalJobs}</Text>
+              <Text className="label-lg" c="neutral.6">
+                Total Jobs
+              </Text>
+              <Text className="label-lg" fw={'700important'}>
+                {totalJobs}
+              </Text>
             </Stack>
           </Group>
         )}
@@ -31,19 +36,27 @@ export function FreelancerProfileStatsSection(props) {
           <Group spacing="xl">
             {iconCreator({ icon: Clock, sizeOveride: 40, strokeOveride: 1 })}
             <Stack spacing="md">
-              <Text className="label-md">Total Hours</Text>
-              <Text className="label-sm">{totalHours}</Text>
+              <Text className="label-lg" c="neutral.6">
+                Total Hours
+              </Text>
+              <Text className="label-lg" fw={'700important'}>
+                {totalHours}
+              </Text>
             </Stack>
           </Group>
         )}
       </Grid.Col>
       <Grid.Col span={6} sm={4}>
-        {inQueueServices && (
+        {totalEarnings && (
           <Group spacing="xl">
-            {iconCreator({ icon: Page, sizeOveride: 40, strokeOveride: 1 })}
+            {iconCreator({ icon: HandCash, sizeOveride: 40, strokeOveride: 1 })}
             <Stack spacing="md">
-              <Text className="label-md">In-Queue</Text>
-              <Text className="label-sm">{inQueueServices}</Text>
+              <Text className="label-lg" c="neutral.6">
+                Total Earnings
+              </Text>
+              <Text className="label-lg" fw={'700important'}>
+                {displayNumberInNaira(totalEarnings)}
+              </Text>
             </Stack>
           </Group>
         )}

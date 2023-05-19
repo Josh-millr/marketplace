@@ -85,8 +85,9 @@ AppRoot.getInitialProps = async (appContext) => {
   const currPath = appContext.router.pathname;
 
   try {
-    const response = await authenticateUserApi(sessionToken);
-    const { userData } = response;
+    // const response = await authenticateUserApi(sessionToken);
+    // const { userData } = response;
+    const userData = [];
 
     return { ...appProps, userData, currPath };
   } catch (error) {
