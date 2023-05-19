@@ -64,7 +64,7 @@ export const MarketplaceClientHeader = memo(({ isMenuOpen, openMenu }) => {
                     Post Job
                   </Button>
 
-                  <Link href="/">
+                  <Link href="/freelancer/onboarding">
                     <Text className="link-sm">Become a seller</Text>
                   </Link>
                 </Group>
