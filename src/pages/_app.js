@@ -80,8 +80,10 @@ AppRoot.getInitialProps = async (appContext) => {
   const sessionToken = cookies?.sessionToken || '';
 
   try {
-    const response = await authenticateUserApi(sessionToken);
-    const { userData } = response;
+    // const response = await authenticateUserApi(sessionToken);
+    // const { userData } = response;
+
+    const userData = [];
 
     return { ...appProps, userData };
   } catch (error) {

@@ -30,6 +30,6 @@ Home.getLayout = function getLayout(page) {
   return <MainLayout>{page}</MainLayout>;
 };
 
-export const getStaticProps = withAuthRedirect(async () =>
-  // Fetch the FAQ info from CMS
-  ({ props: {} }));
+// export const getStaticProps = withAuthRedirect(async () =>
+//   // Fetch the FAQ info from CMS
+//   ({ props: {} }));
