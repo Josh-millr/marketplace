@@ -54,7 +54,7 @@ export function ProfessionalInformationForm() {
           }}
         >
           <SimpleGrid cols={1} spacing="xl" mt={{ md: 50 }}>
-            <Group label="Occupation" required style={{ marginBottom: '1rem' }}>
+            <SimpleGrid cols={1} breakpoints={[{ minWidth: 'md', cols: 2 }]}>
               <Select
                 label="Occupational"
                 placeholder="Occupational Field"
@@ -73,7 +73,7 @@ export function ProfessionalInformationForm() {
                   style={{ marginBottom: '1rem' }}
                 />
               </div>
-            </Group>
+            </SimpleGrid>
 
             <Divider style={{ margin: '1rem 0' }} />
 

@@ -7,6 +7,7 @@ import { ExperienceInformationForm } from './ExperienceInformationForm';
 import { ContactInformationForm } from './ContactInformationForm';
 import { OnboardingSuccess } from './OnboardingSuccess';
 import {
+  IconMathGreater,
   IconNumber1,
   IconNumber2,
   IconNumber3,
@@ -82,13 +83,14 @@ export function FreelancerForm() {
         </Stepper>
       </FormDataProvider>
 
-      <Group position="center" mt="xl">
+      <Group position="left" mt="xl">
         <Button
-          variant="light"
+          variant="outline"
+          leftIcon={<IconMathGreater size="1rem" />}
           onClick={() => handleStepChange(active - 1)}
           disabled={active === 0}
         >
-          Back
+          Go Back
         </Button>
         <Button onClick={() => handleStepChange(active + 1)}>Next step</Button>
       </Group>
