@@ -36,6 +36,6 @@ export const withAuthRedirect = (dispatchOtherAction) => async (context) => {
     }
   } catch (error) {
     // Throw an error to server unavailability or internal error
-    throw new Error(error.message, 500);
+    throw new Error(error, 500);
   }
 };

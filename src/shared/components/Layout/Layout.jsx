@@ -9,9 +9,9 @@ import { MarketplaceLayout } from './Marketplace/Marketplace';
 // Path groups with similar layout
 const AUTH_PATHS = ['/register', '/login'];
 // const CLIENT_DASHBOARD_PATH = '/dashboard/client';
-const CLIENT_MARKETPLACE_PATHS = ['/client', '/service', '/profile'];
+const CLIENT_MARKETPLACE_PATHS = ['/client', '/service', '/creator'];
 // const FREELANCER_DASHBOARD_PATH = '/dashboard/freelancer';
-const FREELANCER_MARKETPLACE_PATHS = ['/freelancer', '/service', '/profile'];
+const FREELANCER_MARKETPLACE_PATHS = ['/freelancer', '/service', '/creator'];
 
 function startsWithAny(path, prefixes) {
   return prefixes.some((prefix) => path.startsWith(prefix));

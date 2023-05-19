@@ -3,9 +3,9 @@ import { LeaderboardStar, Clock, Page } from 'iconoir-react';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 
-import { useStyles } from './style.HomepageSellerProfileStatsSection';
+import { useStyles } from './style.FreelancerProfileStatsSection';
 
-export function HomepageSellerProfileStatsSection(props) {
+export function FreelancerProfileStatsSection(props) {
   const { classes } = useStyles();
   const { totalJobs, totalHours, inQueueServices } = props;
 

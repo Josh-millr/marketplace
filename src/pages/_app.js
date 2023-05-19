@@ -13,7 +13,7 @@ import { Layout } from '@/shared/components/Layout';
 import { PageLoadingBar } from '@/features/pageLoadingBar';
 import { ErrorBoundaryAppRoot } from '@/shared/components/ErrorBoundary';
 import { authenticateUserApi } from '@/shared/services/authenticateUserApi';
-import { InitUserStateProvider } from '@/shared/providers/InitUserStateProvider';
+import { InitStateProvider } from '@/shared/providers/InitStateProvider';
 import '@/styles/globals.css';
 
 const dmSans = DMSans({
@@ -62,7 +62,7 @@ function AppRoot({ Component, pageProps, userData, currPath }) {
               <main className={dmSans.variable}>
                 <PageLoadingBar />
                 <Notifications position="top-center" zIndex={2077} limit={5} />
-                <InitUserStateProvider initialState={userData} />
+                <InitStateProvider userData={userData} />
                 <Layout pagePath={currPath}>
                   <Component {...pageProps} />
                 </Layout>
