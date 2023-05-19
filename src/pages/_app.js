@@ -9,10 +9,11 @@ import { Notifications } from '@mantine/notifications';
 
 import store from '@/state/store';
 import themes from '@/config/styles/themes';
+import { Layout } from '@/shared/components/Layout';
 import { PageLoadingBar } from '@/features/pageLoadingBar';
 import { ErrorBoundaryAppRoot } from '@/shared/components/ErrorBoundary';
 import { authenticateUserApi } from '@/shared/services/authenticateUserApi';
-import { InitUserStateProvider } from '@/shared/providers/InitUserStateProvider';
+import { InitStateProvider } from '@/shared/providers/InitStateProvider';
 import '@/styles/globals.css';
 
 const dmSans = DMSans({
@@ -41,8 +42,8 @@ const dmSans = DMSans({
   ],
 });
 
-function AppRoot({ Component, pageProps, userData }) {
-  const getLayout = Component.getLayout || ((page) => page);
+function AppRoot({ Component, pageProps, userData, currPath }) {
+  // const getLayout = Component.getLayout || ((page) => page);
 
   return (
     <>
@@ -61,8 +62,10 @@ function AppRoot({ Component, pageProps, userData }) {
               <main className={dmSans.variable}>
                 <PageLoadingBar />
                 <Notifications position="top-center" zIndex={2077} limit={5} />
-                <InitUserStateProvider initialState={userData} />
-                {getLayout(<Component {...pageProps} />)}
+                <InitStateProvider userData={userData} />
+                <Layout pagePath={currPath}>
+                  <Component {...pageProps} />
+                </Layout>
               </main>
             </ErrorBoundaryAppRoot>
           </Provider>
@@ -79,11 +82,13 @@ AppRoot.getInitialProps = async (appContext) => {
   const { cookies } = appContext.ctx.req;
   const sessionToken = cookies?.sessionToken || '';
 
+  const currPath = appContext.router.pathname;
+
   try {
     const response = await authenticateUserApi(sessionToken);
     const { userData } = response;
 
-    return { ...appProps, userData };
+    return { ...appProps, userData, currPath };
   } catch (error) {
     throw error;
   }

@@ -1,0 +1,24 @@
+import { useEffect } from 'react';
+// import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+
+import { userActions } from '@/state/user/userReducer';
+
+// import { ROLES } from '../constants/roles';
+
+export function InitStateProvider({ userData }) {
+  // const router = useRouter();
+  const dispatch = useDispatch();
+
+  if (userData.length === 0) return <></>;
+
+  // const { CLIENT, FREELANCER } = ROLES;
+  // const role = userData?.role;
+
+  dispatch(userActions.setUser(userData));
+
+  // if (role === CLIENT) router.push(''); // Push to client marketplace
+  // if (role === FREELANCER) router.push(''); // Push to client marketplace
+
+  return <></>;
+}

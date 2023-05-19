@@ -1,0 +1,183 @@
+import {
+  Group,
+  Grid,
+  MediaQuery,
+  Flex,
+  Stack,
+  Text,
+  Divider,
+  Spoiler,
+  useMantineTheme,
+  SimpleGrid,
+} from '@mantine/core';
+import { HiStar } from 'react-icons/hi';
+import { Map, Calendar } from 'iconoir-react';
+
+import {
+  FreelancerProfileDisplayBanner,
+  FreelancerProfileStatsSection,
+} from '@/shared/components/PageSections/FreelancerProfile';
+import { calculateAverageRating } from '@/shared/utils/calculateAverageRating';
+import { getFreelancerProfileApi } from '@/shared/services/getFreelancerProfileApi';
+import { displayFullName } from '@/shared/utils/displayFullName';
+import { PageContainer } from '@/shared/components/PageContainer';
+import { iconCreator } from '@/shared/utils/iconCreator';
+
+export default function SellerProfile({ data }) {
+  const theme = useMantineTheme();
+
+  const fullname = displayFullName({
+    firstname: data.firstname,
+    lastname: data.lastname,
+  });
+  return (
+    <div>
+      <FreelancerProfileDisplayBanner
+        name={fullname}
+        img={data.img}
+        role={data.role}
+        rating={data.ratings.rating}
+        reviews={data.reviews.totalReviews}
+        location={data.location}
+        created={data.created}
+      />
+
+      <PageContainer layout="marketplace">
+        <PageContainer.Marketplace>
+          <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
+            <Stack spacing="lg" py="2xl">
+              <Group>
+                {iconCreator({ icon: Map, sizeOveride: 16 })}
+                <Text className="label-md" tt="capitalize">
+                  Location: {data.location}
+                </Text>
+              </Group>
+              <Flex gap="md">
+                <HiStar size={20} color={theme.colors.brandPrimary[6]} />
+                <Text className="label-md">
+                  {`${calculateAverageRating(data.ratings.rating)} `}
+                  <span>{`(${data.reviews.totalReviews} Review)`}</span>
+                </Text>
+              </Flex>
+
+              <Group>
+                {iconCreator({ icon: Calendar, sizeOveride: 16 })}
+                <Text className="label-md">Member since: {data.created}</Text>
+              </Group>
+            </Stack>
+          </MediaQuery>
+
+          <Grid>
+            <Grid.Col span={12} md={9} order={2} orderMd={1}>
+              <FreelancerProfileStatsSection
+                totalJobs={data.totalJobs}
+                totalHours={data.totalHours}
+                totalEarnings={data.totalEarnings}
+              />
+              {/* remaining content goes here */}
+
+              <Stack spacing="xl" py="2xl">
+                <Text className="sub-h1">Description</Text>
+
+                <Text className="body-md" maw={800}>
+                  <Spoiler
+                    maxHeight={200}
+                    showLabel="Show more"
+                    hideLabel="Hide"
+                  >
+                    {data.description}
+                  </Spoiler>
+                </Text>
+              </Stack>
+
+              <Divider />
+
+              <Stack spacing="xl" py="2xl">
+                <Text className="sub-h1">Awards & Certificates</Text>
+                <Stack spacing="xl">
+                  {data.certificates.map((cert) => {
+                    const id = uuidv4();
+                    return (
+                      <CertificationCard
+                        key={id}
+                        link={cert.link}
+                        issuer={cert.issuer}
+                        subject={cert.subject}
+                        issueYear={cert.issueYear}
+                      />
+                    );
+                  })}
+                </Stack>
+              </Stack>
+
+              <Divider />
+
+              <Stack spacing="xl" py="2xl">
+                <Text className="sub-h1">Featured Services</Text>
+                <SimpleGrid
+                  cols={1}
+                  spacing="xl"
+                  verticalSpacing="xl"
+                  style={{ justifyItems: 'center' }}
+                  breakpoints={[
+                    { minWidth: 'xs', cols: 2, spacing: 'xl' },
+                    { minWidth: 'lg', cols: 3, spacing: 'xl' },
+                    // { minWidth: 'lg', cols: 4, spacing: 'xl' },
+                  ]}
+                >
+                  {data.activeServices.slice(0, 3).map((service) => {
+                    const id = uuidv4();
+                    return <ServiceCard key={id} data={service ?? {}} />;
+                  })}
+                </SimpleGrid>
+              </Stack>
+
+              <Divider />
+
+              <Stack spacing="xl" py="2xl">
+                <Text className="sub-h1">
+                  {data.totalRatingCount.totalRated} Reviews
+                </Text>
+                <Stack spacing="4xl">
+                  <RatingProgressCard data={data.totalRatingCount} />
+                  {data.totalComments.comments.map((comment) => {
+                    const id = uuidv4();
+                    return (
+                      <CommentCard
+                        key={id}
+                        postedAt={comment.postedAt}
+                        body={comment.body}
+                        author={comment.author}
+                      />
+                    );
+                  })}
+                </Stack>
+              </Stack>
+            </Grid.Col>
+            <Grid.Col span={12} md={3} order={1} orderMd={2}>
+              <Stack spacing="md">
+                <SellerProfileInfoCard
+                  location={data.location}
+                  created={data.created}
+                  gender={data.gender}
+                  languages={data.languages}
+                />
+                <SellerSkillsCard skills={data.skills} />
+              </Stack>
+            </Grid.Col>
+          </Grid>
+        </PageContainer.Marketplace>
+      </PageContainer>
+    </div>
+  );
+}
+
+// TODO: Add the freelaner fetch logic and add error handling
+
+export async function getServerSideProps(context) {
+  const { username } = context.params;
+
+  const response = await getFreelancerProfileApi(username);
+
+  return { props: { data: response } };
+}

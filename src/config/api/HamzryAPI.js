@@ -9,7 +9,7 @@ export const HamzryAPI = axios.create({
    * @see https://vercel.com/docs/concepts/projects/environment-variables#
    */
   baseURL: 'https://hamzry.onrender.com',
-  timeout: 8000,
+  timeout: 5000,
   headers: {
     common: {
       'auth-token': sessionToken || '',

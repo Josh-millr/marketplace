@@ -1,7 +1,7 @@
 /* eslint-disable operator-linebreak */
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import {
   Text,
   Title,
@@ -22,7 +22,7 @@ import { calculateAverageRating } from '@/shared/utils/calculateAverageRating';
 import { useStyles } from './style.Card';
 import { CustomSuspense } from '../CustomSuspense';
 
-export const ServiceCard = ({ data }) => {
+export const ServiceCard = memo(({ data }) => {
   const [hovered, setHovered] = useState(false);
   const { classes, theme } = useStyles();
 
@@ -105,7 +105,9 @@ export const ServiceCard = ({ data }) => {
               <Group spacing="xs">
                 <HiStar size={20} color={theme.colors.brandPrimary[6]} />
                 <Text className={`${classes.rating} label-sm`}>
-                  {`${data?.ratings && calculateAverageRating(data.ratings.rating)} `}
+                  {`${
+                    data?.ratings && calculateAverageRating(data.ratings.rating)
+                  } `}
                   <span className={classes.review}>
                     {`(${
                       data?.totalComment && roundUpNumber(data.totalComment)
@@ -163,4 +165,4 @@ export const ServiceCard = ({ data }) => {
       </Card>
     </Link>
   );
-};
+});

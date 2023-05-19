@@ -1,6 +1,5 @@
 import { Group } from '@mantine/core';
 
-import { AuthLayout } from '@/shared/components/Layout';
 import { LoginForm } from '@/features/auth/Login';
 
 export default function SignUp() {
@@ -12,10 +11,6 @@ export default function SignUp() {
     </>
   );
 }
-
-SignUp.getLayout = function getLayout(page) {
-  return <AuthLayout>{page}</AuthLayout>;
-};
 
 export async function getStaticProps() {
   return { props: {} };
