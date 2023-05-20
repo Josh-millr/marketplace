@@ -12,7 +12,7 @@ import themes from '@/config/styles/themes';
 import { Layout } from '@/shared/components/Layout';
 import { PageLoadingBar } from '@/features/pageLoadingBar';
 import { ErrorBoundaryAppRoot } from '@/shared/components/ErrorBoundary';
-import { authenticateUserApi } from '@/shared/services/authenticateUserApi';
+// import { authenticateUserApi } from '@/shared/services/authenticateUserApi';
 import { InitStateProvider } from '@/shared/providers/InitStateProvider';
 import '@/styles/globals.css';
 
@@ -79,8 +79,8 @@ AppRoot.getInitialProps = async (appContext) => {
   const appProps = await App.getInitialProps(appContext);
 
   // Perform initial state initialization
-  const { cookies } = appContext.ctx.req;
-  const sessionToken = cookies?.sessionToken || '';
+  // const { cookies } = appContext.ctx.req;
+  // const sessionToken = cookies?.sessionToken || '';
 
   const currPath = appContext.router.pathname;
 

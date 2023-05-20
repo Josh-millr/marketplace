@@ -1,29 +1,25 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import { useStyles } from './style.FreelancerOnboarding';
+// import { useState } from 'react';
 import { AppShell, Header } from '@mantine/core';
+// import { useRouter } from 'next/router';
 
-import { DesktopScreenCategoryMenu } from '@/features/categoryMenu';
+// import { DesktopScreenCategoryMenu } from '@/features/categoryMenu';
+
 import { FreelancerOnboardingFooter } from './FreelancerOnboardingFooter/FreelancerOnboardingFooter';
 import { FreelancerOnboardingHeader } from './FreelancerOnboardingHeader/FreelancerOnboardingHeader';
-import { FreelancerOnboardingNavBar } from './FreelancerOnboardingNavBar/FreelancerOnboardingNavBar';
+import { useStyles } from './style.FreelancerOnboarding';
 
 export function FreelancerOnboardingLayout({ children }) {
-  const [opened, setOpened] = useState(false);
+  // const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
-  const router = useRouter();
+  // const router = useRouter();
 
-  const showNavbar = router.pathname === '/form';
+  // const showNavbar = router.pathname === '/form';
 
-  const activeNavBar = showNavbar ? <FreelancerOnboardingNavBar /> : null;
-
-  const activeHeader = (
-    <FreelancerOnboardingHeader isMenuOpen={opened} openMenu={setOpened} />
-  );
+  // const activeNavBar = showNavbar ? <FreelancerOnboardingNavBar /> : null;
 
   const header = (
     <Header className={classes.wrapper} height={64}>
-      {activeHeader}
+      <FreelancerOnboardingHeader />
     </Header>
   );
 
@@ -35,9 +31,9 @@ export function FreelancerOnboardingLayout({ children }) {
       padding={0}
       header={header}
       footer={footer}
-      navbar={activeNavBar}
+      // navbar={activeNavBar}
     >
-      {showNavbar && <DesktopScreenCategoryMenu list={category} />}
+      {/* {showNavbar && <DesktopScreenCategoryMenu list={category} />} */}
       {children}
     </AppShell>
   );

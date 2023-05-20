@@ -2,26 +2,19 @@ import { memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { Group, Center, Button } from '@mantine/core';
 
-import {
-  Group,
-  Center,
-  Button,
-  MediaQuery,
-  useMantineTheme,
-} from '@mantine/core';
 import { PageContainer } from '@/shared/components/PageContainer';
 
-export const FreelancerOnboardingHeader = () => {
+export const FreelancerOnboardingHeader = memo(() => {
   const router = useRouter();
-  const { colors } = useMantineTheme();
 
   return (
     <Center h="100%">
       <PageContainer layout="marketplace">
         <PageContainer.Marketplace>
           <Group position="apart" align="center">
-            <Link href="/">
+            <Link href="/freelancer">
               <Image
                 height={40}
                 width={115}
@@ -30,18 +23,13 @@ export const FreelancerOnboardingHeader = () => {
               />
             </Link>
 
-            <MediaQuery smallerThan="lg">
-              <Button
-                variant="outline"
-                color="red"
-                onClick={() => router.back()}
-              >
-                Cancel
-              </Button>
-            </MediaQuery>
+            {/* <MediaQuery smallerThan="lg"></MediaQuery> */}
+            <Button variant="outline" color="red" onClick={() => router.back()}>
+              Cancel
+            </Button>
           </Group>
         </PageContainer.Marketplace>
       </PageContainer>
     </Center>
   );
-};
+});

@@ -1,3 +1,1 @@
-export const FreelancerOnboardingNavBar = () => {
-  return <h1>NavBar</h1>;
-};
+export const FreelancerOnboardingNavBar = () => <h1>NavBar</h1>;

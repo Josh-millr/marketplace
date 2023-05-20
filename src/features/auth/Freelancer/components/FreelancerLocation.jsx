@@ -1,33 +1,34 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { connect } from 'react-redux';
+// import { useEffect, useState } from 'react';
+// import { useRouter } from 'next/router';
+// import { connect } from 'react-redux';
 
-export function FreelancerLocation({ user }) {
-  const [checkingLocation, setCheckingLocation] = useState(false);
-  const router = useRouter();
+// { user }
+export function FreelancerLocation() {
+  // const [checkingLocation, setCheckingLocation] = useState(false);
+  // const router = useRouter();
 
-  const checkLocationValidity = async () => {
-    try {
-      setCheckingLocation(true);
+  // const checkLocationValidity = async () => {
+  //   try {
+  //     setCheckingLocation(true);
 
-      const isLocationExist = await checkLocationExistenceApi(value);
+  //     const isLocationExist = await checkLocationExistenceApi(value);
 
-      if (isLocationExist === false) {
-        setIsLocationValid(true);
-        router.push('./freelancer/register');
-      } else if (isLocationExist) {
-        form.setFieldError('Location', LocationTaken.statement);
-      }
-    } catch (error) {
-      notificationFactory(error);
-    } finally {
-      setCheckingLocation(false);
-    }
-  };
+  //     if (isLocationExist === false) {
+  //       setIsLocationValid(true);
+  //       router.push('./freelancer/register');
+  //     } else if (isLocationExist) {
+  //       form.setFieldError('Location', LocationTaken.statement);
+  //     }
+  //   } catch (error) {
+  //     notificationFactory(error);
+  //   } finally {
+  //     setCheckingLocation(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    checkLocationValidity();
-  }, []);
+  // useEffect(() => {
+  //   checkLocationValidity();
+  // }, []);
 
   return <div></div>;
 }

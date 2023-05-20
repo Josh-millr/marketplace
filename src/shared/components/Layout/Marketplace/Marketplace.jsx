@@ -11,8 +11,6 @@ import { MarketplaceClientNavBar } from './MarketplaceNavBar/MarketplaceClientNa
 import { MarketplaceFreelancerNavBar } from './MarketplaceNavBar/MarketplaceFreelancerNavBar';
 import { MarketplaceFreelancerHeader } from './MarketplaceHeader/MarketplaceFreelancerHeader';
 
-
-
 export function MarketplaceLayout({ layout, children }) {
   const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
@@ -21,18 +19,10 @@ export function MarketplaceLayout({ layout, children }) {
 
   let activeNavBar = null;
   if (layout === 'freelancer' && opened) {
-    activeNavBar = <MarketplaceFreelancerNavBar />;
+    activeNavBar = <MarketplaceFreelancerNavBar hidden={!opened} />;
   } else if (layout === 'client' && opened) {
-    activeNavBar = <MarketplaceClientNavBar />;
+    activeNavBar = <MarketplaceClientNavBar hidden={!opened} />;
   }
-
-  // let activeNavBar;
-  // if (layout === 'freelancer') {
-  //   activeNavBar = <MarketplaceFreelancerNavBar hidden={!opened} />;
-  // }
-  // if (layout === 'client') {
-  //   activeNavBar = <MarketplaceClientNavBar hidden={!opened} />;
-  // }
 
   let activeHeader;
   if (layout === 'freelancer') {
@@ -61,9 +51,7 @@ export function MarketplaceLayout({ layout, children }) {
       footer={footer}
       navbar={activeNavBar}
     >
-      {layout === 'client' && (
-        <DesktopScreenCategoryMenu list={category} />
-      )}
+      {layout === 'client' && <DesktopScreenCategoryMenu list={category} />}
       {children}
     </AppShell>
   );
