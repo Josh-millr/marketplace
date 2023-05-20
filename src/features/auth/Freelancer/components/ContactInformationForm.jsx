@@ -45,7 +45,11 @@ export function ContactInformationForm() {
           Social media accounts
         </Text>
         <form>
+<<<<<<< HEAD
           <Grid gutter="md">
+=======
+          {/* <Grid gutter="md">
+>>>>>>> af7d1cd05970c68e0e25ac4a4b15320cb600bead
             <TextInput
               icon={<IconFacebook />}
               iconPosition="left"
@@ -72,12 +76,20 @@ export function ContactInformationForm() {
               onChange={(event) => setTwitter(event.currentTarget.value)}
               style={{ marginBottom: '1rem' }}
             />
+<<<<<<< HEAD
           </Grid>
+=======
+          </Grid> */}
+>>>>>>> af7d1cd05970c68e0e25ac4a4b15320cb600bead
 
           <button type="submit">Submit</button>
         </form>
 
+<<<<<<< HEAD
         <Divider style={{ margin: '1rem 0' }} />
+=======
+        {/* <Divider style={{ margin: '1rem 0' }} />
+>>>>>>> af7d1cd05970c68e0e25ac4a4b15320cb600bead
 
         <Text
           variant="h2"
@@ -104,7 +116,11 @@ export function ContactInformationForm() {
           }
           style={{ marginBottom: '1rem' }}
         />
+<<<<<<< HEAD
         <Divider style={{ margin: '1rem 0' }} />
+=======
+        <Divider style={{ margin: '1rem 0' }} /> */}
+>>>>>>> af7d1cd05970c68e0e25ac4a4b15320cb600bead
       </Paper>
     </Container>
   );

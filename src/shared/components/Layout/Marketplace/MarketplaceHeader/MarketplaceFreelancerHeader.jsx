@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { Group, Center, Button, MediaQuery } from '@mantine/core';
 import { PageContainer } from '@/shared/components/PageContainer';
 
-export const MarketplaceFreelancerHeader = () => {
+export const MarketplaceFreelancerHeader = memo(() => {
   const router = useRouter();
 
   return (
@@ -36,4 +36,4 @@ export const MarketplaceFreelancerHeader = () => {
       </PageContainer>
     </Center>
   );
-};
+});

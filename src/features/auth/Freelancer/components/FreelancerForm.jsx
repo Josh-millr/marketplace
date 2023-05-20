@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Stepper,
   Button,
   Group,
-  Content,
-  ProgressBar,
+  Center,
+  Progress,
   MediaQuery,
   Text,
   Paper,
@@ -105,9 +105,9 @@ export function FreelancerForm() {
               </Stepper.Step>
 
               <Stepper.Completed>
-                <Content>
+                <Center>
                   Completed, click back button to get to the previous step
-                </Content>
+                </Center>
               </Stepper.Completed>
             </Stepper>
           </FormDataProvider>
@@ -142,7 +142,7 @@ export function FreelancerForm() {
               Current Progress - {progress}%
             </Text>
 
-            <ProgressBar
+            <Progress
               value={progress}
               color="green"
               striped

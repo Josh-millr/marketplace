@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Text, Button, Footer, Menu } from '@mantine/core';
+// import { PageContainer } from '@/shared/components/PageContainer';
+import { Text, Button, Footer, Menu } from '@mantine/core'; // Container,
 import { IconChevronUp } from '@tabler/icons-react';
 
 export function FreelancerOnboardingFooter() {

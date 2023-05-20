@@ -1,24 +1,25 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useState } from 'react';
 import { AppShell, Header } from '@mantine/core';
+// import { useRouter } from 'next/router';
 
-import { DesktopScreenCategoryMenu } from '@/features/categoryMenu';
-import { useStyles } from './style.FreelancerOnboarding';
+// import { DesktopScreenCategoryMenu } from '@/features/categoryMenu';
+
 import { FreelancerOnboardingFooter } from './FreelancerOnboardingFooter/FreelancerOnboardingFooter';
 import { FreelancerOnboardingHeader } from './FreelancerOnboardingHeader/FreelancerOnboardingHeader';
+import { useStyles } from './style.FreelancerOnboarding';
 
 export function FreelancerOnboardingLayout({ children }) {
-  const { category } = useSelector((state) => state.general);
-  const [opened, setOpened] = useState(false);
+  // const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
+  // const router = useRouter();
 
-  const activeHeader = (
-    <FreelancerOnboardingHeader isMenuOpen={opened} openMenu={setOpened} />
-  );
+  // const showNavbar = router.pathname === '/form';
+
+  // const activeNavBar = showNavbar ? <FreelancerOnboardingNavBar /> : null;
 
   const header = (
     <Header className={classes.wrapper} height={64}>
-      {activeHeader}
+      <FreelancerOnboardingHeader />
     </Header>
   );
 
@@ -30,8 +31,9 @@ export function FreelancerOnboardingLayout({ children }) {
       padding={0}
       header={header}
       footer={footer}
+      // navbar={activeNavBar}
     >
-      <DesktopScreenCategoryMenu list={category} />
+      {/* {showNavbar && <DesktopScreenCategoryMenu list={category} />} */}
       {children}
     </AppShell>
   );

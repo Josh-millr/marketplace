@@ -19,18 +19,10 @@ export function MarketplaceLayout({ layout, children }) {
 
   let activeNavBar = null;
   if (layout === 'freelancer' && opened) {
-    activeNavBar = <MarketplaceFreelancerNavBar />;
+    activeNavBar = <MarketplaceFreelancerNavBar hidden={!opened} />;
   } else if (layout === 'client' && opened) {
-    activeNavBar = <MarketplaceClientNavBar />;
+    activeNavBar = <MarketplaceClientNavBar hidden={!opened} />;
   }
-
-  // let activeNavBar;
-  // if (layout === 'freelancer') {
-  //   activeNavBar = <MarketplaceFreelancerNavBar hidden={!opened} />;
-  // }
-  // if (layout === 'client') {
-  //   activeNavBar = <MarketplaceClientNavBar hidden={!opened} />;
-  // }
 
   let activeHeader;
   if (layout === 'freelancer') {
