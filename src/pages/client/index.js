@@ -3,7 +3,7 @@ import { withAuthorize } from '@/shared/hocs/withAuthorize';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { ClientMarketplaceTopServices } from '@/shared/components/PageSections/ClientMarketplace';
 
-export default function BuyerHome() {
+export default function ClientHome() {
   return (
     <>
       <PageContainer layout="marketplace">

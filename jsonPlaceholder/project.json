@@ -1,0 +1,29 @@
+{
+    "creator": {
+        "name": "James magnus",
+        "id": "josh-miller",
+        "img": "http://placehold.it/",
+        "locale": "en-us"
+    },
+    "id": 23942934892,
+    "title": "Some title...",
+    "description": "some description...",
+    "priceType": "fixed",
+    "budget": 3748724000,
+    "paid": false,
+    "projectedDuration": 5,
+    "startDate": "",
+    "endDate": "",
+    "experienceLevel": "beginner",
+    "category": {
+        "main": "web development", 
+        "sub": "frontend",
+        "sub_sub": "react"
+    },
+    "attachments": [{}],
+    "createdAt": "2022-05-05T10:30:00.000Z",
+    "expires": "2022-05-05T10:50:00.000Z",
+    "status": "pending",
+    "proposalRecived": 1,
+    "proposals": ["..."]
+}
