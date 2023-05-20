@@ -11,8 +11,6 @@ import { MarketplaceClientNavBar } from './MarketplaceNavBar/MarketplaceClientNa
 import { MarketplaceFreelancerNavBar } from './MarketplaceNavBar/MarketplaceFreelancerNavBar';
 import { MarketplaceFreelancerHeader } from './MarketplaceHeader/MarketplaceFreelancerHeader';
 
-
-
 export function MarketplaceLayout({ layout, children }) {
   const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
@@ -61,9 +59,7 @@ export function MarketplaceLayout({ layout, children }) {
       footer={footer}
       navbar={activeNavBar}
     >
-      {layout === 'client' && (
-        <DesktopScreenCategoryMenu list={category} />
-      )}
+      {layout === 'client' && <DesktopScreenCategoryMenu list={category} />}
       {children}
     </AppShell>
   );

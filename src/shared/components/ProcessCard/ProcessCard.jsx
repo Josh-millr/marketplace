@@ -1,4 +1,4 @@
-import { Text, Card, rem } from '@mantine/core';
+import { Text, Card } from '@mantine/core';
 import { IconBook, IconUser, IconSend } from '@tabler/icons-react';
 
 import { useStyles } from './style.Card';
@@ -25,7 +25,7 @@ const mockdata = [
 ];
 
 export function ProcessCard() {
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
 
   const processes = mockdata.map((process) => (
     <Card
