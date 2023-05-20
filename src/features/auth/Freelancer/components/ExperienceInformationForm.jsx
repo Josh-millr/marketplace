@@ -29,29 +29,21 @@ export function ExperienceInformationForm() {
       credentialId,
       credentialUrl,
     };
-    const handleCancel = () => {
-      setTitle('');
-      setIssuer('');
-      setIssueDate('');
-      setCredentialId('');
-      setCredentialUrl('');
-    };
-
-    const handleCalendarChange = (value) => {
-      setIssueDate(value);
-      setShowCalendar(false);
-    };
-
-    setCertificates((prevCertificates) => [
-      ...prevCertificates,
-      newCertificate,
-    ]);
+  };
+  const handleCancel = () => {
     setTitle('');
     setIssuer('');
     setIssueDate('');
     setCredentialId('');
     setCredentialUrl('');
   };
+
+  const handleCalendarChange = (value) => {
+    setIssueDate(value);
+    setShowCalendar(false);
+  };
+
+  setCertificates((prevCertificates) => [...prevCertificates, newCertificate]);
 
   const handleDeleteCertificate = (index) => {
     setCertificates((prevCertificates) =>
