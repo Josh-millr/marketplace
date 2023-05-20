@@ -8,7 +8,11 @@ import {
   Grid,
 } from '@mantine/core';
 
-import { IconFacebook, IconInstagram, IconTwitter } from '@tabler/icons-react';
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandTwitterFilled,
+} from '@tabler/icons-react';
 
 export function ContactInformationForm() {
   const [facebook, setFacebook] = useState('');
@@ -17,7 +21,9 @@ export function ContactInformationForm() {
   const [phoneNumber, setPhoneNumber] = useState('+234');
 
   return (
-    <Container style={{ display: 'flex', justifyContent: 'center' }}>
+    <Container
+      style={{ display: 'flex', justifyContent: 'center', marginTop: '1em' }}
+    >
       <Paper>
         <Text
           variant="h1"
@@ -40,49 +46,54 @@ export function ContactInformationForm() {
         <Text
           variant="h2"
           size="md"
-          style={{ textAlign: 'left', marginBottom: '1rem' }}
+          style={{ textAlign: 'left', marginBottom: '1rem', marginTop: '1em' }}
         >
           Social media accounts
         </Text>
-        <form>
-          {/* <Grid gutter="md">
+        <Grid>
+          <Grid.Col>
             <TextInput
-              icon={<IconFacebook />}
+              icon={<IconBrandFacebook />}
+              iconColor="blue"
               iconPosition="left"
               placeholder="@username"
               value={facebook}
               onChange={(event) => setFacebook(event.currentTarget.value)}
               style={{ marginBottom: '1rem' }}
             />
+          </Grid.Col>
 
+          <Grid.Col>
             <TextInput
-              icon={<IconInstagram />}
+              icon={<IconBrandInstagram />}
+              iconColor="purple"
               iconPosition="left"
               placeholder="@username"
               value={instagram}
               onChange={(event) => setInstagram(event.currentTarget.value)}
               style={{ marginBottom: '1rem' }}
             />
+          </Grid.Col>
 
+          <Grid.Col>
             <TextInput
-              icon={<IconTwitter />}
+              icon={<IconBrandTwitterFilled />}
+              iconColor="blue"
               iconPosition="left"
               value={twitter}
               placeholder="@username"
               onChange={(event) => setTwitter(event.currentTarget.value)}
               style={{ marginBottom: '1rem' }}
             />
-          </Grid> */}
+          </Grid.Col>
+        </Grid>
 
-          <button type="submit">Submit</button>
-        </form>
-
-        {/* <Divider style={{ margin: '1rem 0' }} />
+        <Divider style={{ margin: '1rem 0' }} />
 
         <Text
           variant="h2"
           size="md"
-          style={{ textAlign: 'left', marginBottom: '1rem' }}
+          style={{ textAlign: 'left', marginBottom: '1rem', marginTop: '1em' }}
         >
           Phone number
         </Text>
@@ -95,8 +106,6 @@ export function ContactInformationForm() {
           share your phone number.
         </Text>
         <TextInput
-          icon={<IconTwitter />}
-          iconPosition="left"
           value={phoneNumber}
           placeholder="Enter phone number"
           onChange={(event) =>
@@ -104,7 +113,7 @@ export function ContactInformationForm() {
           }
           style={{ marginBottom: '1rem' }}
         />
-        <Divider style={{ margin: '1rem 0' }} /> */}
+        <Divider style={{ margin: '1rem 0' }} />
       </Paper>
     </Container>
   );

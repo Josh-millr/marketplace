@@ -5,10 +5,10 @@ import {
   Group,
   Center,
   Progress,
-  MediaQuery,
   Text,
   Paper,
 } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import {
   IconMathGreater,
   IconNumber1,
@@ -29,6 +29,7 @@ export function FreelancerForm() {
   const [activeStep, setActiveStep] = useState(0);
   const [highestStepVisited, setHighestStepVisited] = useState(active);
   const progress = ((activeStep + 1) / totalSteps) * 100;
+  const isLargeScreen = useMediaQuery('(min-width: 75em)');
 
   const handleStepChange = (nextStep) => {
     const isOutOfBounds = nextStep > 3 || nextStep < 0;
@@ -57,7 +58,7 @@ export function FreelancerForm() {
   };
   return (
     <>
-      <MediaQuery query="(min-width: 62em)">
+      {isLargeScreen ? (
         <div style={{ margin: '0 auto' }}>
           <FormDataProvider
           // onSubmit={handleSubmit}
@@ -131,9 +132,7 @@ export function FreelancerForm() {
             )}
           </Group>
         </div>
-      </MediaQuery>
-
-      <MediaQuery query="(max-width: 62em) and (min-width: 36em)">
+      ) : (
         <div style={{ margin: '0 auto' }}>
           <FormDataProvider
           // onSubmit={handleSubmit}
@@ -239,7 +238,7 @@ export function FreelancerForm() {
             </div>
           </FormDataProvider>
         </div>
-      </MediaQuery>
+      )}
     </>
   );
 }
