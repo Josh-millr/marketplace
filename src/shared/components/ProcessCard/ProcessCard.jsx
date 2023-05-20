@@ -25,7 +25,7 @@ const mockdata = [
 ];
 
 export function ProcessCard() {
-  const { classes } = useStyles(); // theme
+  const { classes, theme } = useStyles();
 
   const processes = mockdata.map((process) => (
     <Card
