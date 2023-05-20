@@ -17,11 +17,10 @@ export function MarketplaceLayout({ layout, children }) {
 
   const { category } = useSelector((state) => state.general);
 
-  let activeNavBar;
-  if (layout === 'freelancer') {
+  let activeNavBar = null;
+  if (layout === 'freelancer' && opened) {
     activeNavBar = <MarketplaceFreelancerNavBar hidden={!opened} />;
-  }
-  if (layout === 'client') {
+  } else if (layout === 'client' && opened) {
     activeNavBar = <MarketplaceClientNavBar hidden={!opened} />;
   }
 
@@ -30,8 +29,7 @@ export function MarketplaceLayout({ layout, children }) {
     activeHeader = (
       <MarketplaceFreelancerHeader isMenuOpen={opened} openMenu={setOpened} />
     );
-  }
-  if (layout === 'client') {
+  } else if (layout === 'client') {
     activeHeader = (
       <MarketplaceClientHeader isMenuOpen={opened} openMenu={setOpened} />
     );
@@ -53,7 +51,7 @@ export function MarketplaceLayout({ layout, children }) {
       footer={footer}
       navbar={activeNavBar}
     >
-      <DesktopScreenCategoryMenu list={category} />
+      {layout === 'client' && <DesktopScreenCategoryMenu list={category} />}
       {children}
     </AppShell>
   );

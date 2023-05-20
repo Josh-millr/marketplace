@@ -5,26 +5,26 @@ export const StepperTheme = {
       stepLabel: {},
     };
 
-    // Conditional Stying for `size` props
+    // Conditional Styling for `size` props
     switch (params.size) {
       case 'xs':
         propStyles.stepLabel = {
-          ...theme.other.fontRule.label.sizes.sm,
+          ...theme.other.fontRule?.label?.sizes?.sm,
         };
         break;
       case 'sm':
         propStyles.stepLabel = {
-          ...theme.other.fontRule.label.sizes.md,
+          ...theme.other.fontRule?.label?.sizes?.md,
         };
         break;
       case 'md':
         propStyles.stepLabel = {
-          ...theme.other.fontRule.label.sizes.lg,
+          ...theme.other.fontRule?.label?.sizes?.lg,
         };
         break;
       default:
         propStyles.stepLabel = {
-          ...theme.other.fontRule.label.sizes.md,
+          ...theme.other.fontRule?.label?.sizes?.md,
         };
         break;
     }
@@ -38,7 +38,7 @@ export const StepperTheme = {
       },
 
       stepLabel: {
-        fontFamily: theme.other.fontRule.label.fontFamily,
+        fontFamily: theme.other.fontRule?.label?.fontFamily,
         fontWeight: 400,
         ...propStyles.stepLabel,
       },
