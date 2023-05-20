@@ -1,1 +1,1 @@
-export * from './components/FreelancerLocation';
+export * from './components/FreelancerLocationErrorPage';

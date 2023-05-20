@@ -17,4 +17,4 @@ export default function ClientHome() {
   );
 }
 
-export const getServerSideProps = withAuthorize(async () => ({ props: {} }));
+// export const getServerSideProps = withAuthorize(async () => ({ props: {} }));
