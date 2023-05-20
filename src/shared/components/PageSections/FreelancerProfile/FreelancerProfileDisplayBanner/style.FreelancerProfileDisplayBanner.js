@@ -12,7 +12,7 @@ export const useStyles = createStyles((theme) => ({
 
     [theme.fn.largerThan('md')]: {
       padding: '0px 114px',
-      width: '90%',
+      width: '95%',
       margin: `${theme.spacing.xl} auto`,
       height: '240px',
       borderRadius: '24px',
@@ -20,7 +20,7 @@ export const useStyles = createStyles((theme) => ({
 
     [theme.fn.largerThan('lg')]: {
       padding: '0px 114px',
-      width: '90%',
+      width: '95%',
       margin: `${theme.spacing.xl} auto`,
       height: '240px',
       borderRadius: '24px',

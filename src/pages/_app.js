@@ -87,7 +87,6 @@ AppRoot.getInitialProps = async (appContext) => {
   try {
     // const response = await authenticateUserApi(sessionToken);
     // const { userData } = response;
-
     const userData = [];
 
     return { ...appProps, userData, currPath };
