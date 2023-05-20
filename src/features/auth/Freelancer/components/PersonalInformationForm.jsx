@@ -8,7 +8,6 @@ import {
   Divider,
   Button,
   Avatar,
-  Group,
   Text,
 } from '@mantine/core';
 import { IconPhotoPlus } from '@tabler/icons-react';
@@ -39,23 +38,6 @@ export function PersonalInformationForm() {
 
   const handleLanguageChange = (value) => {
     setLanguages(value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Handle form submission here
-    console.log('Form submitted:', {
-      firstName,
-      lastName,
-      gender,
-      accountType,
-      email,
-      country,
-      userName,
-      languages,
-      profilePicture,
-    });
   };
 
   return (
@@ -235,7 +217,7 @@ export function PersonalInformationForm() {
           <Divider style={{ margin: '1rem 0' }} />
         </SimpleGrid>
 
-        <Group label="Languages" required style={{ marginBottom: '1rem' }}>
+        <SimpleGrid cols={1}>
           <Select
             searchable
             multiple
@@ -256,7 +238,7 @@ export function PersonalInformationForm() {
               value && value.toLowerCase().includes(query.toLowerCase())
             }
           />
-        </Group>
+        </SimpleGrid>
         <Divider style={{ margin: '1rem 0' }} />
       </Paper>
     </Container>

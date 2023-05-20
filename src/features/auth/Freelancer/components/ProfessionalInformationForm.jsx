@@ -6,12 +6,9 @@ import {
   Select,
   SimpleGrid,
   Divider,
-  Group,
-  // Badge,
   Text,
   Textarea,
 } from '@mantine/core';
-// import { IconPhotoPlus } from '@tabler/icons-react';
 
 export function ProfessionalInformationForm() {
   const [occupation, setOccupation] = useState('');
@@ -77,7 +74,7 @@ export function ProfessionalInformationForm() {
 
             <Divider style={{ margin: '1rem 0' }} />
 
-            <Group label="Skills" required style={{ marginBottom: '1rem' }}>
+            <SimpleGrid cols={1}>
               <Select
                 searchable
                 multiple
@@ -98,7 +95,7 @@ export function ProfessionalInformationForm() {
                   value && value.toLowerCase().includes(query.toLowerCase())
                 }
               />
-            </Group>
+            </SimpleGrid>
 
             <Divider style={{ margin: '1rem 0' }} />
 
@@ -110,6 +107,7 @@ export function ProfessionalInformationForm() {
               value={description}
               onChange={(event) => setDescription(event.currentTarget.value)}
               style={{ marginBottom: '1rem' }}
+              size="md"
             />
 
             <Divider style={{ margin: '1rem 0' }} />
@@ -118,11 +116,8 @@ export function ProfessionalInformationForm() {
               label="Your Personal website / Portfolio"
               description="Include a link to your personal website or portfolio with your work samples."
               value={portfolio}
-              onChange={(event) => {
-                const { value } = event.currentTarget;
-                // Check if the value already starts with "https://"
+              onChange={({ currentTarget: { value } }) => {
                 if (!value.startsWith('https://')) {
-                  // If not, add "https://" to the beginning
                   setPortfolio(`https://${value}`);
                 } else {
                   setPortfolio(value);
