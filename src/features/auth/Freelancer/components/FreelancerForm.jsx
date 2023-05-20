@@ -45,7 +45,7 @@ export function FreelancerForm() {
     highestStepVisited >= step && active !== step;
 
   const handleSubmit = (formData) => {
-    console.log('Form submitted:', formData);
+    console.log('Form submitted');
   };
 
   const handleNextStep = () => {

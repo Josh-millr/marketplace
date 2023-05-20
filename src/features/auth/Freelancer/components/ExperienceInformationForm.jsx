@@ -29,6 +29,15 @@ export function ExperienceInformationForm() {
       credentialId,
       credentialUrl,
     };
+    setCertificates((prevCertificates) => [
+      ...prevCertificates,
+      newCertificate,
+    ]);
+    setTitle('');
+    setIssuer('');
+    setIssueDate('');
+    setCredentialId('');
+    setCredentialUrl('');
   };
   const handleCancel = () => {
     setTitle('');
@@ -42,8 +51,6 @@ export function ExperienceInformationForm() {
     setIssueDate(value);
     setShowCalendar(false);
   };
-
-  setCertificates((prevCertificates) => [...prevCertificates, newCertificate]);
 
   const handleDeleteCertificate = (index) => {
     setCertificates((prevCertificates) =>
