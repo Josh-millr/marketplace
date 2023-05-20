@@ -10,19 +10,16 @@ import {
   Divider,
 } from '@mantine/core';
 import Capitalize from 'lodash/capitalize';
-import { GraduationCap, Clock, ViewGrid } from 'iconoir-react';
+import { GraduationCap, Clock, HandCash } from 'iconoir-react';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
 
 function LabelGroup({ icon, label, data }) {
+  const iconOptions = { icon, sizeOveride: 32, strokeOveride: 1 };
   return (
     <Group>
-      {iconCreator({
-        icon,
-        sizeOveride: 32,
-        strokeOveride: 1,
-      })}
+      {iconCreator(iconOptions)}
       <div>
         <Title className="label-lg" tt="capitalize" fw={'700!important'}>
           {data}
@@ -35,17 +32,56 @@ function LabelGroup({ icon, label, data }) {
   );
 }
 
+function OptionsBar({ data }) {
+  return (
+    <Stack spacing="xl">
+      <Divider />
+      <Grid>
+        <Grid.Col span={6} md={4}>
+          <LabelGroup
+            icon={HandCash}
+            label="Price Type"
+            data={data.priceType}
+          />
+        </Grid.Col>
+        <Grid.Col span={6} md={4}>
+          <LabelGroup
+            icon={GraduationCap}
+            label="Experience"
+            data={data.experienceLevel}
+          />
+        </Grid.Col>
+        <Grid.Col span={6} md={4}>
+          <LabelGroup
+            icon={Clock}
+            label="Projected Duration"
+            data={`${data?.projectedDuration} Days`}
+          />
+        </Grid.Col>
+      </Grid>
+      <Divider />
+    </Stack>
+  );
+}
+
+function Details({ data }) {
+  return (
+    <Stack spacing="2xl">
+      <Title className="sub-h2">{data?.title}</Title>
+      <Text className="body-md">{data?.description}</Text>
+    </Stack>
+  );
+}
+
+function Attachments({ data }) {
+  return <div></div>;
+}
+
 export const FreelancerMarketplaceProjectDetailsSection = memo((props) => {
   const { data, opened, close } = props;
 
   return (
-    <Drawer.Root
-      opened={opened}
-      onClose={close}
-      size={756}
-      position="right"
-      overlayProps={{ opacity: 0.5, blur: 4 }}
-    >
+    <Drawer.Root opened={opened} onClose={close} size={756} position="right">
       <Drawer.Overlay />
       <Drawer.Content>
         <Drawer.Header px="xl">
@@ -57,38 +93,12 @@ export const FreelancerMarketplaceProjectDetailsSection = memo((props) => {
         </Drawer.Header>
 
         <Drawer.Body>
-          <Stack spacing="2xl">
-            <Title className="sub-h2">{data?.title}</Title>
-            <Text className="body-md">{data?.description}</Text>
-          </Stack>
-
-          <Stack spacing="xl">
-            <Divider />
-            <Grid>
-              <Grid.Col span={6} md={4}>
-                <LabelGroup
-                  icon={GraduationCap}
-                  label="Experience"
-                  data={data.experienceLevel}
-                />
-              </Grid.Col>
-              <Grid.Col span={6} md={4}>
-                <LabelGroup
-                  icon={Clock}
-                  label="Projected Duration"
-                  data={data?.projectedDuration}
-                />
-              </Grid.Col>
-              <Grid.Col span={6} md={4}>
-                <LabelGroup
-                  icon={ViewGrid}
-                  label="Category"
-                  data={data?.category?.main}
-                />
-              </Grid.Col>
-            </Grid>
-            <Divider />
-          </Stack>
+          <Details data={data} />
+          <div>
+            <Text className="h2">{displayNumberInNaira(data.budget || 0)}</Text>
+          </div>
+          <OptionsBar data={data} />
+          <Attachments data={data} />
         </Drawer.Body>
       </Drawer.Content>
     </Drawer.Root>
