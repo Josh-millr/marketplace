@@ -9,7 +9,6 @@ export const StepperTheme = {
     switch (params.size) {
       case 'xs':
         propStyles.stepLabel = {
-          // Use optional chaining to prevent error if any property is undefined
           ...theme.other.fontRule?.label?.sizes?.sm,
         };
         break;

@@ -6,7 +6,7 @@ import { ProcessCard } from '@/shared/components/ProcessCard/ProcessCard';
 import { useStyles } from '@/shared/components/ProcessCard/style.Card';
 
 export function OnboardingWelcome() {
-  const { classes } = useStyles(); // theme
+  const { classes } = useStyles();
   const router = useRouter(); // Initialize the router
 
   const handleButtonClick = () => {
