@@ -7,11 +7,11 @@ import {
   SimpleGrid,
   Divider,
   Group,
-  Badge,
+  // Badge,
   Text,
   Textarea,
 } from '@mantine/core';
-import { IconPhotoPlus } from '@tabler/icons-react';
+// import { IconPhotoPlus } from '@tabler/icons-react';
 
 export function ProfessionalInformationForm() {
   const [occupation, setOccupation] = useState('');
@@ -119,7 +119,7 @@ export function ProfessionalInformationForm() {
               description="Include a link to your personal website or portfolio with your work samples."
               value={portfolio}
               onChange={(event) => {
-                const value = event.currentTarget.value;
+                const { value } = event.currentTarget;
                 // Check if the value already starts with "https://"
                 if (!value.startsWith('https://')) {
                   // If not, add "https://" to the beginning

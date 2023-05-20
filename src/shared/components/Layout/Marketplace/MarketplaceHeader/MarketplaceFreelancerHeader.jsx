@@ -3,18 +3,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import {
-  Group,
-  Center,
-  Button,
-  MediaQuery,
-  useMantineTheme,
-} from '@mantine/core';
+import { Group, Center, Button, MediaQuery } from '@mantine/core';
 import { PageContainer } from '@/shared/components/PageContainer';
 
-export const MarketplaceFreelancerHeader = () => {
+export const MarketplaceFreelancerHeader = memo(() => {
   const router = useRouter();
-  const { colors } = useMantineTheme();
 
   return (
     <Center h="100%">
@@ -44,4 +37,4 @@ export const MarketplaceFreelancerHeader = () => {
       </PageContainer>
     </Center>
   );
-};
+});

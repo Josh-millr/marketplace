@@ -1,11 +1,6 @@
-import React, { useState } from 'react';
-import { Stepper, Button, Group, Content } from '@mantine/core';
+import { useState } from 'react';
+import { Stepper, Button, Group, Center } from '@mantine/core';
 import FormDataProvider from '@/shared/providers/FormDataProvider';
-import { PersonalInformationForm } from './PersonalInformationForm';
-import { ProfessionalInformationForm } from './ProfessionalInformationForm';
-import { ExperienceInformationForm } from './ExperienceInformationForm';
-import { ContactInformationForm } from './ContactInformationForm';
-import { OnboardingSuccess } from './OnboardingSuccess';
 import {
   IconMathGreater,
   IconNumber1,
@@ -13,6 +8,12 @@ import {
   IconNumber3,
   IconNumber4,
 } from '@tabler/icons-react';
+
+import { PersonalInformationForm } from './PersonalInformationForm';
+import { ProfessionalInformationForm } from './ProfessionalInformationForm';
+import { ExperienceInformationForm } from './ExperienceInformationForm';
+import { ContactInformationForm } from './ContactInformationForm';
+import { OnboardingSuccess } from './OnboardingSuccess';
 
 export function FreelancerForm() {
   const [active, setActive] = useState(0);
@@ -76,9 +77,9 @@ export function FreelancerForm() {
           </Stepper.Step>
 
           <Stepper.Completed>
-            <Content>
+            <Center>
               Completed, click back button to get to the previous step
-            </Content>
+            </Center>
           </Stepper.Completed>
         </Stepper>
       </FormDataProvider>
