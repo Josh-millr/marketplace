@@ -1,11 +1,11 @@
 import { useDispatch } from 'react-redux';
 
-import { MarketplaceLayout } from '@/shared/components/Layout';
-import { withAuthorize } from '@/shared/hocs/withAuthorize';
+// import { withAuthorize } from '@/shared/hocs/withAuthorize';
 import { generalActions } from '@/state/general/generalReducer';
-import { getCategoriesApi } from '@/shared/services/getCategoriesApi';
+// import { getCategoriesApi } from '@/shared/services/getCategoriesApi';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { ClientMarketplaceTopServices } from '@/shared/components/PageSections/ClientMarketplace';
+import { MarketplaceLayout } from '@/shared/components/Layout/Marketplace/Marketplace';
 
 /**
  *

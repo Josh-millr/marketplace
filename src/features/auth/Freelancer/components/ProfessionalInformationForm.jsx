@@ -116,11 +116,8 @@ export function ProfessionalInformationForm() {
               label="Your Personal website / Portfolio"
               description="Include a link to your personal website or portfolio with your work samples."
               value={portfolio}
-              onChange={(event) => {
-                const value = event.currentTarget.value;
-                // Check if the value already starts with "https://"
+              onChange={({ currentTarget: { value } }) => {
                 if (!value.startsWith('https://')) {
-                  // If not, add "https://" to the beginning
                   setPortfolio(`https://${value}`);
                 } else {
                   setPortfolio(value);

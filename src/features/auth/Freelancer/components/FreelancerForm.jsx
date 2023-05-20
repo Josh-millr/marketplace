@@ -44,9 +44,9 @@ export function FreelancerForm() {
   const shouldAllowSelectStep = (step) =>
     highestStepVisited >= step && active !== step;
 
-  const handleSubmit = (formData) => {
-    console.log('Form submitted');
-  };
+  // const handleSubmit = () => {
+  //   //sUBMIT
+  // };
 
   const handleNextStep = () => {
     setActiveStep((prevStep) => Math.min(prevStep + 1, totalSteps - 1));
@@ -59,7 +59,9 @@ export function FreelancerForm() {
     <>
       <MediaQuery query="(min-width: 62em)">
         <div style={{ margin: '0 auto' }}>
-          <FormDataProvider onSubmit={handleSubmit}>
+          <FormDataProvider
+          // onSubmit={handleSubmit}
+          >
             <Stepper
               color="green"
               size="xs"
@@ -133,7 +135,9 @@ export function FreelancerForm() {
 
       <MediaQuery query="(max-width: 62em) and (min-width: 36em)">
         <div style={{ margin: '0 auto' }}>
-          <FormDataProvider onSubmit={handleSubmit}>
+          <FormDataProvider
+          // onSubmit={handleSubmit}
+          >
             <Text variant="h4" align="center" style={{ marginBottom: '1rem' }}>
               Current Progress - {progress}%
             </Text>
@@ -201,7 +205,7 @@ export function FreelancerForm() {
                     Contact Information
                   </Text>
                   <ContactInformationForm
-                    onSubmit={handleSubmit}
+                    // onSubmit={handleSubmit}
                     onPreviousStep={handlePreviousStep}
                   />
                 </>
@@ -225,7 +229,10 @@ export function FreelancerForm() {
               )}
 
               {activeStep === totalSteps - 1 && (
-                <Button onClick={handleSubmit} variant="filled">
+                <Button
+                  // onClick={handleSubmit}
+                  variant="filled"
+                >
                   Finish
                 </Button>
               )}

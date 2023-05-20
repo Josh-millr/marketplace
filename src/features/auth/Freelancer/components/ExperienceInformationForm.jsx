@@ -54,7 +54,7 @@ export function ExperienceInformationForm() {
 
   const handleDeleteCertificate = (index) => {
     setCertificates((prevCertificates) =>
-      prevCertificates.filter((_, i) => i !== index)
+      prevCertificates.filter((certificate, i) => i !== index)
     );
   };
 

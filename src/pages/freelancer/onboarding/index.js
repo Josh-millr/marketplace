@@ -1,13 +1,11 @@
 import { useDispatch } from 'react-redux';
 
-import { FreelancerOnboardingLayout } from '@/shared/components/Layout';
-import { withAuthorize } from '@/shared/hocs/withAuthorize';
+// import { withAuthorize } from '@/shared/hocs/withAuthorize';
 import { generalActions } from '@/state/general/generalReducer';
-import { getCategoriesApi } from '@/shared/services/getCategoriesApi';
+// import { getCategoriesApi } from '@/shared/services/getCategoriesApi';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { OnboardingWelcome } from '@/features/auth/Freelancer/components/OnboardingWelcome';
-
-
+import { FreelancerOnboardingLayout } from '@/shared/components/Layout';
 
 export default function Onboarding({ category }) {
   const dispatch = useDispatch();
