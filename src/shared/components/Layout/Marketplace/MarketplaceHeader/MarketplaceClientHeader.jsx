@@ -2,6 +2,7 @@ import { memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
 import {
   Text,
@@ -25,6 +26,15 @@ import { PageContainer } from '@/shared/components/PageContainer';
 export const MarketplaceClientHeader = memo(({ isMenuOpen, openMenu }) => {
   const router = useRouter();
   const { colors } = useMantineTheme();
+  const userLocation = useSelector((state) => state.user.location);
+
+  const handleLocationCheck = () => {
+    if (userLocation === 'Nigeria') {
+      router.push('/freelancer/onboarding');
+    } else {
+      router.push('/location_error');
+    }
+  };
 
   return (
     <Center h="100%">
@@ -64,9 +74,17 @@ export const MarketplaceClientHeader = memo(({ isMenuOpen, openMenu }) => {
                     Post Job
                   </Button>
 
-                  <Link href="/freelancer/onboarding">
+                  <Button
+                    variant="text"
+                    style={{
+                      border: 'none',
+                      backgroundColor: 'transparent',
+                      color: 'green',
+                    }}
+                    onClick={handleLocationCheck}
+                  >
                     <Text className="link-sm">Become a seller</Text>
-                  </Link>
+                  </Button>
                 </Group>
               </MediaQuery>
             </Group>

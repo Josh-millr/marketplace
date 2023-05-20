@@ -70,14 +70,14 @@ export function ExperienceInformationForm() {
         <Text
           variant="h1"
           size="lg"
-          style={{ textAlign: 'left', marginBottom: '1rem' }}
+          style={{ textAlign: 'left', marginTop: '1em', marginBottom: '1rem' }}
         >
           Experience Information
         </Text>
         <Text
           variant="h2"
           size="md"
-          style={{ textAlign: 'left', marginBottom: '1rem' }}
+          style={{ textAlign: 'left', marginTop: '1em', marginBottom: '1rem' }}
         >
           Showcase your qualifications and proof of expertise. This will improve
           your chances of getting more jobs and overall increases your chances
@@ -231,11 +231,13 @@ export function ExperienceInformationForm() {
           style={{
             display: 'flex',
             justifyContent: 'left',
-            padding: '4em',
             marginTop: '2em',
+            marginBottom: '3em',
           }}
         >
-          <Button onClick={handleCancel}>Cancel</Button>
+          <Button onClick={handleCancel} style={{ marginRight: '1em' }}>
+            Cancel
+          </Button>
           <Button onClick={handleAddCertificate}>Add Certificate</Button>
         </div>
       </Paper>
