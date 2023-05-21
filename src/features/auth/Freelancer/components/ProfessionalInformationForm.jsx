@@ -15,7 +15,7 @@ export function ProfessionalInformationForm() {
   const [title, setTitle] = useState('');
   const [skills, setSkills] = useState('');
   const [description, setDescription] = useState('');
-  const [portfolio, setPortfolio] = useState('');
+  const [portfolio, setPortfolio] = useState('https://');
 
   const handleSkillsChange = (value) => {
     setSkills(value);

@@ -9,7 +9,7 @@ import {
 } from '@mantine/core';
 
 import {
-  IconBrandFacebook,
+  IconBrandFacebookFilled,
   IconBrandInstagram,
   IconBrandTwitterFilled,
 } from '@tabler/icons-react';
@@ -53,7 +53,7 @@ export function ContactInformationForm() {
         <Grid>
           <Grid.Col>
             <TextInput
-              icon={<IconBrandFacebook />}
+              icon={<IconBrandFacebookFilled style={{ color: 'blue' }} />}
               iconColor="blue"
               iconPosition="left"
               placeholder="@username"
@@ -77,8 +77,7 @@ export function ContactInformationForm() {
 
           <Grid.Col>
             <TextInput
-              icon={<IconBrandTwitterFilled />}
-              iconColor="blue"
+              icon={<IconBrandTwitterFilled style={{ color: 'blue' }} />}
               iconPosition="left"
               value={twitter}
               placeholder="@username"
@@ -108,9 +107,13 @@ export function ContactInformationForm() {
         <TextInput
           value={phoneNumber}
           placeholder="Enter phone number"
-          onChange={(event) =>
-            setPhoneNumber(`+234${event.currentTarget.value}`)
-          }
+          onChange={({ currentTarget: { value } }) => {
+            if (!value.startsWith('+234')) {
+              setPhoneNumber(`+234${value}`);
+            } else {
+              setPhoneNumber(value);
+            }
+          }}
           style={{ marginBottom: '1rem' }}
         />
         <Divider style={{ margin: '1rem 0' }} />
