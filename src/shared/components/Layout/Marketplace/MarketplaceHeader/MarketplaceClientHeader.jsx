@@ -26,10 +26,10 @@ import { PageContainer } from '@/shared/components/PageContainer';
 export const MarketplaceClientHeader = memo(({ isMenuOpen, openMenu }) => {
   const router = useRouter();
   const { colors } = useMantineTheme();
-  const userLocation = useSelector((state) => state.user.location);
+  const { user } = useSelector((state) => state.user);
 
   const handleLocationCheck = () => {
-    if (userLocation === 'Nigeria') {
+    if (user.location === 'nigeria') {
       router.push('/freelancer/onboarding');
     } else {
       router.push('/location_error');
