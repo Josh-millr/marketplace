@@ -114,7 +114,9 @@ export function FreelancerForm() {
           </FormDataProvider>
           <Group position="left" mt="xl">
             <Button
-              variant="outline"
+              variant="subtle"
+              color="teal"
+              size="sm"
               leftIcon={<IconMathGreater size="1rem" />}
               onClick={() => handleStepChange(active - 1)}
               disabled={active === 0}

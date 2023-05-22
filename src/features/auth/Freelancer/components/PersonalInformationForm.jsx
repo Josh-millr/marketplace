@@ -11,15 +11,11 @@ import {
   Text,
 } from '@mantine/core';
 import { IconPhotoPlus } from '@tabler/icons-react';
+import { useSelector } from 'react-redux';
 
 export function PersonalInformationForm() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [gender, setGender] = useState('');
-  const [accountType, setAccountType] = useState('');
-  const [email, setEmail] = useState('');
-  const [country, setCountry] = useState('');
-  const [userName, setUserName] = useState('');
+  const { user } = useSelector((state) => state.user);
+
   const [languages, setLanguages] = useState([]);
   const [profilePicture, setProfilePicture] = useState(null);
 
@@ -36,9 +32,19 @@ export function PersonalInformationForm() {
     }
   };
 
-  const handleLanguageChange = (value) => {
-    setLanguages(value);
+  // const handleLanguageChange = (value) => {
+  //   setLanguages(value);
+  // };
+
+  const handleLanguageChange = (newLanguages) => {
+    setLanguages(newLanguages);
   };
+
+  // const handleRemoveLanguage = (index) => {
+  //   const updatedLanguages = [...languages];
+  //   updatedLanguages.splice(index, 1);
+  //   setLanguages(updatedLanguages);
+  // };
 
   return (
     <Container style={{ display: 'flex', justifyContent: 'center' }}>
@@ -138,15 +144,13 @@ export function PersonalInformationForm() {
             <TextInput
               label="First Name"
               required
-              value={firstName}
-              onChange={(event) => setFirstName(event.currentTarget.value)}
+              value={user.firstname}
               style={{ marginBottom: '1rem' }}
             />
             <TextInput
               label="Last Name"
               required
-              value={lastName}
-              onChange={(event) => setLastName(event.currentTarget.value)}
+              value={user.lastname}
               style={{ marginBottom: '1rem' }}
             />
           </SimpleGrid>
@@ -156,18 +160,23 @@ export function PersonalInformationForm() {
           <SimpleGrid cols={1} breakpoints={[{ minWidth: 'md', cols: 2 }]}>
             <Select
               label="Gender"
-              placeholder="Select gender"
-              data={['Male', 'Female', 'Other']}
-              value={gender}
-              onChange={(value) => setGender(value)}
+              placeholder="choose gender"
+              data={[
+                { value: 'male', label: 'Male' },
+                { value: 'female', label: 'Female' },
+                { value: 'other', label: 'Other' },
+              ]}
+              value={user.gender}
               style={{ marginBottom: '1rem' }}
             />
             <Select
               label="Account Type"
               placeholder="Select account type"
-              data={['Individual', 'Company']}
-              value={accountType}
-              onChange={(value) => setAccountType(value)}
+              data={[
+                { value: 'individual', label: 'Individual' },
+                { value: 'business', label: 'Business' },
+              ]}
+              value={user.accounttype}
               style={{ marginBottom: '1rem' }}
             />
           </SimpleGrid>
@@ -179,15 +188,13 @@ export function PersonalInformationForm() {
               type="email"
               label="Email"
               required
-              value={email}
-              onChange={(event) => setEmail(event.currentTarget.value)}
+              value={user.email}
               style={{ marginBottom: '1rem' }}
             />
             <TextInput
               label="Country"
               required
-              value={country}
-              onChange={(event) => setCountry(event.currentTarget.value)}
+              value={user.location}
               style={{ marginBottom: '1rem' }}
             />
           </SimpleGrid>
@@ -200,16 +207,14 @@ export function PersonalInformationForm() {
               description=" Use 3 to 15 characters, letters, numbers, and underscores only,
             eg. ola_mike."
               required
-              value={userName}
-              onChange={(event) => setUserName(event.currentTarget.value)}
+              value={user.username}
               style={{ marginBottom: '1rem' }}
             />
             <TextInput
               label="Country"
               description="We’re currently rolling out a few countries, visit our country roll-out plan for more into"
               required
-              value={country}
-              onChange={(event) => setCountry(event.currentTarget.value)}
+              value={user.location}
               style={{ marginBottom: '1rem' }}
             />
           </SimpleGrid>
@@ -225,17 +230,17 @@ export function PersonalInformationForm() {
             description="Use 3 to 15 characters, letters, numbers, and underscores only, eg. ola_mike"
             placeholder="Select languages"
             data={[
-              'English',
-              'Spanish',
-              'French',
-              'German',
-              'Italian',
-              'Japanese',
+              { value: 'english', label: 'English' },
+              { value: 'spanish', label: 'Spanish' },
+              { value: 'french', label: 'French' },
+              { value: 'german', label: 'German' },
+              { value: 'italian', label: 'Italian' },
+              { value: 'japanese', label: 'Japanese' },
             ]}
             value={languages}
             onChange={handleLanguageChange}
-            filter={(value, query) =>
-              value && value.toLowerCase().includes(query.toLowerCase())
+            filter={(value, item) =>
+              item.label.toLowerCase().includes(value.toLowerCase().trim())
             }
           />
         </SimpleGrid>
