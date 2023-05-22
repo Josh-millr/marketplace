@@ -6,35 +6,35 @@
       "name": "Jennifer Smith",
       "img": "https://picsum.photos/200",
       "job": "Web developer",
-      "href": "/profile/jake"
+      "href": "/creator/jake"
     },
     {
       "_id": "asdbvkajsiajsdgbyi23bqouu13",
       "name": "Jennifer Smith",
       "img": "https://picsum.photos/200",
       "job": "Web developer",
-      "href": "/profile/jake"
+      "href": "/creator/jake"
     },
     {
       "_id": "asdbvkajsbqo23r8hy3u8roi2uu13",
       "name": "David Thompson",
       "img": "https://picsum.photos/200",
       "job": "UI/UX designer",
-      "href": "/profile/jake"
+      "href": "/creator/jake"
     },
     {
       "_id": "asdbvkaj6e7fv8whuwosbqouu13",
       "name": "Alexis Johnson",
       "img": "https://picsum.photos/200",
       "job": "Front-end developer",
-      "href": "/profile/jake"
+      "href": "/creator/jake"
     },
     {
       "_id": "asdbvka0485iguvnjjsbqouu13",
       "name": "Sophia Martinez",
       "img": "https://picsum.photos/200",
       "job": "Product manager",
-      "href": "/profile/jake"
+      "href": "/creator/jake"
     }
   ]
 }

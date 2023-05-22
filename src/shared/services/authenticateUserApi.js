@@ -4,7 +4,7 @@ import { serverDown } from '../constants/feedbackMessage';
 // Authenticated the user session token and return the associated user datd
 
 export const authenticateUserApi = async (sessionToken) => {
-  const endpoint = '/api/verify-token';
+  const endpoint = '/verify-token';
 
   try {
     const headers = { 'auth-token': sessionToken };

@@ -12,3 +12,7 @@ export default function FreelancerHome() {
     </>
   );
 }
+
+export async function getStaticProps() {
+  return { props: {} };
+}

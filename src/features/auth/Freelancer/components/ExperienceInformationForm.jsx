@@ -9,7 +9,7 @@ import {
   ActionIcon,
   SimpleGrid,
 } from '@mantine/core';
-import { DateInput } from '@mantine/dates';
+
 import { IconCalendar, IconX } from '@tabler/icons-react';
 
 export function ExperienceInformationForm() {
@@ -53,8 +53,7 @@ export function ExperienceInformationForm() {
 
   const handleDeleteCertificate = (index) => {
     setCertificates((prevCertificates) =>
-      prevCertificates.filter((certificate, i) => i !== index)
-    );
+      prevCertificates.filter((certificate, i) => i !== index));
   };
 
   return (

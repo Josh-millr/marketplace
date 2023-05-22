@@ -8,7 +8,7 @@ export const HamzryAPI = axios.create({
    * TODO: Switch to using enviromental variable for consuming sever URL
    * @see https://vercel.com/docs/concepts/projects/environment-variables#
    */
-  baseURL: 'https://hamzry.onrender.com',
+  baseURL: 'https://api.hamzry.com/api/',
   timeout: 5000,
   headers: {
     common: {

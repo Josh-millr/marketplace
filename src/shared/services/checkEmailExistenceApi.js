@@ -4,7 +4,7 @@ import { CatchError } from '@/shared/utils/CatchError';
 // Checks the existence of username of the database
 
 export const checkEmailExistenceApi = async (email) => {
-  const path = '/api/checkemail';
+  const path = '/checkemail';
 
   try {
     const response = await HamzryAPI.post(path, email);

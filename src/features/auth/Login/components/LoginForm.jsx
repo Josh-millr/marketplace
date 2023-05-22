@@ -49,18 +49,21 @@ export function LoginForm() {
     if (isFormValid !== true) return null;
 
     const response = await login(values);
-    const { success, result } = response;
 
-    if (success) {
-      if (result.role === ROLES.CLIENT) router.push('/client');
-      if (result.role === ROLES.FREELANCER) router.push('/freelancer');
-    }
+    if (response) {
+      const { success, result } = response;
 
-    if (success === false) {
-      form.setErrors({
-        email: emailFailedLogin.statement,
-        password: passwordFailedLogin.statement,
-      });
+      if (success) {
+        if (result.role === ROLES.CLIENT) router.push('/client');
+        if (result.role === ROLES.FREELANCER) router.push('/freelancer');
+      }
+
+      if (success === false) {
+        form.setErrors({
+          email: emailFailedLogin.statement,
+          password: passwordFailedLogin.statement,
+        });
+      }
     }
   });
 

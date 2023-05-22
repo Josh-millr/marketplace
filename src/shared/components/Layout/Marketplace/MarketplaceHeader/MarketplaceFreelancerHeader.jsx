@@ -2,36 +2,120 @@ import { memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
-import { Group, Center, Button, MediaQuery } from '@mantine/core';
+import {
+  Text,
+  Group,
+  Burger,
+  Avatar,
+  Divider,
+  Center,
+  Button,
+  ActionIcon,
+  Indicator,
+  MediaQuery,
+  useMantineTheme,
+} from '@mantine/core';
+import { Bell, Mail } from 'iconoir-react';
+
+import { Search } from '@/features/search';
+import { iconCreator } from '@/shared/utils/iconCreator';
 import { PageContainer } from '@/shared/components/PageContainer';
 
-export const MarketplaceFreelancerHeader = memo(() => {
+export const MarketplaceFreelancerHeader = memo(({ isMenuOpen, openMenu }) => {
   const router = useRouter();
+  const { colors } = useMantineTheme();
 
   return (
     <Center h="100%">
       <PageContainer layout="marketplace">
         <PageContainer.Marketplace>
-          <Group position="apart" align="center">
-            <Link href="/">
-              <Image
-                height={40}
-                width={115}
-                alt="hamzry logo"
-                src="/logo/hamzry/SVG/logo-hamzry-full-colored-115x40.svg"
-              />
-            </Link>
+          <Group position="apart">
+            <Group spacing="xl">
+              <MediaQuery largerThan="lg" styles={{ display: 'none' }}>
+                <Burger
+                  mr="md"
+                  size="sm"
+                  opened={isMenuOpen}
+                  color={colors.neutral[6]}
+                  onClick={() => openMenu((o) => !o)}
+                />
+              </MediaQuery>
 
-            <MediaQuery smallerThan="lg">
-              <Button
-                variant="outline"
-                color="red"
-                onClick={() => router.back()}
-              >
-                Cancel
-              </Button>
-            </MediaQuery>
+              <Link href="/">
+                <Image
+                  height={40}
+                  width={115}
+                  alt="hamzry logo"
+                  src="/logo/hamzry/SVG/logo-hamzry-full-colored-115x40.svg"
+                />
+              </Link>
+
+              <MediaQuery smallerThan="lg" styles={{ display: 'none' }}>
+                <Group spacing="xl">
+                  <Divider orientation="vertical" />
+
+                  <Button
+                    variant="filled"
+                    onClick={() =>
+                      router.push(
+                        '/dashboard/freelancer/service/create-service'
+                      )
+                    }
+                  >
+                    Post Service
+                  </Button>
+                </Group>
+              </MediaQuery>
+            </Group>
+
+            <Group spacing="xl">
+              <MediaQuery smallerThan="lg" styles={{ display: 'none' }}>
+                <Link href="/dashboard/freelancer">
+                  <Text className="link-sm">Dashboard</Text>
+                </Link>
+              </MediaQuery>
+
+              <Search />
+
+              <MediaQuery smallerThan="lg" styles={{ display: 'none' }}>
+                <Group spacing="xl">
+                  <Indicator
+                    size={24}
+                    disabled={false}
+                    withBorder
+                    inline
+                    offset={3}
+                    label="+2"
+                  >
+                    <ActionIcon variant="transparent">
+                      {iconCreator({ icon: Mail, sizeOveride: 24 })}
+                    </ActionIcon>
+                  </Indicator>
+
+                  <Indicator
+                    size={14}
+                    disabled={false}
+                    withBorder
+                    processing
+                    inline
+                    offset={4}
+                  >
+                    <ActionIcon variant="transparent">
+                      {iconCreator({ icon: Bell, sizeOveride: 24 })}
+                    </ActionIcon>
+                  </Indicator>
+
+                  {/*  TODO: Add user avatar link to account profile */}
+                  <Avatar
+                    src="https://picsum.photos/200"
+                    radius={9999}
+                    size="md"
+                  />
+                </Group>
+              </MediaQuery>
+            </Group>
           </Group>
         </PageContainer.Marketplace>
       </PageContainer>
