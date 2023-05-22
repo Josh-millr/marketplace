@@ -3,23 +3,23 @@ import {
   Container,
   Paper,
   TextInput,
-  Calendar,
   Divider,
   Text,
   Button,
   ActionIcon,
   SimpleGrid,
 } from '@mantine/core';
+
 import { IconCalendar, IconX } from '@tabler/icons-react';
 
 export function ExperienceInformationForm() {
   const [certificates, setCertificates] = useState([]);
   const [title, setTitle] = useState('');
   const [issuer, setIssuer] = useState('');
-  const [issueDate, setIssueDate] = useState('');
+  const [issueDate, setIssueDate] = useState(null);
+
   const [credentialId, setCredentialId] = useState('');
-  const [credentialUrl, setCredentialUrl] = useState('');
-  const [showCalendar, setShowCalendar] = useState(false);
+  const [credentialUrl, setCredentialUrl] = useState('https://');
 
   const handleAddCertificate = () => {
     if (title && issuer && issueDate && credentialId && credentialUrl) {
@@ -49,11 +49,6 @@ export function ExperienceInformationForm() {
     setIssueDate('');
     setCredentialId('');
     setCredentialUrl('');
-  };
-
-  const handleCalendarChange = (value) => {
-    setIssueDate(value);
-    setShowCalendar(false);
   };
 
   const handleDeleteCertificate = (index) => {
@@ -161,69 +156,65 @@ export function ExperienceInformationForm() {
           </div>
         )}
 
-        <SimpleGrid
-          cols={1}
-          spacing="xl"
-          mt={{ md: 50 }}
-          // breakpoints={[{ minWidth: 'md', cols: 2 }]}
-        >
-          <SimpleGrid cols={1} breakpoints={[{ minWidth: 'md', cols: 2 }]}>
-            <TextInput
-              label="Certificate Title"
-              placeholder="Enter certificate title"
-              value={title}
-              required
-              onChange={(event) => setTitle(event.currentTarget.value)}
-            />
-
-            <TextInput
-              label="Issuer"
-              placeholder="Enter issuer"
-              value={issuer}
-              required
-              onChange={(event) => setIssuer(event.currentTarget.value)}
-            />
-          </SimpleGrid>
-
-          <SimpleGrid cols={1} breakpoints={[{ minWidth: 'md', cols: 2 }]}>
-            <TextInput
-              label="Issue Date"
-              placeholder="Enter issue date"
-              value={issueDate}
-              onChange={(event) => setIssueDate(event.currentTarget.value)}
-              icon={<IconCalendar />}
-              iconPosition="right"
-              required
-              onIconClick={() => setShowCalendar(true)}
-            />
-            {showCalendar && (
-              <Calendar
-                style={{ position: 'absolute', zIndex: 1 }}
-                value={issueDate}
-                onChange={handleCalendarChange}
-                withSelect
+        <div style={{ backgroundColor: '#EFEFEF', padding: '2em' }}>
+          <SimpleGrid
+            cols={1}
+            spacing="xl"
+            // breakpoints={[{ minWidth: 'md', cols: 2 }]}
+          >
+            <SimpleGrid cols={1} breakpoints={[{ minWidth: 'md', cols: 2 }]}>
+              <TextInput
+                label="Certificate Title"
+                placeholder="Certificate or Award"
+                value={title}
+                required
+                onChange={(event) => setTitle(event.currentTarget.value)}
               />
-            )}
 
-            <TextInput
-              label="Credential ID"
-              placeholder="Enter credential ID"
-              value={credentialId}
-              required
-              onChange={(event) => setCredentialId(event.currentTarget.value)}
-            />
-          </SimpleGrid>
+              <TextInput
+                label="Issuer"
+                placeholder="(eg Adobe, google...)"
+                value={issuer}
+                required
+                onChange={(event) => setIssuer(event.currentTarget.value)}
+              />
+            </SimpleGrid>
 
-          <SimpleGrid cols={1} breakpoints={[{ minWidth: 'md', cols: 2 }]}>
-            <TextInput
-              label="Credential URL"
-              placeholder="Enter credential URL"
-              value={credentialUrl}
-              required
-              onChange={(event) => setCredentialUrl(event.currentTarget.value)}
-            />
+            <SimpleGrid cols={1} breakpoints={[{ minWidth: 'md', cols: 2 }]}>
+              <DateInput
+                label="Issue Date"
+                placeholder="(eg. May 25, 2023)"
+                value={issueDate}
+                onChange={setIssueDate}
+                rightSection={<IconCalendar />}
+                required
+              />
+
+              <TextInput
+                label="Credential ID"
+                placeholder="(eg. 12631SSDJs3)"
+                value={credentialId}
+                required
+                onChange={(event) => setCredentialId(event.currentTarget.value)}
+              />
+            </SimpleGrid>
+
+            <SimpleGrid cols={1} breakpoints={[{ minWidth: 'md', cols: 2 }]}>
+              <TextInput
+                label="Credential URL"
+                value={credentialUrl}
+                required
+                onChange={({ currentTarget: { value } }) => {
+                  if (!value.startsWith('https://')) {
+                    setCredentialUrl(`https://${value}`);
+                  } else {
+                    setCredentialUrl(value);
+                  }
+                }}
+              />
+            </SimpleGrid>
           </SimpleGrid>
-        </SimpleGrid>
+        </div>
         <div
           style={{
             display: 'flex',
@@ -232,10 +223,18 @@ export function ExperienceInformationForm() {
             marginBottom: '3em',
           }}
         >
-          <Button onClick={handleCancel} style={{ marginRight: '1em' }}>
+          <Button variant="subtle" color="teal" onClick={handleCancel}>
             Cancel
           </Button>
-          <Button onClick={handleAddCertificate}>Add Certificate</Button>
+
+          <Button
+            color="teal"
+            size="sm"
+            variant="outline"
+            onClick={handleAddCertificate}
+          >
+            Add
+          </Button>
         </div>
       </Paper>
     </Container>
