@@ -2,7 +2,7 @@ import { HamzryAPI } from '@/config/api/HamzryAPI';
 import { CatchError } from '@/shared/utils/CatchError';
 
 export const loginUserApi = async (credentials) => {
-  const path = '/api/login';
+  const path = '/login';
 
   try {
     const response = await HamzryAPI.post(path, credentials);

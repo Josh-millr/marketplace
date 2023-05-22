@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Container, Title, Text, Button, SimpleGrid } from '@mantine/core';
+import { Container, Title, Text, Button } from '@mantine/core';
 import { useRouter } from 'next/router';
 
 import { useStyles } from '@/shared/components/ProcessCard/style.Card';

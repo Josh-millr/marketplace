@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from 'react';
+import { useEffect, memo } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { userActions } from '@/state/user/userReducer';
@@ -8,12 +8,14 @@ import { getCategoriesApi } from '@/shared/services/getCategoriesApi';
 
 // TODO: Fix the error handling for category fetching
 
-export function InitStateProvider({ userData }) {
+export const InitStateProvider = memo(({ userData }) => {
   const dispatch = useDispatch();
 
-  if (userData.length !== 0) {
-    dispatch(userActions.setUser(userData));
-  }
+  useEffect(() => {
+    if (userData.length !== 0) {
+      dispatch(userActions.setUser(userData));
+    }
+  }, [userData.length]);
 
   useEffect(() => {
     if (userData.length !== 0) {
@@ -30,4 +32,4 @@ export function InitStateProvider({ userData }) {
     }
   }, []);
   return <></>;
-}
+});

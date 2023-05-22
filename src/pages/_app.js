@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-catch */
 import App from 'next/app';
 import Head from 'next/head';
+import Cookies from 'js-cookie';
 import { Provider } from 'react-redux';
 import { MantineProvider } from '@mantine/core';
 import { IconoirProvider } from 'iconoir-react';
@@ -15,6 +16,24 @@ import { ErrorBoundaryAppRoot } from '@/shared/components/ErrorBoundary';
 import { authenticateUserApi } from '@/shared/services/authenticateUserApi';
 import { InitStateProvider } from '@/shared/providers/InitStateProvider';
 import '@/styles/globals.css';
+
+/**
+ *
+ * TODO:
+ * - On every request we want to initialize and set the users' data if it hasn't been set.
+ * IMPORTANT: should run on the server side and then on the client side
+ *
+ * 1. Check if the user is logged in (If they are logged in, they would have sessionToken)
+ * 2. We need to check if the users data has already been initialized
+ *  (We should be able to share state between the server and client,
+ * that way we should be able to cache the state)
+ *
+ * 3. If it hasnt, we want to initialize and set it, else we want to skip
+ *
+ * - On every request we also want to check if the user is logged in and if true, we want to
+ *  navigate them to their reespective Marketplace homepage
+ *
+ * */
 
 const dmSans = DMSans({
   subsets: ['latin'],
@@ -43,8 +62,6 @@ const dmSans = DMSans({
 });
 
 function AppRoot({ Component, pageProps, userData, currPath }) {
-  // const getLayout = Component.getLayout || ((page) => page);
-
   return (
     <>
       <Head>
@@ -75,23 +92,53 @@ function AppRoot({ Component, pageProps, userData, currPath }) {
   );
 }
 
-AppRoot.getInitialProps = async (appContext) => {
-  const appProps = await App.getInitialProps(appContext);
+/**
+ *
+ * NOTE: Adding a custom getInitialProps in your App will disable Automatic Static
+ * Optimization in pages without Static Generation.
+ *
+ * For the initial page load, getInitialProps will run on the server only.
+ * getInitialProps will then also run on the client when navigating to a
+ * different route with the next/link component or by using next/router.
+ *
+ * If getInitialProps is used in a custom _app.js, and the page being navigated to
+ * is using getServerSideProps, then getInitialProps will also run on the server.
+ * run on both the server-side and again on the client-side during page transitions
+ *
+ * */
 
-  // Perform initial state initialization
-  const { cookies } = appContext.ctx.req;
-  const sessionToken = cookies?.sessionToken || '';
+AppRoot.getInitialProps = async (appRootProps) => {
+  // req: The HTTP request object (only available on the server).
+  // res: The HTTP response object (only available on the server).
+  const { ctx, router } = appRootProps;
 
-  const currPath = appContext.router.pathname;
+  const currPath = router.pathname;
+  const appProps = await App.getInitialProps(appRootProps);
 
-  try {
-    const response = await authenticateUserApi(sessionToken);
-    const { userData } = response;
+  let sessionToken = null;
 
-    return { ...appProps, userData, currPath };
-  } catch (error) {
-    throw error;
+  if (typeof window !== 'undefined') {
+    // Fetch sessionToken on the client side
+    sessionToken = Cookies.get('sessionToken');
+  } else {
+    // Fetch sessionToken on the server side
+    const { cookies } = ctx.req;
+    sessionToken = cookies.sessionToken || '';
   }
+
+  let userData = [];
+
+  if (sessionToken) {
+    try {
+      // Perform initial state initialization
+      const response = await authenticateUserApi(sessionToken);
+      userData = response.userData;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  return { ...appProps, userData, currPath };
 };
 
 export default AppRoot;

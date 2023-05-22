@@ -2,7 +2,7 @@ import { HamzryAPI } from '@/config/api/HamzryAPI';
 import { CatchError } from '@/shared/utils/CatchError';
 
 export const verifyEmailApi = async (code) => {
-  const path = '/api/verify-email';
+  const path = '/verify-email';
 
   try {
     const response = await HamzryAPI.post(path, code);

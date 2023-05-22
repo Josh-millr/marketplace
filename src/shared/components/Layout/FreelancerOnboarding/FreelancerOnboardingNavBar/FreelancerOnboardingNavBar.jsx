@@ -1,3 +1,1 @@
-export const FreelancerOnboardingNavBar = () => {
-  retrurn(<h1>NavBar</h1>);
-};
+export const FreelancerOnboardingNavBar = () => <h1>NavBar</h1>;

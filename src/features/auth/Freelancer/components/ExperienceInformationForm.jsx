@@ -8,11 +8,9 @@ import {
   Text,
   Button,
   ActionIcon,
-  Badge,
-  Group,
   SimpleGrid,
 } from '@mantine/core';
-import { IconTrash, IconCalendar, IconWifi0, IconX } from '@tabler/icons-react';
+import { IconCalendar, IconX } from '@tabler/icons-react';
 
 export function ExperienceInformationForm() {
   const [certificates, setCertificates] = useState([]);
@@ -60,8 +58,7 @@ export function ExperienceInformationForm() {
 
   const handleDeleteCertificate = (index) => {
     setCertificates((prevCertificates) =>
-      prevCertificates.filter((certificate, i) => i !== index)
-    );
+      prevCertificates.filter((certificate, i) => i !== index));
   };
 
   return (
