@@ -17,24 +17,6 @@ import { authenticateUserApi } from '@/shared/services/authenticateUserApi';
 import { InitStateProvider } from '@/shared/providers/InitStateProvider';
 import '@/styles/globals.css';
 
-/**
- *
- * TODO:
- * - On every request we want to initialize and set the users' data if it hasn't been set.
- * IMPORTANT: should run on the server side and then on the client side
- *
- * 1. Check if the user is logged in (If they are logged in, they would have sessionToken)
- * 2. We need to check if the users data has already been initialized
- *  (We should be able to share state between the server and client,
- * that way we should be able to cache the state)
- *
- * 3. If it hasnt, we want to initialize and set it, else we want to skip
- *
- * - On every request we also want to check if the user is logged in and if true, we want to
- *  navigate them to their reespective Marketplace homepage
- *
- * */
-
 const dmSans = DMSans({
   subsets: ['latin'],
   variable: '--dm-sans',
@@ -94,16 +76,17 @@ function AppRoot({ Component, pageProps, userData, currPath }) {
 
 /**
  *
- * NOTE: Adding a custom getInitialProps in your App will disable Automatic Static
- * Optimization in pages without Static Generation.
+ * `AppRoot.getInitialProps` has disabled Automatic Static Optimization for all
+ *  pages, Export `getStaticProps` function in pages that neeed Static Generation.
  *
- * For the initial page load, getInitialProps will run on the server only.
- * getInitialProps will then also run on the client when navigating to a
- * different route with the next/link component or by using next/router.
+ * For the initial page load, `getInitialProps` will run on the server only.
  *
- * If getInitialProps is used in a custom _app.js, and the page being navigated to
- * is using getServerSideProps, then getInitialProps will also run on the server.
- * run on both the server-side and again on the client-side during page transitions
+ * `getInitialProps` will then also run on the client when navigating to a
+ * different route with the `next/link` component or by using `next/router`.
+ *
+ * Navigating to a page with `getServerSideProps` will cause `getInitialProps`
+ * to also run on both the server-side and again on the client-side during page
+ * transitions
  *
  * */
 
