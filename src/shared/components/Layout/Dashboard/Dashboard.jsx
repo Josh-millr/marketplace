@@ -14,12 +14,12 @@ export function DashboardLayout({ layout, children }) {
   const [opened, setOpened] = useState(false);
 
   let currentNavBar;
-  if (layout === 'seller') {
+  if (layout === 'freelancer') {
     currentNavBar = (
       <DashboardFreelancerNavBar hidden={!opened} hide={setOpened} />
     );
   }
-  if (layout === 'buyer') {
+  if (layout === 'client') {
     currentNavBar = <DashboardClientNavBar hidden={!opened} hide={setOpened} />;
   }
 

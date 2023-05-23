@@ -1,19 +1,17 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Box, NavLink, useMantineTheme } from '@mantine/core';
+import { Box, NavLink } from '@mantine/core';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 
 import { useStyles } from './style.NavItem';
 
 export function NavItem({ icon: Icon, title, link }) {
-  const { colors } = useMantineTheme();
-  const { classes } = useStyles();
+  const { classes, theme } = useStyles();
 
   const router = useRouter();
   const { pathname } = router;
 
-  // const basePath = '/dashboard/buyer';
   const uniquePath = pathname.split('/').slice(3);
 
   const active = uniquePath.some((path) => link.includes(path));
@@ -21,7 +19,7 @@ export function NavItem({ icon: Icon, title, link }) {
   const compIcon = iconCreator({
     icon: Icon,
     sizeOveride: 20,
-    colorOveride: active ? colors.neutral[1] : colors.neutral[7],
+    colorOveride: active ? theme.colors.neutral[1] : theme.colors.neutral[7],
   });
 
   return (
