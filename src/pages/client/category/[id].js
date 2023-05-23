@@ -16,7 +16,6 @@ export default function ServiceCategory({ label, id }) {
     </>
   );
 }
-
 // TODO: Check if the category is present on the server
 export const getServerSideProps = withAuthorize(async (context) => {
   const { id } = context.params;
