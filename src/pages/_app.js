@@ -77,7 +77,7 @@ function AppRoot({ Component, pageProps, userData, currPath }) {
 /**
  *
  * `AppRoot.getInitialProps` has disabled Automatic Static Optimization for all
- *  pages, Export `getStaticProps` function in pages that neeed Static Generation.
+ *  pages, Export `getStaticProps` function in pages that need Static Generation.
  *
  * For the initial page load, `getInitialProps` will run on the server only.
  *
