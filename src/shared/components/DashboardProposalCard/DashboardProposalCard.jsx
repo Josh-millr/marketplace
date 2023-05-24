@@ -59,7 +59,7 @@ export function DashboardProposalCard(props) {
           <Flex gap="md">
             <Group spacing="xs">
               <Group spacing="xs">
-                {iconCreator({ icon: Clock, sizeOveride: 16 })}
+                {iconCreator({ icon: Clock, sizeOverride: 16 })}
                 <Text className="label-sm" fw="700!important">
                   Received:
                 </Text>
@@ -73,7 +73,7 @@ export function DashboardProposalCard(props) {
 
             <Group spacing="xs">
               <Group spacing="xs">
-                {iconCreator({ icon: ProfileCircle, sizeOveride: 16 })}
+                {iconCreator({ icon: ProfileCircle, sizeOverride: 16 })}
                 <Text className="label-sm" fw="700!important">
                   Creator:
                 </Text>
@@ -94,7 +94,7 @@ export function DashboardProposalCard(props) {
           <Flex gap="md">
             <Button variant="outline">Hire now</Button>
             <ActionIcon size="lg" variant="light">
-              {iconCreator({ icon: Trash, colorOveride: colors.danger[8] })}
+              {iconCreator({ icon: Trash, colorOverride: colors.danger[8] })}
             </ActionIcon>
 
             <ActionIcon size="lg" variant="light" onClick={showCoverLetter}>

@@ -18,8 +18,8 @@ export function NavItem({ icon: Icon, title, link }) {
 
   const compIcon = iconCreator({
     icon: Icon,
-    sizeOveride: 20,
-    colorOveride: active ? theme.colors.neutral[1] : theme.colors.neutral[7],
+    sizeOverride: 20,
+    colorOverride: active ? theme.colors.neutral[1] : theme.colors.neutral[7],
   });
 
   return (

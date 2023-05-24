@@ -25,11 +25,11 @@ export function PackageTab(props) {
 
       <Stack spacing="md">
         <Group spacing="sm">
-          {iconCreator({ icon: Hourglass, sizeOveride: 20 })}
+          {iconCreator({ icon: Hourglass, sizeOverride: 20 })}
           <Text className="label-md">{`${delivery} Days delivery`}</Text>
         </Group>
         <Group spacing="sm">
-          {iconCreator({ icon: RefreshCircular, sizeOveride: 20 })}
+          {iconCreator({ icon: RefreshCircular, sizeOverride: 20 })}
           <Text className="label-md">{`${revision} Revisions`}</Text>
         </Group>
       </Stack>

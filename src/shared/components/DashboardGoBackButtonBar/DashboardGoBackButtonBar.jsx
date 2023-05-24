@@ -15,8 +15,8 @@ export function DashboardGoBackButtonBar() {
         variant="subtle"
         leftIcon={iconCreator({
           icon: ArrowLeft,
-          sizeOveride: 16,
-          colorOveride: colors.brandPrimary[7],
+          sizeOverride: 16,
+          colorOverride: colors.brandPrimary[7],
         })}
       >
         Go back

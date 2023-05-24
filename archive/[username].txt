@@ -47,7 +47,7 @@ export default function SellerProfile({ data }) {
           <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
             <Stack spacing="lg" py="2xl">
               <Group>
-                {iconCreator({ icon: Map, sizeOveride: 16 })}
+                {iconCreator({ icon: Map, sizeOverride: 16 })}
                 <Text className="label-md" tt="capitalize">
                   Location: {data.location}
                 </Text>
@@ -61,7 +61,7 @@ export default function SellerProfile({ data }) {
               </Flex>
 
               <Group>
-                {iconCreator({ icon: Calendar, sizeOveride: 16 })}
+                {iconCreator({ icon: Calendar, sizeOverride: 16 })}
                 <Text className="label-md">Member since: {data.created}</Text>
               </Group>
             </Stack>

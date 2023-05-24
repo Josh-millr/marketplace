@@ -34,14 +34,14 @@ export function DashboardHeaderMenu({ image }) {
       </Menu.Target>
 
       <Menu.Dropdown>
-        <Menu.Item icon={iconCreator({ icon: ProfileCircle, sizeOveride: 16 })}>
+        <Menu.Item icon={iconCreator({ icon: ProfileCircle, sizeOverride: 16 })}>
           <Link href={`/dashboard/${role}/profile`}>View Profile</Link>
         </Menu.Item>
         <Menu.Item
           icon={iconCreator({
             icon: LogOut,
-            sizeOveride: 16,
-            colorOveride: colors.danger[7],
+            sizeOverride: 16,
+            colorOverride: colors.danger[7],
           })}
         >
           <Text color="danger.7" onClick={() => logout()}>

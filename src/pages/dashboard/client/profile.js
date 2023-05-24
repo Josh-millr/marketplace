@@ -49,7 +49,7 @@ function BuyerProfile(props) {
                 >
                   {iconCreator({
                     icon: Plus,
-                    colorOveride: colors.neutral[1],
+                    colorOverride: colors.neutral[1],
                   })}
                 </ActionIcon>
               </ProfilePictureActionMenu>
