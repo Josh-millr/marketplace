@@ -1,84 +1,75 @@
-import { ViewGrid, Clock, MoreHoriz } from 'iconoir-react';
+import { memo } from 'react';
+import Image from 'next/image';
+import { ViewGrid, Clock } from 'iconoir-react';
 import {
   Title,
-  Text,
   Stack,
   Group,
   Flex,
   Grid,
   Skeleton,
-  ActionIcon,
+  MediaQuery,
   useMantineTheme,
 } from '@mantine/core';
 
-import { iconCreator } from '@/shared/utils/iconCreator';
+import { useMediaQuery } from '@mantine/hooks';
 
-import { useStyles } from './style.DashboardServiceCardListItem';
+import { OptionItem } from './OptionItem';
+import { ActionsButton } from './ActionsButton';
 import { CustomSuspense } from '../CustomSuspense';
+import { useStyles } from './style.DashboardServiceCardListItem';
 
-function OptionItem({ icon, label }) {
-  const { colors } = useMantineTheme();
-
-  const createIcon = (Icon) => ({
-    icon: Icon,
-    sizeOverride: 20,
-    colorOverride: colors.neutral[6],
-  });
-  return (
-    <CustomSuspense
-      dependency={label}
-      fallback={<Skeleton height="12px" w="82px" />}
-    >
-      <Flex wrap="nowrap" gap="sm">
-        {iconCreator(createIcon(icon))}
-        <Text
-          className="label-md"
-          c="neutral.6"
-          tt="capitalize"
-          fw={'500!important'}
-        >
-          {label}
-        </Text>
-      </Flex>
-    </CustomSuspense>
-  );
-}
-
-function ActionsButton({ serviceId }) {
-  // TODO: Implement delete service function
-  // TODO: Implement edit service service function
-
-  return (
-    <ActionIcon variant="light" size="lg">
-      {iconCreator({ icon: MoreHoriz, sizeOverride: 24 })}
-    </ActionIcon>
-  );
-}
-
-export function DashboardServiceCardListItem(props) {
+export const DashboardServiceCardListItem = memo((props) => {
   const { id, title, category, createdAt } = props;
+
   const { classes } = useStyles();
+  const { breakpoints } = useMantineTheme();
+  const isNotMobile = useMediaQuery(`(min-width: ${breakpoints.sm})`);
 
   return (
-    <Grid className={classes.wrapper} justify="space-between" py="xl" gap="sm">
+    <Grid
+      py="xl"
+      gap="sm"
+      className={classes.wrapper}
+      px={{ base: 0, sm: 'xl' }}
+      justify="space-between"
+    >
       <Grid.Col span="auto">
-        <Stack spacing="lg">
-          {/* Service Title */}
-          <CustomSuspense
-            dependency={title}
-            fallback={<Skeleton height="12px" w="70%" />}
-          >
-            <Title className="sub-h2">{title}</Title>
-          </CustomSuspense>
+        <Flex gap="md">
+          <MediaQuery smallerThan="lg" styles={{ display: 'none' }}>
+            {/* Service Image */}
+            <Image
+              width={80}
+              height={62}
+              alt={title || 'service image'}
+              src="https://picsum.photos/200"
+              style={{ borderRadius: '4px' }}
+            />
+          </MediaQuery>
 
-          <Group>
-            {/* Service Category */}
-            <OptionItem icon={ViewGrid} label={category} />
+          <Stack spacing="md">
+            {/* Service Title */}
+            <CustomSuspense
+              dependency={title}
+              fallback={<Skeleton height="12px" w="70%" />}
+            >
+              <Title
+                lineClamp={2}
+                className={isNotMobile ? 'sub-h1' : 'sub-h2'}
+              >
+                {title}
+              </Title>
+            </CustomSuspense>
 
-            {/* Service creation date */}
-            <OptionItem icon={Clock} label={createdAt} />
-          </Group>
-        </Stack>
+            <Group>
+              {/* Service Category */}
+              <OptionItem icon={ViewGrid} label={category} />
+
+              {/* Service creation date */}
+              <OptionItem icon={Clock} label={createdAt} />
+            </Group>
+          </Stack>
+        </Flex>
       </Grid.Col>
 
       <Grid.Col span="content">
@@ -86,4 +77,4 @@ export function DashboardServiceCardListItem(props) {
       </Grid.Col>
     </Grid>
   );
-}
+});
