@@ -13,11 +13,11 @@ export const freelancerDashboardLinks = [
     icon: HomeAltSlim,
     link: '/dashboard/freelancer',
   },
-  // {
-  //   title: 'My Services',
-  //   icon: LargeSuitcase,
-  //   link: '/dashboard/freelancer/services',
-  // },
+  {
+    title: 'My Services',
+    icon: LargeSuitcase,
+    link: '/dashboard/freelancer/services',
+  },
   // {
   //   title: 'My Proposals',
   //   icon: Notes,

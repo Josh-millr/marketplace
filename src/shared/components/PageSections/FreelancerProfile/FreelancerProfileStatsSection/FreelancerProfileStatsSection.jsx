@@ -17,7 +17,7 @@ export function FreelancerProfileStatsSection(props) {
           <Group spacing="xl">
             {iconCreator({
               icon: LeaderboardStar,
-              sizeOveride: 40,
+              sizeOverride: 40,
               strokeOveride: 1,
             })}
             <Stack spacing="md">
@@ -34,7 +34,7 @@ export function FreelancerProfileStatsSection(props) {
       <Grid.Col span={6} sm={4}>
         {totalHours && (
           <Group spacing="xl">
-            {iconCreator({ icon: Clock, sizeOveride: 40, strokeOveride: 1 })}
+            {iconCreator({ icon: Clock, sizeOverride: 40, strokeOveride: 1 })}
             <Stack spacing="md">
               <Text className="label-lg" c="neutral.6">
                 Total Hours
@@ -49,7 +49,7 @@ export function FreelancerProfileStatsSection(props) {
       <Grid.Col span={6} sm={4}>
         {totalEarnings && (
           <Group spacing="xl">
-            {iconCreator({ icon: HandCash, sizeOveride: 40, strokeOveride: 1 })}
+            {iconCreator({ icon: HandCash, sizeOverride: 40, strokeOveride: 1 })}
             <Stack spacing="md">
               <Text className="label-lg" c="neutral.6">
                 Total Earnings

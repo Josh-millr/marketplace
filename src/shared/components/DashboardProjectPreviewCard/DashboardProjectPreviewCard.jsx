@@ -68,7 +68,7 @@ export function DashboardProjectPreviewCard(props) {
           <Flex gap="md">
             <Group spacing="xs">
               <Group spacing="xs">
-                {iconCreator({ icon: Clock, sizeOveride: 16 })}
+                {iconCreator({ icon: Clock, sizeOverride: 16 })}
                 <Text className="label-sm" fw="700!important">
                   Created:
                 </Text>
@@ -82,7 +82,7 @@ export function DashboardProjectPreviewCard(props) {
 
             <Group spacing="xs">
               <Group spacing="xs">
-                {iconCreator({ icon: MultiplePages, sizeOveride: 16 })}
+                {iconCreator({ icon: MultiplePages, sizeOverride: 16 })}
                 <Text className="label-sm" fw="700!important">
                   Proposals:
                 </Text>
@@ -98,8 +98,8 @@ export function DashboardProjectPreviewCard(props) {
               <Group spacing="xs">
                 {iconCreator({
                   icon: BinMinus,
-                  sizeOveride: 16,
-                  colorOveride: colors.danger[7],
+                  sizeOverride: 16,
+                  colorOverride: colors.danger[7],
                 })}
                 <Text
                   className="label-sm"
@@ -123,7 +123,7 @@ export function DashboardProjectPreviewCard(props) {
             <Flex gap="md">
               <Button variant="outline">View Proposals</Button>
               <ActionIcon size="lg">
-                {iconCreator({ icon: Trash, colorOveride: colors.danger[8] })}
+                {iconCreator({ icon: Trash, colorOverride: colors.danger[8] })}
               </ActionIcon>
             </Flex>
             <Badge size="sm">{status}</Badge>

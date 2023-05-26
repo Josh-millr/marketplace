@@ -13,8 +13,8 @@ export function BackToMarketplace({ role }) {
         <Flex wrap="nowrap" gap='sm' align='center'>
           {iconCreator({
             icon: ArrowLeft,
-            sizeOveride: 16,
-            colorOveride: colors.brandPrimary[7],
+            sizeOverride: 16,
+            colorOverride: colors.brandPrimary[7],
           })}
           <Text className="label-md" fw={'500!important'} c="brandPrimary.7">
             Go to marketplace

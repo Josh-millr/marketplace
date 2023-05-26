@@ -22,7 +22,7 @@ function ListItem({ label, href }) {
   return (
     <Menu.Item
       tt="capitalize"
-      rightSection={iconCreator({ icon: NavArrowRight, sizeOveride: 16 })}
+      rightSection={iconCreator({ icon: NavArrowRight, sizeOverride: 16 })}
     >
       <Link href={href || '#'}>{label}</Link>
     </Menu.Item>
@@ -55,7 +55,7 @@ export const SearchDesktop = memo((props) => {
             rightSectionWidth={120}
             onBlur={() => setShowMenu(false)}
             onMouseOver={() => setShowMenu(true)}
-            icon={iconCreator({ icon: Search, sizeOveride: 16 })}
+            icon={iconCreator({ icon: Search, sizeOverride: 16 })}
             onChange={(event) => setSearchQuery(event.currentTarget.value)}
             rightSection={
               <Select

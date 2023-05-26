@@ -10,9 +10,9 @@ import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { NotificationList } from '@/features/NotificationList';
 
-function SellerDashboard() {
+function FreelancerDashboard() {
   return (
-    <PageContainer.Marketplace>
+    <PageContainer.Dashboard>
       <DashboardPageHeader
         title="Dashboard"
         descr="see and overview of you profie, including your notification"
@@ -34,8 +34,8 @@ function SellerDashboard() {
       </SimpleGrid>
 
       <NotificationList />
-    </PageContainer.Marketplace>
+    </PageContainer.Dashboard>
   );
 }
 
-export default SellerDashboard;
+export default FreelancerDashboard;

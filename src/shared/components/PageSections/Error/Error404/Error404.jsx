@@ -56,7 +56,7 @@ export function Error404({ showHeading }) {
                       <Button
                         rightIcon={iconCreator({
                           icon: ArrowTr,
-                          colorOveride: theme.colors.neutral[1],
+                          colorOverride: theme.colors.neutral[1],
                         })}
                         onClick={() => router.push('/')}
                       >

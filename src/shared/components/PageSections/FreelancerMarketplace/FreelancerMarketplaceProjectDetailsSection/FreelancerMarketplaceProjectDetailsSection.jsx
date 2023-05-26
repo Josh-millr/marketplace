@@ -16,7 +16,7 @@ import { iconCreator } from '@/shared/utils/iconCreator';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
 
 function LabelGroup({ icon, label, data }) {
-  const iconOptions = { icon, sizeOveride: 32, strokeOveride: 1 };
+  const iconOptions = { icon, sizeOverride: 32, strokeOveride: 1 };
   return (
     <Group>
       {iconCreator(iconOptions)}

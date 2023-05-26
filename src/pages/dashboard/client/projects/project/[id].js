@@ -91,7 +91,7 @@ export default function Project() {
             {/* Category */}
             <Stack spacing="sm">
               <Group spacing="sm">
-                {iconCreator({ icon: ViewGrid, sizeOveride: 16 })}
+                {iconCreator({ icon: ViewGrid, sizeOverride: 16 })}
                 <Text className="label-md" fw="700!important">
                   Category
                 </Text>
@@ -106,7 +106,7 @@ export default function Project() {
             {/* Expires */}
             <Stack spacing="sm">
               <Group spacing="sm">
-                {iconCreator({ icon: Bin, sizeOveride: 16 })}
+                {iconCreator({ icon: Bin, sizeOverride: 16 })}
                 <Text className="label-md" fw="700!important">
                   Expires
                 </Text>
@@ -121,7 +121,7 @@ export default function Project() {
             {/* Budget */}
             <Stack spacing="sm">
               <Group spacing="sm">
-                {iconCreator({ icon: Bin, sizeOveride: 16 })}
+                {iconCreator({ icon: Bin, sizeOverride: 16 })}
                 <Text className="label-md" fw="700!important">
                   Budget
                 </Text>
@@ -136,7 +136,7 @@ export default function Project() {
             {/* Pricing Type */}
             <Stack spacing="sm">
               <Group spacing="sm">
-                {iconCreator({ icon: Bin, sizeOveride: 16 })}
+                {iconCreator({ icon: Bin, sizeOverride: 16 })}
                 <Text className="label-md" fw="700!important">
                   Pricing Type
                 </Text>
@@ -151,7 +151,7 @@ export default function Project() {
             {/* Experience Level */}
             <Stack spacing="sm">
               <Group spacing="sm">
-                {iconCreator({ icon: Bin, sizeOveride: 16 })}
+                {iconCreator({ icon: Bin, sizeOverride: 16 })}
                 <Text className="label-md" fw="700!important">
                   Experience Level
                 </Text>
