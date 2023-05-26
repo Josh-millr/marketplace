@@ -4,15 +4,15 @@ export const useStyles = createStyles((theme) => ({
   wrapper: {
     width: '100%',
     height: 'fit-content',
-    padding: `${theme.spacing.lg}px 0px`,
+    padding: `${theme.spacing.lg} 0px`,
     borderBottom: `1px solid ${theme.colors.neutral[3]}`,
 
     [theme.fn.largerThan('md')]: {
-      padding: `${theme.spacing.lg}px ${theme.spacing.xl}px`,
+      padding: `${theme.spacing.lg} ${theme.spacing.xl}`,
     },
   },
 
   label: {
     fontWeight: 700,
-  }
+  },
 }));

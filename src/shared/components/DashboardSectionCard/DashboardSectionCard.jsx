@@ -1,52 +1,23 @@
-/* eslint-disable no-nested-ternary */
-import { forwardRef, useState } from 'react';
-import { useMediaQuery } from '@mantine/hooks';
-import { Paper, useMantineTheme, Box, ScrollArea, Flex, Pagination } from '@mantine/core';
+import { forwardRef } from 'react';
 
-import { useStyles } from './style.DashboardSectionCard';
-
-import { DashboardSectionTitle } from '../DashboardSectionTitle';
+import { SectionWrapper } from './SectionWrapper';
+import { SectionCardWithAcordion } from './SectionCardWithAcordion';
+import { SectionCardWithoutAccordion } from './SectionCardWithoutAccordion';
 
 export const DashboardSectionCard = forwardRef((props, ref) => {
-  const [activePage, setActivePage] = useState(1);
-  const { classes } = useStyles();
-
-  const { children, withTitle, title, contentFullWidth, padSection } = props;
-
-  const { breakpoints } = useMantineTheme();
-  const mobileScreen = useMediaQuery(`(min-width: ${breakpoints.sm})`);
+  const { title, children } = props;
 
   return (
-    <Paper
-      ref={ref}
-      className={classes.wrapper}
-      withBorder={mobileScreen}
-      radius="sm"
-      mt={24}
-      mb={24}
-      h={480}
-    >
-      <div>
-        {withTitle && <DashboardSectionTitle title={title} />}
-        <Box
-          maw={contentFullWidth ? '100%' : 800}
-          p={padSection ? (mobileScreen ? 'xl' : 0) : 0}
-        >
-          <ScrollArea h={480} type="auto" offsetScrollbars scrollbarSize={8}>
-            {children}
-          </ScrollArea>
-          <Flex w="100%" justify="center">
-            <Pagination
-              withEdges
-              total={10}
-              size="sm"
-              radius="xl"
-              value={activePage}
-              onChange={setActivePage}
-            />
-          </Flex>
-        </Box>
-      </div>
-    </Paper>
+    <SectionWrapper {...props}>
+      {title?.length > 0 ? (
+        <SectionCardWithAcordion ref={ref} {...props}>
+          {children}
+        </SectionCardWithAcordion>
+      ) : (
+        <SectionCardWithoutAccordion ref={ref} {...props}>
+          {children}
+        </SectionCardWithoutAccordion>
+      )}
+    </SectionWrapper>
   );
 });

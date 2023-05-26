@@ -34,7 +34,7 @@ function MyServices() {
 
       {/* // TODO: Fix the list virtualization & Implement the pagination */}
 
-      <DashboardSectionCard contentFullWidth>
+      <DashboardSectionCard contentFullWidth title="Services">
         <Stack spacing="xl">
           <div ref={ref}>
             {result.map(({ id, title, category, createdAt }) => (
