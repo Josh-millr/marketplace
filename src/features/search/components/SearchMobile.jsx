@@ -54,7 +54,7 @@ export const SearchMobile = memo((props) => {
                   placeholder="Search"
                   defaultValue={query}
                   onChange={(event) => storeQuery(event.currentTarget.value)}
-                  icon={iconCreator({ icon: Search, sizeOveride: 20 })}
+                  icon={iconCreator({ icon: Search, sizeOverride: 20 })}
                 />
                 <Select
                   size="md"

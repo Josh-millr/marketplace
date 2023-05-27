@@ -126,16 +126,16 @@ export function FullForm({ stepControl }) {
   }
   if (isUsernameValid && checkingUsername === false) {
     usernameRightIcon = iconCreator({
-      sizeOveride: 16,
+      sizeOverride: 16,
       icon: DoubleCheck,
-      colorOveride: colors.brandPrimary[6],
+      colorOverride: colors.brandPrimary[6],
     });
   }
   if (checkingUsername === false && isUsernameValid === false) {
     usernameRightIcon = iconCreator({
-      sizeOveride: 16,
+      sizeOverride: 16,
       icon: InfoEmpty,
-      colorOveride: colors.neutral[5],
+      colorOverride: colors.neutral[5],
     });
   }
 

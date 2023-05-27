@@ -46,3 +46,11 @@ PageContainer.Marketplace = function Marketplace({ children }) {
     </Container>
   );
 };
+
+PageContainer.Dashboard = function Dashboard({ children }) {
+  return (
+    <Container fluid m={0} px={{ base: 'xl', md: '3xl' }}>
+      {children}
+    </Container>
+  );
+};

@@ -1,25 +1,23 @@
 import { useState } from 'react';
 import { AppShell, Header } from '@mantine/core';
 
+import { useStyles } from './style.Dashboard';
 import { DashboardFooter } from './DashboardFooter/DashboardFooter';
 import { DashboardHeader } from './DashboardHeader/DashboardHeader';
 import { DashboardClientNavBar } from './DashboardNavBar/DashboardClientNavBar';
 import { DashboardFreelancerNavBar } from './DashboardNavBar/DashboardFreelancerNavBar';
 
-const styles = {
-  main: { overflowX: 'hidden' },
-};
-
 export function DashboardLayout({ layout, children }) {
   const [opened, setOpened] = useState(false);
+  const { classes } = useStyles();
 
   let currentNavBar;
-  if (layout === 'seller') {
+  if (layout === 'freelancer') {
     currentNavBar = (
       <DashboardFreelancerNavBar hidden={!opened} hide={setOpened} />
     );
   }
-  if (layout === 'buyer') {
+  if (layout === 'client') {
     currentNavBar = <DashboardClientNavBar hidden={!opened} hide={setOpened} />;
   }
 
@@ -32,7 +30,7 @@ export function DashboardLayout({ layout, children }) {
 
   return (
     <AppShell
-      styles={styles}
+      styles={{ main: classes.main }}
       layout="alt"
       padding={0}
       navbar={currentNavBar}

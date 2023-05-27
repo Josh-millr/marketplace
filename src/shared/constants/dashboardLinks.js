@@ -7,108 +7,108 @@ import {
   Coins,
 } from 'iconoir-react';
 
-export const sellerDashboardLinks = [
+export const freelancerDashboardLinks = [
   {
-    title: 'Dashboard',
+    title: 'Home',
     icon: HomeAltSlim,
-    link: '/dashboard/seller/',
+    link: '/dashboard/freelancer',
   },
   {
     title: 'My Services',
     icon: LargeSuitcase,
-    link: '/dashboard/seller/services',
-  },
-  {
-    title: 'My Propopsals',
-    icon: Notes,
-    link: '/dashboard/seller/proposals',
-  },
-  {
-    title: 'Messages',
-    icon: Mail,
-    link: '/dashboard/seller/message',
-  },
-  {
-    title: 'Reviews',
-    icon: ClipboardCheck,
-    link: '/dashboard/seller/review',
-  },
-  {
-    title: 'Payout',
-    icon: Coins,
-    link: '/dashboard/seller/payout',
-  },
-  {
-    title: 'Finance',
-    icon: Notes,
-    link: '/dashboard/seller/finance',
-  },
-  {
-    title: 'Contracts',
-    icon: Notes,
-    link: '/dashboard/seller/contracts',
-  },
-  {
-    title: 'Create Service',
-    icon: Notes,
-    link: '/dashboard/seller/create-service',
-  },
-  {
-    title: 'My Profile',
-    icon: Notes,
-    link: '/dashboard/seller/profile',
-  },
-];
-
-export const buyerDashboardLinks = [
-  {
-    title: 'Dashboard',
-    icon: HomeAltSlim,
-    link: '/dashboard/buyer',
-  },
-  {
-    title: 'My Projects',
-    icon: LargeSuitcase,
-    link: '/dashboard/buyer/projects/',
+    link: '/dashboard/freelancer/services',
   },
   // {
-  //   title: 'Propopsals',
+  //   title: 'My Proposals',
   //   icon: Notes,
-  //   link: '/dashboard/buyer/proposals',
-  // },
-  // {
-  //   title: 'Reviews',
-  //   icon: ClipboardCheck,
-  //   link: '/dashboard/buyer/review',
+  //   link: '/dashboard/freelancer/proposals',
   // },
   // {
   //   title: 'Messages',
   //   icon: Mail,
-  //   link: '/dashboard/buyer/message',
+  //   link: '/dashboard/freelancer/message',
+  // },
+  // {
+  //   title: 'Reviews',
+  //   icon: ClipboardCheck,
+  //   link: '/dashboard/freelancer/review',
   // },
   // {
   //   title: 'Payout',
   //   icon: Coins,
-  //   link: '/dashboard/seller/payout',
+  //   link: '/dashboard/freelancer/payout',
   // },
   // {
   //   title: 'Finance',
   //   icon: Notes,
-  //   link: '/dashboard/seller/finance',
+  //   link: '/dashboard/freelancer/finance',
   // },
   // {
   //   title: 'Contracts',
   //   icon: Notes,
-  //   link: '/dashboard/seller/contracts',
+  //   link: '/dashboard/freelancer/contracts',
+  // },
+  // {
+  //   title: 'Create Service',
+  //   icon: Notes,
+  //   link: '/dashboard/freelancer/create-service',
+  // },
+  {
+    title: 'My Profile',
+    icon: Notes,
+    link: '/dashboard/freelancer/profile',
+  },
+];
+
+export const clientDashboardLinks = [
+  {
+    title: 'Home',
+    icon: HomeAltSlim,
+    link: '/dashboard/client',
+  },
+  {
+    title: 'My Projects',
+    icon: LargeSuitcase,
+    link: '/dashboard/client/projects/',
+  },
+  // {
+  //   title: 'Proposals',
+  //   icon: Notes,
+  //   link: '/dashboard/client/proposals',
+  // },
+  // {
+  //   title: 'Reviews',
+  //   icon: ClipboardCheck,
+  //   link: '/dashboard/client/review',
+  // },
+  // {
+  //   title: 'Messages',
+  //   icon: Mail,
+  //   link: '/dashboard/client/message',
+  // },
+  // {
+  //   title: 'Payout',
+  //   icon: Coins,
+  //   link: '/dashboard/freelancer/payout',
+  // },
+  // {
+  //   title: 'Finance',
+  //   icon: Notes,
+  //   link: '/dashboard/freelancer/finance',
+  // },
+  // {
+  //   title: 'Contracts',
+  //   icon: Notes,
+  //   link: '/dashboard/freelancer/contracts',
   // },
   // {
   //   title: 'Create Projects',
   //   icon: Notes,
-  //   link: '/dashboard/buyer/create-project',
+  //   link: '/dashboard/client/create-project',
   // },
   // {
   //   title: 'My Profile',
   //   icon: Notes,
-  //   link: '/dashboard/seller/profile',
+  //   link: '/dashboard/freelancer/profile',
   // },
 ];

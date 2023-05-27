@@ -83,7 +83,7 @@ export function ProjectCard({ data, selectProject }) {
                   fallback={<Skeleton height={12} width={'10%'} />}
                 >
                   <Group spacing="xs">
-                    {iconCreator({ icon: GraduationCap, sizeOveride: 20 })}
+                    {iconCreator({ icon: GraduationCap, sizeOverride: 20 })}
                     <Text
                       className="label-md"
                       fw={'500!important'}
@@ -98,7 +98,7 @@ export function ProjectCard({ data, selectProject }) {
                   fallback={<Skeleton height={12} width={'10%'} />}
                 >
                   <Group spacing="xs">
-                    {iconCreator({ icon: Clock, sizeOveride: 20 })}
+                    {iconCreator({ icon: Clock, sizeOverride: 20 })}
                     <Text
                       className="label-md"
                       fw={'500!important'}
@@ -113,7 +113,7 @@ export function ProjectCard({ data, selectProject }) {
                   fallback={<Skeleton height={12} width={'10%'} />}
                 >
                   <Group spacing="xs">
-                    {iconCreator({ icon: ViewGrid, sizeOveride: 20 })}
+                    {iconCreator({ icon: ViewGrid, sizeOverride: 20 })}
                     <Text
                       className="label-md"
                       fw={'500!important'}

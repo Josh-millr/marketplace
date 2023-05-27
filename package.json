@@ -11,16 +11,16 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/server": "^11.11.0",
-    "@mantine/carousel": "^6.0.10",
-    "@mantine/core": "^6.0.10",
+    "@mantine/carousel": "^6.0.11",
+    "@mantine/core": "^6.0.11",
     "@mantine/dates": "^6.0.11",
-    "@mantine/form": "^6.0.10",
-    "@mantine/hooks": "^6.0.10",
-    "@mantine/next": "^6.0.10",
-    "@mantine/notifications": "^6.0.10",
+    "@mantine/form": "^6.0.11",
+    "@mantine/hooks": "^6.0.11",
+    "@mantine/next": "^6.0.11",
+    "@mantine/notifications": "^6.0.11",
     "@reduxjs/toolkit": "^1.9.5",
-    "@tabler/icons": "^2.19.0",
-    "@tabler/icons-react": "^2.19.0",
+    "@tabler/icons": "^2.20.0",
+    "@tabler/icons-react": "^2.20.0",
     "@types/node": "20.1.0",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
@@ -43,7 +43,13 @@
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "react-top-loading-bar": "^2.3.1",
+<<<<<<< HEAD
     "swc": "^1.0.11",
+=======
+    "react-virtualized-auto-sizer": "^1.0.17",
+    "react-window": "^1.8.9",
+    "react-window-infinite-loader": "^1.0.9",
+>>>>>>> 26474cec3571449b32feba98cefa71fb45494a17
     "swr": "^2.1.5",
     "tabler-icons-react": "^1.56.0",
     "typescript": "5.0.4",
@@ -53,6 +59,8 @@
     "@types/cookie": "^0.5.1",
     "@types/js-cookie": "^3.0.3",
     "@types/lodash": "^4.14.194",
+    "@types/react-window": "^1.8.5",
+    "@types/react-window-infinite-loader": "^1.0.6",
     "@types/uuid": "^9.0.1",
     "eslint-config-airbnb-base": "^15.0.0"
   }

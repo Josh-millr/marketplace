@@ -109,7 +109,7 @@ export const MarketplaceClientHeader = memo(({ isMenuOpen, openMenu }) => {
                     label="+2"
                   >
                     <ActionIcon variant="transparent">
-                      {iconCreator({ icon: Mail, sizeOveride: 24 })}
+                      {iconCreator({ icon: Mail, sizeOverride: 24 })}
                     </ActionIcon>
                   </Indicator>
 
@@ -122,7 +122,7 @@ export const MarketplaceClientHeader = memo(({ isMenuOpen, openMenu }) => {
                     offset={4}
                   >
                     <ActionIcon variant="transparent">
-                      {iconCreator({ icon: Bell, sizeOveride: 24 })}
+                      {iconCreator({ icon: Bell, sizeOverride: 24 })}
                     </ActionIcon>
                   </Indicator>
 

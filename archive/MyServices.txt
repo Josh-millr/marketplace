@@ -1,0 +1,18 @@
+          <div ref={ref}>
+            <List
+              width={width}
+              height={height}
+              itemCount={result.length}
+              itemSize={(index) => result[index]}
+            >
+              {({ index, style }) => (
+                <DashboardServiceCardListItem
+                  style={style}
+                  index={index}
+                  createdAt="2nd january 2022"
+                  category="Web development"
+                  title="I will create a really beautiful website for you and you can rock is however you like"
+                />
+              )}
+            </List>
+          </div>

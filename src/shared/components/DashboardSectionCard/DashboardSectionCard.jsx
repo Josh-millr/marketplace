@@ -1,20 +1,23 @@
-import { Paper, useMantineTheme, Box } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
+import { forwardRef } from 'react';
 
-import { DashboardSectionTitle } from '../DashboardSectionTitle';
+import { SectionWrapper } from './SectionWrapper';
+import { SectionCardWithAcordion } from './SectionCardWithAcordion';
+import { SectionCardWithoutAccordion } from './SectionCardWithoutAccordion';
 
-export function DashboardSectionCard(props) {
-  const { children, withTitle, title, contentFullWidth, padSection } = props;
-
-  const { breakpoints } = useMantineTheme();
-  const mobileScreen = useMediaQuery(`(min-width: ${breakpoints.sm}px)`);
+export const DashboardSectionCard = forwardRef((props, ref) => {
+  const { title, children } = props;
 
   return (
-    <Paper withBorder={mobileScreen} radius="sm" mt={24} mb={24}>
-      {withTitle && <DashboardSectionTitle title={title} />}
-      <Box maw={contentFullWidth ? '100%' : 800} p={padSection ? 'xl' : 0}>
-        {children}
-      </Box>
-    </Paper>
+    <SectionWrapper {...props}>
+      {title?.length > 0 ? (
+        <SectionCardWithAcordion ref={ref} {...props}>
+          {children}
+        </SectionCardWithAcordion>
+      ) : (
+        <SectionCardWithoutAccordion ref={ref} {...props}>
+          {children}
+        </SectionCardWithoutAccordion>
+      )}
+    </SectionWrapper>
   );
-}
+});

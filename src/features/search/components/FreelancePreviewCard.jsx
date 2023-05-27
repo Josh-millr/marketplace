@@ -42,7 +42,7 @@ export function FreelancePreviewCard({ name, img, job, href }) {
           fallback={href}
           dependency={<Skeleton height={24} width={24} radius="sm" />}
         >
-          {iconCreator({ icon: NavArrowRight, sizeOveride: 20 })}
+          {iconCreator({ icon: NavArrowRight, sizeOverride: 20 })}
         </CustomSuspense>
       </Group>
     </Link>

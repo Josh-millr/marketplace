@@ -1,7 +1,7 @@
 import { Paper, Stack, Divider } from '@mantine/core';
 
-import { ListItem } from './ListItem/ListItem';
 import { DashboardSectionTitle } from '@/shared/components/DashboardSectionTitle';
+import { ListItem } from './ListItem/ListItem';
 
 export function NotificationList() {
   return (

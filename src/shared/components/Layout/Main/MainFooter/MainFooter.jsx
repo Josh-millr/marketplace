@@ -42,13 +42,13 @@ export const MainFooter = memo(() => {
 
             <Group spacing="md" position="right" noWrap>
               <ActionIcon size="lg" variant="default" radius="xl">
-                {iconCreator({ icon: Facebook, sizeOveride: 16 })}
+                {iconCreator({ icon: Facebook, sizeOverride: 16 })}
               </ActionIcon>
               <ActionIcon size="lg" variant="default" radius="xl">
-                {iconCreator({ icon: Twitter, sizeOveride: 16 })}
+                {iconCreator({ icon: Twitter, sizeOverride: 16 })}
               </ActionIcon>
               <ActionIcon size="lg" variant="default" radius="xl">
-                {iconCreator({ icon: Instagram, sizeOveride: 16 })}
+                {iconCreator({ icon: Instagram, sizeOverride: 16 })}
               </ActionIcon>
             </Group>
           </div>
