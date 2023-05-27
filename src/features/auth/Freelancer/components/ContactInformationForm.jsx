@@ -52,38 +52,47 @@ export function ContactInformationForm() {
         </Text>
         <Grid>
           <Grid.Col>
-            <TextInput
-              icon={<IconBrandFacebookFilled style={{ color: 'blue' }} />}
-              iconColor="blue"
-              iconPosition="left"
-              placeholder="@username"
-              value={facebook}
-              onChange={(event) => setFacebook(event.currentTarget.value)}
-              style={{ marginBottom: '1rem' }}
-            />
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <IconBrandFacebookFilled
+                style={{ color: 'blue', marginRight: '0.5rem' }}
+              />
+              <TextInput
+                iconColor="blue"
+                iconPosition="left"
+                placeholder="@username"
+                value={facebook}
+                onChange={(event) => setFacebook(event.currentTarget.value)}
+                style={{ flex: 1, marginBottom: '1rem' }}
+              />
+            </div>
+          </Grid.Col>
+          <Grid.Col>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <IconBrandInstagram style={{ marginRight: '0.5rem' }} />
+              <TextInput
+                iconColor="purple"
+                iconPosition="left"
+                placeholder="@username"
+                value={instagram}
+                onChange={(event) => setInstagram(event.currentTarget.value)}
+                style={{ flex: 1, marginBottom: '1rem' }}
+              />
+            </div>
           </Grid.Col>
 
           <Grid.Col>
-            <TextInput
-              icon={<IconBrandInstagram />}
-              iconColor="purple"
-              iconPosition="left"
-              placeholder="@username"
-              value={instagram}
-              onChange={(event) => setInstagram(event.currentTarget.value)}
-              style={{ marginBottom: '1rem' }}
-            />
-          </Grid.Col>
-
-          <Grid.Col>
-            <TextInput
-              icon={<IconBrandTwitterFilled style={{ color: 'blue' }} />}
-              iconPosition="left"
-              value={twitter}
-              placeholder="@username"
-              onChange={(event) => setTwitter(event.currentTarget.value)}
-              style={{ marginBottom: '1rem' }}
-            />
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <IconBrandTwitterFilled
+                style={{ color: 'blue', marginRight: '0.5rem' }}
+              />
+              <TextInput
+                iconPosition="left"
+                value={twitter}
+                placeholder="@username"
+                onChange={(event) => setTwitter(event.currentTarget.value)}
+                style={{ flex: 1, marginBottom: '1rem' }}
+              />
+            </div>
           </Grid.Col>
         </Grid>
 

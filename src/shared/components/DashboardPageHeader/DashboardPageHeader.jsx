@@ -1,11 +1,4 @@
-import {
-  Box,
-  Grid,
-  Text,
-  Title,
-  Stack,
-  Button,
-} from '@mantine/core';
+import { Box, Grid, Text, Title, Stack, Button } from '@mantine/core';
 
 import { useStyles } from './style.DashboardPageHeader';
 
@@ -16,7 +9,7 @@ export function DashboardPageHeader(props) {
 
   return (
     <Box className={classes.wrapper}>
-      <Grid justify="space-between" gutter='lg'>
+      <Grid justify="space-between" gutter="lg">
         <Grid.Col span="auto">
           <Stack spacing={0}>
             <Title className="title-md">{title}</Title>
