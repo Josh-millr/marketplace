@@ -1,15 +1,10 @@
-import { Box, Grid, Text, Title, Stack, Button } from '@mantine/core';
+import { Box, Grid, Text, Title, Stack, Button, Flex } from '@mantine/core';
 
 import { useStyles } from './style.DashboardPageHeader';
 
 function ActionButton({ btnLabel, action }) {
   return (
-    <Button
-      display="block"
-      size="md"
-      variant="filled"
-      onClick={() => action()}
-    >
+    <Button display="block" size="md" variant="filled" onClick={() => action()}>
       {btnLabel}
     </Button>
   );
@@ -33,7 +28,7 @@ export function DashboardPageHeader(props) {
         </Grid.Col>
 
         <Grid.Col span={12} sm="content">
-          <Flex w='100%' justify={{ base: 'flex-start', sm: 'flex-end' }}>
+          <Flex w="100%" justify={{ base: 'flex-start', sm: 'flex-end' }}>
             {showButton && <ActionButton action={action} btnLabel={btnLabel} />}
           </Flex>
         </Grid.Col>
