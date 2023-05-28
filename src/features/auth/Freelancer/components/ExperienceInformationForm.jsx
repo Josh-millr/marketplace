@@ -186,6 +186,7 @@ export function ExperienceInformationForm() {
                 label="Issue Date"
                 placeholder="(eg. May 25, 2023)"
                 value={issueDate}
+                valueFormat="DD/MM/YYYY"
                 onChange={setIssueDate}
                 rightSection={<IconCalendar />}
                 required
