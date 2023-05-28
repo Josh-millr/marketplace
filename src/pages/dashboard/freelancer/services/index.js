@@ -28,7 +28,7 @@ function MyServices() {
         title="My Services"
         descr="View, create, delete and run other service actions"
         action={() => {
-          router.push('/dashboard/freelancer/service/create-service');
+          router.push(`${router.pathname}/create`);
         }}
       />
 

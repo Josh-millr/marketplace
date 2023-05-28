@@ -6,7 +6,7 @@ import { SectionPagination } from './SectionPagination';
 import { DashboardSectionTitle } from '../DashboardSectionTitle';
 
 export const SectionCardWithAcordion = forwardRef((props, ref) => {
-  const { title, children } = props;
+  const { title, showPagination, children } = props;
 
   return (
     <Accordion chevronPosition="right">
@@ -18,7 +18,7 @@ export const SectionCardWithAcordion = forwardRef((props, ref) => {
           <SectionBody ref={ref} {...props}>
             {children}
           </SectionBody>
-          <SectionPagination />
+          {showPagination ? <SectionPagination /> : null}
         </Accordion.Panel>
       </Accordion.Item>
     </Accordion>
