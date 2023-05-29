@@ -38,11 +38,11 @@ export const freelancerDashboardLinks = [
   //   icon: Coins,
   //   link: '/dashboard/freelancer/payout',
   // },
-  // {
-  //   title: 'Finance',
-  //   icon: Notes,
-  //   link: '/dashboard/freelancer/finance',
-  // },
+  {
+    title: 'My Finance',
+    icon: Notes,
+    link: '/dashboard/freelancer/finance',
+  },
   // {
   //   title: 'Contracts',
   //   icon: Notes,

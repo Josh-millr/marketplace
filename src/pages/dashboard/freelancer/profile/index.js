@@ -1,37 +1,68 @@
 import { useState } from 'react';
 import { Accordion, Group, Stack } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { useStyles } from '../style.profile';
 import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
 import { PageContainer } from '@/shared/components/PageContainer';
-import { PersonalInformationProfileFoem } from '@/shared/components/PageSections/Profile/PersonalInformationProfileForm';
-import { ProfessionallInformationProfileFoem } from '@/shared/components/PageSections/Profile/ProfessionalInfrmationProfileForm';
+import { PersonalInformationProfileForm } from '@/shared/components/PageSections/Profile/PersonalInformationProfileForm';
+import { ProfessionalInformationProfileForm } from '@/shared/components/PageSections/Profile/ProfessionalInfrmationProfileForm';
 import { ExperienceInformationProfileForm } from '@/shared/components/PageSections/Profile/ExperienceInformationProfileForm';
 import { ContactInformationProfileForm } from '@/shared/components/PageSections/Profile/ContactInformationProfileForm';
 import { PasswordChangeForm } from '@/shared/components/PageSections/Profile/PasswordChangeForm';
 import { DeleteProfile } from '@/shared/components/PageSections/Profile/DeleteProfile';
+import { DashboardProfileCard } from '@/shared/components/DashboardProfileCard';
 
 export default function Profile() {
   // const dispatch = useDispatch();
+  const isLargeScreen = useMediaQuery('(min-width: 75em)');
 
   const { classes } = useStyles();
   return (
-    <PageContainer layout="freelancer">
+    <div style={{ backgroundColor: useMediaQuery(`(max-width:75em)`) ? '#ffffff' : '#F0EFEB' }}>
+
+       <PageContainer layout="freelancer">
       <DashboardPageHeader
         title="My Profile"
         showButton
         action={() => console.log('Update saved')}
-        btnLabel="Save update"
-      />
+          btnLabel="Save update"
+         
+        />
+      
+    {isLargeScreen ? (
+        <div style={{ margin: '0 auto', }} >
+          <DashboardProfileCard contentFullWidth title="Personal Information">
+           <PersonalInformationProfileForm/>
+          </DashboardProfileCard>
+          <DashboardProfileCard contentFullWidth title="Professional Information">
+              <ProfessionalInformationProfileForm/>
+          </DashboardProfileCard>
+         <DashboardProfileCard contentFullWidth title="Experience Information">
+           <ExperienceInformationProfileForm/>
+          </DashboardProfileCard>
+         <DashboardProfileCard contentFullWidth title="Contact Information">
+           <ContactInformationProfileForm/>
+          </DashboardProfileCard>
+          <DashboardProfileCard contentFullWidth title="Password Information">
+           <PasswordChangeForm/>
+          </DashboardProfileCard>
+          <DashboardProfileCard contentFullWidth title="Delete">
+            <DeleteProfile/>
+          </DashboardProfileCard>
+    </div >
+    ) : (
+      <div style={{ margin: '0 auto' }}>
+   
    <Stack spacing="3xl" className={classes.wrapper}>
       <Accordion defaultValue="profileInformation">
       <Accordion.Item className={classes.item} value="personalInformation">
         <Accordion.Control>Personal Information</Accordion.Control>
-        <Accordion.Panel><PersonalInformationProfileFoem/></Accordion.Panel>
+        <Accordion.Panel><PersonalInformationProfileForm /></Accordion.Panel>
       </Accordion.Item>
 
       <Accordion.Item className={classes.item} value="professionalInformation">
         <Accordion.Control>Professional Information</Accordion.Control>
-        <Accordion.Panel><ProfessionallInformationProfileFoem/></Accordion.Panel>
+        <Accordion.Panel><ProfessionalInformationProfileForm/></Accordion.Panel>
       </Accordion.Item>
 
       <Accordion.Item className={classes.item} value="experienceInformation">
@@ -57,6 +88,11 @@ export default function Profile() {
 
     </Accordion>
      </Stack>
-    </PageContainer>
+        
+        </div>
+  )
+        }
+        </PageContainer>
+      </div>
   );
 }
