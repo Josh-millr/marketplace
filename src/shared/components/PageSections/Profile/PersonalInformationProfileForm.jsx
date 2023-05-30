@@ -13,7 +13,7 @@ import {
 import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
 import { IconCirclePlus } from '@tabler/icons-react';
 
-export function PersonalInformationProfileFoem() {
+export function PersonalInformationProfileForm() {
   const dispatch = useDispatch();
   const [languages, setLanguages] = useState([]);
   const { user } = useSelector((state) => state.user);

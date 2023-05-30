@@ -8,7 +8,7 @@ import {
   Textarea,
 } from '@mantine/core';
 
-export function ProfessionallInformationProfileFoem() {
+export function ProfessionalInformationProfileForm() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
 
