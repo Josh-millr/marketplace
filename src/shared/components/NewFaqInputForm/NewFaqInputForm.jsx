@@ -1,16 +1,20 @@
 import { TextInput, Textarea, Paper, Stack, Button, Flex } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { v4 as uuidv4 } from 'uuid';
 
 export function NewFaqInputForm({ storeInput, close }) {
   const form = useForm({
     initialValues: {
+      id: 0,
       title: '',
       description: '',
     },
   });
 
   const submitForm = form.onSubmit((values) => {
-    storeInput(values);
+    const uniqueId = uuidv4();
+    const newValues = { ...values, id: uniqueId };
+    storeInput(newValues);
   });
 
   return (

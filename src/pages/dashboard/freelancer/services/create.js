@@ -23,16 +23,24 @@ import { NewServiceCreator } from '@/shared/utils/NewServiceCreator';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
 import { DashboardSectionCard } from '@/shared/components/DashboardSectionCard';
+import { DashboardNewfaqCard } from '@/shared/components/DashboardNewfaqCard';
+import { NewRequirementInputForm } from '@/shared/components/NewRequirementInputForm';
+import { DashboardNewRequirementCard } from '@/shared/components/DashboardNewRequirementCard';
 
-const content = '<h2 style="text-align: center;">Welcome to Mantine rich text editor</h2><p><code>RichTextEditor</code> component focuses on usability and is designed to be as simple as possible to bring a familiar editing experience to regular users. <code>RichTextEditor</code> is based on <a href="https://tiptap.dev/" rel="noopener noreferrer" target="_blank">Tiptap.dev</a> and supports all of its features:</p><ul><li>General text formatting: <strong>bold</strong>, <em>italic</em>, <u>underline</u>, <s>strike-through</s> </li><li>Headings (h1-h6)</li><li>Sub and super scripts (<sup>&lt;sup /&gt;</sup> and <sub>&lt;sub /&gt;</sub> tags)</li><li>Ordered and bullet lists</li><li>Text align&nbsp;</li><li>And all <a href="https://tiptap.dev/extensions" target="_blank" rel="noopener noreferrer">other extensions</a></li></ul>';
+const content =
+  '<h2 style="text-align: center;">Welcome to Mantine rich text editor</h2><p><code>RichTextEditor</code> component focuses on usability and is designed to be as simple as possible to bring a familiar editing experience to regular users. <code>RichTextEditor</code> is based on <a href="https://tiptap.dev/" rel="noopener noreferrer" target="_blank">Tiptap.dev</a> and supports all of its features:</p><ul><li>General text formatting: <strong>bold</strong>, <em>italic</em>, <u>underline</u>, <s>strike-through</s> </li><li>Headings (h1-h6)</li><li>Sub and super scripts (<sup>&lt;sup /&gt;</sup> and <sub>&lt;sub /&gt;</sub> tags)</li><li>Ordered and bullet lists</li><li>Text align&nbsp;</li><li>And all <a href="https://tiptap.dev/extensions" target="_blank" rel="noopener noreferrer">other extensions</a></li></ul>';
 
 export default function CreateService() {
-  const [showFaqInputForm, setShowFaqInputForm] = useState(true);
+  const [showFaqInputForm, setShowFaqInputForm] = useState(false);
+  const [showRequirementInputForm, setShowRequirementInputForm] =
+    useState(false);
   const newService = new NewServiceCreator();
 
   const form = useForm({
     initialValues: { ...newService },
   });
+
+  console.log(form.values);
 
   const editor = useEditor({
     extensions: [
@@ -135,7 +143,24 @@ export default function CreateService() {
         </RichTextEditor>
       </DashboardSectionCard>
 
-      <DashboardSectionCard title="Frequently asked questions">
+      <DashboardSectionCard title="Frequently asked questions" contentFullWidth>
+        {form.values.faq.length > 0 &&
+          form.values.faq.map((faq) => (
+            <DashboardNewfaqCard
+              id={faq.id}
+              key={faq.id}
+              title={faq.title}
+              description={faq.description}
+              deleteFaq={(id) => {
+                // Delete an FAQ by id
+                const filteredFaq = form.values.faq.filter(
+                  (faqItem) => faqItem.id !== id
+                );
+
+                form.setFieldValue('faq', filteredFaq);
+              }}
+            />
+          ))}
         {showFaqInputForm && (
           <NewFaqInputForm
             close={() => setShowFaqInputForm(false)}
@@ -149,8 +174,37 @@ export default function CreateService() {
         <Button onClick={() => setShowFaqInputForm(true)}>Add new</Button>
       </DashboardSectionCard>
 
-      <DashboardSectionCard title="Requirement">
-        {/* Add form inputs... */}
+      <DashboardSectionCard title="Requirement" contentFullWidth>
+        {form.values.requirement.length > 0 &&
+          form.values.requirement.map(
+            ({ selectedType, options, question }, index) => (
+              <DashboardNewRequirementCard
+                key={index}
+                type={selectedType}
+                question={question}
+                options={options}
+              />
+            )
+          )}
+
+        {showRequirementInputForm && (
+          <NewRequirementInputForm
+            storeRequirement={(value) => {
+              const prevRequirementValues = form.values.requirement;
+              const newRequirementValues = [...prevRequirementValues, value];
+              form.setFieldValue('requirement', newRequirementValues);
+            }}
+            close={() => setShowRequirementInputForm(false)}
+            storeInput={(value) => {
+              const prevFaqValues = form.values.requirement;
+              const newFaqValues = [...prevFaqValues, value];
+              form.setFieldValue('faq', newFaqValues);
+            }}
+          />
+        )}
+        <Button onClick={() => setShowRequirementInputForm(true)}>
+          Add new
+        </Button>
       </DashboardSectionCard>
 
       <DashboardSectionCard title="scope and pricing">
