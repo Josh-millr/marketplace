@@ -1,0 +1,74 @@
+{
+  "title": "",
+  "description": "",
+  "category": {
+    "main": "",
+    "sub": "",
+    "sub_sub": ""
+  },
+  "faq": [{ "id": "792346237", "title": "", "description": "" }],
+  "requirement": [
+    {
+      "selectedType": "",
+      "question": "",
+      "selectMulipleOptions": false,
+      "options": [
+        {
+          "id": "eff8af65-9625-455d-a734-e63713944b09",
+          "option": ""
+        }
+      ]
+    }
+  ],
+  "packages": {
+    "basic": {
+      "title": "Basic",
+      "price": 23000,
+      "description": "I will recreate or create your new landing page with up tp 4 sections",
+      "deliveryTime": 7,
+      "revision": 3
+    },
+    "standard": {
+      "title": "Standard",
+      "price": 59000,
+      "description": "I will recreate or create your new landing page with up tp 6 sections",
+      "deliveryTime": 9,
+      "revision": 5
+    },
+    "premium": {
+      "title": "Premium",
+      "price": 94000,
+      "description": "I will recreate or create your new landing page with up tp 10 sections",
+      "deliveryTime": 11,
+      "revision": 7
+    }
+  },
+  "addons": {
+    "fastDelivery": {
+      "basic": {
+        "title": "basic",
+        "days": 2,
+        "price": 35000
+      },
+      "standard": {
+        "title": "standard",
+        "days": 2,
+        "price": 35000
+      },
+      "premium": {
+        "title": "premium",
+        "days": 2,
+        "price": 35000
+      }
+    },
+    "extras": [
+      {
+        "title": "Extended Warranty",
+        "description": "",
+        "days": 2,
+        "price": 35000
+      }
+    ]
+  },
+  "gallery": [{}]
+}

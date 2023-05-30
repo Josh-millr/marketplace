@@ -4,12 +4,12 @@ import { SectionBody } from './SectionBody';
 import { SectionPagination } from './SectionPagination';
 
 export const SectionCardWithoutAccordion = forwardRef((props, ref) => {
-  const { children } = props;
+  const { children, showPagination } = props;
 
   return (
     <SectionBody ref={ref} {...props}>
       {children}
-      <SectionPagination />
+      {showPagination ? <SectionPagination /> : null}
     </SectionBody>
   );
 });
