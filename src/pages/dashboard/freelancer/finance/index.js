@@ -68,7 +68,7 @@ function Finance() {
     ]
 
     return (
-        <div style={{ backgroundColor: useMediaQuery(`(max-width:75em)`) ? '#ffffff' : '#F0EFEB' }}>
+        <div style={{ backgroundColor: useMediaQuery(`(max-width:75em)`) ? '#ffffff' : '#F0EFEB',paddingBottom: "22px"  }}>
     <PageContainer.Dashboard>
       <DashboardPageHeader
         title="My Finance"
