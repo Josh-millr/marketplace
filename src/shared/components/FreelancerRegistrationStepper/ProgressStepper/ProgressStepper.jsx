@@ -36,7 +36,7 @@ export const ProgressStepper = ({ incrementProgress, decrementProgress }) => {
         <PageContainer.Marketplace>
           <Stack spacing="md" py="xl">
             <Text className="label-md" fw={"500!important"}>
-              `Current Progress - (${currProgress})%`
+              Current Progress - {currProgress}%
             </Text>
             <Progress value={currProgress} radius="xl" striped animate />
           </Stack>
