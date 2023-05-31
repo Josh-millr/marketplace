@@ -19,6 +19,8 @@ export function NavItem({ icon: Icon, title, link }) {
   // Specifically for the dashboard homepage route
   const isHomeActive = pathname.split("/").length === 0;
 
+  console.log('Current paths', pathname.split("/"));
+
   const isRouteActive = uniquePathactive || isHomeActive;
 
   const compIcon = iconCreator({
@@ -33,11 +35,11 @@ export function NavItem({ icon: Icon, title, link }) {
     <Box className={classes.wrapper}>
       <Link href={link}>
         <NavLink
-          label={title}
-          variant="filled"
-          icon={compIcon}
-          active={isRouteActive}
           pl={24}
+          label={title}
+          icon={compIcon}
+          variant="filled"
+          active={isRouteActive}
         />
       </Link>
     </Box>
