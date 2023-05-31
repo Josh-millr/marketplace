@@ -6,7 +6,7 @@ import { ProgressStepper } from "../ProgressStepper/ProgressStepper";
 
 export function FreelancerRegistrationStepper({ components }) {
   const { breakpoints } = useMantineTheme();
-  const matchTablet = useMediaQuery(`min-width: ${breakpoints.md}`);
+  const matchTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
 
   return (
     <>
