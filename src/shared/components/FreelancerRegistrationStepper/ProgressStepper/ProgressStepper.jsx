@@ -49,7 +49,10 @@ export const ProgressStepper = (props) => {
             </Stack>
 
             <FormDataProvider>
-              <FormSteps />
+              <FormSteps
+                incrementProgress={incrementProgress}
+                decrementProgress={decrementProgress}
+              />
             </FormDataProvider>
           </>
         </PageContainer.Marketplace>
