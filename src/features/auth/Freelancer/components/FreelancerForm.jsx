@@ -28,6 +28,7 @@ export function FreelancerForm() {
   const [active, setActive] = useState(0);
   const [activeStep, setActiveStep] = useState(0);
   const [highestStepVisited, setHighestStepVisited] = useState(active);
+
   const progress = ((activeStep + 1) / totalSteps) * 100;
   const isLargeScreen = useMediaQuery('(min-width: 75em)');
 
@@ -112,6 +113,7 @@ export function FreelancerForm() {
               </Stepper.Completed>
             </Stepper>
           </FormDataProvider>
+          
           <Group position="left" mt="xl">
             <Button
               variant="subtle"

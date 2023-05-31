@@ -5,8 +5,8 @@ function MyServices() {
     <DashboardPageHeader
       showButton
       action={() => console.log('withdraw funds')}
-      btnLabel="Withdrawal"
-      title="Payout"
+      btnLabel="Withdraw"
+      title="Withdrawal"
       descr={`You can view and respond to your reviews and know what clients 
         are saying about you`}
     />

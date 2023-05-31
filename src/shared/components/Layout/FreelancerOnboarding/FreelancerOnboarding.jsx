@@ -1,21 +1,12 @@
-// import { useState } from 'react';
-import { AppShell, Header } from '@mantine/core';
-// import { useRouter } from 'next/router';
+import { AppShell, Header } from "@mantine/core";
 
-// import { DesktopScreenCategoryMenu } from '@/features/categoryMenu';
-
-import { FreelancerOnboardingFooter } from './FreelancerOnboardingFooter/FreelancerOnboardingFooter';
-import { FreelancerOnboardingHeader } from './FreelancerOnboardingHeader/FreelancerOnboardingHeader';
-import { useStyles } from './style.FreelancerOnboarding';
+import { FreelancerRegistrationStepper } from "./Elements";
+import { FreelancerOnboardingFooter } from "./FreelancerOnboardingFooter/FreelancerOnboardingFooter";
+import { FreelancerOnboardingHeader } from "./FreelancerOnboardingHeader/FreelancerOnboardingHeader";
+import { useStyles } from "./style.FreelancerOnboarding";
 
 export function FreelancerOnboardingLayout({ children }) {
-  // const [opened, setOpened] = useState(false);
   const { classes } = useStyles();
-  // const router = useRouter();
-
-  // const showNavbar = router.pathname === '/form';
-
-  // const activeNavBar = showNavbar ? <FreelancerOnboardingNavBar /> : null;
 
   const header = (
     <Header className={classes.wrapper} height={64}>
@@ -27,13 +18,12 @@ export function FreelancerOnboardingLayout({ children }) {
 
   return (
     <AppShell
-      className={classes.main}
       padding={0}
       header={header}
       footer={footer}
-      // navbar={activeNavBar}
+      className={classes.main}
     >
-      {/* {showNavbar && <DesktopScreenCategoryMenu list={category} />} */}
+      <FreelancerRegistrationStepper />
       {children}
     </AppShell>
   );
