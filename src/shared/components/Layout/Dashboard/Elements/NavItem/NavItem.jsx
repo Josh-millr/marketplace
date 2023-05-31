@@ -15,12 +15,12 @@ export function NavItem({ icon: Icon, title, link }) {
   const uniquePath = pathname.split("/").slice(3);
   
   // Other routes will pass this condition except the dashboard homepage
-  const uniquePathactive = uniquePath.some((path) => link.includes(path));
+  const uniquePathActive = uniquePath.some((path) => link.includes(path));
   
   // Specifically for the dashboard homepage route
-  const isHomeActive = uniquePath.length === 0;
+  const isHomeActive = '/dashboard/freelancer' === link;
 
-  const isRouteActive = uniquePathactive || isHomeActive;
+  const isRouteActive = uniquePathActive || isHomeActive;
 
   const compIcon = iconCreator({
     icon: Icon,
