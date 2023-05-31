@@ -17,7 +17,7 @@ const MAX_PROGRESS_INCREMENT = 100;
 export const ProgressStepper = (props) => {
   const [currProgress, setCurrProgress] = useState(PROGRESS_INCREMENT);
 
-  const { incrementProgress, decrementProgress, components } = props;
+  const { components } = props;
 
   const { colors } = useMantineTheme();
 
@@ -50,8 +50,8 @@ export const ProgressStepper = (props) => {
 
             <FormDataProvider>
               <FormSteps
-                incrementProgress={incrementProgress}
-                decrementProgress={decrementProgress}
+                incrementProgress={progressStep.increment}
+                decrementProgress={progressStep.decrement}
               />
             </FormDataProvider>
           </>
