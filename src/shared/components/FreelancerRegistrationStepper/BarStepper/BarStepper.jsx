@@ -33,7 +33,7 @@ export function BarStepper({ components }) {
     <div style={{ borderBottom: `1px solid ${colors.neutral[4]}` }}>
       <PageContainer layout="marketplace">
         <PageContainer.Marketplace>
-          <Stepper active={active} onStepClick={setActive} size="xs">
+          <Stepper active={active} onStepClick={setActive} size="sm">
             <Stepper.Step
               label="Personal Info"
               completedIcon={<IconNumber1 size="1.1rem" />}
