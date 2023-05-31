@@ -3,7 +3,7 @@ import { Stack, useMantineTheme, Progress } from "@mantine/core";
 
 /**
  *
- * TODO: Add horizontal padding to section
+ * TODO: Add horizontal padding to section 
  * TODO: pass the increment and decrement functions to the parent component.
  *
  **/
