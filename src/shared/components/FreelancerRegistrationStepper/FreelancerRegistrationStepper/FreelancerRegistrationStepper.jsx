@@ -1,4 +1,5 @@
-import { useMantineTheme, useMediaQuery } from "@mantine/core";
+import { useMantineTheme } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
 import { BarStepper } from "../BarStepper/BarStepper";
 import { ProgressStepper } from "../ProgressStepper/ProgressStepper";
