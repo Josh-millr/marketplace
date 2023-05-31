@@ -38,4 +38,8 @@ function FreelancerDashboard() {
   );
 }
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default FreelancerDashboard;
