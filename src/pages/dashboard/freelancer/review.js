@@ -10,4 +10,8 @@ function Reviews() {
   );
 }
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default Reviews;

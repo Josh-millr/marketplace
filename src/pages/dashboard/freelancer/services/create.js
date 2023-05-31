@@ -221,3 +221,7 @@ export default function CreateService() {
     </PageContainer.Dashboard>
   );
 }
+
+export async function getStaticProps() {
+  return { props: {} };
+}

@@ -10,4 +10,8 @@ function Finance() {
   );
 }
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default Finance;

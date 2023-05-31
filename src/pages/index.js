@@ -25,6 +25,10 @@ export default function Home() {
   );
 }
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 // export const getStaticProps = withAuthRedirect(async () =>
 //   // Fetch the FAQ info from CMS
 

@@ -286,4 +286,8 @@ function CreateProject() {
   );
 }
 
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default CreateProject;
