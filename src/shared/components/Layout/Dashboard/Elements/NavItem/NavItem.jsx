@@ -12,12 +12,15 @@ export function NavItem({ icon: Icon, title, link }) {
   const router = useRouter();
   const { pathname } = router;
 
+  // Other routes will pass this condition except the dashboard homepage
   const uniquePath = pathname.split('/').slice(3);
+  const uniquePathactive = uniquePath.some((path) => link.includes(path));
 
-  console.log('Unique paths', uniquePath);
+  // Specifically for the dashboard homepage route
+  const isHomeActive = pathname.split('/').length === 0;
 
-  const active = uniquePath.some((path) => link.includes(path));
-
+  const isRouteActive = uniquePathactive || isHomeActive;
+  
   const compIcon = iconCreator({
     icon: Icon,
     sizeOverride: 20,
@@ -31,7 +34,7 @@ export function NavItem({ icon: Icon, title, link }) {
           label={title}
           variant="filled"
           icon={compIcon}
-          active={active}
+          active={isRouteActive}
           pl={24}
         />
       </Link>
