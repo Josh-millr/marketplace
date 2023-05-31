@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Stack, useMantineTheme } from "@mantine/core";
+import { Stack, useMantineTheme, Progress } from "@mantine/core";
 
 /**
  *
