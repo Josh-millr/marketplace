@@ -14,7 +14,7 @@ export const BackToMarketplace = memo(({ role }) => {
         <Flex wrap="nowrap" gap="sm" align="center">
           {iconCreator({
             icon: HomeAltSlim,
-            sizeOverride: 16,
+            sizeOverride: 24,
             colorOverride: colors.brandPrimary[7],
           })}
           <Text className="label-md" fw={"500!important"} c="brandPrimary.7">
