@@ -22,8 +22,6 @@ export function NavItem({ icon: Icon, title, link }) {
 
   const isRouteActive = uniquePathActive || isHomeActive;
 
-  console.log(`${link} is ${isRouteActive}`);
-
   const compIcon = iconCreator({
     icon: Icon,
     sizeOverride: 20,
