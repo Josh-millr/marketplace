@@ -14,6 +14,8 @@ export function NavItem({ icon: Icon, title, link }) {
 
   const uniquePath = pathname.split('/').slice(3);
 
+  console.log('Unique paths', uniquePath);
+
   const active = uniquePath.some((path) => link.includes(path));
 
   const compIcon = iconCreator({

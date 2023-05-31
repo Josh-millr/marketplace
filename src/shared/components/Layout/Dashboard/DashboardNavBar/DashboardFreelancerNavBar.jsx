@@ -27,7 +27,7 @@ export function DashboardFreelancerNavBar({ hidden, hide }) {
         <Flex direction="column" gap={{ base: '0px', md: 'xl' }}>
           <div>
             <NavSectionTitle title="Start" />
-            {/* start Links */}
+            {/* Start Links */}
             {freelancerDashboardLinks.slice(0, 7).map(({ title, link, icon }) => (
               <NavItem key={title} title={title} link={link} icon={icon} />
             ))}
