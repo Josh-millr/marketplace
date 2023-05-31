@@ -6,6 +6,8 @@ import { iconCreator } from "@/shared/utils/iconCreator";
 
 import { useStyles } from "./style.NavItem";
 
+const DASHBOARD_HOME = "/dashboard/freelancer";
+
 export function NavItem({ icon: Icon, title, link }) {
   const { classes, theme } = useStyles();
 
@@ -13,14 +15,12 @@ export function NavItem({ icon: Icon, title, link }) {
   const { pathname } = router;
 
   const uniquePath = pathname.split("/").slice(3);
-  
-  // Other routes will pass this condition except the dashboard homepage
-  const uniquePathActive = uniquePath.some((path) => link.includes(path));
-  
-  // Specifically for the dashboard homepage route
-  const isHomeActive = '/dashboard/freelancer' === link;
 
-  const isRouteActive = uniquePathActive || isHomeActive;
+  // Specifically for the dashboard homepage route
+  const isHomeActive = DASHBOARD_HOME === link;
+
+  const isRouteActive =
+    isHomeActive || uniquePath.some((path) => link.includes(path));
 
   const compIcon = iconCreator({
     icon: Icon,
