@@ -1,26 +1,21 @@
-import { MediaQuery } from "@mantine/core";
+import { useMantineTheme, useMediaQuery } from "@mantine/core";
 
 import { BarStepper } from "../BarStepper/BarStepper";
 import { ProgressStepper } from "../ProgressStepper/ProgressStepper";
 
-/**
- *
- * TODO: Pass in the steps components to be rendered
- *
- **/
-
 export function FreelancerRegistrationStepper({ components }) {
+  const { breakpoints } = useMantineTheme();
+  const matchTablet = useMediaQuery(`min-width: ${breakpoints.md}`);
+
   return (
     <>
-      {/* Steps indicator for mobile screen */}
-      <MediaQuery smallerThan="md" styles={{ display: "none" }}>
+      {matchTablet ? (
+        // Steps indicator for tablet > desktop screen
         <BarStepper components={components} />
-      </MediaQuery>
-
-      {/* Steps indicator for tablet > desktop screen */}
-      <MediaQuery largerThan="md" styles={{ display: "none" }}>
+      ) : (
+        // Steps indicator for mobile screen
         <ProgressStepper />
-      </MediaQuery>
+      )}
     </>
   );
 }
