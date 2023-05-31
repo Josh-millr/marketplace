@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Stepper, useMantineTheme } from "@mantine/core";
+import { Stepper, useMantineTheme, Center } from "@mantine/core";
 import {
   IconNumber1,
   IconNumber2,
@@ -9,22 +9,16 @@ import {
 
 import { PageContainer } from "@/shared/components/PageContainer";
 
-/***
- *
- * TODO: Return the `progressStep` function for traversing the steps
- *
- **/
-
 export function BarStepper({ components }) {
   const [active, setActive] = useState(1);
 
   const { colors } = useMantineTheme();
 
-  const StepComponentOne = components[0];
-  const StepComponentTwo = components[1];
-  const StepComponentThree = components[2];
-  const StepComponentFour = components[3];
-  const StepComponentFive = components[4];
+  const ComponentOne = components[0];
+  const ComponentTwo = components[1];
+  const ComponentThree = components[2];
+  const ComponentFour = components[3];
+  const ComponentFive = components[4];
 
   const stepControls = {
     prev() {
@@ -39,12 +33,12 @@ export function BarStepper({ components }) {
     <div style={{ borderBottom: `1px solid ${colors.neutral[4]}` }}>
       <PageContainer layout="marketplace">
         <PageContainer.Marketplace>
-          <Stepper active={active} onStepClick={setActive} breakpoint="sm">
+          <Stepper active={active} onStepClick={setActive} size="xs">
             <Stepper.Step
               label="Personal Info"
               completedIcon={<IconNumber1 size="1.1rem" />}
             >
-              <StepComponentOne
+              <ComponentOne
                 goPrevStep={stepControls.prev}
                 goNextStep={stepControls.next}
               />
@@ -54,7 +48,7 @@ export function BarStepper({ components }) {
               label="Professional Info"
               completedIcon={<IconNumber2 size="1.1rem" />}
             >
-              <StepComponentTwo
+              <ComponentTwo
                 goPrevStep={stepControls.prev}
                 goNextStep={stepControls.next}
               />
@@ -64,7 +58,7 @@ export function BarStepper({ components }) {
               label="Experience Info"
               completedIcon={<IconNumber3 size="1.1rem" />}
             >
-              <StepComponentThree
+              <ComponentThree
                 goPrevStep={stepControls.prev}
                 goNextStep={stepControls.next}
               />
@@ -74,14 +68,20 @@ export function BarStepper({ components }) {
               label="Contact Info"
               completedIcon={<IconNumber4 size="1.1rem" />}
             >
-              <StepComponentFour
+              <ComponentFour
                 goPrevStep={stepControls.prev}
                 goNextStep={stepControls.next}
               />
             </Stepper.Step>
 
+            <Stepper.Step label="Done">
+              <ComponentFive />
+            </Stepper.Step>
+
             <Stepper.Completed>
-              <StepComponentFive />
+              <Center>
+                Completed, click back button to get to the previous step
+              </Center>
             </Stepper.Completed>
           </Stepper>
         </PageContainer.Marketplace>
