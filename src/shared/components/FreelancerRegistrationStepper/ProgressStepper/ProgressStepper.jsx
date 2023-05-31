@@ -1,9 +1,10 @@
-import { useState } from 'react';
-import { Stack, useMantineTheme, Progress, Text } from '@mantine/core';
+import { useState } from "react";
+import { Stack, useMantineTheme, Progress, Text } from "@mantine/core";
+
+import { PageContainer } from "@/shared/components/PageContainer";
 
 /**
  *
- * TODO: Add horizontal padding to section
  * TODO: pass the increment and decrement functions to the parent component.
  *
  * */
@@ -31,12 +32,16 @@ export const ProgressStepper = ({ incrementProgress, decrementProgress }) => {
 
   return (
     <div style={{ borderBottom: `1px solid ${colors.neutral[3]}` }}>
-      <Stack spacing="md" py="xl">
-        <Text className="label-md" fw={'500!important'}>
-          `Current Progress - (${currProgress})%`
-        </Text>
-        <Progress value={currProgress} radius="xl" striped animate />
-      </Stack>
+      <PageContainer layout="marketplace">
+        <PageContainer.Marketplace>
+          <Stack spacing="md" py="xl">
+            <Text className="label-md" fw={"500!important"}>
+              `Current Progress - (${currProgress})%`
+            </Text>
+            <Progress value={currProgress} radius="xl" striped animate />
+          </Stack>
+        </PageContainer.Marketplace>
+      </PageContainer>
     </div>
   );
 };
