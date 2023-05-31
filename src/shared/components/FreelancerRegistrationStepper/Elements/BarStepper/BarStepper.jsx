@@ -14,10 +14,16 @@ import {
  *
  **/
 
-export function BarStepper() {
+export function BarStepper({ components }) {
   const [active, setActive] = useState(1);
 
-  const progressStep = {
+  const StepComponentOne = components[0];
+  const StepComponentTwo = components[1];
+  const StepComponentThree = components[2];
+  const StepComponentFour = components[3];
+  const StepComponentFive = components[4];
+
+  const stepControls = {
     prev() {
       setActive((current) => (current > 0 ? current - 1 : current));
     },
@@ -32,32 +38,44 @@ export function BarStepper() {
         label="Personal Info"
         completedIcon={<IconNumber1 size="1.1rem" />}
       >
-        Step 1 content: Create an account
+        <StepComponentOne
+          goPrevStep={stepControls.prev}
+          goNextStep={stepControls.next}
+        />
       </Stepper.Step>
 
       <Stepper.Step
         label="Professional Info"
         completedIcon={<IconNumber2 size="1.1rem" />}
       >
-        Step 2 content: Verify email
+        <StepComponentTwo
+          goPrevStep={stepControls.prev}
+          goNextStep={stepControls.next}
+        />
       </Stepper.Step>
 
       <Stepper.Step
         label="Experience Info"
         completedIcon={<IconNumber3 size="1.1rem" />}
       >
-        Step 3 content: Get full access
+        <StepComponentThree
+          goPrevStep={stepControls.prev}
+          goNextStep={stepControls.next}
+        />
       </Stepper.Step>
 
       <Stepper.Step
         label="Contact Info"
         completedIcon={<IconNumber4 size="1.1rem" />}
       >
-        Step 4 content: Get full access
+        <StepComponentFour
+          goPrevStep={stepControls.prev}
+          goNextStep={stepControls.next}
+        />
       </Stepper.Step>
 
       <Stepper.Completed>
-        Completed, click back button to get to previous step
+        <StepComponentFive />
       </Stepper.Completed>
     </Stepper>
   );

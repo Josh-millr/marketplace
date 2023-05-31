@@ -1,6 +1,5 @@
 import { AppShell, Header } from "@mantine/core";
 
-import { FreelancerRegistrationStepper } from "./Elements";
 import { FreelancerOnboardingFooter } from "./FreelancerOnboardingFooter/FreelancerOnboardingFooter";
 import { FreelancerOnboardingHeader } from "./FreelancerOnboardingHeader/FreelancerOnboardingHeader";
 import { useStyles } from "./style.FreelancerOnboarding";
@@ -23,7 +22,6 @@ export function FreelancerOnboardingLayout({ children }) {
       footer={footer}
       className={classes.main}
     >
-      <FreelancerRegistrationStepper />
       {children}
     </AppShell>
   );

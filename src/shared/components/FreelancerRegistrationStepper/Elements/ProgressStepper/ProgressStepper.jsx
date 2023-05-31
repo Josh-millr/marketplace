@@ -3,7 +3,7 @@ import { Stack, useMantineTheme, Progress } from "@mantine/core";
 
 /**
  *
- * TODO: Add horizontal padding to section 
+ * TODO: Add horizontal padding to section
  * TODO: pass the increment and decrement functions to the parent component.
  *
  **/
@@ -35,7 +35,7 @@ export const ProgressStepper = ({ incrementProgress, decrementProgress }) => {
         <Text className="label-md" fw={"500!important"}>
           `Current Progress - (${currProgress})%`
         </Text>
-        <Progress striped animate value={50} radius="xl" value={progress} />
+        <Progress striped animate value={50} radius="xl" value={currProgress} />
       </Stack>
     </div>
   );

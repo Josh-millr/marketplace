@@ -9,12 +9,12 @@ import { ProgressStepper } from "../ProgressStepper/ProgressStepper";
  *
  **/
 
-export function FreelancerRegistrationStepper() {
+export function FreelancerRegistrationStepper({ components }) {
   return (
     <>
       {/* Steps indicator for mobile screen */}
       <MediaQuery smallerThan="md" styles={{ display: "none" }}>
-        <BarStepper />
+        <BarStepper components={components} />
       </MediaQuery>
 
       {/* Steps indicator for tablet > desktop screen */}
