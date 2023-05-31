@@ -1,16 +1,16 @@
 import {
-  LargeSuitcase,
-  Notes,
-  HomeAltSlim,
-  Mail,
-  ClipboardCheck,
   Coins,
+  Notes,
+  Mail,
+  ViewGrid,
+  LargeSuitcase,
+  ClipboardCheck,
 } from 'iconoir-react';
 
 export const freelancerDashboardLinks = [
   {
-    title: 'Home',
-    icon: HomeAltSlim,
+    title: 'Dashboard',
+    icon: ViewGrid,
     link: '/dashboard/freelancer',
   },
   {
@@ -63,7 +63,7 @@ export const freelancerDashboardLinks = [
 export const clientDashboardLinks = [
   {
     title: 'Home',
-    icon: HomeAltSlim,
+    icon: ViewGrid,
     link: '/dashboard/client',
   },
   {

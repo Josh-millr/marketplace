@@ -1,6 +1,6 @@
 import { memo } from "react";
 import Link from "next/link";
-import { ArrowLeft } from "iconoir-react";
+import { HomeAltSlim } from "iconoir-react";
 import { Text, useMantineTheme, Flex, Box } from "@mantine/core";
 
 import { iconCreator } from "@/shared/utils/iconCreator";
@@ -13,12 +13,12 @@ export const BackToMarketplace = memo(({ role }) => {
       <Link href={`/${role}/`}>
         <Flex wrap="nowrap" gap="sm" align="center">
           {iconCreator({
-            icon: ArrowLeft,
+            icon: HomeAltSlim,
             sizeOverride: 16,
             colorOverride: colors.brandPrimary[7],
           })}
           <Text className="label-md" fw={"500!important"} c="brandPrimary.7">
-            Go to marketplace
+            Go Back Home
           </Text>
         </Flex>
       </Link>
