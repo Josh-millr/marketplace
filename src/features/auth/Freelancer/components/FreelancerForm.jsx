@@ -3,7 +3,7 @@ import { ProfessionalInformationForm } from "./ProfessionalInformationForm";
 import { ExperienceInformationForm } from "./ExperienceInformationForm";
 import { ContactInformationForm } from "./ContactInformationForm";
 import { OnboardingSuccess } from "./OnboardingSuccess";
-import { FreelancerRegistrationStepper } from "@components/FreelancerRegistrationStepper";
+import { FreelancerRegistrationStepper } from "@/components/FreelancerRegistrationStepper";
 
 const components = [
   PersonalInformationForm,
