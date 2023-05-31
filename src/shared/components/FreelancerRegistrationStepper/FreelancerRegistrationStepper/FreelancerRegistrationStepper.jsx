@@ -15,7 +15,7 @@ export function FreelancerRegistrationStepper({ components }) {
         <BarStepper components={components} />
       ) : (
         // Steps indicator for mobile screen
-        <ProgressStepper />
+        <ProgressStepper components={components} />
       )}
     </>
   );
