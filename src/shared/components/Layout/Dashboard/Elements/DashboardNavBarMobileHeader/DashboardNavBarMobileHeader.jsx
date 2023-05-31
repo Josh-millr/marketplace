@@ -1,9 +1,10 @@
-import { CloseButton, Divider, Group, Image, MediaQuery } from '@mantine/core';
+import { memo } from "react";
+import { CloseButton, Divider, Group, Image, MediaQuery } from "@mantine/core";
 
-export function DashboardNavBarMobileHeader({ hide }) {
+export const DashboardNavBarMobileHeader = memo(({ hide }) => {
   return (
     <div>
-      <Group position="apart" px="xl" py="md" >
+      <Group position="apart" px="xl" py="md">
         <Image
           height={40}
           width={115}
@@ -11,7 +12,7 @@ export function DashboardNavBarMobileHeader({ hide }) {
           src="/logo/hamzry/SVG/logo-hamzry-full-colored-115x40.svg"
         />
 
-        <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+        <MediaQuery largerThan="md" styles={{ display: "none" }}>
           <CloseButton
             size="sm"
             aria-label="Close modal"
@@ -23,4 +24,4 @@ export function DashboardNavBarMobileHeader({ hide }) {
       <Divider />
     </div>
   );
-}
+});

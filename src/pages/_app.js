@@ -44,7 +44,6 @@ const dmSans = DMSans({
 });
 
 function AppRoot({ Component, pageProps, userData, currPath }) {
-  console.log('Im about to rerender the layout with', currPath);
   return (
     <>
       <Head>
