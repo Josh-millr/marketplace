@@ -57,31 +57,12 @@ export function PersonalInformationForm() {
   // };
 
   <Paper>
-    <Divider style={{ margin: "1rem 0" }} />
-
     <SimpleGrid
       cols={1}
       spacing="xl"
       mt={{ md: 50 }}
       // breakpoints={[{ minWidth: 'md', cols: 2 }]}
     >
-      <SimpleGrid cols={1} breakpoints={[{ minWidth: "md", cols: 2 }]}>
-        <TextInput
-          label="First Name"
-          required
-          value={user.firstname}
-          style={{ marginBottom: "1rem" }}
-        />
-        <TextInput
-          label="Last Name"
-          required
-          value={user.lastname}
-          style={{ marginBottom: "1rem" }}
-        />
-      </SimpleGrid>
-
-      <Divider style={{ margin: "1rem 0" }} />
-
       <SimpleGrid cols={1} breakpoints={[{ minWidth: "md", cols: 2 }]}>
         <Select
           label="Gender"
@@ -192,7 +173,7 @@ export function PersonalInformationForm() {
 
           {/* Column 2 */}
           <Grid.Col span={12} md={7} orderMd={1}>
-            <Grid gutter="2xl">
+            <Grid gutter="2xl" py="2xl">
               <Grid.Col span={12} orderSm={2} sm="content">
                 <Flex justify={{ base: "flex-start", sm: "flex-end" }} w="100%">
                   <Avatar
@@ -222,14 +203,32 @@ export function PersonalInformationForm() {
                       <input
                         type="file"
                         accept="image/*"
-                        onChange={handlePictureUpload}
                         style={{ display: "none" }}
+                        onChange={handlePictureUpload}
                       />
                     </Button>
                   </div>
                 </Stack>
               </Grid.Col>
             </Grid>
+
+            <Stack spacing="2xl" w="100%">
+              <div>
+                <Flex
+                  w="100%"
+                  gap={{ base: "2xl", sm: "lg" }}
+                  direction={{ base: "column", sm: "row" }}
+                >
+                  <TextInput
+                    required
+                    label="First Name"
+                    value={user.firstname}
+                  />
+                  <TextInput label="Last Name" value={user.lastname} required />
+                </Flex>
+                <Divider />
+              </div>
+            </Stack>
           </Grid.Col>
         </Grid>
       </PageContainer.Marketplace>
