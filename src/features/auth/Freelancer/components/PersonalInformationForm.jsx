@@ -55,103 +55,6 @@ export function PersonalInformationForm() {
   //   setLanguages(updatedLanguages);
   // };
 
-  <Paper>
-    <SimpleGrid
-      cols={1}
-      spacing="xl"
-      mt={{ md: 50 }}
-      // breakpoints={[{ minWidth: 'md', cols: 2 }]}
-    >
-      <SimpleGrid cols={1} breakpoints={[{ minWidth: "md", cols: 2 }]}>
-        <Select
-          label="Gender"
-          placeholder="choose gender"
-          data={[
-            { value: "male", label: "Male" },
-            { value: "female", label: "Female" },
-            { value: "other", label: "Other" },
-          ]}
-          value={user.gender}
-          style={{ marginBottom: "1rem" }}
-        />
-        <Select
-          label="Account Type"
-          placeholder="Select account type"
-          data={[
-            { value: "individual", label: "Individual" },
-            { value: "business", label: "Business" },
-          ]}
-          value={user.accounttype}
-          style={{ marginBottom: "1rem" }}
-        />
-      </SimpleGrid>
-
-      <Divider style={{ margin: "1rem 0" }} />
-
-      <SimpleGrid cols={1} breakpoints={[{ minWidth: "md", cols: 2 }]}>
-        <TextInput
-          type="email"
-          label="Email"
-          required
-          value={user.email}
-          style={{ marginBottom: "1rem" }}
-        />
-        <TextInput
-          label="Country"
-          required
-          value={user.location}
-          style={{ marginBottom: "1rem" }}
-        />
-      </SimpleGrid>
-
-      <Divider style={{ margin: "1rem 0" }} />
-
-      <SimpleGrid cols={1} breakpoints={[{ minWidth: "md", cols: 2 }]}>
-        <TextInput
-          label="Username"
-          description=" Use 3 to 15 characters, letters, numbers, and underscores only,
-    eg. ola_mike."
-          required
-          value={user.username}
-          style={{ marginBottom: "1rem" }}
-        />
-        <TextInput
-          label="Country"
-          description="We’re currently rolling out a few countries, visit our country roll-out plan for more into"
-          required
-          value={user.location}
-          style={{ marginBottom: "1rem" }}
-        />
-      </SimpleGrid>
-
-      <Divider style={{ margin: "1rem 0" }} />
-    </SimpleGrid>
-
-    <SimpleGrid cols={1}>
-      <Select
-        searchable
-        multiple
-        label="Select languages"
-        description="Use 3 to 15 characters, letters, numbers, and underscores only, eg. ola_mike"
-        placeholder="Select languages"
-        data={[
-          { value: "english", label: "English" },
-          { value: "spanish", label: "Spanish" },
-          { value: "french", label: "French" },
-          { value: "german", label: "German" },
-          { value: "italian", label: "Italian" },
-          { value: "japanese", label: "Japanese" },
-        ]}
-        value={languages}
-        onChange={handleLanguageChange}
-        filter={(value, item) =>
-          item.label.toLowerCase().includes(value.toLowerCase().trim())
-        }
-      />
-    </SimpleGrid>
-    <Divider style={{ margin: "1rem 0" }} />
-  </Paper>;
-
   return (
     <PageContainer layout="marketplace">
       <PageContainer.Marketplace>
@@ -217,20 +120,127 @@ export function PersonalInformationForm() {
                 gap={{ base: "2xl", sm: "lg" }}
                 direction={{ base: "column", sm: "row" }}
               >
+                {/* Firstname input */}
                 <TextInput
+                  w="100%"
                   disabled
                   required
                   label="First Name"
                   value={user.firstname}
                 />
+
+                {/* Lastname input */}
                 <TextInput
+                  w="100%"
                   disabled
                   required
                   label="Last Name"
                   value={user.lastname}
                 />
               </Flex>
+
               <Divider />
+
+              <Flex
+                w="100%"
+                gap={{ base: "2xl", sm: "lg" }}
+                direction={{ base: "column", sm: "row" }}
+              >
+                {/* Gender input */}
+                <Select
+                  disabled
+                  w="100%"
+                  label="Gender"
+                  placeholder="choose gender"
+                  value={user.gender}
+                  data={[
+                    { value: "male", label: "Male" },
+                    { value: "female", label: "Female" },
+                  ]}
+                />
+
+                {/* Account type input */}
+                <Select
+                  w="100%"
+                  disabled
+                  label="Account Type"
+                  placeholder="Select account type"
+                  value={user.accounttype}
+                  data={[
+                    { value: "individual", label: "Individual" },
+                    { value: "business", label: "Business" },
+                  ]}
+                />
+              </Flex>
+
+              <Divider />
+
+              <Flex
+                w="100%"
+                gap={{ base: "2xl", sm: "lg" }}
+                direction={{ base: "column", sm: "row" }}
+              >
+                {/* Email Address */}
+                <TextInput
+                  w="100%"
+                  disabled
+                  type="email"
+                  label="Email"
+                  required
+                  value={user.email}
+                />
+
+                {/* Username input */}
+                <TextInput
+                  w="100%"
+                  disabled
+                  required
+                  label="Username"
+                  value={user.username}
+                />
+              </Flex>
+
+              <Divider />
+
+              <Flex
+                w="100%"
+                gap={{ base: "2xl", sm: "lg" }}
+                direction={{ base: "column", sm: "row" }}
+              >
+                {/* Language list */}
+                <Select
+                  w="100%"
+                  searchable
+                  multiple
+                  label="Select languages"
+                  placeholder="Select languages"
+                  // TODO: Fetch language list from language API
+                  data={[
+                    { value: "english", label: "English" },
+                    { value: "spanish", label: "Spanish" },
+                    { value: "french", label: "French" },
+                    { value: "german", label: "German" },
+                    { value: "italian", label: "Italian" },
+                    { value: "japanese", label: "Japanese" },
+                  ]}
+                  value={languages}
+                  onChange={handleLanguageChange}
+                  filter={(value, item) =>
+                    item.label
+                      .toLowerCase()
+                      .includes(value.toLowerCase().trim())
+                  }
+                />
+
+                {/* Country */}
+                <TextInput
+                  disabled
+                  required
+                  w="100%"
+                  label="Country"
+                  value={user.location}
+                />
+              </Flex>
             </Stack>
           </Grid.Col>
         </Grid>
