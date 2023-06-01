@@ -3,7 +3,6 @@ import {
   Paper,
   Grid,
   Stack,
-  FileInput,
   Flex,
   TextInput,
   Select,
@@ -213,23 +212,25 @@ export function PersonalInformationForm() {
             </Grid>
 
             <Stack spacing="2xl" w="100%">
-              <div>
-                <Flex
-                  w="100%"
+              <Flex
+                w="100%"
+                gap={{ base: "2xl", sm: "lg" }}
+                direction={{ base: "column", sm: "row" }}
+              >
+                <TextInput
                   disabled
-                  gap={{ base: "2xl", sm: "lg" }}
-                  direction={{ base: "column", sm: "row" }}
-                >
-                  <TextInput
-                    disabled
-                    required
-                    label="First Name"
-                    value={user.firstname}
-                  />
-                  <TextInput label="Last Name" value={user.lastname} required />
-                </Flex>
-                <Divider />
-              </div>
+                  required
+                  label="First Name"
+                  value={user.firstname}
+                />
+                <TextInput
+                  disabled
+                  required
+                  label="Last Name"
+                  value={user.lastname}
+                />
+              </Flex>
+              <Divider />
             </Stack>
           </Grid.Col>
         </Grid>
