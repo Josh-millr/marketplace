@@ -217,13 +217,7 @@ export function PersonalInformationForm() {
                     </Text>
                   </Stack>
                   <div>
-                    {/* <FileInput
-                      accept="image/*"
-                      placeholder="Upload Photo"
-                      variant="filled"
-                      icon={<IconPhotoPlus />}
-                    /> */}
-                    <Button leftIcon={<IconPhotoPlus />}>
+                    <Button component="label" leftIcon={<IconPhotoPlus />}>
                       Upload Photo
                       <input
                         type="file"
