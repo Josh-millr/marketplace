@@ -216,10 +216,12 @@ export function PersonalInformationForm() {
               <div>
                 <Flex
                   w="100%"
+                  disabled
                   gap={{ base: "2xl", sm: "lg" }}
                   direction={{ base: "column", sm: "row" }}
                 >
                   <TextInput
+                    disabled
                     required
                     label="First Name"
                     value={user.firstname}
