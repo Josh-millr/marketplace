@@ -217,10 +217,9 @@ export function PersonalInformationForm() {
                   </Stack>
                   <div>
                     <Button
-                      type="file"
-                      component="input"
-                      accept="image/*"
-                      onClick={handlePictureUpload}
+                      // type="file"
+                      // accept="image/*"
+                      // onClick={handlePictureUpload}
                       leftIcon={<IconPhotoPlus />}
                     >
                       Upload Photo
