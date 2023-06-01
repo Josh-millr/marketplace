@@ -217,21 +217,21 @@ export function PersonalInformationForm() {
                     </Text>
                   </Stack>
                   <div>
-                    <FileInput
+                    {/* <FileInput
                       accept="image/*"
                       placeholder="Upload Photo"
                       variant="filled"
                       icon={<IconPhotoPlus />}
-                      onChange={handlePictureUpload}
-                    />
-                    {/* <Button
-                      // type="file"
-                      // accept="image/*"
-                      // onClick={handlePictureUpload}
-                      leftIcon={<IconPhotoPlus />}
-                    >
+                    /> */}
+                    <Button leftIcon={<IconPhotoPlus />}>
                       Upload Photo
-                    </Button> */}
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handlePictureUpload}
+                        style={{ display: "none" }}
+                      />
+                    </Button>
                   </div>
                 </Stack>
               </Grid.Col>
