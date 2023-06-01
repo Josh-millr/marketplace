@@ -191,7 +191,7 @@ export function PersonalInformationForm() {
 
           {/* Column 2 */}
           <Grid.Col span={12} md={7} orderMd={1}>
-            <Grid>
+            <Grid gap="2xl">
               <Grid.Col span={12} orderSm={2} sm="content">
                 <Flex justify={{ base: "flex-start", sm: "flex-end" }} w="100%">
                   <Avatar
@@ -210,12 +210,22 @@ export function PersonalInformationForm() {
                     <Text className="label-lg" fw={"500!important"}>
                       Profile Picture
                     </Text>
-                    <Text className="body-sm" fw={"500!important"}>
+                    <Text className="body-sm" c="neutral.6">
                       Add a profile picture of yourself so customers will know
                       exactly who they’ll be working with.
                     </Text>
                   </Stack>
-                  <Button leftIcon={<IconPhotoPlus />}>Upload Photo</Button>
+                  <div>
+                    <Button
+                      type="file"
+                      component="input"
+                      accept="image/*"
+                      onClick={handlePictureUpload}
+                      leftIcon={<IconPhotoPlus />}
+                    >
+                      Upload Photo
+                    </Button>
+                  </div>
                 </Stack>
               </Grid.Col>
             </Grid>
