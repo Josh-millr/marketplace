@@ -191,7 +191,7 @@ export function PersonalInformationForm() {
 
           {/* Column 2 */}
           <Grid.Col span={12} md={7} orderMd={1}>
-            <Grid gap="2xl">
+            <Grid gutter="2xl">
               <Grid.Col span={12} orderSm={2} sm="content">
                 <Flex justify={{ base: "flex-start", sm: "flex-end" }} w="100%">
                   <Avatar
