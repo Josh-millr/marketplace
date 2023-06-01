@@ -32,25 +32,25 @@ export const ProgressStepper = (props) => {
 
   return (
     <div style={{ borderBottom: `1px solid ${colors.neutral[3]}` }}>
-      <PageContainer layout="marketplace">
-        <PageContainer.Marketplace>
-          <>
+      <>
+        <PageContainer layout="marketplace">
+          <PageContainer.Marketplace>
             <Stack spacing="md" py="xl">
               <Text className="label-md" fw={"500!important"}>
                 Current Progress - {currProgress}%
               </Text>
               <Progress value={currProgress} radius="xl" striped animate />
             </Stack>
+          </PageContainer.Marketplace>
+        </PageContainer>
 
-            <FormDataProvider>
-              <FormSteps
-                incrementProgress={progressStep.increment}
-                decrementProgress={progressStep.decrement}
-              />
-            </FormDataProvider>
-          </>
-        </PageContainer.Marketplace>
-      </PageContainer>
+        <FormDataProvider>
+          <FormSteps
+            incrementProgress={progressStep.increment}
+            decrementProgress={progressStep.decrement}
+          />
+        </FormDataProvider>
+      </>
     </div>
   );
 };
