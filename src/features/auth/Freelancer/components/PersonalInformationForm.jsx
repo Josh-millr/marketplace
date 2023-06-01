@@ -3,6 +3,7 @@ import {
   Paper,
   Grid,
   Stack,
+  FileInput,
   Flex,
   TextInput,
   Select,
@@ -216,14 +217,21 @@ export function PersonalInformationForm() {
                     </Text>
                   </Stack>
                   <div>
-                    <Button
+                    <FileInput
+                      accept="image/*"
+                      placeholder="Upload Photo"
+                      variant="filled"
+                      icon={<IconPhotoPlus />}
+                      onChange={handlePictureUpload}
+                    />
+                    {/* <Button
                       // type="file"
                       // accept="image/*"
                       // onClick={handlePictureUpload}
                       leftIcon={<IconPhotoPlus />}
                     >
                       Upload Photo
-                    </Button>
+                    </Button> */}
                   </div>
                 </Stack>
               </Grid.Col>
