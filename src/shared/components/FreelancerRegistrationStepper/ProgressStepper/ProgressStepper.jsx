@@ -32,28 +32,26 @@ export const ProgressStepper = ({ components }) => {
   };
 
   return (
-    <div style={{ borderBottom: `1px solid ${colors.neutral[3]}` }}>
-      <>
-        <div className={classes.wrapper}>
-          <PageContainer layout="marketplace">
-            <PageContainer.Marketplace>
-              <Stack spacing="md" py="xl">
-                <Text className="label-md" fw={"500!important"}>
-                  Current Progress - {currProgress}%
-                </Text>
-                <Progress value={currProgress} radius="xl" striped animate />
-              </Stack>
-            </PageContainer.Marketplace>
-          </PageContainer>
-        </div>
+    <>
+      <div className={classes.wrapper}>
+        <PageContainer layout="marketplace">
+          <PageContainer.Marketplace>
+            <Stack spacing="md" py="xl">
+              <Text className="label-md" fw={"500!important"}>
+                Current Progress - {currProgress}%
+              </Text>
+              <Progress value={currProgress} radius="xl" striped animate />
+            </Stack>
+          </PageContainer.Marketplace>
+        </PageContainer>
+      </div>
 
-        <FormDataProvider>
-          <FormSteps
-            incrementProgress={progressStep.increment}
-            decrementProgress={progressStep.decrement}
-          />
-        </FormDataProvider>
-      </>
-    </div>
+      <FormDataProvider>
+        <FormSteps
+          incrementProgress={progressStep.increment}
+          decrementProgress={progressStep.decrement}
+        />
+      </FormDataProvider>
+    </>
   );
 };
