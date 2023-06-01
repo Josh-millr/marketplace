@@ -5,14 +5,15 @@ import withStepper from "@/shared/hocs/withStepper";
 import FormDataProvider from "@/shared/providers/FormDataProvider";
 import { PageContainer } from "@/shared/components/PageContainer";
 
+import { useStyles } from "./style.ProgressStepper";
+
 const PROGRESS_INCREMENT = 20;
 const MAX_PROGRESS_INCREMENT = 100;
 
-export const ProgressStepper = (props) => {
+export const ProgressStepper = ({ components }) => {
   const [currProgress, setCurrProgress] = useState(PROGRESS_INCREMENT);
 
-  const { components } = props;
-
+  const { classes } = useStyles();
   const { colors } = useMantineTheme();
 
   const FormSteps = withStepper(components);
@@ -33,16 +34,18 @@ export const ProgressStepper = (props) => {
   return (
     <div style={{ borderBottom: `1px solid ${colors.neutral[3]}` }}>
       <>
-        <PageContainer layout="marketplace">
-          <PageContainer.Marketplace>
-            <Stack spacing="md" py="xl">
-              <Text className="label-md" fw={"500!important"}>
-                Current Progress - {currProgress}%
-              </Text>
-              <Progress value={currProgress} radius="xl" striped animate />
-            </Stack>
-          </PageContainer.Marketplace>
-        </PageContainer>
+        <div className={classes.wrapper}>
+          <PageContainer layout="marketplace">
+            <PageContainer.Marketplace>
+              <Stack spacing="md" py="xl">
+                <Text className="label-md" fw={"500!important"}>
+                  Current Progress - {currProgress}%
+                </Text>
+                <Progress value={currProgress} radius="xl" striped animate />
+              </Stack>
+            </PageContainer.Marketplace>
+          </PageContainer>
+        </div>
 
         <FormDataProvider>
           <FormSteps
