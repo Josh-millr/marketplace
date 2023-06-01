@@ -62,7 +62,7 @@ export function PersonalInformationForm() {
             <div className={classes.pageHeadingWrapper}>
               <Stack spacing="lg" py="2xl">
                 <Text className="h1">Personal Information</Text>
-                <Text className="body-md">
+                <Text className="body-md" c="neutral.5">
                   Tell us a bit about yourself. This information will appear on
                   your public profile, so that potential buyers can get to know
                   you better.
