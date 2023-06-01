@@ -5,12 +5,6 @@ import withStepper from "@/shared/hocs/withStepper";
 import FormDataProvider from "@/shared/providers/FormDataProvider";
 import { PageContainer } from "@/shared/components/PageContainer";
 
-/**
- *
- * TODO: pass the increment and decrement functions to the parent component.
- *
- * */
-
 const PROGRESS_INCREMENT = 20;
 const MAX_PROGRESS_INCREMENT = 100;
 

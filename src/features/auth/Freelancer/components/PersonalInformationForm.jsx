@@ -1,6 +1,8 @@
 import { useState } from "react";
 import {
   Paper,
+  Grid,
+  Stack,
   TextInput,
   Select,
   SimpleGrid,
@@ -14,8 +16,12 @@ import { useSelector } from "react-redux";
 
 import { PageContainer } from "@/shared/components/PageContainer";
 
+import { useStyles } from "../styles/style.PersonalInformationForm";
+
 export function PersonalInformationForm() {
   const { user } = useSelector((state) => state.user);
+
+  const { classes } = useStyles();
 
   const [languages, setLanguages] = useState([]);
   const [profilePicture, setProfilePicture] = useState(null);
@@ -50,29 +56,22 @@ export function PersonalInformationForm() {
   return (
     <PageContainer layout="marketplace">
       <PageContainer.Marketplace>
+        <Grid>
+          <Grid.Col span={12} md={7} orderMd={2}></Grid.Col>
+          <Grid.Col span={12} md={5} orderMd={1}>
+            <div className={classes.pageHeadingWrapper}>
+              <Stack spacing="lg" py="2xl">
+                <Text className="h1">Personal Information</Text>
+                <Text className="body-md">
+                  Tell us a bit about yourself. This information will appear on
+                  your public profile, so that potential buyers can get to know
+                  you better.
+                </Text>
+              </Stack>
+            </div>
+          </Grid.Col>
+        </Grid>
         <Paper>
-          <Text
-            variant="h1"
-            size="lg"
-            style={{
-              textAlign: "left",
-              marginBottom: "1rem",
-              marginTop: "2rem",
-            }}
-          >
-            Personal Information
-          </Text>
-          <Text
-            variant="h2"
-            size="md"
-            style={{ textAlign: "left", marginBottom: "1rem" }}
-          >
-            Tell us a bit about yourself. This information will appear on your
-            public profile, so that potential buyers can get to know you better.
-          </Text>
-
-          <Divider style={{ margin: "1rem 0" }} />
-
           <div
             style={{
               display: "flex",
