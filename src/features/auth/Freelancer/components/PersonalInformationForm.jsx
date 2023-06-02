@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useForm } from "@mantine/form";
+import { useForm, isNotEmpty } from "@mantine/form";
 import {
   Grid,
   Flex,
@@ -18,7 +17,6 @@ import { IconPhotoPlus } from "@tabler/icons-react";
 import { useStyles } from "../styles/style.PersonalInformationForm";
 
 export function PersonalInformationForm({ stepControls }) {
-  const [languages, setLanguages] = useState([]);
   const [profilePicture, setProfilePicture] = useState(null);
 
   const { classes } = useStyles();
@@ -26,8 +24,12 @@ export function PersonalInformationForm({ stepControls }) {
 
   const form = useForm({
     initialValues: {
-      languages: "",
+      languages: [],
       profilePicture: {},
+    },
+
+    validate: {
+      languages: isNotEmpty("Select atleast one proficient language"),
     },
   });
 
@@ -44,18 +46,14 @@ export function PersonalInformationForm({ stepControls }) {
     }
   };
 
-  const handleLanguageChange = (newLanguages) => {
-    setLanguages(newLanguages);
-  };
+  const submitForm = form.onSubmit(async (values) => {
+    console.log("The form values", values);
 
-  const submitForm = form.onSubmit((values) => {
-    // const isFormValid = form.isValid();
-    // if (isFormValid === false) return;
+    const isFormValid = form.isValid();
+    if (isFormValid !== true) return null;
 
-    // Store the form data in the formData context...
-    console.log("Storing formData");
-
-    // onClick={stepControls.goNext}
+    storeData(values);
+    stepControl.goNext();
   });
 
   return (
