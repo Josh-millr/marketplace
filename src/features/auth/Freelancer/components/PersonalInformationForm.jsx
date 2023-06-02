@@ -2,17 +2,17 @@ import { useForm } from "@mantine/form";
 import { useState } from "react";
 import {
   Grid,
-  Stack,
   Flex,
-  TextInput,
-  Select,
-  Divider,
-  Button,
-  Avatar,
   Text,
+  Stack,
+  Avatar,
+  Select,
+  Button,
+  Divider,
+  TextInput,
 } from "@mantine/core";
-import { IconPhotoPlus } from "@tabler/icons-react";
 import { useSelector } from "react-redux";
+import { IconPhotoPlus } from "@tabler/icons-react";
 
 import { PageContainer } from "@/shared/components/PageContainer";
 
@@ -62,7 +62,7 @@ export function PersonalInformationForm({ stepControls }) {
   return (
     <PageContainer layout="marketplace">
       <PageContainer.Marketplace>
-        <Grid>
+        <Grid gutter="xl">
           {/* Column 1 */}
           <Grid.Col span={12} md={5} orderMd={2}>
             <div className={classes.pageHeadingWrapper}>
@@ -252,8 +252,8 @@ export function PersonalInformationForm({ stepControls }) {
                   direction={{ base: "column", sm: "row" }}
                   w="100%"
                 >
-                  <Button>Go Back</Button>
-                  <Button>Continue</Button>
+                  <Button variant="subtle">Go Back</Button>
+                  <Button type="submit">Continue</Button>
                 </Flex>
               </Stack>
             </form>
