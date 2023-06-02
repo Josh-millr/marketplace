@@ -30,60 +30,56 @@ export function BarStepper({ components }) {
   };
 
   return (
-    <PageContainer layout="marketplace">
-      <PageContainer.Marketplace>
-        <Stepper active={active} onStepClick={setActive} size="sm">
-          <Stepper.Step
-            label="Personal Info"
-            completedIcon={<IconNumber1 size="1.1rem" />}
-          >
-            <ComponentOne
-              goPrevStep={stepControls.prev}
-              goNextStep={stepControls.next}
-            />
-          </Stepper.Step>
+    <Stepper active={active} onStepClick={setActive} size="sm">
+      <Stepper.Step
+        label="Personal Info"
+        completedIcon={<IconNumber1 size="1.1rem" />}
+      >
+        <ComponentOne
+          goPrevStep={stepControls.prev}
+          goNextStep={stepControls.next}
+        />
+      </Stepper.Step>
 
-          <Stepper.Step
-            label="Professional Info"
-            completedIcon={<IconNumber2 size="1.1rem" />}
-          >
-            <ComponentTwo
-              goPrevStep={stepControls.prev}
-              goNextStep={stepControls.next}
-            />
-          </Stepper.Step>
+      <Stepper.Step
+        label="Professional Info"
+        completedIcon={<IconNumber2 size="1.1rem" />}
+      >
+        <ComponentTwo
+          goPrevStep={stepControls.prev}
+          goNextStep={stepControls.next}
+        />
+      </Stepper.Step>
 
-          <Stepper.Step
-            label="Experience Info"
-            completedIcon={<IconNumber3 size="1.1rem" />}
-          >
-            <ComponentThree
-              goPrevStep={stepControls.prev}
-              goNextStep={stepControls.next}
-            />
-          </Stepper.Step>
+      <Stepper.Step
+        label="Experience Info"
+        completedIcon={<IconNumber3 size="1.1rem" />}
+      >
+        <ComponentThree
+          goPrevStep={stepControls.prev}
+          goNextStep={stepControls.next}
+        />
+      </Stepper.Step>
 
-          <Stepper.Step
-            label="Contact Info"
-            completedIcon={<IconNumber4 size="1.1rem" />}
-          >
-            <ComponentFour
-              goPrevStep={stepControls.prev}
-              goNextStep={stepControls.next}
-            />
-          </Stepper.Step>
+      <Stepper.Step
+        label="Contact Info"
+        completedIcon={<IconNumber4 size="1.1rem" />}
+      >
+        <ComponentFour
+          goPrevStep={stepControls.prev}
+          goNextStep={stepControls.next}
+        />
+      </Stepper.Step>
 
-          <Stepper.Step label="Done">
-            <ComponentFive />
-          </Stepper.Step>
+      <Stepper.Step label="Done">
+        <ComponentFive />
+      </Stepper.Step>
 
-          <Stepper.Completed>
-            <Center>
-              Completed, click back button to get to the previous step
-            </Center>
-          </Stepper.Completed>
-        </Stepper>
-      </PageContainer.Marketplace>
-    </PageContainer>
+      <Stepper.Completed>
+        <Center>
+          Completed, click back button to get to the previous step
+        </Center>
+      </Stepper.Completed>
+    </Stepper>
   );
 }

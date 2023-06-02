@@ -9,14 +9,16 @@ export function FreelancerRegistrationStepper({ components }) {
   const matchTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
 
   return (
-    <>
-      {matchTablet ? (
-        // Steps indicator for tablet > desktop screen
-        <BarStepper components={components} />
-      ) : (
-        // Steps indicator for mobile screen
-        <ProgressStepper components={components} />
-      )}
-    </>
+    <PageContainer layout="marketplace">
+      <PageContainer.Marketplace>
+        {matchTablet ? (
+          // Steps indicator for tablet > desktop screen
+          <BarStepper components={components} />
+        ) : (
+          // Steps indicator for mobile screen
+          <ProgressStepper components={components} />
+        )}
+      </PageContainer.Marketplace>
+    </PageContainer>
   );
 }
