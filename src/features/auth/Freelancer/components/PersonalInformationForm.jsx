@@ -1,5 +1,5 @@
-import { useForm } from "@mantine/form";
 import { useState } from "react";
+import { useForm } from "@mantine/form";
 import {
   Grid,
   Flex,
@@ -13,8 +13,6 @@ import {
 } from "@mantine/core";
 import { useSelector } from "react-redux";
 import { IconPhotoPlus } from "@tabler/icons-react";
-
-import { PageContainer } from "@/shared/components/PageContainer";
 
 import { useStyles } from "../styles/style.PersonalInformationForm";
 

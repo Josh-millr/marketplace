@@ -1,6 +1,8 @@
 import { useMediaQuery } from "@mantine/hooks";
 import { useMantineTheme } from "@mantine/core";
 
+import { PageContainer } from "@/shared/components/PageContainer";
+
 import { BarStepper } from "../BarStepper/BarStepper";
 import { ProgressStepper } from "../ProgressStepper/ProgressStepper";
 
