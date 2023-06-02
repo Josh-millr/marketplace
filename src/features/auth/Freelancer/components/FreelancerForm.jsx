@@ -1,10 +1,10 @@
-import { FreelancerRegistrationStepper } from '@/shared/components/FreelancerRegistrationStepper';
+import { FreelancerRegistrationStepper } from "@/shared/components/FreelancerRegistrationStepper";
 
-import { PersonalInformationForm } from './PersonalInformationForm';
-import { ProfessionalInformationForm } from './ProfessionalInformationForm';
-import { ExperienceInformationForm } from './ExperienceInformationForm';
-import { ContactInformationForm } from './ContactInformationForm';
-import { OnboardingSuccess } from './OnboardingSuccess';
+import { OnboardingSuccess } from "./OnboardingSuccess";
+import { ContactInformationForm } from "./ContactInformationForm";
+import { PersonalInformationForm } from "./PersonalInformationForm";
+import { ExperienceInformationForm } from "./ExperienceInformationForm";
+import { ProfessionalInformationForm } from "./ProfessionalInformationForm";
 
 const components = [
   PersonalInformationForm,
