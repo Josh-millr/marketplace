@@ -1,3 +1,4 @@
+import FormDataProvider from '@/shared/providers/FormDataProvider';
 import { FreelancerRegistrationStepper } from "@/shared/components/FreelancerRegistrationStepper";
 
 import { OnboardingSuccess } from "./OnboardingSuccess";
@@ -15,5 +16,9 @@ const components = [
 ];
 
 export function FreelancerForm() {
-  return <FreelancerRegistrationStepper components={components} />;
+  return (
+    <FormDataProvider>
+      <FreelancerRegistrationStepper components={components} />
+    </FormDataProvider>
+  );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useForm, isNotEmpty } from "@mantine/form";
 import {
   Grid,
@@ -15,6 +15,8 @@ import {
 import { useSelector } from "react-redux";
 import { IconPhotoPlus } from "@tabler/icons-react";
 
+import { FormDataContext } from '@/shared/providers/FormDataProvider';
+
 import { useStyles } from "../styles/style.PersonalInformationForm";
 
 export function PersonalInformationForm({ stepControls }) {
@@ -22,6 +24,7 @@ export function PersonalInformationForm({ stepControls }) {
 
   const { classes } = useStyles();
   const { user } = useSelector((state) => state.user);
+  const { storeData, isDataPresent } = useContext(FormDataContext);
 
   const form = useForm({
     initialValues: {
@@ -49,11 +52,15 @@ export function PersonalInformationForm({ stepControls }) {
 
   const submitForm = form.onSubmit(async (values) => {
     console.log("The form values", values);
-
+    
+    // TODO: Check if an image was uploaded and store it
+    
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
-
+    
     storeData(values);
+    console.log('languages presence is', isDataPresent('languages'))
+
     stepControl.goNext();
   });
 
