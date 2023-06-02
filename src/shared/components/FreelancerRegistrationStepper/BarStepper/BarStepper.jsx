@@ -10,7 +10,7 @@ import {
 import { PageContainer } from "@/shared/components/PageContainer";
 
 export function BarStepper({ components }) {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
 
   const { colors } = useMantineTheme();
 
