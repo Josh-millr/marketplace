@@ -62,7 +62,7 @@ export function PersonalInformationForm({ stepControls }) {
   return (
     <PageContainer layout="marketplace">
       <PageContainer.Marketplace>
-        <Grid gutter="xl">
+        <Grid gutterLg="xl">
           {/* Column 1 */}
           <Grid.Col span={12} md={5} orderMd={2}>
             <div className={classes.pageHeadingWrapper}>
