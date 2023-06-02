@@ -74,7 +74,7 @@ export function PersonalInformationForm({ stepControls }) {
       </Grid.Col>
 
       {/* Column 2 */}
-      <Grid.Col span={12} md={7} orderMd={1}>
+      <Grid.Col span={12} md={7} orderMd={1} pl={{ base: 0, lg: "4xl" }}>
         <Grid gutter="2xl" py="2xl">
           <Grid.Col span={12} orderSm={2} sm="content">
             <Flex justify={{ base: "flex-start", sm: "flex-end" }} w="100%">
