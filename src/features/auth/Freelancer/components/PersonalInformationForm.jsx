@@ -1,12 +1,11 @@
+import { useForm } from "@mantine/form";
 import { useState } from "react";
 import {
-  Paper,
   Grid,
   Stack,
   Flex,
   TextInput,
   Select,
-  SimpleGrid,
   Divider,
   Button,
   Avatar,
@@ -19,15 +18,20 @@ import { PageContainer } from "@/shared/components/PageContainer";
 
 import { useStyles } from "../styles/style.PersonalInformationForm";
 
-export function PersonalInformationForm() {
-  const { user } = useSelector((state) => state.user);
-
-  const { classes } = useStyles();
-
+export function PersonalInformationForm({ stepControls }) {
   const [languages, setLanguages] = useState([]);
   const [profilePicture, setProfilePicture] = useState(null);
 
-  // This function is called by the upload button
+  const { classes } = useStyles();
+  const { user } = useSelector((state) => state.user);
+
+  const form = useForm({
+    initialValues: {
+      languages: "",
+      profilePicture: {},
+    },
+  });
+
   const handlePictureUpload = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -41,19 +45,19 @@ export function PersonalInformationForm() {
     }
   };
 
-  // const handleLanguageChange = (value) => {
-  //   setLanguages(value);
-  // };
-
   const handleLanguageChange = (newLanguages) => {
     setLanguages(newLanguages);
   };
 
-  // const handleRemoveLanguage = (index) => {
-  //   const updatedLanguages = [...languages];
-  //   updatedLanguages.splice(index, 1);
-  //   setLanguages(updatedLanguages);
-  // };
+  const submitForm = form.onSubmit((values) => {
+    // const isFormValid = form.isValid();
+    // if (isFormValid === false) return;
+
+    // Store the form data in the formData context...
+    console.log("Storing formData");
+
+    // onClick={stepControls.goNext}
+  });
 
   return (
     <PageContainer layout="marketplace">
@@ -114,134 +118,145 @@ export function PersonalInformationForm() {
               </Grid.Col>
             </Grid>
 
-            <Stack spacing="2xl" w="100%">
-              <Flex
-                w="100%"
-                gap={{ base: "2xl", sm: "lg" }}
-                direction={{ base: "column", sm: "row" }}
-              >
-                {/* Firstname input */}
-                <TextInput
+            <form onSubmit={submitForm}>
+              <Stack spacing="2xl" w="100%">
+                <Flex
                   w="100%"
-                  disabled
-                  required
-                  label="First Name"
-                  value={user.firstname}
-                />
+                  gap={{ base: "2xl", sm: "lg" }}
+                  direction={{ base: "column", sm: "row" }}
+                >
+                  {/* Firstname input */}
+                  <TextInput
+                    w="100%"
+                    disabled
+                    required
+                    label="First Name"
+                    value={user.firstname}
+                  />
 
-                {/* Lastname input */}
-                <TextInput
+                  {/* Lastname input */}
+                  <TextInput
+                    w="100%"
+                    disabled
+                    required
+                    label="Last Name"
+                    value={user.lastname}
+                  />
+                </Flex>
+
+                <Divider />
+
+                <Flex
                   w="100%"
-                  disabled
-                  required
-                  label="Last Name"
-                  value={user.lastname}
-                />
-              </Flex>
+                  gap={{ base: "2xl", sm: "lg" }}
+                  direction={{ base: "column", sm: "row" }}
+                >
+                  {/* Gender input */}
+                  <Select
+                    disabled
+                    w="100%"
+                    label="Gender"
+                    placeholder="choose gender"
+                    value={user.gender}
+                    data={[
+                      { value: "male", label: "Male" },
+                      { value: "female", label: "Female" },
+                    ]}
+                  />
 
-              <Divider />
+                  {/* Account type input */}
+                  <Select
+                    w="100%"
+                    disabled
+                    label="Account Type"
+                    placeholder="Select account type"
+                    value={user.accounttype}
+                    data={[
+                      { value: "individual", label: "Individual" },
+                      { value: "business", label: "Business" },
+                    ]}
+                  />
+                </Flex>
 
-              <Flex
-                w="100%"
-                gap={{ base: "2xl", sm: "lg" }}
-                direction={{ base: "column", sm: "row" }}
-              >
-                {/* Gender input */}
-                <Select
-                  disabled
+                <Divider />
+
+                <Flex
                   w="100%"
-                  label="Gender"
-                  placeholder="choose gender"
-                  value={user.gender}
-                  data={[
-                    { value: "male", label: "Male" },
-                    { value: "female", label: "Female" },
-                  ]}
-                />
+                  gap={{ base: "2xl", sm: "lg" }}
+                  direction={{ base: "column", sm: "row" }}
+                >
+                  {/* Email Address */}
+                  <TextInput
+                    w="100%"
+                    disabled
+                    type="email"
+                    label="Email"
+                    required
+                    value={user.email}
+                  />
 
-                {/* Account type input */}
-                <Select
+                  {/* Username input */}
+                  <TextInput
+                    w="100%"
+                    disabled
+                    required
+                    label="Username"
+                    value={user.username}
+                  />
+                </Flex>
+
+                <Divider />
+
+                <Flex
                   w="100%"
-                  disabled
-                  label="Account Type"
-                  placeholder="Select account type"
-                  value={user.accounttype}
-                  data={[
-                    { value: "individual", label: "Individual" },
-                    { value: "business", label: "Business" },
-                  ]}
-                />
-              </Flex>
+                  gap={{ base: "2xl", sm: "lg" }}
+                  direction={{ base: "column", sm: "row" }}
+                >
+                  {/* Language list */}
+                  <Select
+                    w="100%"
+                    searchable
+                    multiple
+                    label="Select languages"
+                    placeholder="Select languages"
+                    // TODO: Fetch language list from language API
+                    data={[
+                      { value: "english", label: "English" },
+                      { value: "spanish", label: "Spanish" },
+                      { value: "french", label: "French" },
+                      { value: "german", label: "German" },
+                      { value: "italian", label: "Italian" },
+                      { value: "japanese", label: "Japanese" },
+                    ]}
+                    value={languages}
+                    onChange={handleLanguageChange}
+                    filter={(value, item) =>
+                      item.label
+                        .toLowerCase()
+                        .includes(value.toLowerCase().trim())
+                    }
+                  />
 
-              <Divider />
+                  {/* Country */}
+                  <TextInput
+                    disabled
+                    required
+                    w="100%"
+                    label="Country"
+                    value={user.location}
+                  />
+                </Flex>
 
-              <Flex
-                w="100%"
-                gap={{ base: "2xl", sm: "lg" }}
-                direction={{ base: "column", sm: "row" }}
-              >
-                {/* Email Address */}
-                <TextInput
+                <Flex
+                  gap="sm"
+                  direction={{ base: "column", sm: "row" }}
                   w="100%"
-                  disabled
-                  type="email"
-                  label="Email"
-                  required
-                  value={user.email}
-                />
-
-                {/* Username input */}
-                <TextInput
-                  w="100%"
-                  disabled
-                  required
-                  label="Username"
-                  value={user.username}
-                />
-              </Flex>
-
-              <Divider />
-
-              <Flex
-                w="100%"
-                gap={{ base: "2xl", sm: "lg" }}
-                direction={{ base: "column", sm: "row" }}
-              >
-                {/* Language list */}
-                <Select
-                  w="100%"
-                  searchable
-                  multiple
-                  label="Select languages"
-                  placeholder="Select languages"
-                  // TODO: Fetch language list from language API
-                  data={[
-                    { value: "english", label: "English" },
-                    { value: "spanish", label: "Spanish" },
-                    { value: "french", label: "French" },
-                    { value: "german", label: "German" },
-                    { value: "italian", label: "Italian" },
-                    { value: "japanese", label: "Japanese" },
-                  ]}
-                  value={languages}
-                  onChange={handleLanguageChange}
-                  filter={(value, item) =>
-                    item.label
-                      .toLowerCase()
-                      .includes(value.toLowerCase().trim())
-                  }
-                />
-
-                {/* Country */}
-                <TextInput
-                  disabled
-                  required
-                  w="100%"
-                  label="Country"
-                  value={user.location}
-                />
-              </Flex>
-            </Stack>
+                >
+                  <Button>Go Back</Button>
+                  <Button>Continue</Button>
+                </Flex>
+              </Stack>
+            </form>
           </Grid.Col>
         </Grid>
       </PageContainer.Marketplace>
