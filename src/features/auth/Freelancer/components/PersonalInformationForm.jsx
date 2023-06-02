@@ -72,7 +72,6 @@ export function PersonalInformationForm({ stepControls }) {
           </Stack>
         </div>
       </Grid.Col>
-
       {/* Column 2 */}
       <Grid.Col span={12} md={7} orderMd={1} pl={{ base: 0, lg: "4xl" }}>
         <Grid gutter="2xl" py="2xl">
