@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Stepper, useMantineTheme, Center } from "@mantine/core";
+import { Stepper, Center } from "@mantine/core";
 import {
   IconNumber1,
   IconNumber2,
@@ -7,12 +7,8 @@ import {
   IconNumber4,
 } from "@tabler/icons-react";
 
-import { PageContainer } from "@/shared/components/PageContainer";
-
 export function BarStepper({ components }) {
   const [active, setActive] = useState(0);
-
-  const { colors } = useMantineTheme();
 
   const ComponentOne = components[0];
   const ComponentTwo = components[1];

@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Stack, useMantineTheme, Progress, Text } from "@mantine/core";
+import { Stack, Progress, Text } from "@mantine/core";
 
 import withStepper from "@/shared/hocs/withStepper";
 import FormDataProvider from "@/shared/providers/FormDataProvider";
-import { PageContainer } from "@/shared/components/PageContainer";
 
 import { useStyles } from "./style.ProgressStepper";
 
@@ -14,8 +13,6 @@ export const ProgressStepper = ({ components }) => {
   const [currProgress, setCurrProgress] = useState(PROGRESS_INCREMENT);
 
   const { classes } = useStyles();
-  const { colors } = useMantineTheme();
-
   const FormSteps = withStepper(components);
 
   const progressStep = {

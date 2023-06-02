@@ -6,6 +6,7 @@ import {
   Text,
   Stack,
   Avatar,
+  MultiSelect,
   Select,
   Button,
   Divider,
@@ -208,8 +209,9 @@ export function PersonalInformationForm({ stepControls }) {
               direction={{ base: "column", sm: "row" }}
             >
               {/* Language list */}
-              <Select
+              <MultiSelect
                 w="100%"
+                withAsterisk
                 searchable
                 multiple
                 label="Select languages"
@@ -223,11 +225,7 @@ export function PersonalInformationForm({ stepControls }) {
                   { value: "italian", label: "Italian" },
                   { value: "japanese", label: "Japanese" },
                 ]}
-                value={languages}
-                onChange={handleLanguageChange}
-                filter={(value, item) =>
-                  item.label.toLowerCase().includes(value.toLowerCase().trim())
-                }
+                {...form.getInputProps("languages")}
               />
 
               {/* Country */}
