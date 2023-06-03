@@ -37,7 +37,6 @@ export function ProfessionalInformationForm() {
         portfolio: "",
       },
     },
-
     validate: {
       professionalTitle: isNotEmpty("Title cannot be empty"),
       description: isNotEmpty("Description cannot be empty"),
