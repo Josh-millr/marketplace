@@ -1,14 +1,6 @@
 import { useState } from "react";
 import { useForm, isNotEmpty } from "@mantine/form";
-import {
-  Container,
-  Paper,
-  Flex,
-  TextInput,
-  Divider,
-  Text,
-  Grid,
-} from "@mantine/core";
+import { Flex, TextInput, Text, Grid, Stack } from "@mantine/core";
 
 import {
   IconBrandFacebookFilled,
@@ -19,11 +11,6 @@ import {
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
 
 export function ContactInformationForm() {
-  const [facebook, setFacebook] = useState("");
-  const [instagram, setInstagram] = useState("");
-  const [twitter, setTwitter] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("+234");
-
   const form = useForm({
     initialValues: {
       contact: {
