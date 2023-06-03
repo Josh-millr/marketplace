@@ -14,8 +14,6 @@ export const FormDataContext = createContext();
 export default function FormDataProvider({ children }) {
   const [currData, setCurrData] = useState({});
 
-  console.log('Current data is store:', currData);
-
   const storeData = (newData) => {
     setCurrData({ ...currData, ...newData });
   };

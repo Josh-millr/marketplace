@@ -13,13 +13,13 @@ export function FreelancerRegistrationStepper({ components }) {
   return (
     <PageContainer layout="marketplace">
       <PageContainer.Marketplace>
-        {matchTablet ? (
+        <BarStepper components={components} />
+        {/* {matchTablet ? (
           // Steps indicator for tablet > desktop screen
-          <BarStepper components={components} />
         ) : (
           // Steps indicator for mobile screen
           <ProgressStepper components={components} />
-        )}
+        )} */}
       </PageContainer.Marketplace>
     </PageContainer>
   );

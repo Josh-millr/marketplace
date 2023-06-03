@@ -19,7 +19,7 @@ import { FormDataContext } from "@/shared/providers/FormDataProvider";
 
 import { useStyles } from "../styles/style.PersonalInformationForm";
 
-export function PersonalInformationForm({ stepControls }) {
+export function PersonalInformationForm({ goNextStep }) {
   const [profilePicture, setProfilePicture] = useState(null);
 
   const { classes } = useStyles();
@@ -56,10 +56,8 @@ export function PersonalInformationForm({ stepControls }) {
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
-    storeData({ languages: "mike" });
-    console.log("languages presence is", isDataPresent("languages"));
-
-    stepControl.goNext();
+    storeData(values);
+    goNextStep();
   });
 
   return (
