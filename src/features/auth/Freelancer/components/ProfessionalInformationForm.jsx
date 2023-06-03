@@ -4,6 +4,7 @@ import {
   Flex,
   Stack,
   Select,
+  Button,
   Divider,
   Textarea,
   TextInput,
@@ -12,23 +13,38 @@ import {
 
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
 
-// TODO: use the properties and structure is created in the freelancer_reg.json
+const SKILL_SET = [
+  { value: "javascript", label: "JavaScript" },
+  { value: "typescript", label: "TypeScript" },
+  { value: "python", label: "Python" },
+  { value: "react.js", label: "ReactJs" },
+  { value: "next.js", label: "NextJs" },
+  { value: "NodeJs", label: "NodeJs" },
+];
+
+const OCCUPATION_SET = ["Frontend", "Backend", "Cloud", "Devops", "Other"];
+
+const PROFESSIONAL_TITLE_SET = ["Developer", "Engineer"];
 
 export function ProfessionalInformationForm() {
   const form = useForm({
     initialValues: {
-      title: "",
-      description: "",
       occupation: "",
-      portfolio: "",
+      professionalTitle: "",
+      description: "",
       skills: [],
+      contact: {
+        portfolio: "",
+      },
     },
 
     validate: {
-      title: isNotEmpty("Title cannot be empty"),
+      professionalTitle: isNotEmpty("Title cannot be empty"),
       description: isNotEmpty("Description cannot be empty"),
       occupation: isNotEmpty("Ocupation cannot be empty"),
-      portfolio: isNotEmpty("Portfolio cannot be empty"),
+      contact: {
+        portfolio: isNotEmpty("Portfolio cannot be empty"),
+      },
       skills: isNotEmpty("Skills cannot be empty"),
     },
   });
@@ -64,19 +80,24 @@ export function ProfessionalInformationForm() {
               {/* Occupational Field */}
               <Select
                 w="100%"
+                required
+                withAsterisk
                 label="Occupational Field"
                 placeholder="Occupational Field"
-                data={["Frontend", "Backend", "Cloud", "Devops", "Other"]}
+                // TODO: Fetch from the category api
+                data={OCCUPATION_SET}
                 {...form.getInputProps("occupation")}
               />
 
               {/* Occupational Title */}
               <Select
                 w="100%"
+                required
+                withAsterisk
                 label="Occupational Title"
                 placeholder="Professional Title"
-                data={["Developer", "Engineer"]}
-                {...form.getInputProps("title")}
+                data={PROFESSIONAL_TITLE_SET}
+                {...form.getInputProps("professionalTitle")}
               />
             </Flex>
 
@@ -84,21 +105,15 @@ export function ProfessionalInformationForm() {
 
             <MultiSelect
               w="100%"
-              withAsterisk
-              searchable
               multiple
+              required
+              searchable
+              withAsterisk
               label="Skills"
               description="List the skills related to the services you're offering and add your experience level."
               placeholder="Select skills"
               // TODO: Fetch language list from language API
-              data={[
-                { value: "javascript", label: "JavaScript" },
-                { value: "typescript", label: "TypeScript" },
-                { value: "python", label: "Python" },
-                { value: "react.js", label: "ReactJs" },
-                { value: "next.js", label: "NextJs" },
-                { value: "NodeJs", label: "NodeJs" },
-              ]}
+              data={SKILL_SET}
               {...form.getInputProps("skills")}
             />
 
@@ -123,7 +138,7 @@ export function ProfessionalInformationForm() {
               w="100%"
               label="Your Personal website / Portfolio"
               description="Include a link to your personal website or portfolio with your work samples."
-              {...form.getInputProps("portfolio")}
+              {...form.getInputProps("contact.portfolio")}
             />
 
             <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">

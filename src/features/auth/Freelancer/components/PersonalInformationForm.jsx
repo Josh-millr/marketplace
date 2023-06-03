@@ -19,8 +19,27 @@ import { FormDataContext } from "@/shared/providers/FormDataProvider";
 
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
 
+const LANGUAGE_SET = [
+  { value: "english", label: "English" },
+  { value: "spanish", label: "Spanish" },
+  { value: "french", label: "French" },
+  { value: "german", label: "German" },
+  { value: "italian", label: "Italian" },
+  { value: "japanese", label: "Japanese" },
+];
+
+const GENDER_SET = [
+  { value: "male", label: "Male" },
+  { value: "female", label: "Female" },
+];
+
+const ACCOUNTTYPE_SET = [
+  { value: "individual", label: "Individual" },
+  { value: "business", label: "Business" },
+];
+
 export function PersonalInformationForm({ goNextStep }) {
-  const [profilePicture, setProfilePicture] = useState(null);
+  const [img, setImg] = useState(null);
 
   const { user } = useSelector((state) => state.user);
   const { storeData } = useContext(FormDataContext);
@@ -28,7 +47,7 @@ export function PersonalInformationForm({ goNextStep }) {
   const form = useForm({
     initialValues: {
       languages: [],
-      profilePicture: {},
+      img: {},
     },
 
     validate: {
@@ -41,7 +60,7 @@ export function PersonalInformationForm({ goNextStep }) {
     const reader = new FileReader();
 
     reader.onloadend = () => {
-      setProfilePicture(reader.result);
+      setImg(reader.result);
     };
 
     if (file) {
@@ -81,7 +100,7 @@ export function PersonalInformationForm({ goNextStep }) {
                 radius={9999}
                 variant="filled"
                 alt="Profile Picture"
-                src={profilePicture || ""}
+                src={img || ""}
               />
             </Flex>
           </Grid.Col>
@@ -152,10 +171,7 @@ export function PersonalInformationForm({ goNextStep }) {
                 label="Gender"
                 placeholder="choose gender"
                 value={user.gender}
-                data={[
-                  { value: "male", label: "Male" },
-                  { value: "female", label: "Female" },
-                ]}
+                data={GENDER_SET}
               />
 
               {/* Account type input */}
@@ -165,10 +181,7 @@ export function PersonalInformationForm({ goNextStep }) {
                 label="Account Type"
                 placeholder="Select account type"
                 value={user.accounttype}
-                data={[
-                  { value: "individual", label: "Individual" },
-                  { value: "business", label: "Business" },
-                ]}
+                data={ACCOUNTTYPE_SET}
               />
             </Flex>
 
@@ -215,14 +228,7 @@ export function PersonalInformationForm({ goNextStep }) {
                 label="Select languages"
                 placeholder="Select languages"
                 // TODO: Fetch language list from language API
-                data={[
-                  { value: "english", label: "English" },
-                  { value: "spanish", label: "Spanish" },
-                  { value: "french", label: "French" },
-                  { value: "german", label: "German" },
-                  { value: "italian", label: "Italian" },
-                  { value: "japanese", label: "Japanese" },
-                ]}
+                data={LANGUAGE_SET}
                 {...form.getInputProps("languages")}
               />
 
