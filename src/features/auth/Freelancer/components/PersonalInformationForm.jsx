@@ -6,25 +6,24 @@ import {
   Text,
   Stack,
   Avatar,
-  MultiSelect,
   Select,
   Button,
   Divider,
   TextInput,
+  MultiSelect,
 } from "@mantine/core";
 import { useSelector } from "react-redux";
 import { IconPhotoPlus } from "@tabler/icons-react";
 
 import { FormDataContext } from "@/shared/providers/FormDataProvider";
 
-import { useStyles } from "../styles/style.PersonalInformationForm";
+import { FormSectionHeader } from "./Elements/FormSectionHeader";
 
 export function PersonalInformationForm({ goNextStep }) {
   const [profilePicture, setProfilePicture] = useState(null);
 
-  const { classes } = useStyles();
   const { user } = useSelector((state) => state.user);
-  const { storeData, isDataPresent } = useContext(FormDataContext);
+  const { storeData } = useContext(FormDataContext);
 
   const form = useForm({
     initialValues: {
@@ -64,17 +63,14 @@ export function PersonalInformationForm({ goNextStep }) {
     <Grid gutterLg="xl">
       {/* Column 1 */}
       <Grid.Col span={12} md={5} orderMd={2}>
-        <div className={classes.pageHeadingWrapper}>
-          <Stack spacing="lg" py="2xl">
-            <Text className="h1">Personal Information</Text>
-            <Text className="body-md" c="neutral.6">
-              Tell us a bit about yourself. This information will appear on your
+        <FormSectionHeader
+          title="Personal Information"
+          description="Tell us a bit about yourself. This information will appear on your
               public profile, so that potential buyers can get to know you
-              better.
-            </Text>
-          </Stack>
-        </div>
+              better."
+        />
       </Grid.Col>
+
       {/* Column 2 */}
       <Grid.Col span={12} md={7} orderMd={1} pr={{ base: 0, lg: "5xl" }}>
         <Grid gutter="2xl" py="2xl">

@@ -1,135 +1,134 @@
-import { useState } from 'react';
+import { useForm, isNotEmpty } from "@mantine/form";
 import {
-  Container,
-  Paper,
-  TextInput,
+  Grid,
+  Flex,
+  Stack,
   Select,
-  SimpleGrid,
   Divider,
-  Text,
   Textarea,
-} from '@mantine/core';
+  TextInput,
+  MultiSelect,
+} from "@mantine/core";
+
+import { FormSectionHeader } from "./Elements/FormSectionHeader";
 
 export function ProfessionalInformationForm() {
-  const [occupation, setOccupation] = useState('');
-  const [title, setTitle] = useState('');
-  const [skills, setSkills] = useState('');
-  const [description, setDescription] = useState('');
-  const [portfolio, setPortfolio] = useState('https://');
+  const form = useForm({
+    initialValues: {
+      title: "",
+      description: "",
+      occupation: "",
+      portfolio: "",
+      skills: [],
+    },
 
-  const handleSkillsChange = (value) => {
-    setSkills(value);
-  };
+    validate: {
+      title: isNotEmpty("Title cannot be empty"),
+      description: isNotEmpty("Description cannot be empty"),
+      occupation: isNotEmpty("Ocupation cannot be empty"),
+      portfolio: isNotEmpty("Portfolio cannot be empty"),
+      skills: isNotEmpty("Skills cannot be empty"),
+    },
+  });
+
+  const submitForm = form.onSubmit(async (values) => {
+    const isFormValid = form.isValid();
+    if (isFormValid !== true) return null;
+
+    storeData(values);
+    goNextStep();
+  });
 
   return (
-    <Container style={{ display: 'flex', justifyContent: 'center' }}>
-      <Paper>
-        <Text
-          variant="h1"
-          size="lg"
-          style={{ textAlign: 'left', marginBottom: '1rem' }}
-        >
-          Professional Information
-        </Text>
-        <Text
-          variant="h2"
-          size="md"
-          style={{ textAlign: 'left', marginBottom: '1rem' }}
-        >
-          This is your time to shine. Let potential buyers know what you do best
-          and how you gained your skills, certifications and experience.
-        </Text>
+    <Grid gutterLg="xl">
+      {/* Column 1 */}
+      <Grid.Col span={12} md={5} orderMd={2}>
+        <FormSectionHeader
+          title="Professional Information"
+          description="This is your time to shine. Let potential buyers know what you do best
+          and how you gained your skills, certifications and experience."
+        />
+      </Grid.Col>
 
-        <Divider style={{ margin: '1rem 0' }} />
-
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginTop: '1rem',
-            marginBottom: '1rem',
-          }}
-        >
-          <SimpleGrid cols={1} spacing="xl" mt={{ md: 50 }}>
-            <SimpleGrid cols={1} breakpoints={[{ minWidth: 'md', cols: 2 }]}>
+      {/* Column 2 */}
+      <Grid.Col span={12} md={7} orderMd={1} pr={{ base: 0, lg: "5xl" }}>
+        <form onSubmit={submitForm}>
+          <Stack spacing="2xl" w="100%">
+            <Flex
+              w="100%"
+              gap={{ base: "2xl", sm: "lg" }}
+              direction={{ base: "column", sm: "row" }}
+            >
+              {/* Occupational Field */}
               <Select
-                label="Occupational"
+                w="100%"
+                label="Occupational Field"
                 placeholder="Occupational Field"
-                data={['Frontend', 'Backend', 'Cloud', 'Devops', 'Other']}
-                value={occupation}
-                onChange={(value) => setOccupation(value)}
-                style={{ marginBottom: '1rem' }}
+                data={["Frontend", "Backend", "Cloud", "Devops", "Other"]}
+                {...form.getInputProps("occupation")}
               />
-              <div style={{ marginTop: '1.5rem' }}>
-                <Select
-                  label=""
-                  placeholder="Professional Title"
-                  data={['Developer', 'Engineer']}
-                  value={title}
-                  onChange={(value) => setTitle(value)}
-                  style={{ marginBottom: '1rem' }}
-                />
-              </div>
-            </SimpleGrid>
 
-            <Divider style={{ margin: '1rem 0' }} />
-
-            <SimpleGrid cols={1}>
+              {/* Occupational Title */}
               <Select
-                searchable
-                multiple
-                label="Skills"
-                description="List the skills related to the services you're offering and add your experience level."
-                placeholder="Select skills"
-                data={[
-                  'JavaScript',
-                  'TypeScript',
-                  'Python',
-                  'ReactJs',
-                  'NextJs',
-                  'NodeJs',
-                ]}
-                value={skills}
-                onChange={handleSkillsChange}
-                filter={(value, query) =>
-                  value && value.toLowerCase().includes(query.toLowerCase())
-                }
+                label="Occupational Title"
+                placeholder="Professional Title"
+                data={["Developer", "Engineer"]}
+                {...form.getInputProps("title")}
               />
-            </SimpleGrid>
+            </Flex>
 
-            <Divider style={{ margin: '1rem 0' }} />
+            <Divider />
 
-            <Textarea
-              type="description"
-              label="Professional Description"
-              description="A professional description is a detailed written statement that summarizes your skills, experience, and qualifications, it should be clear, concise, and persuasive."
-              placeholder="Start typing ...."
-              value={description}
-              onChange={(event) => setDescription(event.currentTarget.value)}
-              style={{ marginBottom: '1rem' }}
-              size="md"
+            <MultiSelect
+              w="100%"
+              withAsterisk
+              searchable
+              multiple
+              label="Skills"
+              description="List the skills related to the services you're offering and add your experience level."
+              placeholder="Select skills"
+              // TODO: Fetch language list from language API
+              data={[
+                { value: "javascript", label: "JavaScript" },
+                { value: "typescript", label: "TypeScript" },
+                { value: "python", label: "Python" },
+                { value: "react.js", label: "ReactJs" },
+                { value: "next.js", label: "NextJs" },
+                { value: "NodeJs", label: "NodeJs" },
+              ]}
+              {...form.getInputProps("skills")}
             />
 
-            <Divider style={{ margin: '1rem 0' }} />
+            <Divider />
 
-            <TextInput
-              label="Your Personal website / Portfolio"
-              description="Include a link to your personal website or portfolio with your work samples."
-              value={portfolio}
-              onChange={({ currentTarget: { value } }) => {
-                if (!value.startsWith('https://')) {
-                  setPortfolio(`https://${value}`);
-                } else {
-                  setPortfolio(value);
-                }
-              }}
-              style={{ marginBottom: '1rem' }}
-            />
+            <Flex
+              w="100%"
+              gap={{ base: "2xl", sm: "lg" }}
+              direction={{ base: "column", sm: "row" }}
+            >
+              {/* Professional Description */}
+              <Textarea
+                w="100%"
+                title="Description"
+                placeholder="Start typing ...."
+                label="Professional Description"
+                description="A professional description is a detailed written statement that summarizes your skills, experience, and qualifications, it should be clear, concise, and persuasive."
+                {...form.getInputProps("description")}
+              />
 
-            <Divider style={{ margin: '1rem 0' }} />
-          </SimpleGrid>
-        </div>
-      </Paper>
-    </Container>
+              <Divider />
+
+              {/* Your Personal website / Portfolio */}
+              <TextInput
+                w="100%"
+                label="Your Personal website / Portfolio"
+                description="Include a link to your personal website or portfolio with your work samples."
+                {...form.getInputProps("portfolio")}
+              />
+            </Flex>
+          </Stack>
+        </form>
+      </Grid.Col>
+    </Grid>
   );
 }
