@@ -15,7 +15,7 @@ import {
 import { useSelector } from "react-redux";
 import { IconPhotoPlus } from "@tabler/icons-react";
 
-import { FormDataContext } from '@/shared/providers/FormDataProvider';
+import { FormDataContext } from "@/shared/providers/FormDataProvider";
 
 import { useStyles } from "../styles/style.PersonalInformationForm";
 
@@ -51,15 +51,13 @@ export function PersonalInformationForm({ stepControls }) {
   };
 
   const submitForm = form.onSubmit(async (values) => {
-    console.log("The form values", values);
-    
     // TODO: Check if an image was uploaded and store it
-    
+
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
-    
-    storeData(values);
-    console.log('languages presence is', isDataPresent('languages'))
+
+    storeData({ languages: "mike" });
+    console.log("languages presence is", isDataPresent("languages"));
 
     stepControl.goNext();
   });
@@ -245,7 +243,9 @@ export function PersonalInformationForm({ stepControls }) {
             </Flex>
 
             <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
-              <Button variant="subtle">Go Back</Button>
+              <Button variant="subtle" variant="outline" color="gray">
+                Go Back
+              </Button>
               <Button type="submit">Continue</Button>
             </Flex>
           </Stack>
