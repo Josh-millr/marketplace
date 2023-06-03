@@ -3,9 +3,9 @@ import { useForm, isNotEmpty } from "@mantine/form";
 import { Flex, TextInput, Text, Grid, Stack } from "@mantine/core";
 
 import {
-  IconBrandFacebookFilled,
   IconBrandInstagram,
   IconBrandTwitterFilled,
+  IconBrandFacebookFilled,
 } from "@tabler/icons-react";
 
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
