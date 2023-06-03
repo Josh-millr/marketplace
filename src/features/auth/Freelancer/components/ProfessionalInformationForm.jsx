@@ -12,6 +12,8 @@ import {
 
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
 
+// TODO: use the properties and structure is created in the freelancer_reg.json
+
 export function ProfessionalInformationForm() {
   const form = useForm({
     initialValues: {
@@ -40,7 +42,7 @@ export function ProfessionalInformationForm() {
   });
 
   return (
-    <Grid gutterLg="xl">
+    <Grid gutterMd="xl" pt="2xl">
       {/* Column 1 */}
       <Grid.Col span={12} md={5} orderMd={2}>
         <FormSectionHeader
@@ -70,6 +72,7 @@ export function ProfessionalInformationForm() {
 
               {/* Occupational Title */}
               <Select
+                w="100%"
                 label="Occupational Title"
                 placeholder="Professional Title"
                 data={["Developer", "Engineer"]}
@@ -101,30 +104,33 @@ export function ProfessionalInformationForm() {
 
             <Divider />
 
-            <Flex
+            {/* Professional Description */}
+            <Textarea
               w="100%"
-              gap={{ base: "2xl", sm: "lg" }}
-              direction={{ base: "column", sm: "row" }}
-            >
-              {/* Professional Description */}
-              <Textarea
-                w="100%"
-                title="Description"
-                placeholder="Start typing ...."
-                label="Professional Description"
-                description="A professional description is a detailed written statement that summarizes your skills, experience, and qualifications, it should be clear, concise, and persuasive."
-                {...form.getInputProps("description")}
-              />
+              min={4}
+              max={6}
+              title="Description"
+              placeholder="Start typing ...."
+              label="Professional Description"
+              description="A professional description is a detailed written statement that summarizes your skills, experience, and qualifications, it should be clear, concise, and persuasive."
+              {...form.getInputProps("description")}
+            />
 
-              <Divider />
+            <Divider />
 
-              {/* Your Personal website / Portfolio */}
-              <TextInput
-                w="100%"
-                label="Your Personal website / Portfolio"
-                description="Include a link to your personal website or portfolio with your work samples."
-                {...form.getInputProps("portfolio")}
-              />
+            {/* Your Personal website / Portfolio */}
+            <TextInput
+              w="100%"
+              label="Your Personal website / Portfolio"
+              description="Include a link to your personal website or portfolio with your work samples."
+              {...form.getInputProps("portfolio")}
+            />
+
+            <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
+              <Button variant="subtle" variant="outline" color="gray">
+                Go Back
+              </Button>
+              <Button type="submit">Continue</Button>
             </Flex>
           </Stack>
         </form>
