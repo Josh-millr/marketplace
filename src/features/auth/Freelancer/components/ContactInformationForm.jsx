@@ -1,18 +1,15 @@
 import { useForm, isNotEmpty } from "@mantine/form";
 import { Flex, TextInput, Text, Grid, Stack } from "@mantine/core";
-import {
-  IconBrandInstagram,
-  IconBrandTwitterFilled,
-  IconBrandFacebookFilled,
-} from "@tabler/icons-react";
+import { Instagram, Twitter, Facebook } from "iconoir-react";
 
+import { iconCreator } from "@/shared/utils/iconCreator";
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
 
 export function ContactInformationForm() {
   const form = useForm({
     initialValues: {
       contact: {
-        phone: 0,
+        phone: '+234-',
         social: {
           facebook: "",
           twitter: "",
@@ -60,8 +57,7 @@ export function ContactInformationForm() {
               <Text className="sub-h1">Social media accounts</Text>
 
               <Flex gap="lg">
-                {/* TODO: Replace with icon from react-icon */}
-                <IconBrandFacebookFilled />
+                {iconCreator({ icon: Facebook })}
                 <TextInput
                   w="100%"
                   placeholder="@username"
@@ -71,7 +67,7 @@ export function ContactInformationForm() {
 
               {/* Twitter Account Input  */}
               <Flex gap="lg">
-                <IconBrandTwitterFilled />
+                {iconCreator({ icon: Twitter })}
                 <TextInput
                   w="100%"
                   placeholder="@twitter_username"
@@ -81,7 +77,7 @@ export function ContactInformationForm() {
 
               {/* Instagram Account Input  */}
               <Flex gap="lg">
-                <IconBrandInstagram />
+                {iconCreator({ icon: Instagram })}
                 <TextInput
                   w="100%"
                   placeholder="@instagram_username"
