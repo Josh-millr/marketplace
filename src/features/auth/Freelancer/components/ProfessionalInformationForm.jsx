@@ -26,7 +26,7 @@ const OCCUPATION_SET = ["Frontend", "Backend", "Cloud", "Devops", "Other"];
 
 const PROFESSIONAL_TITLE_SET = ["Developer", "Engineer"];
 
-export function ProfessionalInformationForm() {
+export function ProfessionalInformationForm({ goNextStep }) {
   const form = useForm({
     initialValues: {
       occupation: "",
@@ -52,7 +52,7 @@ export function ProfessionalInformationForm() {
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
-    storeData(values);
+    // storeData(values);
     goNextStep();
   });
 
