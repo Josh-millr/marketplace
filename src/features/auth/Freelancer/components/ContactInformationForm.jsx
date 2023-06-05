@@ -5,11 +5,11 @@ import { Instagram, Twitter, Facebook } from 'iconoir-react';
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { FormSectionHeader } from './Elements/FormSectionHeader';
 
-export function ContactInformationForm() {
+export function ContactInformationForm({ goNextStep }) {
   const form = useForm({
     initialValues: {
       contact: {
-        phone: '+234-',
+        phone: "+234-",
         social: {
           facebook: '',
           twitter: '',
@@ -33,7 +33,7 @@ export function ContactInformationForm() {
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
-    storeData(values);
+    // storeData(values);
     goNextStep();
   });
 
