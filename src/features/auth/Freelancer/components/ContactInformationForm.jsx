@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { useForm, isNotEmpty } from "@mantine/form";
 import { Flex, TextInput, Text, Grid, Stack } from "@mantine/core";
-
 import {
   IconBrandInstagram,
   IconBrandTwitterFilled,
@@ -59,7 +57,7 @@ export function ContactInformationForm() {
           <Stack spacing="2xl" w="100%">
             <Stack spacing="xl">
               {/* Facebook account input */}
-              <Text className="h1">Social media accounts</Text>
+              <Text className="sub-h1">Social media accounts</Text>
 
               <Flex gap="lg">
                 {/* TODO: Replace with icon from react-icon */}
