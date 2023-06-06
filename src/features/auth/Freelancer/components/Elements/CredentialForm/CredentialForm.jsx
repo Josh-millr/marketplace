@@ -34,9 +34,9 @@ export function CredentialForm({ getCredential, close }) {
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
-    console.log("submitting", values);
-
     getCredential(values);
+
+    form.reset();
   });
 
   return (
