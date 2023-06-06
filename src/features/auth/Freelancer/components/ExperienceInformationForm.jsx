@@ -37,9 +37,18 @@ export function ExperienceInformationForm({ goNextStep }) {
         <Stack spacing="2xl" w="100%">
           <Paper p="md">
             <Stack spacing="md">
-              {credentials.length > 0 && (
-                <CredentialCard deleteCredential={deleteCredential} />
-              )}
+              {credentials.length > 0 &&
+                credentials.map((credential) => (
+                  <CredentialCard
+                    key={credential.credentialId}
+                    title={credential.title}
+                    issuer={credential.issuer}
+                    issueDate={credential.issueDate}
+                    credentialId={credential.credentialId}
+                    credentialUrl={credential.credentialUrl}
+                    deleteCredential={deleteCredential}
+                  />
+                ))}
             </Stack>
           </Paper>
 
