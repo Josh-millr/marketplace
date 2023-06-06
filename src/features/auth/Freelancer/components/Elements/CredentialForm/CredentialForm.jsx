@@ -25,10 +25,12 @@ export function CredentialForm({ getCredential }) {
   const submitForm = form.onSubmit(async (values) => {
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
+
+    getCredential(values);
   });
 
   return (
-    <Paper p="xl" bg='neutral.4'>
+    <Paper p="xl" bg="neutral.4">
       <form onSubmit={submitForm}>
         <SimpleGrid cols={1} spacing="xl" breakpoints={[{ cols: 2 }]}>
           {/* Title */}

@@ -33,8 +33,6 @@ export function ContactInformationForm({ goNextStep }) {
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
-    // storeData(values);
-    goNextStep();
   });
 
   return (
