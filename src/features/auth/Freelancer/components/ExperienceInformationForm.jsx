@@ -43,7 +43,7 @@ export function ExperienceInformationForm({ goNextStep }) {
             </Stack>
           </Paper>
 
-          <CredentialForm getCredential={deleteCredential} />
+          <CredentialForm getCredential={addCredential} />
 
           <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
             <Button variant="subtle" variant="outline" color="gray">
