@@ -21,18 +21,16 @@ export function ExperienceInformationForm({ goNextStep }) {
 
       {/* Column 2 */}
       <Grid.Col span={12} md={7} orderMd={1} pr={{ base: 0, lg: "5xl" }}>
-        <form onSubmit={submitForm}>
-          <Stack spacing="2xl" w="100%">
-            <CredentialForm />
+        <Stack spacing="2xl" w="100%">
+          <CredentialForm />
 
-            <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
-              <Button variant="subtle" variant="outline" color="gray">
-                Go Back
-              </Button>
-              <Button type="submit">Continue</Button>
-            </Flex>
-          </Stack>
-        </form>
+          <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
+            <Button variant="subtle" variant="outline" color="gray">
+              Go Back
+            </Button>
+            <Button type="submit">Continue</Button>
+          </Flex>
+        </Stack>
       </Grid.Col>
     </Grid>
   );
