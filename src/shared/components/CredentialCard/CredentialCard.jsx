@@ -20,7 +20,7 @@ export function CredentialCard(props) {
 
   return (
     <Link href={credentialUrl || "#"}>
-      <Flex position="apart" gap="xl" w='100%'>
+      <Flex gap="xl" w="100%" justify="space-between">
         <Stack spacing="sm">
           <Title className="sub-h1" tt="capitalize">
             {title}
