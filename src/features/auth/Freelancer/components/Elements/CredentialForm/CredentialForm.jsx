@@ -1,5 +1,6 @@
 import { useForm, isNotEmpty } from "@mantine/form";
-import { TextInput, DateInput, SimpleGrid, Paper } from "@mantine/core";
+import { DateInput } from '@mantine/dates';
+import { TextInput, SimpleGrid, Paper } from "@mantine/core";
 import { CalendarPlus } from "iconoir-react";
 
 import { iconCreator } from "@/shared/utils/iconCreator";
