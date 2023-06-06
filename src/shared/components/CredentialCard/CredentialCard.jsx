@@ -22,7 +22,7 @@ export function CredentialCard(props) {
       <Stack spacing="sm">
         <Title className="sub-h1">{title}</Title>
         <Text className="label-md" c="neutral.6">
-          `${issuer} • ${issueDate}`
+          {`${issuer} • ${issueDate}`}
         </Text>
       </Stack>
 

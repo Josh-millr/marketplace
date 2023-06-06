@@ -9,9 +9,18 @@ import { CredentialForm } from "./Elements/CredentialForm";
 export function ExperienceInformationForm({ goNextStep }) {
   const [credentials, setCredentials] = useState([]);
 
-  const addCredential = () => {};
+  const addCredential = (values) => {
+    const newValues = [...credentials, values];
+    setCredentials(newValues);
+  };
 
-  const deleteCredential = () => {};
+  const deleteCredential = (id) => {
+    const filtered = credentials.filter(
+      (credential) => credential.credentialId !== id
+    );
+
+    setCredentials(filtered);
+  };
 
   return (
     <Grid gutterMd="xl" pt="2xl">
@@ -28,11 +37,13 @@ export function ExperienceInformationForm({ goNextStep }) {
         <Stack spacing="2xl" w="100%">
           <Paper p="md">
             <Stack spacing="md">
-              <CredentialCard />
+              {credentials.length > 0 && (
+                <CredentialCard deleteCredential={deleteCredential} />
+              )}
             </Stack>
           </Paper>
 
-          {credentials.length > 0 && <CredentialForm />}
+          <CredentialForm getCredential={deleteCredential} />
 
           <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
             <Button variant="subtle" variant="outline" color="gray">
