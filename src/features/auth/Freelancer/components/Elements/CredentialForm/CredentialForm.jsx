@@ -27,77 +27,81 @@ export function CredentialForm({ getCredential }) {
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
+    console.log("submitting...");
+
     getCredential(values);
   });
 
   return (
     <Paper p="lg" bg="neutral.3">
       <form onSubmit={submitForm}>
-        <SimpleGrid cols={1} spacing="xl" breakpoints={[{ cols: 2 }]}>
-          {/* Title */}
-          <TextInput
-            required
-            withAsterisk
-            w="100%"
-            label="Certificate Title"
-            placeholder="Certificate or Award"
-            {...form.getInputProps("title")}
-          />
+        <Stack spacing="xl">
+          <SimpleGrid cols={1} spacing="xl" breakpoints={[{ cols: 2 }]}>
+            {/* Title */}
+            <TextInput
+              required
+              withAsterisk
+              w="100%"
+              label="Certificate Title"
+              placeholder="Certificate or Award"
+              {...form.getInputProps("title")}
+            />
 
-          {/* Issuer */}
-          <TextInput
-            w="100%"
-            required
-            withAsterisk
-            label="Issuer"
-            placeholder="(eg Adobe, google...)"
-            {...form.getInputProps("issuer")}
-          />
+            {/* Issuer */}
+            <TextInput
+              w="100%"
+              required
+              withAsterisk
+              label="Issuer"
+              placeholder="(eg Adobe, google...)"
+              {...form.getInputProps("issuer")}
+            />
 
-          {/* Issuer Date */}
-          <DateInput
-            w="100%"
-            required
-            label="Issue Date"
-            placeholder="(eg. May 25, 2023)"
-            valueFormat="DD/MM/YYYY"
-            rightSection={iconCreator({ icon: CalendarPlus })}
-            {...form.getInputProps("issueDate")}
-          />
+            {/* Issuer Date */}
+            <DateInput
+              w="100%"
+              required
+              label="Issue Date"
+              placeholder="(eg. May 25, 2023)"
+              valueFormat="DD/MM/YYYY"
+              rightSection={iconCreator({ icon: CalendarPlus })}
+              {...form.getInputProps("issueDate")}
+            />
 
-          {/* CredentialId */}
-          <TextInput
-            w="100%"
-            label="Credential ID"
-            placeholder="(eg. 12631SSDJs3)"
-            required
-            withAsterisk
-            {...form.getInputProps("credentialId")}
-          />
+            {/* CredentialId */}
+            <TextInput
+              w="100%"
+              label="Credential ID"
+              placeholder="(eg. 12631SSDJs3)"
+              required
+              withAsterisk
+              {...form.getInputProps("credentialId")}
+            />
 
-          {/* CredentialUrl */}
-          <TextInput
-            w="100%"
-            label="Credential URL"
-            required
-            withAsterisk
-            {...form.getInputProps("credentialUrl")}
-          />
-        </SimpleGrid>
+            {/* CredentialUrl */}
+            <TextInput
+              w="100%"
+              label="Credential URL"
+              required
+              withAsterisk
+              {...form.getInputProps("credentialUrl")}
+            />
+          </SimpleGrid>
 
-        <Flex
-          gap="sm"
-          w="100%"
-          color="neutral"
-          direction={{ base: "column", sm: "row" }}
-        >
-          <Button variant="outline" variant="outline" color="gray">
-            Cancel
-          </Button>
-          <Button variant="outline" type="submit">
-            Add
-          </Button>
-        </Flex>
+          <Flex
+            gap="sm"
+            w="100%"
+            color="neutral"
+            direction={{ base: "column", sm: "row" }}
+          >
+            <Button variant="outline" variant="outline" color="gray">
+              Cancel
+            </Button>
+            <Button variant="outline" type="submit">
+              Add
+            </Button>
+          </Flex>
+        </Stack>
       </form>
     </Paper>
   );
