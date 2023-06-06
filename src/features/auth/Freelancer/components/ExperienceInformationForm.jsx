@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Grid, Flex, Stack, Paper } from "@mantine/core";
 
 import { CredentialCard } from "@/shared/components/CredentialCard";
@@ -8,6 +8,7 @@ import { CredentialForm } from "./Elements/CredentialForm";
 
 export function ExperienceInformationForm({ goNextStep }) {
   const [credentials, setCredentials] = useState([]);
+  const [showCredentialForm, setShowCredentialForm] = useState(false);
 
   const addCredential = (values) => {
     const newValues = [...credentials, values];
@@ -22,13 +23,19 @@ export function ExperienceInformationForm({ goNextStep }) {
     setCredentials(filtered);
   };
 
+  useEffect(() => {
+    if (showCredentialForm) setShowCredentialForm(false);
+  }, [showCredentialForm]);
+
   return (
     <Grid gutterMd="xl" pt="2xl">
       {/* Column 1 */}
       <Grid.Col span={12} md={5} orderMd={2}>
         <FormSectionHeader
           title="Experience Information"
-          description="Showcase your qualifications and proof of expertise. This will improve your chances of getting more jobs and overall increases your chances of success on Hamzry"
+          description="Showcase your qualifications and proof of expertise. This
+           will improve your chances of getting more jobs and overall increases
+            your chances of success on Hamzry"
         />
       </Grid.Col>
 
@@ -52,7 +59,13 @@ export function ExperienceInformationForm({ goNextStep }) {
             </Stack>
           </Paper>
 
-          <CredentialForm getCredential={addCredential} />
+          {showCredentialForm ? (
+            <CredentialForm getCredential={addCredential} />
+          ) : (
+            <Button onClick={() => setShowCredentialForm(true)}>
+              Add credential
+            </Button>
+          )}
 
           <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
             <Button variant="subtle" variant="outline" color="gray">
