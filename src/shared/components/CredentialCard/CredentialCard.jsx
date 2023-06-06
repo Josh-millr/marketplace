@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Title, Text, Stack, Group, ActionIcon } from "@mantine/core";
+import { Title, Text, Stack, Flex, ActionIcon } from "@mantine/core";
 import { Cancel } from "iconoir-react";
 
 import { iconCreator } from "@/shared/utils/iconCreator";
@@ -20,7 +20,7 @@ export function CredentialCard(props) {
 
   return (
     <Link href={credentialUrl || "#"}>
-      <Group position="apart" gap="xl">
+      <Flex position="apart" gap="xl" w='100%'>
         <Stack spacing="sm">
           <Title className="sub-h1" tt="capitalize">
             {title}
@@ -33,7 +33,7 @@ export function CredentialCard(props) {
         <ActionIcon onClick={handleDelete}>
           {iconCreator({ icon: Cancel })}
         </ActionIcon>
-      </Group>
+      </Flex>
     </Link>
   );
 }

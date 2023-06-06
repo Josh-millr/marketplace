@@ -96,17 +96,10 @@ export function CredentialForm({ getCredential, close }) {
             color="neutral"
             direction={{ base: "column", sm: "row" }}
           >
-            <Button
-              variant="outline"
-              variant="outline"
-              color="gray"
-              onClick={close}
-            >
+            <Button variant="outline" color="gray" onClick={close}>
               Cancel
             </Button>
-            <Button variant="outline" type="submit">
-              Add
-            </Button>
+            <Button type="submit">Add</Button>
           </Flex>
         </Stack>
       </form>
