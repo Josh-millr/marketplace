@@ -13,9 +13,8 @@ export function ExperienceInformationForm({ goNextStep }) {
       {/* Column 1 */}
       <Grid.Col span={12} md={5} orderMd={2}>
         <FormSectionHeader
-          title="Professional Information"
-          description="This is your time to shine. Let potential buyers know what you do best
-          and how you gained your skills, certifications and experience."
+          title="Experience Information"
+          description="Showcase your qualifications and proof of expertise. This will improve your chances of getting more jobs and overall increases your chances of success on Hamzry"
         />
       </Grid.Col>
 
