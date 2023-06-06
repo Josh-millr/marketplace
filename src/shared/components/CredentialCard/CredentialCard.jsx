@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Title, Text, Stack, Group, ActionIcon } from "@mantine/core";
 import { Cancel } from "iconoir-react";
 
@@ -18,19 +19,21 @@ export function CredentialCard(props) {
   };
 
   return (
-    <Group position="apart" gap="xl">
-      <Stack spacing="sm">
-        <Title className="sub-h1" tt="capitalize">
-          {title}
-        </Title>
-        <Text className="label-md" c="neutral.6">
-          {`${issuer} • ${issueDate}`}
-        </Text>
-      </Stack>
+    <Link href={credentialUrl || "#"}>
+      <Group position="apart" gap="xl">
+        <Stack spacing="sm">
+          <Title className="sub-h1" tt="capitalize">
+            {title}
+          </Title>
+          <Text className="label-md" c="neutral.6">
+            {`${issuer} • ${issueDate}`}
+          </Text>
+        </Stack>
 
-      <ActionIcon onClick={handleDelete}>
-        {iconCreator({ icon: Cancel })}
-      </ActionIcon>
-    </Group>
+        <ActionIcon onClick={handleDelete}>
+          {iconCreator({ icon: Cancel })}
+        </ActionIcon>
+      </Group>
+    </Link>
   );
 }
