@@ -23,10 +23,6 @@ export function ExperienceInformationForm({ goNextStep }) {
     setCredentials(filtered);
   };
 
-  useEffect(() => {
-    if (showCredentialForm) setShowCredentialForm(false);
-  }, [showCredentialForm]);
-
   return (
     <Grid gutterMd="xl" pt="2xl">
       {/* Column 1 */}
