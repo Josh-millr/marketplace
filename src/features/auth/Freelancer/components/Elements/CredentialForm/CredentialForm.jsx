@@ -1,6 +1,6 @@
 import { useForm, isNotEmpty } from "@mantine/form";
-import { DateInput } from '@mantine/dates';
-import { TextInput, SimpleGrid, Paper } from "@mantine/core";
+import { DateInput } from "@mantine/dates";
+import { TextInput, SimpleGrid, Paper, Button, Flex } from "@mantine/core";
 import { CalendarPlus } from "iconoir-react";
 
 import { iconCreator } from "@/shared/utils/iconCreator";
@@ -84,6 +84,20 @@ export function CredentialForm({ getCredential }) {
             {...form.getInputProps("credentialUrl")}
           />
         </SimpleGrid>
+
+        <Flex
+          gap="sm"
+          w="100%"
+          color="neutral"
+          direction={{ base: "column", sm: "row" }}
+        >
+          <Button variant="outline" variant="outline" color="gray">
+            Cancel
+          </Button>
+          <Button variant="outline" type="submit">
+            Add
+          </Button>
+        </Flex>
       </form>
     </Paper>
   );
