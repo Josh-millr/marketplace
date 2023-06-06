@@ -1,8 +1,6 @@
 import { DateInput } from "@mantine/dates";
-import { Divider, Text, Button, ActionIcon, SimpleGrid } from "@mantine/core";
-import { IconCalendar, IconX } from "@tabler/icons-react";
+import { Button, Grid } from "@mantine/core";
 
-import { iconCreator } from "@/shared/utils/iconCreator";
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
 
 import { CredentialForm } from "./Elements/CredentialForm";
