@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Grid, Flex, Stack } from "@mantine/core";
+import { Button, Grid, Flex, Stack, Paper } from "@mantine/core";
 
 import { CredentialCard } from "@/shared/components/CredentialCard";
 
