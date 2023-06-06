@@ -35,7 +35,7 @@ export function ExperienceInformationForm({ goNextStep }) {
       {/* Column 2 */}
       <Grid.Col span={12} md={7} orderMd={1} pr={{ base: 0, lg: "5xl" }}>
         <Stack spacing="2xl" w="100%">
-          <Paper p="md">
+          <Paper p="md" withBorder>
             <Stack spacing="md">
               {credentials.length > 0 &&
                 credentials.map((credential) => (
