@@ -12,7 +12,7 @@ import { CalendarPlus } from "iconoir-react";
 
 import { iconCreator } from "@/shared/utils/iconCreator";
 
-export function CredentialForm({ getCredential }) {
+export function CredentialForm({ getCredential, close }) {
   const form = useForm({
     initialValues: {
       title: "",
@@ -96,7 +96,12 @@ export function CredentialForm({ getCredential }) {
             color="neutral"
             direction={{ base: "column", sm: "row" }}
           >
-            <Button variant="outline" variant="outline" color="gray">
+            <Button
+              variant="outline"
+              variant="outline"
+              color="gray"
+              onClick={close}
+            >
               Cancel
             </Button>
             <Button variant="outline" type="submit">

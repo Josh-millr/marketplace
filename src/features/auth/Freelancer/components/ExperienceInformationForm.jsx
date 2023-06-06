@@ -56,7 +56,10 @@ export function ExperienceInformationForm({ goNextStep }) {
           </Paper>
 
           {showCredentialForm ? (
-            <CredentialForm getCredential={addCredential} />
+            <CredentialForm
+              getCredential={addCredential}
+              close={() => setShowCredentialForm(false)}
+            />
           ) : (
             <Button onClick={() => setShowCredentialForm(true)}>
               Add credential
