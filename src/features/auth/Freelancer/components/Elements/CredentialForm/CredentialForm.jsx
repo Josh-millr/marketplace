@@ -46,7 +46,6 @@ export function CredentialForm({ getCredential }) {
           <SimpleGrid cols={1} spacing="xl" breakpoints={[{ cols: 2 }]}>
             {/* Title */}
             <TextInput
-              required
               withAsterisk
               w="100%"
               label="Certificate Title"
@@ -57,7 +56,6 @@ export function CredentialForm({ getCredential }) {
             {/* Issuer */}
             <TextInput
               w="100%"
-              required
               withAsterisk
               label="Issuer"
               placeholder="(eg Adobe, google...)"
@@ -67,7 +65,6 @@ export function CredentialForm({ getCredential }) {
             {/* Issuer Date */}
             <DateInput
               w="100%"
-              required
               label="Issue Date"
               placeholder="(eg. May 25, 2023)"
               valueFormat="DD/MM/YYYY"
@@ -80,7 +77,6 @@ export function CredentialForm({ getCredential }) {
               w="100%"
               label="Credential ID"
               placeholder="(eg. 12631SSDJs3)"
-              required
               withAsterisk
               {...form.getInputProps("credentialId")}
             />
@@ -89,7 +85,6 @@ export function CredentialForm({ getCredential }) {
             <TextInput
               w="100%"
               label="Credential URL"
-              required
               withAsterisk
               {...form.getInputProps("credentialUrl")}
             />
