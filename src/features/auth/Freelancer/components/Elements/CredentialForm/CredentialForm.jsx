@@ -31,7 +31,7 @@ export function CredentialForm({ getCredential }) {
   });
 
   return (
-    <Paper p="xl" bg="neutral.4">
+    <Paper p="lg" bg="neutral.3">
       <form onSubmit={submitForm}>
         <SimpleGrid cols={1} spacing="xl" breakpoints={[{ cols: 2 }]}>
           {/* Title */}

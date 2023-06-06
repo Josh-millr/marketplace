@@ -1,12 +1,17 @@
-import { DateInput } from "@mantine/dates";
+import { useState } from "react";
 import { Button, Grid, Flex, Stack } from "@mantine/core";
 
-import { FormSectionHeader } from "./Elements/FormSectionHeader";
+import { CredentialCard } from "@/shared/components/CredentialCard";
 
+import { FormSectionHeader } from "./Elements/FormSectionHeader";
 import { CredentialForm } from "./Elements/CredentialForm";
 
 export function ExperienceInformationForm({ goNextStep }) {
-  // TODO: Add handlers for adding and deleting credentials
+  const [credentials, setCredentials] = useState([]);
+
+  const addCredential = () => {};
+
+  const deleteCredential = () => {};
 
   return (
     <Grid gutterMd="xl" pt="2xl">
@@ -21,7 +26,13 @@ export function ExperienceInformationForm({ goNextStep }) {
       {/* Column 2 */}
       <Grid.Col span={12} md={7} orderMd={1} pr={{ base: 0, lg: "5xl" }}>
         <Stack spacing="2xl" w="100%">
-          <CredentialForm />
+          <Paper p="md">
+            <Stack spacing="md">
+              <CredentialCard />
+            </Stack>
+          </Paper>
+
+          {credentials.length > 0 && <CredentialForm />}
 
           <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
             <Button variant="subtle" variant="outline" color="gray">
