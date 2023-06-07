@@ -39,7 +39,7 @@ export function PersonalInformationForm({ goNextStep }) {
 
   useEffect(() => {
     const getLanguages = async () => {
-      const list = getLanguageListApi();
+      const list = await getLanguageListApi();
       setLanguageList(list);
     };
 
