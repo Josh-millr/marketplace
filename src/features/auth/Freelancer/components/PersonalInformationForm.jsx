@@ -6,12 +6,10 @@ import {
   Text,
   Stack,
   Avatar,
-  FileInput,
   Select,
   Button,
   Divider,
   TextInput,
-  FileButton,
   MultiSelect,
 } from "@mantine/core";
 import { useSelector } from "react-redux";
@@ -19,7 +17,6 @@ import { IconPhotoPlus } from "@tabler/icons-react";
 
 import { base64ToBlob } from "@/shared/utils/base64ToBlob";
 import { convertToFormData } from "@/shared/utils/convertToFormData";
-
 import { getLanguageListApi } from "@/shared/services/getLanguageListApi";
 import { FormDataContext } from "@/shared/providers/FormDataProvider";
 
@@ -62,8 +59,6 @@ export function PersonalInformationForm({ goNextStep }) {
     },
   });
 
-  console.log("Form image values:", form.values);
-
   const handlePictureUpload = async (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -71,9 +66,8 @@ export function PersonalInformationForm({ goNextStep }) {
     reader.onloadend = () => {
       setImg(reader.result);
 
-      console.log(reader.result);
-
-      const base64Data = reader.result.split(",")[1]; // Extract base64-encoded string
+      // Extract base64-encoded string
+      const base64Data = reader.result.split(",")[1];
 
       const blobData = base64ToBlob(base64Data, file.type);
       const formData = convertToFormData(blobData);
@@ -87,8 +81,6 @@ export function PersonalInformationForm({ goNextStep }) {
   };
 
   const submitForm = form.onSubmit(async (values) => {
-    // TODO: Check if an image was uploaded and store it
-
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
