@@ -35,8 +35,6 @@ export function PersonalInformationForm({ goNextStep }) {
   const [img, setImg] = useState(null);
   const [languageList, setLanguageList] = useState([]);
 
-  console.log("Image uploaded is:", img);
-
   const { user } = useSelector((state) => state.user);
   const { storeData } = useContext(FormDataContext);
 
@@ -61,6 +59,7 @@ export function PersonalInformationForm({ goNextStep }) {
   });
 
   const handlePictureUpload = (e) => {
+    console.log("Image upload is:", e);
     const file = e.target.files[0];
     const reader = new FileReader();
 
@@ -122,13 +121,19 @@ export function PersonalInformationForm({ goNextStep }) {
                 </Text>
               </Stack>
               <div>
-                <FileButton onChange={setImg} accept="image/*">
-                  {(props) => (
-                    <Button leftIcon={<IconPhotoPlus />} {...props}>
-                      Upload Photo
-                    </Button>
-                  )}
-                </FileButton>
+                {/* <FileButton onChange={setFile} accept="image/*">
+                  {(props) => <Button {...props}>Upload Photo</Button>}
+                </FileButton> */}
+
+                <Button component="label" leftIcon={<IconPhotoPlus />}>
+                  Upload Photo
+                  <input
+                    type="file"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    onChange={handlePictureUpload}
+                  />
+                </Button>
               </div>
             </Stack>
           </Grid.Col>
@@ -226,9 +231,9 @@ export function PersonalInformationForm({ goNextStep }) {
               <MultiSelect
                 w="100%"
                 multiple
+                searchable
                 creatable
                 clearable
-                searchable
                 withAsterisk
                 data={languageList}
                 label="Select languages"
@@ -243,7 +248,6 @@ export function PersonalInformationForm({ goNextStep }) {
                 }}
                 {...form.getInputProps("languages")}
               />
-
               {/* Country */}
               <TextInput
                 disabled
