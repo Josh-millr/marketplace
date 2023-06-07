@@ -15,9 +15,11 @@ import {
   MultiSelect,
 } from "@mantine/core";
 import { useSelector } from "react-redux";
+import { IconPhotoPlus } from "@tabler/icons-react";
 
 import { base64ToBlob } from "@/shared/utils/base64ToBlob";
 import { convertToFormData } from "@/shared/utils/convertToFormData";
+
 import { getLanguageListApi } from "@/shared/services/getLanguageListApi";
 import { FormDataContext } from "@/shared/providers/FormDataProvider";
 
