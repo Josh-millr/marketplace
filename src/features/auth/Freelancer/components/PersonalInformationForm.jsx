@@ -62,8 +62,6 @@ export function PersonalInformationForm({ goNextStep }) {
   console.log("Form image values:", form.values);
 
   const handlePictureUpload = async (e) => {
-    form.setValueField("img", target);
-
     const file = e.target.files[0];
     const reader = new FileReader();
 
