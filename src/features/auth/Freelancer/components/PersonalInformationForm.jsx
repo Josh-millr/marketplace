@@ -234,8 +234,10 @@ export function PersonalInformationForm({ goNextStep }) {
                 creatable
                 getCreateLabel={(query) => `+ Create ${query}`}
                 onCreate={(query) => {
-                  console.log("Creatable is:", query);
-                  // const queryInLowercase = query?.toLowecase();
+                  const rawQuery = query;
+                  const queryInLowercase = rawQuery.toLowecase();
+
+                  console.log("queryInLowercase", queryInLowercase);
                   const item = { value: query, label: query };
                   setLanguageList((current) => [...current, item]);
                   return item;
