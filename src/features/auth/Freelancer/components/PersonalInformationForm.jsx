@@ -39,15 +39,6 @@ export function PersonalInformationForm({ goNextStep }) {
   const { user } = useSelector((state) => state.user);
   const { storeData } = useContext(FormDataContext);
 
-  useEffect(() => {
-    const getLanguages = async () => {
-      const list = await getLanguageListApi();
-      setLanguageList(list);
-    };
-
-    getLanguages();
-  }, []);
-
   const form = useForm({
     initialValues: {
       languages: [],
@@ -58,6 +49,15 @@ export function PersonalInformationForm({ goNextStep }) {
       languages: isNotEmpty("Select atleast one proficient language"),
     },
   });
+
+  useEffect(() => {
+    const getLanguages = async () => {
+      const list = await getLanguageListApi();
+      setLanguageList(list);
+    };
+
+    getLanguages();
+  }, []);
 
   const handlePictureUpload = async (e) => {
     const file = e.target.files[0];

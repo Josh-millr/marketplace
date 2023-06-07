@@ -1,4 +1,6 @@
 import { useForm, isNotEmpty } from "@mantine/form";
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
 import {
   Grid,
   Flex,
@@ -27,6 +29,8 @@ const OCCUPATION_SET = ["Frontend", "Backend", "Cloud", "Devops", "Other"];
 const PROFESSIONAL_TITLE_SET = ["Developer", "Engineer"];
 
 export function ProfessionalInformationForm({ goNextStep }) {
+  const { category } = useSelector((state) => state.general);
+
   const form = useForm({
     initialValues: {
       occupation: "",
@@ -47,6 +51,17 @@ export function ProfessionalInformationForm({ goNextStep }) {
       skills: isNotEmpty("Skills cannot be empty"),
     },
   });
+
+  // Create a new array containing the values of the sub_sub category
+  const sub_sub_category = category.map((cat) => {
+    return cat.subCategories.map((sub) => {
+      return sub.navigationItems.map((sub_sub) => {
+        return sub_sub.name;
+      });
+    });
+  });
+
+  console.log("SUb_Sub:", sub_sub_category);
 
   const submitForm = form.onSubmit(async (values) => {
     const isFormValid = form.isValid();
