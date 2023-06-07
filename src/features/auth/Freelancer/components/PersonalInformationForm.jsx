@@ -10,6 +10,7 @@ import {
   Button,
   Divider,
   TextInput,
+  FileButton,
   MultiSelect,
 } from "@mantine/core";
 import { useSelector } from "react-redux";
@@ -119,15 +120,13 @@ export function PersonalInformationForm({ goNextStep }) {
                 </Text>
               </Stack>
               <div>
-                <Button component="label" leftIcon={<IconPhotoPlus />}>
-                  Upload Photo
-                  <input
-                    type="file"
-                    accept="image/*"
-                    style={{ display: "none" }}
-                    onChange={handlePictureUpload}
-                  />
-                </Button>
+                {/* <FileButton onChange={handlePictureUpload} accept="image/*">
+                  {(props) => (
+                    <Button leftIcon={<IconPhotoPlus />} {...props}>
+                      Upload Photo
+                    </Button>
+                  )}
+                </FileButton> */}
               </div>
             </Stack>
           </Grid.Col>
@@ -235,8 +234,9 @@ export function PersonalInformationForm({ goNextStep }) {
                 creatable
                 getCreateLabel={(query) => `+ Create ${query}`}
                 onCreate={(query) => {
-                  const queryInLowercase = query?.toLowecase();
-                  const item = { value: queryInLowercase, label: query };
+                  console.log("Creatable is:", query);
+                  // const queryInLowercase = query?.toLowecase();
+                  const item = { value: query, label: query };
                   setLanguageList((current) => [...current, item]);
                   return item;
                 }}
