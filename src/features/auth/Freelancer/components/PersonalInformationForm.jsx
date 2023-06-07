@@ -35,6 +35,8 @@ export function PersonalInformationForm({ goNextStep }) {
   const [img, setImg] = useState(null);
   const [languageList, setLanguageList] = useState([]);
 
+  console.log("Image uploaded is:", img);
+
   const { user } = useSelector((state) => state.user);
   const { storeData } = useContext(FormDataContext);
 
@@ -120,13 +122,13 @@ export function PersonalInformationForm({ goNextStep }) {
                 </Text>
               </Stack>
               <div>
-                {/* <FileButton onChange={handlePictureUpload} accept="image/*">
+                <FileButton onChange={setImg} accept="image/*">
                   {(props) => (
                     <Button leftIcon={<IconPhotoPlus />} {...props}>
                       Upload Photo
                     </Button>
                   )}
-                </FileButton> */}
+                </FileButton>
               </div>
             </Stack>
           </Grid.Col>
