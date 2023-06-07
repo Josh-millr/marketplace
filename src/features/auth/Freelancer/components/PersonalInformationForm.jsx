@@ -234,8 +234,7 @@ export function PersonalInformationForm({ goNextStep }) {
                 creatable
                 getCreateLabel={(query) => `+ Create ${query}`}
                 onCreate={(query) => {
-                  const rawQuery = query;
-                  const queryInLowercase = rawQuery.toLowecase();
+                  const queryInLowercase = query.toLowerCase();
 
                   console.log("queryInLowercase", queryInLowercase);
                   const item = { value: query, label: query };
