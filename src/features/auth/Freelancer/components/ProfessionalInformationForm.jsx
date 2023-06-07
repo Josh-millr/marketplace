@@ -54,7 +54,11 @@ export function ProfessionalInformationForm({ goNextStep }) {
 
   // Create a new array containing the values of the sub_sub category
   const sub_sub_category = category.map((cat) => {
-    return cat;
+    return cat.subCategories.map((sub) => {
+      return sub.navigationItems.map((sub_sub) => {
+        return sub_sub.label;
+      });
+    });
   });
 
   console.log("SUb_Sub:", sub_sub_category);
