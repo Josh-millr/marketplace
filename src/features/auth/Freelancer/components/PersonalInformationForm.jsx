@@ -223,21 +223,19 @@ export function PersonalInformationForm({ goNextStep }) {
               {/* Language list */}
               <MultiSelect
                 w="100%"
-                withAsterisk
-                searchable
                 multiple
+                creatable
+                clearable
+                searchable
+                withAsterisk
+                data={languageList}
                 label="Select languages"
                 placeholder="Select languages"
-                data={languageList}
                 clearButtonProps={{ "aria-label": "Clear selection" }}
-                clearable
-                creatable
                 getCreateLabel={(query) => `+ Create ${query}`}
                 onCreate={(query) => {
                   const queryInLowercase = query.toLowerCase();
-
-                  console.log("queryInLowercase", queryInLowercase);
-                  const item = { value: query, label: query };
+                  const item = { value: queryInLowercase, label: query };
                   setLanguageList((current) => [...current, item]);
                   return item;
                 }}
