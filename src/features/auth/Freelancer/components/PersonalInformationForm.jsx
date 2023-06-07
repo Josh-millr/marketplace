@@ -6,6 +6,7 @@ import {
   Text,
   Stack,
   Avatar,
+  FileInput,
   Select,
   Button,
   Divider,
@@ -33,6 +34,7 @@ const ACCOUNTTYPE_SET = [
 
 export function PersonalInformationForm({ goNextStep }) {
   const [img, setImg] = useState(null);
+  const [imgObj, setimgObj] = useState({});
   const [languageList, setLanguageList] = useState([]);
 
   const { user } = useSelector((state) => state.user);
@@ -58,8 +60,13 @@ export function PersonalInformationForm({ goNextStep }) {
     },
   });
 
+  console.log("Image Object:", form.values.img);
+
+  useEffect(() => {
+    // setimgObj
+  }, []);
+
   const handlePictureUpload = (e) => {
-    console.log("Image upload is:", e);
     const file = e.target.files[0];
     const reader = new FileReader();
 
@@ -125,7 +132,9 @@ export function PersonalInformationForm({ goNextStep }) {
                   {(props) => <Button {...props}>Upload Photo</Button>}
                 </FileButton> */}
 
-                <Button component="label" leftIcon={<IconPhotoPlus />}>
+                <FileInput {...form.getInputProps("img")} />
+
+                {/* <Button component="label" leftIcon={<IconPhotoPlus />}>
                   Upload Photo
                   <input
                     type="file"
@@ -133,7 +142,7 @@ export function PersonalInformationForm({ goNextStep }) {
                     style={{ display: "none" }}
                     onChange={handlePictureUpload}
                   />
-                </Button>
+                </Button> */}
               </div>
             </Stack>
           </Grid.Col>
