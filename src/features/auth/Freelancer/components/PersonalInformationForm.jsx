@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useForm, isNotEmpty } from "@mantine/form";
 import {
   Grid,
@@ -15,18 +15,10 @@ import {
 import { useSelector } from "react-redux";
 import { IconPhotoPlus } from "@tabler/icons-react";
 
+import { getLanguageListApi } from "@/shared/services/getLanguageListApi";
 import { FormDataContext } from "@/shared/providers/FormDataProvider";
 
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
-
-const LANGUAGE_SET = [
-  { value: "english", label: "English" },
-  { value: "spanish", label: "Spanish" },
-  { value: "french", label: "French" },
-  { value: "german", label: "German" },
-  { value: "italian", label: "Italian" },
-  { value: "japanese", label: "Japanese" },
-];
 
 const GENDER_SET = [
   { value: "male", label: "Male" },
@@ -40,9 +32,19 @@ const ACCOUNTTYPE_SET = [
 
 export function PersonalInformationForm({ goNextStep }) {
   const [img, setImg] = useState(null);
+  const [languageList, setLanguageList] = useState([]);
 
   const { user } = useSelector((state) => state.user);
   const { storeData } = useContext(FormDataContext);
+
+  useEffect(() => {
+    const getLanguages = async () => {
+      const list = getLanguageListApi();
+      setLanguageList(list);
+    };
+
+    getLanguages();
+  }, []);
 
   const form = useForm({
     initialValues: {
@@ -228,7 +230,7 @@ export function PersonalInformationForm({ goNextStep }) {
                 label="Select languages"
                 placeholder="Select languages"
                 // TODO: Fetch language list from language API
-                data={LANGUAGE_SET}
+                data={languageList}
                 {...form.getInputProps("languages")}
               />
 
