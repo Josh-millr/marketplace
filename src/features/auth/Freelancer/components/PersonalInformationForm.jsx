@@ -229,8 +229,17 @@ export function PersonalInformationForm({ goNextStep }) {
                 multiple
                 label="Select languages"
                 placeholder="Select languages"
-                // TODO: Fetch language list from language API
                 data={languageList}
+                clearButtonProps={{ "aria-label": "Clear selection" }}
+                clearable
+                creatable
+                getCreateLabel={(query) => `+ Create ${query}`}
+                onCreate={(query) => {
+                  const queryInLowercase = query?.toLowecase();
+                  const item = { value: queryInLowercase, label: query };
+                  setLanguageList((current) => [...current, item]);
+                  return item;
+                }}
                 {...form.getInputProps("languages")}
               />
 
