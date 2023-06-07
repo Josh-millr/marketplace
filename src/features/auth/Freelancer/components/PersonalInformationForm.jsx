@@ -34,7 +34,6 @@ const ACCOUNTTYPE_SET = [
 
 export function PersonalInformationForm({ goNextStep }) {
   const [img, setImg] = useState(null);
-  const [imgObj, setimgObj] = useState({});
   const [languageList, setLanguageList] = useState([]);
 
   const { user } = useSelector((state) => state.user);
@@ -60,18 +59,25 @@ export function PersonalInformationForm({ goNextStep }) {
     },
   });
 
-  console.log("Image Object:", form.values.img);
+  console.log("Form image values:", form.values);
 
-  useEffect(() => {
-    // setimgObj
-  }, []);
+  const handlePictureUpload = async (e) => {
+    form.setValueField("img", target);
 
-  const handlePictureUpload = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
 
     reader.onloadend = () => {
       setImg(reader.result);
+
+      console.log(reader.result);
+
+      const base64Data = reader.result.split(",")[1]; // Extract base64-encoded string
+
+      const blobData = base64ToBlob(base64Data, file.type);
+      const formData = convertToFormData(blobData);
+
+      form.setFieldValue("img", formData);
     };
 
     if (file) {
@@ -128,11 +134,7 @@ export function PersonalInformationForm({ goNextStep }) {
                 </Text>
               </Stack>
               <div>
-                <FileButton accept="image/*" {...form.getInputProps("img")}>
-                  {(props) => <Button {...props}>Upload Photo</Button>}
-                </FileButton>
-
-                {/* <Button component="label" leftIcon={<IconPhotoPlus />}>
+                <Button component="label" leftIcon={<IconPhotoPlus />}>
                   Upload Photo
                   <input
                     type="file"
@@ -140,7 +142,7 @@ export function PersonalInformationForm({ goNextStep }) {
                     style={{ display: "none" }}
                     onChange={handlePictureUpload}
                   />
-                </Button> */}
+                </Button>
               </div>
             </Stack>
           </Grid.Col>
