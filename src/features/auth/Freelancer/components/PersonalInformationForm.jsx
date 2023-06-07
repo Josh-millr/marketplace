@@ -128,11 +128,9 @@ export function PersonalInformationForm({ goNextStep }) {
                 </Text>
               </Stack>
               <div>
-                {/* <FileButton onChange={setFile} accept="image/*">
+                <FileButton accept="image/*" {...form.getInputProps("img")}>
                   {(props) => <Button {...props}>Upload Photo</Button>}
-                </FileButton> */}
-
-                <FileInput {...form.getInputProps("img")} />
+                </FileButton>
 
                 {/* <Button component="label" leftIcon={<IconPhotoPlus />}>
                   Upload Photo
