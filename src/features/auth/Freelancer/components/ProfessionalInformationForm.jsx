@@ -52,19 +52,6 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
     },
   });
 
-  // Create a new array containing the values of the sub_sub category
-  const professionalFields = [];
-
-  category.forEach((cat) => {
-    return cat.subCategories.forEach((sub) => {
-      return sub.navigationItems.forEach((sub_sub) => {
-        professionalFields.push(sub_sub);
-      });
-    });
-  });
-
-  console.log("SUb_Sub:", professionalFields);
-
   const submitForm = form.onSubmit(async (values) => {
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
@@ -96,11 +83,20 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
               {/* Occupational Field */}
               <Select
                 w="100%"
+                creatable
+                clearable
                 withAsterisk
                 label="Occupational Field"
                 placeholder="Occupational Field"
-                // TODO: Fetch from the category api
                 data={OCCUPATION_SET}
+                clearButtonProps={{ "aria-label": "Clear selection" }}
+                getCreateLabel={(query) => `+ Create ${query}`}
+                onCreate={(query) => {
+                  const queryInLowercase = query.toLowerCase();
+                  const item = { value: queryInLowercase, label: query };
+                  setLanguageList((current) => [...current, item]);
+                  return item;
+                }}
                 {...form.getInputProps("occupation")}
               />
 
@@ -111,6 +107,16 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
                 label="Occupational Title"
                 placeholder="Professional Title"
                 data={PROFESSIONAL_TITLE_SET}
+                creatable
+                clearable
+                clearButtonProps={{ "aria-label": "Clear selection" }}
+                getCreateLabel={(query) => `+ Create ${query}`}
+                onCreate={(query) => {
+                  const queryInLowercase = query.toLowerCase();
+                  const item = { value: queryInLowercase, label: query };
+                  setLanguageList((current) => [...current, item]);
+                  return item;
+                }}
                 {...form.getInputProps("professionalTitle")}
               />
             </Flex>
@@ -125,8 +131,17 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
               label="Skills"
               description="List the skills related to the services you're offering and add your experience level."
               placeholder="Select skills"
-              // TODO: Fetch language list from language API
               data={SKILL_SET}
+              creatable
+              clearable
+              clearButtonProps={{ "aria-label": "Clear selection" }}
+              getCreateLabel={(query) => `+ Create ${query}`}
+              onCreate={(query) => {
+                const queryInLowercase = query.toLowerCase();
+                const item = { value: queryInLowercase, label: query };
+                setLanguageList((current) => [...current, item]);
+                return item;
+              }}
               {...form.getInputProps("skills")}
             />
 
@@ -135,8 +150,8 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
             {/* Professional Description */}
             <Textarea
               w="100%"
-              min={4}
-              max={6}
+              autosize
+              minRows={2}
               withAsterisk
               title="Description"
               placeholder="Start typing ...."
@@ -149,6 +164,7 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
 
             {/* Your Personal website / Portfolio */}
             <TextInput
+              icon={<span>http://</span>}
               w="100%"
               label="Your Personal website / Portfolio"
               description="Include a link to your personal website or portfolio with your work samples."
