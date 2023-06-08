@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Button, Grid, Flex, Stack, Paper } from "@mantine/core";
 
 import { CredentialCard } from "@/shared/components/CredentialCard";
