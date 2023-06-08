@@ -1,6 +1,5 @@
+import { useState } from "react";
 import { useForm, isNotEmpty } from "@mantine/form";
-import { useMemo } from "react";
-import { useSelector } from "react-redux";
 import {
   Grid,
   Flex,
@@ -29,7 +28,9 @@ const OCCUPATION_SET = ["Frontend", "Backend", "Cloud", "Devops", "Other"];
 const PROFESSIONAL_TITLE_SET = ["Developer", "Engineer"];
 
 export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
-  const { category } = useSelector((state) => state.general);
+  const [skillSet, setSkillSet] = useState(SKILL_SET);
+  const [occupations, setOccupations] = useState(OCCUPATION_SET);
+  const [proTitle, setProTitle] = useState(PROFESSIONAL_TITLE_SET);
 
   const form = useForm({
     initialValues: {
@@ -84,17 +85,18 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
               <Select
                 w="100%"
                 creatable
+                searchable
                 clearable
                 withAsterisk
                 label="Occupational Field"
                 placeholder="Occupational Field"
-                data={OCCUPATION_SET}
+                data={occupations}
                 clearButtonProps={{ "aria-label": "Clear selection" }}
                 getCreateLabel={(query) => `+ Create ${query}`}
                 onCreate={(query) => {
                   const queryInLowercase = query.toLowerCase();
                   const item = { value: queryInLowercase, label: query };
-                  setLanguageList((current) => [...current, item]);
+                  setOccupations((current) => [...current, item]);
                   return item;
                 }}
                 {...form.getInputProps("occupation")}
@@ -106,15 +108,16 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
                 withAsterisk
                 label="Occupational Title"
                 placeholder="Professional Title"
-                data={PROFESSIONAL_TITLE_SET}
+                data={proTitle}
                 creatable
+                searchable
                 clearable
                 clearButtonProps={{ "aria-label": "Clear selection" }}
                 getCreateLabel={(query) => `+ Create ${query}`}
                 onCreate={(query) => {
                   const queryInLowercase = query.toLowerCase();
                   const item = { value: queryInLowercase, label: query };
-                  setLanguageList((current) => [...current, item]);
+                  setProTitle((current) => [...current, item]);
                   return item;
                 }}
                 {...form.getInputProps("professionalTitle")}
@@ -131,7 +134,7 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
               label="Skills"
               description="List the skills related to the services you're offering and add your experience level."
               placeholder="Select skills"
-              data={SKILL_SET}
+              data={skillSet}
               creatable
               clearable
               clearButtonProps={{ "aria-label": "Clear selection" }}
@@ -139,7 +142,7 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
               onCreate={(query) => {
                 const queryInLowercase = query.toLowerCase();
                 const item = { value: queryInLowercase, label: query };
-                setLanguageList((current) => [...current, item]);
+                setSkillSet((current) => [...current, item]);
                 return item;
               }}
               {...form.getInputProps("skills")}
