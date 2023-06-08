@@ -62,7 +62,8 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
       });
     })
     .reduce((prev, sum) => {
-      return [...prev, ...sum];
+      console.log("Previous:", prev);
+      console.log("Next:", sum);
     }, []);
 
   console.log("SUb_Sub:", sub_sub_category);
