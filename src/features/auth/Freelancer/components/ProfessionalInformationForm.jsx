@@ -53,20 +53,17 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
   });
 
   // Create a new array containing the values of the sub_sub category
-  const sub_sub_category = category
-    .map((cat) => {
-      return cat.subCategories.map((sub) => {
-        return sub.navigationItems.map((sub_sub) => {
-          return sub_sub.label;
-        });
-      });
-    })
-    .reduce((prev, sum) => {
-      console.log("Previous:", prev);
-      console.log("Next:", sum);
-    }, []);
+  const professionalFields = [];
 
-  console.log("SUb_Sub:", sub_sub_category);
+  category.forEach((cat) => {
+    return cat.subCategories.forEach((sub) => {
+      return sub.navigationItems.forEach((sub_sub) => {
+        professionalFields.push(sub_sub);
+      });
+    });
+  });
+
+  console.log("SUb_Sub:", professionalFields);
 
   const submitForm = form.onSubmit(async (values) => {
     const isFormValid = form.isValid();
