@@ -60,7 +60,7 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
                 <TextInput
                   w="100%"
                   placeholder="@username"
-                  {...form.getInputProps("contact.facebook")}
+                  {...form.getInputProps("contact.social.facebook")}
                 />
               </Flex>
 
@@ -70,7 +70,7 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
                 <TextInput
                   w="100%"
                   placeholder="@twitter_username"
-                  {...form.getInputProps("contact.twitter")}
+                  {...form.getInputProps("contact.social.twitter")}
                 />
               </Flex>
 
@@ -80,7 +80,7 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
                 <TextInput
                   w="100%"
                   placeholder="@instagram_username"
-                  {...form.getInputProps("contact.instagram")}
+                  {...form.getInputProps("contact.social.instagram")}
                 />
               </Flex>
             </Stack>
