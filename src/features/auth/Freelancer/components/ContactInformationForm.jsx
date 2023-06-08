@@ -12,7 +12,7 @@ import { iconCreator } from "@/shared/utils/iconCreator";
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
 
 export function ContactInformationForm({ goNextStep, goPrevStep }) {
-  const { getData } = useContext(FormDataContext);
+  const { getData, getAllData } = useContext(FormDataContext);
 
   const form = useForm({
     initialValues: {
