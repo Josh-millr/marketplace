@@ -28,7 +28,7 @@ const OCCUPATION_SET = ["Frontend", "Backend", "Cloud", "Devops", "Other"];
 
 const PROFESSIONAL_TITLE_SET = ["Developer", "Engineer"];
 
-export function ProfessionalInformationForm({ goNextStep }) {
+export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
   const { category } = useSelector((state) => state.general);
 
   const form = useForm({
@@ -98,7 +98,6 @@ export function ProfessionalInformationForm({ goNextStep }) {
               {/* Occupational Field */}
               <Select
                 w="100%"
-                required
                 withAsterisk
                 label="Occupational Field"
                 placeholder="Occupational Field"
@@ -110,7 +109,6 @@ export function ProfessionalInformationForm({ goNextStep }) {
               {/* Occupational Title */}
               <Select
                 w="100%"
-                required
                 withAsterisk
                 label="Occupational Title"
                 placeholder="Professional Title"
@@ -124,7 +122,6 @@ export function ProfessionalInformationForm({ goNextStep }) {
             <MultiSelect
               w="100%"
               multiple
-              required
               searchable
               withAsterisk
               label="Skills"
@@ -142,6 +139,7 @@ export function ProfessionalInformationForm({ goNextStep }) {
               w="100%"
               min={4}
               max={6}
+              withAsterisk
               title="Description"
               placeholder="Start typing ...."
               label="Professional Description"
@@ -160,7 +158,7 @@ export function ProfessionalInformationForm({ goNextStep }) {
             />
 
             <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
-              <Button variant="subtle" variant="outline" color="gray">
+              <Button color="gray" variant="outline" onClcik={goPrevStep}>
                 Go Back
               </Button>
               <Button type="submit">Continue</Button>
