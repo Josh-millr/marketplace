@@ -1,8 +1,10 @@
 import { useContext } from "react";
+import { useDispatch } from "react-redux";
 import { useForm } from "@mantine/form";
 import { Flex, TextInput, Text, Grid, Stack, Button } from "@mantine/core";
 import { Instagram, Twitter, Facebook } from "iconoir-react";
 
+import { userActions } from "@/state/user/userReducer";
 import { FormDataContext } from "@/shared/providers/FormDataProvider";
 import { registerUserAsFreelancerApi } from "@/shared/services/registerUserAsFreelancerApi";
 
@@ -10,7 +12,7 @@ import { iconCreator } from "@/shared/utils/iconCreator";
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
 
 export function ContactInformationForm({ goNextStep, goPrevStep }) {
-  const { storeData, getData } = useContext(FormDataContext);
+  const { getData } = useContext(FormDataContext);
 
   const form = useForm({
     initialValues: {
@@ -45,7 +47,15 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
         ...allFormData,
         contact: contactUpdated,
       });
-    } catch (error) {}
+
+      // Update the store with the user freelanec data
+
+      // Show a success notification
+
+      // Push the user to the freelancer marketplace
+    } catch (error) {
+      console.log("There was an error!");
+    }
   });
 
   return (
