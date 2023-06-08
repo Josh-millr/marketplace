@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { useForm, isNotEmpty } from "@mantine/form";
+import { useForm } from "@mantine/form";
 import { Flex, TextInput, Text, Grid, Stack, Button } from "@mantine/core";
 import { Instagram, Twitter, Facebook } from "iconoir-react";
 
 import { FormDataContext } from "@/shared/providers/FormDataProvider";
+import { registerUserAsFreelancerApi } from "@/shared/services/registerUserAsFreelancerApi";
 
 import { iconCreator } from "@/shared/utils/iconCreator";
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
@@ -32,8 +33,19 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
     const contactPrev = getData(["contact"]);
     const contactUpdated = { ...contactPrev, ...values.contact };
 
-    console.log("Contact Updated:", contactUpdated);
-    console.log("All values:", values);
+    const allFormData = getAllData();
+
+    console.log("This is the credentials ill be submitting:", {
+      ...allFormData,
+      contact: contactUpdated,
+    });
+
+    try {
+      const response = await registerUserAsFreelancerApi({
+        ...allFormData,
+        contact: contactUpdated,
+      });
+    } catch (error) {}
   });
 
   return (

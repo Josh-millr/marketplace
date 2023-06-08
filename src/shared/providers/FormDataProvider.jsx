@@ -1,8 +1,10 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext } from "react";
 
 export const FormDataContext = createContext();
 
 /**
+ * @usage getAllData()
+ *
  * @usage getData([data1, data2, ...])
  *
  * @usage isDataPresent('data')
@@ -16,6 +18,10 @@ export default function FormDataProvider({ children }) {
 
   const storeData = (newData) => {
     setCurrData({ ...currData, ...newData });
+  };
+
+  const getAllData = () => {
+    return currData;
   };
 
   const getData = (data) => {
@@ -33,7 +39,9 @@ export default function FormDataProvider({ children }) {
   const isDataPresent = (request) => request in currData;
 
   return (
-    <FormDataContext.Provider value={{ storeData, getData, isDataPresent }}>
+    <FormDataContext.Provider
+      value={{ storeData, getData, isDataPresent, getAllData }}
+    >
       {children}
     </FormDataContext.Provider>
   );
