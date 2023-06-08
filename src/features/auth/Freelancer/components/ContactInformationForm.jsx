@@ -107,7 +107,7 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
               <Button variant="outline" color="gray" onClick={goPrevStep}>
                 Go Back
               </Button>
-              <Button onClick={goNextStep}>Continue</Button>
+              <Button type='submit'>Continue</Button>
             </Flex>
           </Stack>
         </form>
