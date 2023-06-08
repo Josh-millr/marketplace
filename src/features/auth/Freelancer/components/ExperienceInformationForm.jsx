@@ -2,13 +2,16 @@ import { useState, useEffect } from "react";
 import { Button, Grid, Flex, Stack, Paper } from "@mantine/core";
 
 import { CredentialCard } from "@/shared/components/CredentialCard";
+import { FormDataContext } from "@/shared/providers/FormDataProvider";
 
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
 import { CredentialForm } from "./Elements/CredentialForm";
 
-export function ExperienceInformationForm({ goNextStep }) {
+export function ExperienceInformationForm({ goNextStep, goPrevStep }) {
   const [credentials, setCredentials] = useState([]);
   const [showCredentialForm, setShowCredentialForm] = useState(false);
+
+  const { storeData } = useContext(FormDataContext);
 
   const addCredential = (values) => {
     const newValues = [...credentials, values];
@@ -22,6 +25,8 @@ export function ExperienceInformationForm({ goNextStep }) {
 
     setCredentials(filtered);
   };
+
+  useEffect(() => storeData(credentials), [credentials]);
 
   return (
     <Grid gutterMd="xl" pt="2xl">
@@ -67,10 +72,10 @@ export function ExperienceInformationForm({ goNextStep }) {
           )}
 
           <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
-            <Button variant="subtle" variant="outline" color="gray">
+            <Button variant="outline" color="gray" onClick={goPrevStep}>
               Go Back
             </Button>
-            <Button type="submit">Continue</Button>
+            <Button onClick={goNextStep}>Continue</Button>
           </Flex>
         </Stack>
       </Grid.Col>

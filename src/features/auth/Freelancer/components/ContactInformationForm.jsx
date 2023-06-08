@@ -1,29 +1,33 @@
-import { useForm, isNotEmpty } from '@mantine/form';
-import { Flex, TextInput, Text, Grid, Stack } from '@mantine/core';
-import { Instagram, Twitter, Facebook } from 'iconoir-react';
+import { useForm, isNotEmpty } from "@mantine/form";
+import { Flex, TextInput, Text, Grid, Stack, Button } from "@mantine/core";
+import { Instagram, Twitter, Facebook } from "iconoir-react";
 
-import { iconCreator } from '@/shared/utils/iconCreator';
-import { FormSectionHeader } from './Elements/FormSectionHeader';
+import { FormDataContext } from "@/shared/providers/FormDataProvider";
 
-export function ContactInformationForm({ goNextStep }) {
+import { iconCreator } from "@/shared/utils/iconCreator";
+import { FormSectionHeader } from "./Elements/FormSectionHeader";
+
+export function ContactInformationForm({ goNextStep, goPrevStep }) {
+  const { storeData, getData } = useContext(FormDataContext);
+
   const form = useForm({
     initialValues: {
       contact: {
-        phone: "+234-",
+        phone: "(234)",
         social: {
-          facebook: '',
-          twitter: '',
-          instagram: '',
+          facebook: "",
+          twitter: "",
+          instagram: "",
         },
       },
     },
     validate: {
       contact: {
-        phone: isNotEmpty('Contact cannot be empty'),
+        phone: isNotEmpty("Contact cannot be empty"),
         social: {
-          facebook: isNotEmpty('Facebook cannot be empty'),
-          twitter: isNotEmpty('Twitter cannot be empty'),
-          instagram: isNotEmpty('Instagram cannot be empty'),
+          facebook: isNotEmpty("Facebook cannot be empty"),
+          twitter: isNotEmpty("Twitter cannot be empty"),
+          instagram: isNotEmpty("Instagram cannot be empty"),
         },
       },
     },
@@ -33,6 +37,11 @@ export function ContactInformationForm({ goNextStep }) {
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
+    const contactPrev = getData(["contact"]);
+    const contactUpdated = { ...contactPrev, ...values.contact };
+
+    console.log("Contact Updated:", contactUpdated);
+    console.log("All values:", values);
   });
 
   return (
@@ -47,7 +56,7 @@ export function ContactInformationForm({ goNextStep }) {
       </Grid.Col>
 
       {/* Column 2 */}
-      <Grid.Col span={12} md={7} orderMd={1} pr={{ base: 0, lg: '5xl' }}>
+      <Grid.Col span={12} md={7} orderMd={1} pr={{ base: 0, lg: "5xl" }}>
         <form onSubmit={submitForm}>
           <Stack spacing="2xl" w="100%">
             <Stack spacing="xl">
@@ -59,7 +68,7 @@ export function ContactInformationForm({ goNextStep }) {
                 <TextInput
                   w="100%"
                   placeholder="@username"
-                  {...form.getInputProps('contact.facebook')}
+                  {...form.getInputProps("contact.facebook")}
                 />
               </Flex>
 
@@ -69,7 +78,7 @@ export function ContactInformationForm({ goNextStep }) {
                 <TextInput
                   w="100%"
                   placeholder="@twitter_username"
-                  {...form.getInputProps('contact.twitter')}
+                  {...form.getInputProps("contact.twitter")}
                 />
               </Flex>
 
@@ -79,7 +88,7 @@ export function ContactInformationForm({ goNextStep }) {
                 <TextInput
                   w="100%"
                   placeholder="@instagram_username"
-                  {...form.getInputProps('contact.instagram')}
+                  {...form.getInputProps("contact.instagram")}
                 />
               </Flex>
             </Stack>
@@ -90,8 +99,15 @@ export function ContactInformationForm({ goNextStep }) {
               description="We need your phone number to keep your account safe. We'll
               never share your phone number."
               placeholder="Enter phone number"
-              {...form.getInputProps('contact.phone')}
+              {...form.getInputProps("contact.phone")}
             />
+
+            <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
+              <Button variant="outline" color="gray" onClick={goPrevStep}>
+                Go Back
+              </Button>
+              <Button onClick={goNextStep}>Continue</Button>
+            </Flex>
           </Stack>
         </form>
       </Grid.Col>
