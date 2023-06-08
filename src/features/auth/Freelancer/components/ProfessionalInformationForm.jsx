@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useForm, isNotEmpty } from "@mantine/form";
 import {
   Grid,
@@ -11,6 +11,8 @@ import {
   TextInput,
   MultiSelect,
 } from "@mantine/core";
+
+import { FormDataContext } from "@/shared/providers/FormDataProvider";
 
 import { FormSectionHeader } from "./Elements/FormSectionHeader";
 
@@ -31,6 +33,8 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
   const [skillSet, setSkillSet] = useState(SKILL_SET);
   const [occupations, setOccupations] = useState(OCCUPATION_SET);
   const [proTitle, setProTitle] = useState(PROFESSIONAL_TITLE_SET);
+
+  const { storeData } = useContext(FormDataContext);
 
   const form = useForm({
     initialValues: {
