@@ -22,20 +22,10 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
         },
       },
     },
-    validate: {
-      contact: {
-        phone: isNotEmpty("Contact cannot be empty"),
-        social: {
-          facebook: isNotEmpty("Facebook cannot be empty"),
-          twitter: isNotEmpty("Twitter cannot be empty"),
-          instagram: isNotEmpty("Instagram cannot be empty"),
-        },
-      },
-    },
   });
 
   const submitForm = form.onSubmit(async (values) => {
-    console.log('Submitting...');
+    console.log("Submitting...");
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
