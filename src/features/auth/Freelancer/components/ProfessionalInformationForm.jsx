@@ -46,9 +46,6 @@ export function ProfessionalInformationForm({ goNextStep, goPrevStep }) {
       professionalTitle: isNotEmpty("Title cannot be empty"),
       description: isNotEmpty("Description cannot be empty"),
       occupation: isNotEmpty("Ocupation cannot be empty"),
-      contact: {
-        portfolio: isNotEmpty("Portfolio cannot be empty"),
-      },
       skills: isNotEmpty("Skills cannot be empty"),
     },
   });
