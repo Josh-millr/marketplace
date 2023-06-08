@@ -14,8 +14,7 @@ export function ExperienceInformationForm({ goNextStep, goPrevStep }) {
   const { storeData } = useContext(FormDataContext);
 
   const addCredential = (values) => {
-    const newValues = [...credentials, values];
-    setCredentials(newValues);
+    setCredentials((prev) => [...prev, values]);
   };
 
   const deleteCredential = (id) => {
@@ -26,7 +25,9 @@ export function ExperienceInformationForm({ goNextStep, goPrevStep }) {
     setCredentials(filtered);
   };
 
-  useEffect(() => storeData(credentials), [credentials]);
+  useEffect(() => {
+    storeData({ certificate: credentials });
+  }, [credentials]);
 
   return (
     <Grid gutterMd="xl" pt="2xl">

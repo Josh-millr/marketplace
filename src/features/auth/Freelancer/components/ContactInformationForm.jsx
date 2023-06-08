@@ -28,19 +28,19 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
   });
 
   const submitForm = form.onSubmit(async (values) => {
-    console.log("Submitting...");
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
     const contactPrev = getData(["contact"]);
+    console.log("prev contact structure:", contactPrev);
+
     const contactUpdated = { ...contactPrev, ...values.contact };
+
+    console.log("New contact structure:", contactUpdated);
 
     const allFormData = getAllData();
 
-    console.log("This is the credentials ill be submitting:", {
-      ...allFormData,
-      contact: contactUpdated,
-    });
+    console.log("allFormData:", allFormData);
 
     try {
       const response = await registerUserAsFreelancerApi({
