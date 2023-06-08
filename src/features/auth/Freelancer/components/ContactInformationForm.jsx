@@ -35,6 +35,7 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
   });
 
   const submitForm = form.onSubmit(async (values) => {
+    console.log('Submitting...');
     const isFormValid = form.isValid();
     if (isFormValid !== true) return null;
 
