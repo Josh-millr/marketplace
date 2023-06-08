@@ -14,7 +14,7 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
   const form = useForm({
     initialValues: {
       contact: {
-        phone: "(234)",
+        phone: "(234)-",
         social: {
           facebook: "",
           twitter: "",
@@ -107,7 +107,7 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
               <Button variant="outline" color="gray" onClick={goPrevStep}>
                 Go Back
               </Button>
-              <Button type='submit'>Continue</Button>
+              <Button type="submit">Continue</Button>
             </Flex>
           </Stack>
         </form>
