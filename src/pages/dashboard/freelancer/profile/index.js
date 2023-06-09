@@ -18,7 +18,7 @@ function Profile() {
 
   const { classes } = useStyles();
   return (
-    <div style={{ backgroundColor: useMediaQuery(`(max-width:75em)`) ? '#ffffff' : '#F0EFEB' }}>
+    <div style={{ backgroundColor: useMediaQuery(`(max-width:75em)`) ? '#ffffff' : '#F0EFEB', paddingBottom: "22px"  }}>
 
        <PageContainer layout="freelancer">
       <DashboardPageHeader

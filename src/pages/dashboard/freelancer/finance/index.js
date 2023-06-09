@@ -92,6 +92,7 @@ function Finance() {
 
         {/* // TODO: Fix the list virtualization & Implement the pagination */}
 
+
         <DashboardSectionCard contentFullWidth>
           <Stack spacing="xl">
             <div ref={ref}>
@@ -116,6 +117,56 @@ function Finance() {
                   />
                 )
               )}
+
+        },
+        {
+            id: 4,
+            title: "I will build a fully responsive design in HTML, bootstrap or JavaScript",
+            amount: "₦18,230",
+            category: "Web & App design",
+            createdAt: "April 9, 2022",
+            categoryType: "Services",
+            status: "Received"
+
+        },
+    ]
+
+    return (
+        <div style={{ backgroundColor: useMediaQuery(`(max-width:75em)`) ? '#ffffff' : '#F0EFEB',paddingBottom: "22px"  }}>
+    <PageContainer.Dashboard>
+      <DashboardPageHeader
+        title="My Finance"
+        descr="View your overall financial statements and report"
+       
+      />
+      <DashboardStatsCardBanner >
+              <DashboardNetIncomeStatsCard />
+              <DashboardPendingStatsCard />
+              <DashboardAcceptedStatsCard/>
+              <DashboardAvailableForPayoutStatsCard/>
+      </DashboardStatsCardBanner>
+
+      {/* // TODO: Fix the list virtualization & Implement the pagination */}
+
+      <DashboardSectionCard contentFullWidth >
+        <Stack spacing="xl">
+          <div ref={ref}>
+            {result.map(({ id, title, amount, category, createdAt, categoryType, status }) => (
+              <DashboardFinanceCardListItem
+                key={id}
+                title={title}
+                amount={amount}
+                createdAt={createdAt}
+                category={category}
+                categoryType={categoryType}
+                status={status}
+              />
+            ))}
+          </div>
+        </Stack>
+      </DashboardSectionCard>
+            </PageContainer.Dashboard>
+
             </div>
           </Stack>
         </DashboardSectionCard>
