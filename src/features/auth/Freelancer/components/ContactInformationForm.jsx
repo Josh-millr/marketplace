@@ -32,9 +32,8 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
     if (isFormValid !== true) return null;
 
     const contactPrev = getData(["contact"]);
-    console.log("prev contact structure:", contactPrev);
 
-    const contactUpdated = { ...contactPrev, ...values.contact };
+    const contactUpdated = { ...contactPrev.contact, ...values.contact };
 
     console.log("New contact structure:", contactUpdated);
 
