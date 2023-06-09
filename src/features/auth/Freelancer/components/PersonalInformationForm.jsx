@@ -42,7 +42,7 @@ export function PersonalInformationForm({ goNextStep }) {
   const form = useForm({
     initialValues: {
       languages: [],
-      // img: {}, TODO: Uncomment
+      img: {},
     },
 
     validate: {
