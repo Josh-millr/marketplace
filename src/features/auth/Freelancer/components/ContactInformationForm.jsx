@@ -37,11 +37,6 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
 
     const allFormData = getAllData();
 
-    console.log({
-      ...allFormData,
-      contact: contactUpdated,
-    });
-
     try {
       const response = await registerUserAsFreelancerApi({
         ...allFormData,
