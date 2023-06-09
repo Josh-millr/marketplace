@@ -38,6 +38,7 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
     const allFormData = getAllData();
 
     try {
+      console.log("Submitting...");
       const response = await registerUserAsFreelancerApi({
         ...allFormData,
         contact: contactUpdated,
