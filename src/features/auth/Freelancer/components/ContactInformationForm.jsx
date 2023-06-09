@@ -35,11 +35,12 @@ export function ContactInformationForm({ goNextStep, goPrevStep }) {
 
     const contactUpdated = { ...contactPrev.contact, ...values.contact };
 
-    console.log("New contact structure:", contactUpdated);
-
     const allFormData = getAllData();
 
-    console.log("allFormData:", allFormData);
+    console.log({
+      ...allFormData,
+      contact: contactUpdated,
+    });
 
     try {
       const response = await registerUserAsFreelancerApi({
