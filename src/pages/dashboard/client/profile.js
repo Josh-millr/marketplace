@@ -10,15 +10,15 @@ import {
   Grid,
   Button,
   Flex,
-} from '@mantine/core';
-import { Plus, EditPencil } from 'iconoir-react';
-import { useForm } from '@mantine/form';
+} from "@mantine/core";
+import { Plus, EditPencil } from "iconoir-react";
+import { useForm } from "@mantine/form";
 
-import { iconCreator } from '@/shared/utils/iconCreator';
-import { PageContainer } from '@/shared/components/PageContainer';
-import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
-import { DashboardSectionCard } from '@/shared/components/DashboardSectionCard';
-import { ProfilePictureActionMenu } from '@/shared/components/ProfilePictureActionMenu';
+import { iconCreator } from "@/shared/utils/iconCreator";
+import { PageContainer } from "@/shared/components/PageContainer";
+import { DashboardPageHeader } from "@/shared/components/DashboardPageHeader";
+import { DashboardSectionCard } from "@/shared/components/DashboardSectionCard";
+import { ProfilePictureActionMenu } from "@/shared/components/ProfilePictureActionMenu";
 
 function BuyerProfile(props) {
   const { colors } = useMantineTheme();
@@ -55,7 +55,7 @@ function BuyerProfile(props) {
               </ProfilePictureActionMenu>
             </Box>
             <Stack spacing={0}>
-              <Text className="label-sm" fw={'700!important'}>
+              <Text className="label-sm" fw={"700!important"}>
                 Profile Photo
               </Text>
               <Text className="label-sm" maw={320} my="auto">
@@ -179,4 +179,9 @@ function BuyerProfile(props) {
     </PageContainer.Marketplace>
   );
 }
+
+export async function getStaticProps() {
+  return { props: {} };
+}
+
 export default BuyerProfile;

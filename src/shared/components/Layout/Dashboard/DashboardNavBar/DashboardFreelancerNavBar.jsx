@@ -27,7 +27,6 @@ export function DashboardFreelancerNavBar({ hidden, hide }) {
         <Flex direction="column" gap={{ base: '0px', md: 'xl' }}>
           <div>
             <NavSectionTitle title="Start" />
-            {/* start Links */}
             {freelancerDashboardLinks.slice(0, 7).map(({ title, link, icon }) => (
               <NavItem key={title} title={title} link={link} icon={icon} />
             ))}
@@ -35,7 +34,6 @@ export function DashboardFreelancerNavBar({ hidden, hide }) {
 
           <div>
             <NavSectionTitle title="Organize and Manage" />
-            {/* organize Manage Links */}
             {/* {freelancerDashboardLinks.slice(7, 9).map(({ title, link, icon }) => (
               <NavItem key={title} title={title} link={link} icon={icon} />
             ))} */}
@@ -43,7 +41,6 @@ export function DashboardFreelancerNavBar({ hidden, hide }) {
 
           <div>
             <NavSectionTitle title="Account" />
-            {/* accounts Links */}
             {freelancerDashboardLinks.slice(7, 9).map(({ title, link, icon }) => (
               <NavItem key={title} title={title} link={link} icon={icon} />
             ))}

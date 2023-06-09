@@ -1,5 +1,11 @@
-import { Error404 } from '@/shared/components/PageSections/Error';
+import { Error404 } from "@/shared/components/PageSections/Error";
 
-export default function Custom404() {
+function Custom404() {
   return <Error404 />;
 }
+
+export async function getStaticProps() {
+  return { props: {} };
+}
+
+export default Custom404;

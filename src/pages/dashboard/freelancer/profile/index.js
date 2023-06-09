@@ -12,7 +12,7 @@ import { PasswordChangeForm } from '@/shared/components/PageSections/Profile/Pas
 import { DeleteProfile } from '@/shared/components/PageSections/Profile/DeleteProfile';
 import { DashboardProfileCard } from '@/shared/components/DashboardProfileCard';
 
-export default function Profile() {
+function Profile() {
   // const dispatch = useDispatch();
   const isLargeScreen = useMediaQuery('(min-width: 75em)');
 
@@ -96,3 +96,9 @@ export default function Profile() {
       </div>
   );
 }
+
+export async function getStaticProps() {
+  return { props: {} };
+}
+
+export default Profile;

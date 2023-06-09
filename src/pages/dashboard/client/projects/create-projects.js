@@ -103,8 +103,6 @@ function CreateProject() {
     },
   });
 
-  console.log('Selected files', form.values.attachments);
-
   // Filters out the names of the main category from the `category` list
   const mainCategories = useMemo(() => {
     return category?.map(({ name }) => name);
@@ -284,6 +282,10 @@ function CreateProject() {
       </DashboardSectionCard>
     </PageContainer.Marketplace>
   );
+}
+
+export async function getStaticProps() {
+  return { props: {} };
 }
 
 export default CreateProject;

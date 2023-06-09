@@ -1,14 +1,14 @@
-import { useSelector } from 'react-redux';
-import { PageContainer } from '@/shared/components/PageContainer';
-import { SectionEmptyBanner } from '@/shared/components/SectionEmptyBanner';
-import { DashboardSectionCard } from '@/shared/components/DashboardSectionCard';
+import { useSelector } from "react-redux";
+import { PageContainer } from "@/shared/components/PageContainer";
+import { SectionEmptyBanner } from "@/shared/components/SectionEmptyBanner";
+import { DashboardSectionCard } from "@/shared/components/DashboardSectionCard";
 import {
   DashboardStatsCardBanner,
   DashboardOngoingJobsStatsCard,
   DashboardCompletedJobsStatsCard,
   DashboardTotalPayoutStatsCard,
   DashboardTotalPostedProjectStatsCard,
-} from '@/shared/components/DashboardStatsCards';
+} from "@/shared/components/DashboardStatsCards";
 
 function BuyerDashboard() {
   const { user } = useSelector((state) => state.user);
@@ -39,6 +39,10 @@ function BuyerDashboard() {
       </DashboardSectionCard> */}
     </PageContainer.Marketplace>
   );
+}
+
+export async function getStaticProps() {
+  return { props: {} };
 }
 
 export default BuyerDashboard;
