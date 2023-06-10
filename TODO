@@ -14,6 +14,10 @@ General Project Todo:
   ☐ Fix page breadcrumb
   ☐ Add local time conversion
 
+Onboarding Todo:
+  ☐ @low Sanitize the input fields in the general input form form attacks
+  ☐ @low Style the email templates for "password reset" & "email verify"
+  ☐ 
 
 Freelancer Marketplace Todo:
   ☐ 
