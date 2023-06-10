@@ -1,0 +1,31 @@
+
+General Project Todo:
+  ☐ Create the search page for the freelancer section
+  ☐ Implement the messaging for the freelancer and the client section
+  ☐ Implement the notification system
+  ☐ Implement the payment and checkout 
+  ☐ Create the Manage Job section for the freelancer and client section
+  ☐ Style and implement the error boundary
+  ☐ Fix and manage errors gracefully
+  ☐ Implement and test all the existing API
+  ☐ Create the remaining pages for the client dashboard
+  ☐ Document the codebase
+  ☐ Implement the account switcher functionality
+  ☐ Fix page breadcrumb
+  ☐ Add local time conversion
+
+
+Freelancer Marketplace Todo:
+  ☐ 
+
+
+Freelancer Dashboard Todo:
+  ☐ 
+
+
+Client Marketplace Todo:
+  ☐ 
+
+
+Client Dashboard Todo:
+  ☐ 
