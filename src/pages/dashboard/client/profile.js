@@ -32,7 +32,7 @@ function BuyerProfile(props) {
         descr="View and manage your account profile"
       />
 
-      <DashboardSectionCardNew title="Basic Info">
+      <DashboardSectionCardNew title="Basic Info" padSection>
         <Stack>
           {/* Profile Picture */}
           <Group spacing="xl">
