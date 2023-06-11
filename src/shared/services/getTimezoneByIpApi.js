@@ -2,7 +2,7 @@ import { TimeAPI } from '@/config/api/TimeAPI';
 import { CatchError } from '@/shared/utils/CatchError';
 
 export const getTimezoneByIpApi = async (ip) => {
-  const query = `${ip}?timezone=&fields=timezone`; // ?fields=timezone
+  const query = `${ip}?fields=timezone`;
 
   try {
     const response = await TimeAPI.get(query);
