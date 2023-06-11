@@ -1,19 +1,19 @@
-import { SectionWrapper } from './SectionWrapperNew';
-import { SectionCardWithAccordion } from './SectionCardWithAccordionNew';
-import { SectionCardWithoutAccordion } from './SectionCardWithoutAccordionNew';
+import { SectionWrapperNew } from './SectionWrapperNew';
+import { SectionCardWithAccordionNew } from './SectionCardWithAccordionNew';
+import { SectionCardWithoutAccordionNew } from './SectionCardWithoutAccordionNew';
 
 export function DashboardSectionCardNew(props) {
   const { showAccordion, children } = props;
 
   return (
-    <SectionWrapper>
+    <SectionWrapperNew>
       {showAccordion ? (
-        <SectionCardWithAccordion {...props}>
+        <SectionCardWithAccordionNew {...props}>
           {children}
-        </SectionCardWithAccordion>
+        </SectionCardWithAccordionNew>
       ) : (
-        <SectionCardWithoutAccordion>{children}</SectionCardWithoutAccordion>
+        <SectionCardWithoutAccordionNew>{children}</SectionCardWithoutAccordionNew>
       )}
-    </SectionWrapper>
+    </SectionWrapperNew>
   );
 }
