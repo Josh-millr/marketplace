@@ -9,25 +9,21 @@ export class TimeUtil {
   }
 
   async convertToLocalTime(timestamp) {
-    // Decompress the time info to the user's local time based on their timezone
-
+    // Converts timestamp from ISO to user local time
     try {
-      // Fetch the user IP address
       const ip = await getUserIpApi();
-
-      // Fetch the user timezone
       const timezone = await getTimezoneByIpApi(ip);
-
-      // Use the timezone and timeInfo to get convert to local time
+      
       const date = new Date(timestamp);
-
+      
       const userTime = date.toLocaleString('en-US', {
         timeZone: timezone,
       });
 
-      console.log('User time is: ', userTime);
+      return userTime;
+
     } catch (error) {
-      // Handle error
+      // TODO: Handle error
     }
   }
 

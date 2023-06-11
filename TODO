@@ -3,7 +3,8 @@ General Project Todo:
   ☐ @critical Fix layout glitch
   ☐ @critical Implement the messaging for the freelancer and the client section
   ☐ @critical Implement the notification system
-  ☐ @high Add local time conversion @started(23-06-09 15:39)
+  ✔ @high Add local time conversion @started(23-06-09 15:39) @done(23-06-10 13:26) @lasted(21h47m31s)
+  ☐ @high Format the time & date structure to fit use
   ☐ @high Implement the account switcher functionality
   ☐ @high Fix and manage errors gracefully
   ☐ @low Document the codebase
