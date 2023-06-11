@@ -1,5 +1,5 @@
-import { CatchError } from '../utils/CatchError';
 import { IPFetchAPI } from '@/config/api/IPFetchAPI';
+import { CatchError } from '@/shared/utils/CatchError';
 
 export const getUserIpApi = async () => {
   const query = '?format=json';

@@ -1,5 +1,5 @@
 import { TimeAPI } from '@/config/api/TimeAPI';
-import { CatchError } from '@/utils/CatchError';
+import { CatchError } from '@/shared/utils/CatchError';
 
 export const getTimezoneByIpApi = async (ip) => {
   const query = `${ip}?timezone=&fields=timezone`; // ?fields=timezone
