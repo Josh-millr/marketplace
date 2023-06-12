@@ -49,6 +49,7 @@ function Options({ expires, created, proposalsReceived }) {
         })}
         <Text className="label-md" fw="500!important">
           <span style={{ color: colors.neutral[7] }}>Created: </span>
+          {/* TODO: Use TimeUtils to convert ISO to local time */}
           {created}
         </Text>
       </Group>
@@ -78,7 +79,12 @@ function Price({ cost, priceType }) {
       gap={{ base: 'sm', md: 'xl' }}
       justify={{ base: 'flex-start', md: 'flex-end' }}
     >
-      <Text className="label-md" fw="500!important" c="neutral.7">
+      <Text
+        className="label-md"
+        fw="500!important"
+        c="neutral.7"
+        tt="capitalize"
+      >
         {priceType} Budget
       </Text>
       <Title className="sub-h3">{displayNumberInNaira(cost)}</Title>
