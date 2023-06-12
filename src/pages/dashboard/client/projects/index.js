@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
 import { DashboardSectionCard } from '@/shared/components/DashboardSectionCard';
+import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCardNew';
 import { dashboardProjectPreviewDemo } from '@/shared/constants/dashboardProjectPreviewDemo';
 import { DashboardProjectPreviewCard } from '@/shared/components/DashboardProjectPreviewCard';
 
@@ -26,7 +27,7 @@ function Projects() {
         }}
       />
 
-      <DashboardSectionCard title="Active Projects" withTitle contentFullWidth>
+      <DashboardSectionCardNew title="Active Projects" contentFullWidth showAccordion>
         <Box>
           {dashboardProjectPreviewDemo.map((project) => {
             const itemId = uuidv4();
@@ -46,7 +47,7 @@ function Projects() {
             );
           })}
         </Box>
-      </DashboardSectionCard>
+      </DashboardSectionCardNew>
     </PageContainer.Marketplace>
   );
 }
