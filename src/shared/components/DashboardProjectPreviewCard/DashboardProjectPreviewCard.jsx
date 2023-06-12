@@ -98,7 +98,7 @@ export function DashboardProjectPreviewCard(props) {
   return (
     <Link href={`/dashboard/buyer/projects/project/${id}` || ''}>
       <Box
-        px={{ base: 'xl', md: '2xl' }}
+        px={{ base: 0, md: '2xl' }}
         py={{ base: 'xl', md: '3xl' }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
