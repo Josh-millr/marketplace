@@ -1,14 +1,14 @@
-import { useSelector } from "react-redux";
-import { PageContainer } from "@/shared/components/PageContainer";
-import { SectionEmptyBanner } from "@/shared/components/SectionEmptyBanner";
-import { DashboardSectionCard } from "@/shared/components/DashboardSectionCard";
+import { useSelector } from 'react-redux';
+import { PageContainer } from '@/shared/components/PageContainer';
+import { SectionEmptyBanner } from '@/shared/components/SectionEmptyBanner';
+import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCardNew';
 import {
   DashboardStatsCardBanner,
   DashboardOngoingJobsStatsCard,
   DashboardCompletedJobsStatsCard,
   DashboardTotalPayoutStatsCard,
   DashboardTotalPostedProjectStatsCard,
-} from "@/shared/components/DashboardStatsCards";
+} from '@/shared/components/DashboardStatsCards';
 
 function BuyerDashboard() {
   const { user } = useSelector((state) => state.user);
@@ -29,14 +29,14 @@ function BuyerDashboard() {
         <DashboardTotalPayoutStatsCard totalCount={totalPayout} />
       </DashboardStatsCardBanner>
 
-      <DashboardSectionCard withTitle title="Nofitication" contentFullWidth>
+      <DashboardSectionCardNew withTitle title="Nofitication" contentFullWidth>
         {/* Notification list goes here */}
         {[].length === 0 && <SectionEmptyBanner sectionLabel="notifications" />}
-      </DashboardSectionCard>
+      </DashboardSectionCardNew>
 
       {/* Recent Proposals list goes here */}
-      {/* <DashboardSectionCard withTitle title="Recent Proposals">
-      </DashboardSectionCard> */}
+      {/* <DashboardSectionCardNew withTitle title="Recent Proposals">
+      </DashboardSectionCardNew> */}
     </PageContainer.Marketplace>
   );
 }
