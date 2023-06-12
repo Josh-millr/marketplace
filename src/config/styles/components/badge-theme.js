@@ -6,7 +6,9 @@ export const BadgeTheme = {
     return {
       root: {},
 
-      inner: {},
+      inner: {
+        textTransform: 'uppercase',
+      },
     };
   },
 };
