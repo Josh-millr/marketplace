@@ -146,7 +146,7 @@ export function DashboardProjectPreviewCard(props) {
   const matchSm = useMediaQuery(`(min-width: ${breakpoints.sm})`);
 
   return (
-    <Link href={`/dashboard/buyer/projects/project/${id}` || ''}>
+    <Link href={`/dashboard/client/projects/project/${id}` || ''}>
       <Box
         px={{ base: 0, md: '2xl' }}
         py={{ base: 'xl', md: '3xl' }}
