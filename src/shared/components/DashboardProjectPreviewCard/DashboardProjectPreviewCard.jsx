@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import { useState } from 'react';
 import Link from 'next/link';
 import {
@@ -84,17 +85,18 @@ function Price({ cost, priceType }) {
 }
 
 export function DashboardProjectPreviewCard(props) {
-  const { cost, title, expires, created, priceType, proposalsReceived } = props;
+  const { cost, title, expires, created, priceType, proposalsReceived, id } =
+    props;
 
   const [hovered, setHovered] = useState(false);
+
+  const { classes } = useStyles();
 
   const { breakpoints } = useMantineTheme();
   const matchSm = useMediaQuery(`(min-width: ${breakpoints.sm})`);
 
-  const { classes } = useStyles();
-
   return (
-    <Link href={`/dashboard/buyer/projects/project/${title}` || ''}>
+    <Link href={`/dashboard/buyer/projects/project/${id}` || ''}>
       <Box
         px={{ base: 'xl', md: '2xl' }}
         py={{ base: 'xl', md: '3xl' }}
