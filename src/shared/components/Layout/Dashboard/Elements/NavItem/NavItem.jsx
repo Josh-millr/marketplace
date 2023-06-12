@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { Box, NavLink } from "@mantine/core";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { Box, NavLink } from '@mantine/core';
 
-import { iconCreator } from "@/shared/utils/iconCreator";
+import { iconCreator } from '@/shared/utils/iconCreator';
 
-import { useStyles } from "./style.NavItem";
+import { useStyles } from './style.NavItem';
 
 export function NavItem({ icon: Icon, title, link }) {
   const { classes, theme } = useStyles();
@@ -12,7 +12,7 @@ export function NavItem({ icon: Icon, title, link }) {
   const router = useRouter();
   const { pathname } = router;
 
-  const uniquePath = pathname.split("/").slice(3);
+  const uniquePath = pathname.split('/').slice(3);
 
   // Other routes will pass this condition except the dashboard homepage
   const uniquePathActive = uniquePath.some((path) => link.includes(path));
@@ -38,6 +38,7 @@ export function NavItem({ icon: Icon, title, link }) {
           label={title}
           icon={compIcon}
           variant="filled"
+          className={{root: classes.root}}
           active={isRouteActive}
         />
       </Link>
