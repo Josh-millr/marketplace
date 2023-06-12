@@ -9,10 +9,10 @@ import { dashboardProjectPreviewDemo } from '@/shared/constants/dashboardProject
 import { DashboardProjectPreviewCard } from '@/shared/components/DashboardProjectPreviewCard';
 
 function Projects() {
+  const router = useRouter();
+
   const { user } = useSelector((state) => state.user);
   const { role } = user;
-
-  const router = useRouter();
 
   return (
     <PageContainer.Marketplace>
@@ -29,14 +29,14 @@ function Projects() {
         <Box>
           {dashboardProjectPreviewDemo.map((project) => (
             <DashboardProjectPreviewCard
-              id={null}
-              key={null}
-              cost={null}
-              title={null}
-              expires={null}
-              created={null}
-              priceType={null}
-              proposalsReceived={null}
+              id={project.id}
+              key={project.id}
+              cost={project.cost}
+              title={project.title}
+              expires={project.expires}
+              created={project.created}
+              priceType={project.pricingType}
+              proposalsReceived={project.proposalsReceived}
             />
           ))}
         </Box>
