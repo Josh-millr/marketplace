@@ -114,9 +114,9 @@ export function DashboardProjectPreviewCard(props) {
           </MediaQuery>
         </Group>
 
-        {/* <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+        <MediaQuery largerThan="md" styles={{ display: 'none' }}>
           <Price cost={cost} priceType={priceType} />
-        </MediaQuery> */}
+        </MediaQuery>
       </Box>
     </Link>
   );
