@@ -1,6 +1,6 @@
 /* eslint-disable prefer-destructuring */
 export const BadgeTheme = {
-  styles: (theme, params, { variant }) => {
+  styles: (theme, { variant }) => {
     const root = {};
 
     switch (variant) {
