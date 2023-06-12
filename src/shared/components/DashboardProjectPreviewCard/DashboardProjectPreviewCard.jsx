@@ -9,6 +9,7 @@ import {
   Stack,
   Group,
   Flex,
+  Skeleton,
   useMantineTheme,
 } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
@@ -17,10 +18,26 @@ import { Clock, Hourglass, LargeSuitcase } from 'iconoir-react';
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
 
+import { CustomSuspense } from '../CustomSuspense';
+
 import { useStyles } from './style.DashboardProjectPreviewCard';
 
 function TitleProject({ title }) {
-  return <Title className="sub-h1" lineClamp={2}>{title}</Title>;
+  return (
+    <CustomSuspense
+      fallback={
+        <Stack>
+          <Skeleton height={24} />
+          <Skeleton height={24} width="70%" />
+        </Stack>
+      }
+      dependency={title}
+    >
+      <Title className="sub-h1" lineClamp={2}>
+        {title}
+      </Title>
+    </CustomSuspense>
+  );
 }
 
 function Options({ expires, created, proposalsReceived }) {
@@ -37,37 +54,52 @@ function Options({ expires, created, proposalsReceived }) {
           sizeOverride: 24,
           colorOverride: colors.danger[7],
         })}
-        <Text className="label-md" fw="500!important" c="danger.7">
-          Expires: {expires}
-        </Text>
+        <CustomSuspense
+          dependency={expires}
+          fallback={<Skeleton height={24} width={56} />}
+        >
+          <Text className="label-md" fw="500!important" c="danger.7">
+            Expires: {expires}
+          </Text>
+        </CustomSuspense>
       </Group>
-      <Group spacing="sm">
-        {iconCreator({
-          icon: Clock,
-          sizeOverride: 24,
-          colorOverride: colors.neutral[7],
-        })}
-        <Text className="label-md" fw="500!important">
-          <span style={{ color: colors.neutral[7] }}>Created: </span>
-          {/* TODO: Use TimeUtils to convert ISO to local time */}
-          {created}
-        </Text>
-      </Group>
-      <Group spacing="sm">
+      <CustomSuspense
+        dependency={created}
+        fallback={<Skeleton height={24} width={56} />}
+      >
         <Group spacing="sm">
           {iconCreator({
-            icon: LargeSuitcase,
+            icon: Clock,
             sizeOverride: 24,
             colorOverride: colors.neutral[7],
           })}
+          <Text className="label-md" fw="500!important">
+            <span style={{ color: colors.neutral[7] }}>Created: </span>
+            {/* TODO: Use TimeUtils to convert ISO to local time */}
+            {created}
+          </Text>
         </Group>
-        <Text className="label-md" fw="500!important" c="neutral.7">
-          Proposals:
-        </Text>
-        <Badge size="lg" variant="filled">
-          {proposalsReceived} Received
-        </Badge>
-      </Group>
+      </CustomSuspense>
+      <CustomSuspense
+        dependency={proposalsReceived}
+        fallback={<Skeleton height={24} width={56} />}
+      >
+        <Group spacing="sm">
+          <Group spacing="sm">
+            {iconCreator({
+              icon: LargeSuitcase,
+              sizeOverride: 24,
+              colorOverride: colors.neutral[7],
+            })}
+          </Group>
+          <Text className="label-md" fw="500!important" c="neutral.7">
+            Proposals:
+          </Text>
+          <Badge size="lg" variant="filled">
+            {proposalsReceived} Received
+          </Badge>
+        </Group>
+      </CustomSuspense>
     </Flex>
   );
 }
@@ -79,15 +111,19 @@ function Price({ cost, priceType }) {
       gap={{ base: 'sm', md: 'xl' }}
       justify={{ base: 'flex-start', md: 'flex-end' }}
     >
-      <Text
-        className="label-md"
-        fw="500!important"
-        c="neutral.7"
-        tt="capitalize"
-      >
-        {priceType} Budget
-      </Text>
-      <Title className="sub-h3">{displayNumberInNaira(cost)}</Title>
+      <CustomSuspense fallback={<Skeleton height={24} width={56} />}>
+        <Text
+          className="label-md"
+          fw="500!important"
+          c="neutral.7"
+          tt="capitalize"
+        >
+          {priceType} Budget
+        </Text>
+      </CustomSuspense>
+      <CustomSuspense fallback={<Skeleton height={24} width={56} />}>
+        <Title className="sub-h3">{displayNumberInNaira(cost || 0)}</Title>
+      </CustomSuspense>
     </Flex>
   );
 }

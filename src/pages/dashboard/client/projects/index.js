@@ -29,14 +29,14 @@ function Projects() {
         <Box>
           {dashboardProjectPreviewDemo.map((project) => (
             <DashboardProjectPreviewCard
-              id={project.id}
-              key={project.id}
-              cost={project.cost}
-              title={project.title}
-              expires={project.expires}
-              created={project.created}
-              priceType={project.pricingType}
-              proposalsReceived={project.proposalsReceived}
+              id={null}
+              key={null}
+              cost={null}
+              title={null}
+              expires={null}
+              created={null}
+              priceType={null}
+              proposalsReceived={null}
             />
           ))}
         </Box>
