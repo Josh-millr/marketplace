@@ -29,7 +29,7 @@ function BuyerDashboard() {
         <DashboardTotalPayoutStatsCard totalCount={totalPayout} />
       </DashboardStatsCardBanner>
 
-      <DashboardSectionCardNew title="Notification" contentFullWidth>
+      <DashboardSectionCardNew title="Notification" contentFullWidth padSection>
         <div>some test content</div>
         {/* Notification list goes here */}
         {[].length === 0 && <SectionEmptyBanner sectionLabel="notifications" />}
