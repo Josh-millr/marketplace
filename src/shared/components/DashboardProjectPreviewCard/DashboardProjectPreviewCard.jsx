@@ -11,7 +11,7 @@ import {
   MediaQuery,
   useMantineTheme,
 } from '@mantine/core';
-import { Clock, Hourglass } from 'iconoir-react';
+import { Clock, Hourglass, LargeSuitcase } from 'iconoir-react';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
@@ -54,13 +54,13 @@ function Options({ expires, created, proposalsReceived }) {
       <Group spacing="sm">
         <Group spacing="sm">
           {iconCreator({
-            icon: Clock,
+            icon: LargeSuitcase,
             sizeOverride: 24,
             colorOverride: colors.neutral[7],
           })}
         </Group>
         <Text className="label-sm" fw="500!important" c="neutral.7">
-          Created:
+          Proposals:
         </Text>
         <Badge>{proposalsReceived}</Badge>
       </Group>
