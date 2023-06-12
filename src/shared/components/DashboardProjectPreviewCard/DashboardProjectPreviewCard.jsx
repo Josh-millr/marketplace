@@ -37,7 +37,7 @@ function Options({ expires, created, proposalsReceived }) {
           sizeOverride: 24,
           colorOverride: colors.danger[7],
         })}
-        <Text className="label-sm" fw="500!important" c="danger.7">
+        <Text className="label-md" fw="500!important" c="danger.7">
           Expires: {expires}
         </Text>
       </Group>
@@ -47,7 +47,7 @@ function Options({ expires, created, proposalsReceived }) {
           sizeOverride: 24,
           colorOverride: colors.neutral[7],
         })}
-        <Text className="label-sm" fw="500!important">
+        <Text className="label-md" fw="500!important">
           <span style={{ color: colors.neutral[7] }}>Created: </span>
           {created}
         </Text>
@@ -60,7 +60,7 @@ function Options({ expires, created, proposalsReceived }) {
             colorOverride: colors.neutral[7],
           })}
         </Group>
-        <Text className="label-sm" fw="500!important" c="neutral.7">
+        <Text className="label-md" fw="500!important" c="neutral.7">
           Proposals:
         </Text>
         <Badge size="lg" variant="filled">
