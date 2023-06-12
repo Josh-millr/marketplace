@@ -1,11 +1,9 @@
 import { useRouter } from 'next/router';
 import { Box } from '@mantine/core';
-import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from 'react-redux';
 
 import { PageContainer } from '@/shared/components/PageContainer';
 import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
-import { DashboardSectionCard } from '@/shared/components/DashboardSectionCard';
 import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCardNew';
 import { dashboardProjectPreviewDemo } from '@/shared/constants/dashboardProjectPreviewDemo';
 import { DashboardProjectPreviewCard } from '@/shared/components/DashboardProjectPreviewCard';
@@ -27,25 +25,20 @@ function Projects() {
         }}
       />
 
-      <DashboardSectionCardNew title="Active Projects" contentFullWidth showAccordion>
+      <DashboardSectionCardNew title="Active Projects" contentFullWidth>
         <Box>
-          {dashboardProjectPreviewDemo.map((project) => {
-            const itemId = uuidv4();
-            return (
-              <DashboardProjectPreviewCard
-                id={project.id}
-                key={itemId}
-                cost={project.cost}
-                title={project.title}
-                status={project.status}
-                expires={project.expires}
-                created={project.created}
-                category={project.category}
-                pricingtype={project.pricingtype}
-                proposalsRecived={project.proposalsRecived}
-              />
-            );
-          })}
+          {dashboardProjectPreviewDemo.map((project) => (
+            <DashboardProjectPreviewCard
+              id={project.id}
+              key={project.id}
+              cost={project.cost}
+              title={project.title}
+              expires={project.expires}
+              created={project.created}
+              priceType={project.pricingType}
+              proposalsReceived={project.proposalsReceived}
+            />
+          ))}
         </Box>
       </DashboardSectionCardNew>
     </PageContainer.Marketplace>
