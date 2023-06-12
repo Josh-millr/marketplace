@@ -3,5 +3,8 @@ export const AccordionTheme = {
     label: {
       padding: 0,
     },
+    control: {
+      paddingLeft: 0,
+    },
   }),
 };
