@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { useSelector } from 'react-redux';
 import { useViewportSize } from '@mantine/hooks';
 import { Navbar, Flex, ScrollArea, Space } from '@mantine/core';
 
@@ -7,16 +7,24 @@ import { clientDashboardLinks } from '@/shared/constants/dashboardLinks';
 import {
   NavItem,
   NavSectionTitle,
+  BackToMarketplace,
   DashboardNavBarMobileHeader,
 } from '../Elements';
 
 export function DashboardClientNavBar({ hidden, hide }) {
   const { height } = useViewportSize();
+  
+  const { user } = useSelector((state) => state.user);
+  const { role } = user;
 
   return (
     <Navbar height={height} width={{ md: 224 }} hidden={hidden}>
       <Navbar.Section>
         <DashboardNavBarMobileHeader hide={hide} />
+      </Navbar.Section>
+
+      <Navbar.Section>
+        <BackToMarketplace role={role} />
       </Navbar.Section>
 
       <Navbar.Section grow component={ScrollArea} pr="sm">
