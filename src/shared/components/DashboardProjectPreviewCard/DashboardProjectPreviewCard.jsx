@@ -26,9 +26,9 @@ function TitleProject({ title }) {
   return (
     <CustomSuspense
       fallback={
-        <Stack>
-          <Skeleton height={24} />
-          <Skeleton height={24} width="70%" />
+        <Stack w="100%">
+          <Skeleton />
+          <Skeleton width="70%" />
         </Stack>
       }
       dependency={title}
@@ -48,25 +48,19 @@ function Options({ expires, created, proposalsReceived }) {
       gap={{ base: 'lg', md: 'xl' }}
       direction={{ base: 'column', md: 'row' }}
     >
-      <Group spacing="sm">
-        {iconCreator({
-          icon: Hourglass,
-          sizeOverride: 24,
-          colorOverride: colors.danger[7],
-        })}
-        <CustomSuspense
-          dependency={expires}
-          fallback={<Skeleton height={24} width={56} />}
-        >
+      <CustomSuspense dependency={expires} fallback={<Skeleton width={80} />}>
+        <Group spacing="sm">
+          {iconCreator({
+            icon: Hourglass,
+            sizeOverride: 24,
+            colorOverride: colors.danger[7],
+          })}
           <Text className="label-md" fw="500!important" c="danger.7">
             Expires: {expires}
           </Text>
-        </CustomSuspense>
-      </Group>
-      <CustomSuspense
-        dependency={created}
-        fallback={<Skeleton height={24} width={56} />}
-      >
+        </Group>
+      </CustomSuspense>
+      <CustomSuspense dependency={created} fallback={<Skeleton width={80} />}>
         <Group spacing="sm">
           {iconCreator({
             icon: Clock,
@@ -82,7 +76,7 @@ function Options({ expires, created, proposalsReceived }) {
       </CustomSuspense>
       <CustomSuspense
         dependency={proposalsReceived}
-        fallback={<Skeleton height={24} width={56} />}
+        fallback={<Skeleton width={80} />}
       >
         <Group spacing="sm">
           <Group spacing="sm">
@@ -111,7 +105,7 @@ function Price({ cost, priceType }) {
       gap={{ base: 'sm', md: 'xl' }}
       justify={{ base: 'flex-start', md: 'flex-end' }}
     >
-      <CustomSuspense fallback={<Skeleton height={24} width={56} />}>
+      <CustomSuspense fallback={<Skeleton width={80} />}>
         <Text
           className="label-md"
           fw="500!important"
@@ -121,7 +115,7 @@ function Price({ cost, priceType }) {
           {priceType} Budget
         </Text>
       </CustomSuspense>
-      <CustomSuspense fallback={<Skeleton height={24} width={56} />}>
+      <CustomSuspense fallback={<Skeleton width={80} />}>
         <Title className="sub-h3">{displayNumberInNaira(cost || 0)}</Title>
       </CustomSuspense>
     </Flex>
@@ -144,8 +138,8 @@ export function DashboardProjectPreviewCard(props) {
       <Box
         px={{ base: 0, md: '2xl' }}
         py={{ base: 'xl', md: '3xl' }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onMouseEnter={() => id && setHovered(true)}
+        onMouseLeave={() => id && setHovered(false)}
         className={`${classes.wrapper} ${hovered && classes.wrapperHovered}`}
       >
         <Group position="apart">
