@@ -38,7 +38,6 @@ export function NavItem({ icon: Icon, title, link }) {
           label={title}
           icon={compIcon}
           variant="filled"
-          className={{ root: classes.root }}
           active={isRouteActive}
         />
       </Link>

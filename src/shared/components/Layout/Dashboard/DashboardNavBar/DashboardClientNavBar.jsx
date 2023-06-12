@@ -13,7 +13,7 @@ import {
 
 export function DashboardClientNavBar({ hidden, hide }) {
   const { height } = useViewportSize();
-  
+
   const { user } = useSelector((state) => state.user);
   const { role } = user;
 
@@ -27,7 +27,7 @@ export function DashboardClientNavBar({ hidden, hide }) {
         <BackToMarketplace role={role} />
       </Navbar.Section>
 
-      <Navbar.Section grow component={ScrollArea} pr="sm">
+      <Navbar.Section grow component={ScrollArea}>
         <Flex direction="column" gap={{ base: '0px', md: 'xl' }}>
           <div>
             <NavSectionTitle title="Start" />
