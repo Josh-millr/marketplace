@@ -8,7 +8,7 @@ export const useStyles = createStyles((theme) => ({
     borderBottom: `1px solid ${theme.colors.neutral[3]}`,
 
     [theme.fn.largerThan('md')]: {
-      padding: theme.spacing.lg,
+      padding: theme.spacing.xl,
     },
   },
 }));
