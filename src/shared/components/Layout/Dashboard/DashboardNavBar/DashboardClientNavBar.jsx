@@ -23,27 +23,19 @@ export function DashboardClientNavBar({ hidden, hide }) {
         <Flex direction="column" gap={{ base: '0px', md: 'xl' }}>
           <div>
             <NavSectionTitle title="Start" />
-            {/* start Links */}
+            {/* Start Links */}
             {clientDashboardLinks.slice(0, 7).map(({ title, link, icon }) => (
               <NavItem key={title} title={title} link={link} icon={icon} />
             ))}
           </div>
 
-          {/* organize Manage Links */}
-          {/* <div>
+          {/* Organize Manage Links */}
+          <div>
             <NavSectionTitle title="Organize and Manage" />
-            {clientDashboardLinks.slice(7, 9).map(({ title, link, icon }) => (
+            {clientDashboardLinks.slice(7, 8).map(({ title, link, icon }) => (
               <NavItem key={title} title={title} link={link} icon={icon} />
             ))}
-          </div> */}
-
-          {/* accounts Links */}
-          {/* <div>
-            <NavSectionTitle title="Account" />
-            {clientDashboardLinks.slice(7, 9).map(({ title, link, icon }) => (
-              <NavItem key={title} title={title} link={link} icon={icon} />
-            ))}
-          </div> */}
+          </div>
         </Flex>
         <Space h={100} />
       </Navbar.Section>

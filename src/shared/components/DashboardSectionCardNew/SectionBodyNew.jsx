@@ -5,9 +5,9 @@ export function SectionBodyNew(props) {
   const { contentFullWidth, children, fixedHeight, padSection } = props;
 
   const { breakpoints } = useMantineTheme();
-  const mobileScreen = useMediaQuery(`(min-width: ${breakpoints.md})`);
+  const matchMd = useMediaQuery(`(min-width: ${breakpoints.md})`);
 
-  const matchPadding = mobileScreen ? 'xl' : 0;
+  const matchPadding = matchMd ? 'xl' : 0;
   const padding = padSection ? matchPadding : 0;
 
   const sectionWidth = contentFullWidth ? '100%' : 800;
