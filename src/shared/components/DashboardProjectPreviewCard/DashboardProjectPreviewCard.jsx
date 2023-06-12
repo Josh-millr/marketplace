@@ -91,8 +91,6 @@ export function DashboardProjectPreviewCard(props) {
   const { breakpoints } = useMantineTheme();
   const matchSm = useMediaQuery(`(min-width: ${breakpoints.sm})`);
 
-  console.log('The matc is', matchSm);
-
   const { classes } = useStyles();
 
   return (
@@ -107,6 +105,9 @@ export function DashboardProjectPreviewCard(props) {
         <Group position="apart">
           <Stack spacing="lg">
             <TitleProject title={title} />
+
+            {matchSm === false && <Price cost={cost} priceType={priceType} />}
+
             <Options
               expires={expires}
               created={created}
@@ -116,8 +117,6 @@ export function DashboardProjectPreviewCard(props) {
 
           {matchSm && <Price cost={cost} priceType={priceType} />}
         </Group>
-
-        {matchSm === false && <Price cost={cost} priceType={priceType} />}
       </Box>
     </Link>
   );
