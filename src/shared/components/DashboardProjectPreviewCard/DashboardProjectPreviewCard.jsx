@@ -89,7 +89,9 @@ export function DashboardProjectPreviewCard(props) {
   const [hovered, setHovered] = useState(false);
 
   const { breakpoints } = useMantineTheme();
-  const matchSm = useMediaQuery(`(min-width: ${breakpoints.sm}px)`);
+  const matchSm = useMediaQuery(`(min-width: ${breakpoints.sm})`);
+
+  console.log('The matc is', matchSm);
 
   const { classes } = useStyles();
 
