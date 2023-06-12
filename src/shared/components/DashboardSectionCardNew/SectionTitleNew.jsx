@@ -2,7 +2,7 @@ import { Text } from '@mantine/core';
 
 import { useStyles } from './style.SectionTitleNew';
 
-export function SectionTitle({ title }) {
+export function SectionTitleNew({ title }) {
   const { classes } = useStyles();
 
   return (

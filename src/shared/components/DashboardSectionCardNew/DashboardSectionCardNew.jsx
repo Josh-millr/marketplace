@@ -12,7 +12,9 @@ export function DashboardSectionCardNew(props) {
           {children}
         </SectionCardWithAccordionNew>
       ) : (
-        <SectionCardWithoutAccordionNew>{children}</SectionCardWithoutAccordionNew>
+        <SectionCardWithoutAccordionNew {...props}>
+          {children}
+        </SectionCardWithoutAccordionNew>
       )}
     </SectionWrapperNew>
   );
