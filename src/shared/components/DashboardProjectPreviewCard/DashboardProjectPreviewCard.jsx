@@ -94,9 +94,10 @@ export function DashboardProjectPreviewCard(props) {
     <Link href={`/dashboard/buyer/projects/project/${title}` || ''}>
       <Box
         px={{ base: 'xl', md: '2xl' }}
-        className={`${classes.wrapper} ${hovered && classes.wrapperHovered}`}
+        py={{ base: 'xl', md: '3xl' }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        className={`${classes.wrapper} ${hovered && classes.wrapperHovered}`}
       >
         <Group position="apart">
           <Stack spacing="lg">
@@ -120,119 +121,3 @@ export function DashboardProjectPreviewCard(props) {
     </Link>
   );
 }
-
-// export function DashboardProjectPreviewCard(props) {
-//   const {
-//     cost,
-//     title,
-//     status,
-//     expires,
-//     created,
-//     id,
-//     category,
-//     pricingtype,
-//     proposalsRecived,
-//   } = props;
-
-//   const [hovered, setHovered] = useState(false);
-
-//   const { colors } = useMantineTheme();
-//   const { classes } = useStyles();
-
-//   return (
-//     <Link href={`/dashboard/buyer/projects/project/${id}` || ''}>
-//       <Box
-//         className={`${classes.wrapper} ${hovered && classes.wrapperHovered}`}
-//         onMouseEnter={() => setHovered(true)}
-//         onMouseLeave={() => setHovered(false)}
-//       >
-//         <Stack spacing="lg">
-//           <Stack spacing="sm">
-//             <Group position="apart">
-//               {/* <Badge></Badge> */}
-//               <Text className="label-md" color="neutral.6" fw={'700!important'}>
-//                 {category}
-//               </Text>
-//               <Text
-//                 className="label-md"
-//                 fw={'700!important'}
-//               >{`${displayNumberInNaira(cost)}/${pricingtype}`}</Text>
-//             </Group>
-
-//             <Text
-//               className={`${classes.title} ${
-//                 hovered && classes.titleHovered
-//               } body-md`}
-//             >
-//               {title}
-//             </Text>
-//           </Stack>
-
-//           <Flex gap="md">
-//             <Group spacing="xs">
-//               <Group spacing="xs">
-//                 {iconCreator({ icon: Clock, sizeOverride: 16 })}
-//                 <Text className="label-sm" fw="700!important">
-//                   Created:
-//                 </Text>
-//               </Group>
-//               <Text className="label-sm" fw="700!important">
-//                 {created}
-//               </Text>
-//             </Group>
-
-//             <Divider orientation="vertical" />
-
-//             <Group spacing="xs">
-//               <Group spacing="xs">
-//                 {iconCreator({ icon: MultiplePages, sizeOverride: 16 })}
-//                 <Text className="label-sm" fw="700!important">
-//                   Proposals:
-//                 </Text>
-//               </Group>
-//               <Text className="label-sm" fw="700!important">
-//                 {proposalsRecived}
-//               </Text>
-//             </Group>
-
-//             <Divider orientation="vertical" />
-
-//             <Group spacing="xs">
-//               <Group spacing="xs">
-//                 {iconCreator({
-//                   icon: BinMinus,
-//                   sizeOverride: 16,
-//                   colorOverride: colors.danger[7],
-//                 })}
-//                 <Text
-//                   className="label-sm"
-//                   fw="700!important"
-//                   color={colors.danger[7]}
-//                 >
-//                   Expires:
-//                 </Text>
-//               </Group>
-//               <Text
-//                 className="label-sm"
-//                 fw="700!important"
-//                 color={colors.danger[7]}
-//               >
-//                 {expires}
-//               </Text>
-//             </Group>
-//           </Flex>
-
-//           <Group position="apart">
-//             <Flex gap="md">
-//               <Button variant="outline">View Proposals</Button>
-//               <ActionIcon size="lg">
-//                 {iconCreator({ icon: Trash, colorOverride: colors.danger[8] })}
-//               </ActionIcon>
-//             </Flex>
-//             <Badge size="sm">{status}</Badge>
-//           </Group>
-//         </Stack>
-//       </Box>
-//     </Link>
-//   );
-// }
