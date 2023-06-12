@@ -27,8 +27,8 @@ function TitleProject({ title }) {
     <CustomSuspense
       fallback={
         <Stack w="100%">
-          <Skeleton />
-          <Skeleton width="70%" />
+          <Skeleton height={16} />
+          <Skeleton height={16} width="70%" />
         </Stack>
       }
       dependency={title}
@@ -48,7 +48,10 @@ function Options({ expires, created, proposalsReceived }) {
       gap={{ base: 'lg', md: 'xl' }}
       direction={{ base: 'column', md: 'row' }}
     >
-      <CustomSuspense dependency={expires} fallback={<Skeleton width={80} />}>
+      <CustomSuspense
+        dependency={expires}
+        fallback={<Skeleton height={16} width={80} />}
+      >
         <Group spacing="sm">
           {iconCreator({
             icon: Hourglass,
@@ -60,7 +63,10 @@ function Options({ expires, created, proposalsReceived }) {
           </Text>
         </Group>
       </CustomSuspense>
-      <CustomSuspense dependency={created} fallback={<Skeleton width={80} />}>
+      <CustomSuspense
+        dependency={created}
+        fallback={<Skeleton height={16} width={80} />}
+      >
         <Group spacing="sm">
           {iconCreator({
             icon: Clock,
@@ -76,7 +82,7 @@ function Options({ expires, created, proposalsReceived }) {
       </CustomSuspense>
       <CustomSuspense
         dependency={proposalsReceived}
-        fallback={<Skeleton width={80} />}
+        fallback={<Skeleton height={16} width={80} />}
       >
         <Group spacing="sm">
           <Group spacing="sm">
@@ -105,7 +111,7 @@ function Price({ cost, priceType }) {
       gap={{ base: 'sm', md: 'xl' }}
       justify={{ base: 'flex-start', md: 'flex-end' }}
     >
-      <CustomSuspense fallback={<Skeleton width={80} />}>
+      <CustomSuspense fallback={<Skeleton height={16} width={80} />}>
         <Text
           className="label-md"
           fw="500!important"
@@ -115,7 +121,7 @@ function Price({ cost, priceType }) {
           {priceType} Budget
         </Text>
       </CustomSuspense>
-      <CustomSuspense fallback={<Skeleton width={80} />}>
+      <CustomSuspense fallback={<Skeleton height={16} width={80} />}>
         <Title className="sub-h3">{displayNumberInNaira(cost || 0)}</Title>
       </CustomSuspense>
     </Flex>
