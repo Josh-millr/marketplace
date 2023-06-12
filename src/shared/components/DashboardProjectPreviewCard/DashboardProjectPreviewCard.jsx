@@ -8,9 +8,9 @@ import {
   Stack,
   Group,
   Flex,
-  MediaQuery,
   useMantineTheme,
 } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { Clock, Hourglass, LargeSuitcase } from 'iconoir-react';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
@@ -88,6 +88,9 @@ export function DashboardProjectPreviewCard(props) {
 
   const [hovered, setHovered] = useState(false);
 
+  const { breakpoints } = useMantineTheme();
+  const matchSm = useMediaQuery(`(min-width: ${breakpoints.sm}px)`);
+
   const { classes } = useStyles();
 
   return (
@@ -109,14 +112,10 @@ export function DashboardProjectPreviewCard(props) {
             />
           </Stack>
 
-          <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-            <Price cost={cost} priceType={priceType} />
-          </MediaQuery>
+          {matchSm && <Price cost={cost} priceType={priceType} />}
         </Group>
 
-        <MediaQuery largerThan="md" styles={{ display: 'none' }}>
-          <Price cost={cost} priceType={priceType} />
-        </MediaQuery>
+        {matchSm === false && <Price cost={cost} priceType={priceType} />}
       </Box>
     </Link>
   );
