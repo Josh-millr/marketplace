@@ -10,6 +10,7 @@ import { NavLinkTheme } from './components/navlink-theme';
 import { DividerTheme } from './components/divider-theme';
 import { StepperTheme } from './components/stepper-theme';
 import { AppShellTheme } from './components/appshell-theme';
+import { AccordionTheme } from './components/accordion-theme';
 import { ContainerTheme } from './components/container-theme';
 import { InputWrapperTheme } from './components/input-wrapper-theme';
 
@@ -26,6 +27,7 @@ const ComponentThemes = {
   Divider: DividerTheme,
   NavLink: NavLinkTheme,
   AppShell: AppShellTheme,
+  Accordion: AccordionTheme,
   Container: ContainerTheme,
   InputWrapper: InputWrapperTheme,
 };
