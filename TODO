@@ -47,4 +47,5 @@ Client Dashboard Todos:
   ☐ @high Implement the "View Proposal" tha allows client view the list of proposal/s for an active projects + Implement the API
   ☐ @high Add the "Proposals" page to view all proposals, accept & reject proposals + Implement the API
   ☐ @high Add the "Create New Project" page + Implement the API
-  ☐ @low Add a new section in te dashboard homepage to displa recent proposals received
+  ☐ @low Add virtualization to te table in the project page
+  ☐ @low Add a new section in te dashboard homepage to display recent proposals received

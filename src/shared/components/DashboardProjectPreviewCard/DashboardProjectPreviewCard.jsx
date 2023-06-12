@@ -111,7 +111,10 @@ function Price({ cost, priceType }) {
       gap={{ base: 'sm', md: 'xl' }}
       justify={{ base: 'flex-start', md: 'flex-end' }}
     >
-      <CustomSuspense fallback={<Skeleton height={16} width={80} />}>
+      <CustomSuspense
+        dependency={priceType}
+        fallback={<Skeleton height={16} width={80} />}
+      >
         <Text
           className="label-md"
           fw="500!important"
@@ -121,7 +124,10 @@ function Price({ cost, priceType }) {
           {priceType} Budget
         </Text>
       </CustomSuspense>
-      <CustomSuspense fallback={<Skeleton height={16} width={80} />}>
+      <CustomSuspense
+        dependency={cost}
+        fallback={<Skeleton height={16} width={80} />}
+      >
         <Title className="sub-h3">{displayNumberInNaira(cost || 0)}</Title>
       </CustomSuspense>
     </Flex>
