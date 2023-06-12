@@ -37,6 +37,7 @@ Client Marketplace Todos:
 
 
 Client Dashboard Todos:
+  ☐ @critical Create the Manage Job section
   ☐ @high Create the client profile page & form functionality @started(23-06-10 13:50)
   ☐ @high Create the Data-Structure and implement the API for changing client info
   ☐ @high Fix the project list cards and vertualize the list
@@ -46,4 +47,4 @@ Client Dashboard Todos:
   ☐ @high Implement the "View Proposal" tha allows client view the list of proposal/s for an active projects + Implement the API
   ☐ @high Add the "Proposals" page to view all proposals, accept & reject proposals + Implement the API
   ☐ @high Add the "Create New Project" page + Implement the API
-  ☐ @critical Create the Manage Job section
+  ☐ @low Add a new section in te dashboard homepage to displa recent proposals received

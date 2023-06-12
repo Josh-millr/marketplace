@@ -12,13 +12,7 @@ import {
 
 function BuyerDashboard() {
   const { user } = useSelector((state) => state.user);
-  const {
-    totalProjects,
-    ongoingJobs,
-    completedJobs,
-    totalPayout,
-    // notifications, TODO: Add once property is present in state
-  } = user;
+  const { totalProjects, ongoingJobs, completedJobs, totalPayout } = user;
 
   return (
     <PageContainer.Marketplace>
@@ -30,14 +24,8 @@ function BuyerDashboard() {
       </DashboardStatsCardBanner>
 
       <DashboardSectionCardNew title="Notification" contentFullWidth padSection>
-        <div>some test content</div>
-        {/* Notification list goes here */}
         {[].length === 0 && <SectionEmptyBanner sectionLabel="notifications" />}
       </DashboardSectionCardNew>
-
-      {/* Recent Proposals list goes here */}
-      {/* <DashboardSectionCardNew withTitle title="Recent Proposals">
-      </DashboardSectionCardNew> */}
     </PageContainer.Marketplace>
   );
 }
