@@ -15,36 +15,33 @@ function Projects() {
   const router = useRouter();
 
   return (
-    <>
-      <PageContainer layout="marketplace">
-        <DashboardPageHeader
-          title="My Projects"
-          showButton
-          btnLabel="Create Project"
-          action={() => {
-            router.push(`/dashboard/${role}/projects/create-projects`);
-          }}
-        />
-      </PageContainer>
-      <PageContainer layout="marketplace">
-        <DashboardSectionCardNew title="Active Projects" contentFullWidth>
-          <Box>
-            {dashboardProjectPreviewDemo.map((project) => (
-              <DashboardProjectPreviewCard
-                id={project.id}
-                key={project.id}
-                cost={project.cost}
-                title={project.title}
-                expires={project.expires}
-                created={project.created}
-                priceType={project.pricingType}
-                proposalsReceived={project.proposalsReceived}
-              />
-            ))}
-          </Box>
-        </DashboardSectionCardNew>
-      </PageContainer>
-    </>
+    <PageContainer.Marketplace>
+      <DashboardPageHeader
+        title="My Projects"
+        showButton
+        btnLabel="Create Project"
+        action={() => {
+          router.push(`/dashboard/${role}/projects/create-projects`);
+        }}
+      />
+
+      <DashboardSectionCardNew title="Active Projects" contentFullWidth>
+        <Box>
+          {dashboardProjectPreviewDemo.map((project) => (
+            <DashboardProjectPreviewCard
+              id={project.id}
+              key={project.id}
+              cost={project.cost}
+              title={project.title}
+              expires={project.expires}
+              created={project.created}
+              priceType={project.pricingType}
+              proposalsReceived={project.proposalsReceived}
+            />
+          ))}
+        </Box>
+      </DashboardSectionCardNew>
+    </PageContainer.Marketplace>
   );
 }
 
