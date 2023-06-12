@@ -63,7 +63,7 @@ function Options({ expires, created, proposalsReceived }) {
         <Text className="label-sm" fw="500!important" c="neutral.7">
           Proposals:
         </Text>
-        <Badge>{proposalsReceived}</Badge>
+        <Badge size='lg'>{proposalsReceived} Received</Badge>
       </Group>
     </Flex>
   );
