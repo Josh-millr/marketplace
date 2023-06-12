@@ -20,7 +20,7 @@ import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
 import { useStyles } from './style.DashboardProjectPreviewCard';
 
 function TitleProject({ title }) {
-  return <Title className="sub-h1">{title}</Title>;
+  return <Title className="sub-h1" lineClamp={2}>{title}</Title>;
 }
 
 function Options({ expires, created, proposalsReceived }) {
