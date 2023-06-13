@@ -27,7 +27,6 @@ export default function Project() {
       <DashboardGoBackButtonBar />
 
       <DashboardSectionCardNew contentFullWidth padSection>
-        {/* ... Project Details ... */}
         <Stack spacing={{ base: 'xl', md: '2xl' }}>
           <Flex
             w="100%"
