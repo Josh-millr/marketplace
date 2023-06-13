@@ -1,27 +1,37 @@
-/* eslint-disable prefer-destructuring */
 export const ButtonTheme = {
-  styles(theme, params) {
-    let labelFontRule;
-    // let buttonVariantStyle;
+  styles: (theme, params, { variant }) => {
+    const root = {};
+    const label = null;
+
+    switch (variant) {
+      case 'filled':
+        root.backgroundColor = theme.colors.brandPrimary[8];
+        break;
+      case 'light':
+        root.backgroundColor = theme.colors.brandPrimary[2];
+        break;
+      default:
+        root.backgroundColor = 'transparent';
+        break;
+    }
 
     switch (params.size) {
       case 'sm':
-        labelFontRule = theme.other.font.button.size[0];
+        label = theme.other.font.button.size[0];
         break;
       case 'md':
-        labelFontRule = theme.other.font.button.size[1];
+        label = theme.other.font.button.size[1];
         break;
       case 'lg':
-        labelFontRule = theme.other.font.button.size[1];
+        label = theme.other.font.button.size[1];
         break;
       default:
-        labelFontRule = theme.other.font.button.size[1];
+        label = theme.other.font.button.size[1];
     }
 
     return {
-      label: {
-        ...labelFontRule,
-      },
+      root: { ...root },
+      label: { label },
     };
   },
 };
