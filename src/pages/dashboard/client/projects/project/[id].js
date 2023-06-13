@@ -1,6 +1,14 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { Stack, Flex, Badge, Skeleton, Title, Text } from '@mantine/core';
+import {
+  Stack,
+  Flex,
+  Badge,
+  Skeleton,
+  Title,
+  Text,
+  MediaQuery,
+} from '@mantine/core';
 
 import { CustomSuspense } from '@/shared/components/CustomSuspense';
 import { projectDemo } from '@/shared/constants/projectDemo';
@@ -56,6 +64,49 @@ export default function Project() {
             </CustomSuspense>
 
             {/* ... Budget Price goes here ... */}
+            <Flex direction="column" gap={{ base: 'sm', md: 'xl' }}>
+              <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
+                <CustomSuspense
+                  dependency={project?.budget}
+                  fallback={<Skeleton width={80} height={16} />}
+                >
+                  <Text className="h2" fw={'500!important'}>
+                    {project?.budget}
+                  </Text>
+                </CustomSuspense>
+              </MediaQuery>
+              <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+                <CustomSuspense
+                  dependency={project?.budget}
+                  fallback={<Skeleton width={80} height={16} />}
+                >
+                  <Text className="h1" fw={'500!important'}>
+                    {project?.budget}
+                  </Text>
+                </CustomSuspense>
+              </MediaQuery>
+
+              <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
+                <CustomSuspense
+                  dependency={project?.pricingType}
+                  fallback={<Skeleton width={80} height={16} />}
+                >
+                  <Text className="label-lg" fw={'500!important'} c="neutral.6">
+                    {project?.pricingType}
+                  </Text>
+                </CustomSuspense>
+              </MediaQuery>
+              <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+                <CustomSuspense
+                  dependency={project?.pricingType}
+                  fallback={<Skeleton width={80} height={16} />}
+                >
+                  <Text className="label-md" fw={'500!important'} c="neutral.6">
+                    {project?.pricingType}
+                  </Text>
+                </CustomSuspense>
+              </MediaQuery>
+            </Flex>
           </Flex>
         </Stack>
       </DashboardSectionCardNew>
