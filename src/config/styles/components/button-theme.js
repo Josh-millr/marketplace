@@ -1,6 +1,6 @@
 /* eslint-disable prefer-destructuring */
 export const ButtonTheme = {
-  styles(theme, params) {
+  styles(theme, params, {variant}) {
     let labelFontRule;
     // let buttonVariantStyle;
 
