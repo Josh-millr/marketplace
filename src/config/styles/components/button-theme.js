@@ -1,7 +1,7 @@
 export const ButtonTheme = {
   styles: (theme, params, { variant }) => {
     const root = {};
-    const label = null;
+    let label = null;
 
     switch (variant) {
       case 'filled':
