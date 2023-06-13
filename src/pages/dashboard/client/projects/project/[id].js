@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { Stack, Flex } from '@mantine/core';
 
-import { CustomSuspense } from '@/shared/components/CustomSuspense';
 import { projectDemo } from '@/shared/constants/projectDemo';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
