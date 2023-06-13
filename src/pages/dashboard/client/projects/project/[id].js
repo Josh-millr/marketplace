@@ -33,7 +33,7 @@ export default function Project() {
               dependency={project?.status}
               fallback={<Skeleton width={80} height={120} radius={9999} />}
             >
-              <Badge size="lg" variant="filled">
+              <Badge size="xl" variant="filled">
                 {project?.status}
               </Badge>
             </CustomSuspense>
