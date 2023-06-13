@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { Stack, Flex, Badge, Skeleton } from '@mantine/core';
+import { Stack, Flex, Badge, Skeleton, Title, Text } from '@mantine/core';
 
 import { CustomSuspense } from '@/shared/components/CustomSuspense';
 import { projectDemo } from '@/shared/constants/projectDemo';
@@ -46,6 +46,14 @@ export default function Project() {
             justify={{ base: 'flex-start', md: 'space-between' }}
           >
             {/* ... Title goes here ... */}
+            <CustomSuspense
+              dependency={project?.title}
+              fallback={<Skeleton width={80} height={80} />}
+            >
+              <Title className="h1" fw={'700!important'} maw={692}>
+                {project?.title}
+              </Title>
+            </CustomSuspense>
 
             {/* ... Budget Price goes here ... */}
           </Flex>
