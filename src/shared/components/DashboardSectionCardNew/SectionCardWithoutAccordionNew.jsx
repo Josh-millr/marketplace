@@ -2,7 +2,7 @@ import { SectionBodyNew } from './SectionBodyNew';
 import { SectionTitleNew } from './SectionTitleNew';
 
 export function SectionCardWithoutAccordionNew(props) {
-  const { children, title = 'Label' } = props;
+  const { children, title } = props;
 
   return (
     <>
