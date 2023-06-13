@@ -27,13 +27,13 @@ export default function Project() {
       <DashboardGoBackButtonBar />
 
       <DashboardSectionCardNew contentFullWidth padSection>
-        <Stack spacing={{ base: 'xl', md: '2xl' }}>
+        <Stack spacing="2xl">
           <div>
             <CustomSuspense
               dependency={project?.status}
               fallback={<Skeleton width={80} height={120} radius={9999} />}
             >
-              <Badge size="xl" variant="filled">
+              <Badge size="lg" variant="filled">
                 {project?.status}
               </Badge>
             </CustomSuspense>
