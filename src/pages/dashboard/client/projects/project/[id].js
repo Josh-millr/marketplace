@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { Stack, Flex } from '@mantine/core';
+import { Stack, Flex, Badge, Skeleton } from '@mantine/core';
 
+import { CustomSuspense } from '@/shared/components/CustomSuspense';
 import { projectDemo } from '@/shared/constants/projectDemo';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
@@ -27,6 +28,15 @@ export default function Project() {
 
       <DashboardSectionCardNew contentFullWidth padSection>
         <Stack spacing={{ base: 'xl', md: '2xl' }}>
+          <CustomSuspense
+            dependency={project?.status}
+            fallback={<Skeleton width={80} height={80} radius={9999} />}
+          >
+            <Badge size="lg" variant="filled">
+              {project?.status}
+            </Badge>
+          </CustomSuspense>
+
           <Flex
             w="100%"
             direction={{ base: 'column', md: 'row' }}
