@@ -18,7 +18,7 @@ export default function Project() {
   const { id } = router.query;
 
   useEffect(() => {
-    // Fetch project information and update the data state...
+    // Fetch project information and update the data state....
   }, []);
 
   return (
