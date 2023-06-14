@@ -8,7 +8,6 @@ import {
   Title,
   Text,
   MediaQuery,
-  Box,
 } from '@mantine/core';
 
 import { CustomSuspense } from '@/shared/components/CustomSuspense';
@@ -66,7 +65,7 @@ export default function Project() {
 
             {/* ... Budget Price goes here ... */}
             <Flex direction="column" gap={{ base: 'sm', md: 'xl' }}>
-              <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
+              {/* <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
                 <CustomSuspense
                   dependency={project?.budget}
                   fallback={<Skeleton width={80} height={16} />}
@@ -75,29 +74,29 @@ export default function Project() {
                     {project?.budget}
                   </Text>
                 </CustomSuspense>
-              </MediaQuery>
-              <MediaQuery largerThan="md" styles={{ display: 'none' }}>
-                <CustomSuspense
-                  dependency={project?.budget}
-                  fallback={<Skeleton width={80} height={16} />}
-                >
+              </MediaQuery> */}
+              <CustomSuspense
+                dependency={project?.budget}
+                fallback={<Skeleton width={80} height={16} />}
+              >
+                <MediaQuery largerThan="md" styles={{ display: 'none' }}>
                   <Text className="h1" fw={'500!important'}>
                     {project?.budget}
                   </Text>
-                </CustomSuspense>
-              </MediaQuery>
+                </MediaQuery>
+              </CustomSuspense>
 
-              <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-                <CustomSuspense
-                  dependency={project?.pricingType}
-                  fallback={<Skeleton width={80} height={16} />}
-                >
+              <CustomSuspense
+                dependency={project?.pricingType}
+                fallback={<Skeleton width={80} height={16} />}
+              >
+                <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
                   <Text className="label-lg" fw={'500!important'} c="neutral.6">
                     {project?.pricingType}
                   </Text>
-                </CustomSuspense>
-              </MediaQuery>
-              <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+                </MediaQuery>
+              </CustomSuspense>
+              {/* <MediaQuery largerThan="md" styles={{ display: 'none' }}>
                 <CustomSuspense
                   dependency={project?.pricingType}
                   fallback={<Skeleton width={80} height={16} />}
@@ -106,7 +105,7 @@ export default function Project() {
                     {project?.pricingType}
                   </Text>
                 </CustomSuspense>
-              </MediaQuery>
+              </MediaQuery> */}
             </Flex>
           </Flex>
         </Stack>
@@ -114,9 +113,6 @@ export default function Project() {
 
       <DashboardSectionCardNew contentFullWidth>
         {/* ... Proposals Received ... */}
-        <MediaQuery largerThan="md" styles={{ display: 'none' }}>
-          <Box>ajsdbasdasjd</Box>
-        </MediaQuery>
       </DashboardSectionCardNew>
     </PageContainer.Marketplace>
   );
