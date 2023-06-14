@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import {
   Text,
-  Badge,
   useMantineTheme,
   Stack,
   Divider,
@@ -103,8 +102,9 @@ export function DashboardProposalCard(props) {
               dependency={authorName}
               fallback={<Skeleton height={16} width={80} />}
             >
-              <Badge
-                size="lg"
+              <Button
+                size="xs"
+                radius={9999}
                 variant="light"
                 leftSection={iconCreator({
                   icon: ProfileCircle,
@@ -112,7 +112,7 @@ export function DashboardProposalCard(props) {
                 })}
               >
                 {authorName}
-              </Badge>
+              </Button>
             </CustomSuspense>
           </Flex>
         </Stack>
