@@ -23,12 +23,12 @@ import { useStyles } from './style.DashboardProposalCard';
 export function DashboardProposalCard(props) {
   const [hovered, setHovered] = useState(false);
 
-  const { displayCoverLetter, ...proposal } = props;
+  const { showCoverLetter, ...proposal } = props;
 
   const { colors } = useMantineTheme();
   const { classes } = useStyles();
 
-  const showCoverLetter = () => displayCoverLetter(proposal?.coverLetter);
+  const showLetter = () => showCoverLetter(proposal?.coverLetter);
 
   return (
     <Box
@@ -110,7 +110,7 @@ export function DashboardProposalCard(props) {
 
         {/* ... CTA .... */}
         <Flex direction="row" gap="lg">
-          <ActionIcon variant="light" onClick={showCoverLetter}>
+          <ActionIcon variant="light" onClick={showLetter}>
             {iconCreator({ icon: Page, sizeOverride: 24 })}
           </ActionIcon>
           <ActionIcon variant="light">
