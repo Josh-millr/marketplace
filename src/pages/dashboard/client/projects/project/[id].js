@@ -217,9 +217,9 @@ export default function Project() {
         </Stack>
       </DashboardSectionCardNew>
 
-      <DashboardSectionCardNew contentFullWidth>
         {/* ... Proposals Received ... */}
-      </DashboardSectionCardNew>
+      {/* <DashboardSectionCardNew contentFullWidth>
+      </DashboardSectionCardNew> */}
     </PageContainer.Marketplace>
   );
 }
