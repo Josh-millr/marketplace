@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import {
   Box,
   Text,
@@ -20,7 +20,7 @@ import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
 import { CustomSuspense } from '../CustomSuspense';
 import { useStyles } from './style.DashboardProposalCard';
 
-export function DashboardProposalCard(props) {
+export const DashboardProposalCard = memo((props) => {
   const [hovered, setHovered] = useState(false);
 
   const { showCoverLetter, ...proposal } = props;
@@ -125,4 +125,4 @@ export function DashboardProposalCard(props) {
       </Flex>
     </Box>
   );
-}
+});

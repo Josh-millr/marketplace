@@ -227,8 +227,8 @@ function Proposals() {
   };
 
   useEffect(() => {
-    if (coverLetter.length > 0 && opened === true) open();
-    if (coverLetter.length > 0 && opened === false) setCoverLetter('');
+    if (coverLetter.length > 0 && opened === false) open();
+    if (coverLetter.length > 0 && opened === true) setCoverLetter('');
   }, [coverLetter, opened]);
 
   return (
