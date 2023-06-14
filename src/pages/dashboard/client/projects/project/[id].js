@@ -67,7 +67,7 @@ export default function Project() {
             <Flex
               direction="column"
               gap={{ base: 'sm', md: 'xl' }}
-              justify={{ base: 'flex-start', md: 'flex-end' }}
+              justify="flex-end"
             >
               <CustomSuspense
                 dependency={project?.budget}
