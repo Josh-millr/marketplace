@@ -64,7 +64,7 @@ export default function Project() {
             </CustomSuspense>
 
             {/* ... Budget Price goes here ... */}
-            <Flex direction="column" gap={{ base: 'sm', md: 'xl' }}>
+            <Stack spacing={0}>
               {/* ... For Large Screens ...  */}
               <CustomSuspense
                 dependency={project?.budget}
@@ -116,7 +116,7 @@ export default function Project() {
                   </Text>
                 </MediaQuery>
               </CustomSuspense>
-            </Flex>
+            </Stack>
           </Flex>
         </Stack>
       </DashboardSectionCardNew>
