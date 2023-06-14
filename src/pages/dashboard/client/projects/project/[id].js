@@ -223,7 +223,7 @@ function Proposals() {
     <DashboardSectionCardNew contentFullWidth>
       {/* ... Proposals Received ... */}
       {proposals.length !== 0 ? (
-        <></>
+        <>{/* ... Content goes here ... */}</>
       ) : (
         <SectionEmptyBanner sectionLabel="Proposals" />
       )}
