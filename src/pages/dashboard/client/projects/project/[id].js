@@ -103,7 +103,12 @@ export default function Project() {
               dependency={project?.title}
               fallback={<Skeleton width={80} height={80} />}
             >
-              <Title className="h1" fw={'700!important'} maw={692}>
+              <Title
+                className="h1"
+                fw={'700!important'}
+                maw={692}
+                tt={'capitalize'}
+              >
                 {project?.title}
               </Title>
             </CustomSuspense>
@@ -132,6 +137,7 @@ export default function Project() {
                     ml="auto"
                     fw={'500!important'}
                     c="neutral.6"
+                    tt="capitalize"
                   >
                     {project?.pricingType}
                   </Text>
