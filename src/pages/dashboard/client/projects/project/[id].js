@@ -46,9 +46,9 @@ function OptionCard({ icon: Icon, label, content }) {
           </CustomSuspense>
           <CustomSuspense
             dependency={label}
-            fallback={<Skeleton width={40} height={16} />}
+            fallback={<Skeleton width={40} height={16} m="auto" /> }
           >
-            <Text className="label-md" c="neutral.6" tt="capitalize" mx="auto">
+            <Text className="label-md" c="neutral.6" tt="capitalize" m="auto">
               {label}
             </Text>
           </CustomSuspense>
