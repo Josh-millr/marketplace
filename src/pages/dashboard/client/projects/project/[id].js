@@ -227,8 +227,9 @@ function Proposals() {
   };
 
   useEffect(() => {
-    if (coverLetter.length > 0) open();
-  }, [coverLetter]);
+    if (coverLetter.length > 0 && opened === true) open();
+    if (coverLetter.length > 0 && opened === false) setCoverLetter('');
+  }, [coverLetter, opened]);
 
   return (
     <DashboardSectionCardNew contentFullWidth title="Proposals Pending">
