@@ -43,7 +43,7 @@ export function DashboardProposalCard(props) {
   return (
     <Box
       py="xl"
-      px={{ base: 'lg', md: 'xl' }}
+      px={{ base: '0', md: 'xl' }}
       className={`${classes.wrapper} ${hovered && classes.wrapperHovered}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -78,10 +78,14 @@ export function DashboardProposalCard(props) {
               dependency={submissionDate}
               fallback={<Skeleton height={16} width={80} />}
             >
-              <Group spacing="xs">
-                {iconCreator({ icon: Clock, sizeOverride: 24 })}
+              <Group spacing="sm">
+                {iconCreator({
+                  icon: Clock,
+                  sizeOverride: 24,
+                  colorOverride: colors.neutral[6],
+                })}
                 <Group spacing="xs">
-                  <Text className="label-md" fw="500!important" c="neutral.7">
+                  <Text className="label-md" fw="500!important" c="neutral.6">
                     Received:
                   </Text>
                   <Text className="label-md" fw="500!important">
