@@ -33,20 +33,22 @@ function OptionCard({ icon: Icon, label, content }) {
         justify="center"
         align="center"
       >
-        {iconCreator({ icon: Icon, sizeOverride: 32, strokeOverride: 1.5 })}
+        {iconCreator({ icon: Icon, sizeOverride: 32, strokeOverride: 1 })}
 
         <Stack spacing="xs">
           <CustomSuspense
             dependency={content}
             fallback={<Skeleton width={40} height={16} />}
           >
-            <Title className="sub-h1">{content}</Title>
+            <Title className="sub-h1" tt="capitalize">
+              {content}
+            </Title>
           </CustomSuspense>
           <CustomSuspense
             dependency={label}
             fallback={<Skeleton width={40} height={16} />}
           >
-            <Text className="label-md" c="neutral.6">
+            <Text className="label-md" c="neutral.6" tt="capitalize">
               {label}
             </Text>
           </CustomSuspense>
