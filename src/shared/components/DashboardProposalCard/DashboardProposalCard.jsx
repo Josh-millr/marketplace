@@ -80,7 +80,6 @@ export function DashboardProposalCard(props) {
               <Group spacing="sm">
                 {iconCreator({
                   icon: Clock,
-                  sizeOverride: 24,
                   colorOverride: colors.neutral[6],
                 })}
                 <Group spacing="xs">
@@ -108,7 +107,6 @@ export function DashboardProposalCard(props) {
                 variant="light"
                 leftIcon={iconCreator({
                   icon: ProfileCircle,
-                  sizeOverride: 24,
                 })}
               >
                 {authorName}

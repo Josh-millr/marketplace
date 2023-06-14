@@ -220,7 +220,7 @@ function Proposals() {
   const [coverLetter, setCoverLetter] = useState('');
 
   return (
-    <DashboardSectionCardNew contentFullWidth>
+    <DashboardSectionCardNew contentFullWidth title="Proposals Pending">
       {/* ... Proposals Received ... */}
       {proposals.length !== 0 ? (
         proposals.map((proposal) => (
