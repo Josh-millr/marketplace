@@ -25,7 +25,7 @@ import { DashboardGoBackButtonBar } from '@/shared/components/DashboardGoBackBut
 
 function OptionCard({ icon: Icon, label, content }) {
   return (
-    <Paper withBorder w="100%">
+    <Paper withBorder w="100%" py="xl">
       <Flex
         direction="column"
         gap="xl"
