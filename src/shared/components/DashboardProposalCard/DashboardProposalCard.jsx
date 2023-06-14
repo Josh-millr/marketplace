@@ -118,8 +118,12 @@ export function DashboardProposalCard(props) {
 
         {/* ... CTA .... */}
         <Flex direction="row" gap="lg">
-          <ActionIcon>{iconCreator({ icon: Page })}</ActionIcon>
-          <ActionIcon>{iconCreator({ icon: Cancel })}</ActionIcon>
+          <ActionIcon variant="light">
+            {iconCreator({ icon: Page, sizeOverride: 24 })}
+          </ActionIcon>
+          <ActionIcon variant="light">
+            {iconCreator({ icon: Cancel, sizeOverride: 24 })}
+          </ActionIcon>
           <Button>Hire</Button>
         </Flex>
       </Flex>
