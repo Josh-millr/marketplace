@@ -33,7 +33,7 @@ function OptionCard({ icon: Icon, label, content }) {
         justify="center"
         align="center"
       >
-        {iconCreator({ icon: Icon, sizeOverride: 32 })}
+        {iconCreator({ icon: Icon, sizeOverride: 32, strokeOverride: 1.5 })}
 
         <Stack spacing="xs">
           <CustomSuspense
