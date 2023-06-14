@@ -64,11 +64,8 @@ export default function Project() {
             </CustomSuspense>
 
             {/* ... Budget Price goes here ... */}
-            <Flex
-              direction="column"
-              gap={{ base: 'sm', md: 'xl' }}
-              justify="flex-end"
-            >
+            <Flex direction="column" gap={{ base: 'sm', md: 'xl' }}>
+              {/* ... For Large Screens ...  */}
               <CustomSuspense
                 dependency={project?.budget}
                 fallback={<Skeleton width={80} height={16} />}
@@ -81,23 +78,30 @@ export default function Project() {
               </CustomSuspense>
 
               <CustomSuspense
+                dependency={project?.pricingType}
+                fallback={<Skeleton width={80} height={16} />}
+              >
+                <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
+                  <Text
+                    className="label-lg"
+                    ml="auto"
+                    fw={'500!important'}
+                    c="neutral.6"
+                  >
+                    {project?.pricingType}
+                  </Text>
+                </MediaQuery>
+              </CustomSuspense>
+
+              {/* ... For Small Screens ...  */}
+
+              <CustomSuspense
                 dependency={project?.budget}
                 fallback={<Skeleton width={80} height={16} />}
               >
                 <MediaQuery largerThan="md" styles={{ display: 'none' }}>
                   <Text className="h1" fw={'500!important'}>
                     {displayNumberInNaira(project?.budget || 0)}
-                  </Text>
-                </MediaQuery>
-              </CustomSuspense>
-
-              <CustomSuspense
-                dependency={project?.pricingType}
-                fallback={<Skeleton width={80} height={16} />}
-              >
-                <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-                  <Text className="label-lg" fw={'500!important'} c="neutral.6">
-                    {project?.pricingType}
                   </Text>
                 </MediaQuery>
               </CustomSuspense>
