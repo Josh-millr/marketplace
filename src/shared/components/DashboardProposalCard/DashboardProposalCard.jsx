@@ -102,16 +102,18 @@ export function DashboardProposalCard(props) {
               dependency={authorName}
               fallback={<Skeleton height={16} width={80} />}
             >
-              <Button
-                size="xs"
-                radius={9999}
-                variant="light"
-                leftIcon={iconCreator({
-                  icon: ProfileCircle,
-                })}
-              >
-                {authorName}
-              </Button>
+              <div>
+                <Button
+                  size="xs"
+                  radius={9999}
+                  variant="light"
+                  leftIcon={iconCreator({
+                    icon: ProfileCircle,
+                  })}
+                >
+                  {authorName}
+                </Button>
+              </div>
             </CustomSuspense>
           </Flex>
         </Stack>
@@ -122,7 +124,11 @@ export function DashboardProposalCard(props) {
             {iconCreator({ icon: Page, sizeOverride: 24 })}
           </ActionIcon>
           <ActionIcon variant="light">
-            {iconCreator({ icon: Cancel, sizeOverride: 24 })}
+            {iconCreator({
+              icon: Cancel,
+              sizeOverride: 24,
+              colorOverride: colors.danger[7],
+            })}
           </ActionIcon>
           <Button>Hire</Button>
         </Flex>
