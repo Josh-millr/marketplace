@@ -233,7 +233,13 @@ function Proposals() {
 
   return (
     <DashboardSectionCardNew contentFullWidth title="Proposals Pending">
-      <Drawer opened={opened} onClose={close} title="Cover Letter">
+      <Drawer
+        opened={opened}
+        onClose={close}
+        title="Cover Letter"
+        position="right"
+        size={'xl'}
+      >
         {coverLetter}
       </Drawer>
 
