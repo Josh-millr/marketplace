@@ -7,8 +7,8 @@ export function SectionBodyNew(props) {
   const { breakpoints } = useMantineTheme();
   const matchMd = useMediaQuery(`(min-width: ${breakpoints.md})`);
 
-  const matchPadding = matchMd ? 24 : 0;
-  const padding = padSection ? matchPadding : `${24} ${0}`;
+  const matchPadding = matchMd ? 24 : `${24} ${0}`;
+  const padding = padSection ? matchPadding : 0;
 
   const sectionWidth = contentFullWidth ? '100%' : 800;
 
