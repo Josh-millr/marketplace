@@ -26,7 +26,13 @@ import { DashboardGoBackButtonBar } from '@/shared/components/DashboardGoBackBut
 function OptionCard({ icon: Icon, label, content }) {
   return (
     <Paper withBorder w="100%">
-      <Stack spacing="xl" w="100%">
+      <Flex
+        direction="column"
+        gap="xl"
+        w="100%"
+        justify="center"
+        align="center"
+      >
         {iconCreator({ icon: Icon, sizeOverride: 32 })}
 
         <Stack spacing="xs">
@@ -45,7 +51,7 @@ function OptionCard({ icon: Icon, label, content }) {
             </Text>
           </CustomSuspense>
         </Stack>
-      </Stack>
+      </Flex>
     </Paper>
   );
 }
