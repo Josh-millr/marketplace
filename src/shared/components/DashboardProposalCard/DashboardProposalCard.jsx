@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {
   Text,
   useMantineTheme,
+  ActionIcon,
   Stack,
   Divider,
   Group,
@@ -12,7 +13,7 @@ import {
   Box,
   MediaQuery,
 } from '@mantine/core';
-import { Clock, ProfileCircle, Cancel } from 'iconoir-react';
+import { Clock, ProfileCircle, Cancel, Page } from 'iconoir-react';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
@@ -116,6 +117,11 @@ export function DashboardProposalCard(props) {
         </Stack>
 
         {/* ... CTA .... */}
+        <Flex direction="row" gap="lg">
+          <ActionIcon>{iconCreator({ icon: Page })}</ActionIcon>
+          <ActionIcon>{iconCreator({ icon: Cancel })}</ActionIcon>
+          <Button>Hire</Button>
+        </Flex>
       </Flex>
     </Box>
   );
