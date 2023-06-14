@@ -64,7 +64,11 @@ export default function Project() {
             </CustomSuspense>
 
             {/* ... Budget Price goes here ... */}
-            <Flex direction="column" gap={{ base: 'sm', md: 'xl' }}>
+            <Flex
+              direction="column"
+              gap={{ base: 'sm', md: 'xl' }}
+              justify={{ base: 'flex-start', md: 'flex-end' }}
+            >
               <CustomSuspense
                 dependency={project?.budget}
                 fallback={<Skeleton width={80} height={16} />}
