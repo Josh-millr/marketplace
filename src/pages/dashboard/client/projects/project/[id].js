@@ -215,12 +215,18 @@ function ProjectDetail() {
   );
 }
 
-function Proposals(props) {
+function Proposals() {
+  const [proposals, setProposals] = useState([]);
   const [coverLetter, setCoverLetter] = useState('');
 
   return (
     <DashboardSectionCardNew contentFullWidth>
       {/* ... Proposals Received ... */}
+      {proposals.length !== 0 ? (
+        <></>
+      ) : (
+        <SectionEmptyBanner sectionLabel="Proposals" />
+      )}
     </DashboardSectionCardNew>
   );
 }
