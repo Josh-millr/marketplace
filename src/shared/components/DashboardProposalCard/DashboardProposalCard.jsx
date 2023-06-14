@@ -22,23 +22,14 @@ import { CustomSuspense } from '../CustomSuspense';
 import { useStyles } from './style.DashboardProposalCard';
 
 export function DashboardProposalCard(props) {
-  const {
-    cost,
-    status,
-    authorId,
-    setCoverLetter,
-    authorName,
-    coverLetter,
-    deliveryTime,
-    submissionDate,
-  } = props;
-
   const [hovered, setHovered] = useState(false);
-  const { colors } = useMantineTheme();
 
+  const { setCoverLetter, ...proposal } = props;
+
+  const { colors } = useMantineTheme();
   const { classes } = useStyles();
 
-  const showCoverLetter = () => setCoverLetter(coverLetter);
+  const showCoverLetter = () => setCoverLetter(proposal?.coverLetter);
 
   return (
     <Box
@@ -53,19 +44,19 @@ export function DashboardProposalCard(props) {
           {/* ... Cover Letter Preview */}
 
           <CustomSuspense
-            dependency={coverLetter}
+            dependency={proposal?.coverLetter}
             fallback={<Skeleton height={16} w="100%" />}
           >
             <Text lineClamp={2} className="body-md">
-              {coverLetter}
+              {proposal?.coverLetter}
             </Text>
           </CustomSuspense>
 
           {/* ... Pricing .... */}
           <CustomSuspense>
             <Text className="h1" fw={'700!important'}>{`${displayNumberInNaira(
-              cost || 0
-            )}/${deliveryTime}`}</Text>
+              proposal?.cost || 0
+            )}/${proposal?.deliveryTime}`}</Text>
           </CustomSuspense>
 
           {/* ... Date & Author .... */}
@@ -75,7 +66,7 @@ export function DashboardProposalCard(props) {
             gap={{ base: 'lg', md: 'xl' }}
           >
             <CustomSuspense
-              dependency={submissionDate}
+              dependency={proposal?.submissionDate}
               fallback={<Skeleton height={16} width={80} />}
             >
               <Group spacing="sm">
@@ -88,7 +79,7 @@ export function DashboardProposalCard(props) {
                     Received:
                   </Text>
                   <Text className="label-md" fw="500!important">
-                    {submissionDate}
+                    {proposal?.submissionDate}
                   </Text>
                 </Group>
               </Group>
@@ -99,7 +90,7 @@ export function DashboardProposalCard(props) {
             </MediaQuery>
             {/* .... */}
             <CustomSuspense
-              dependency={authorName}
+              dependency={proposal?.authorName}
               fallback={<Skeleton height={16} width={80} />}
             >
               <div>
@@ -111,7 +102,7 @@ export function DashboardProposalCard(props) {
                     icon: ProfileCircle,
                   })}
                 >
-                  {authorName}
+                  {proposal?.authorName}
                 </Button>
               </div>
             </CustomSuspense>
