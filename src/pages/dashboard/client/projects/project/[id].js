@@ -113,6 +113,9 @@ export default function Project() {
 
       <DashboardSectionCardNew contentFullWidth>
         {/* ... Proposals Received ... */}
+        <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+          <div>ajsdbasdasjd</div>
+        </MediaQuery>
       </DashboardSectionCardNew>
     </PageContainer.Marketplace>
   );
