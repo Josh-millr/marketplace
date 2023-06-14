@@ -8,15 +8,18 @@ import {
   Stack,
   Divider,
   Group,
+  Skeleton,
   Button,
   Flex,
   Box,
+  MediaQuery,
 } from '@mantine/core';
 import { Clock, ProfileCircle, Trash, EyeAlt } from 'iconoir-react';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
 import { useStyles } from './style.DashboardProposalCard';
+import { CustomSuspense } from '../CustomSuspense';
 
 export function DashboardProposalCard(props) {
   const {
@@ -39,71 +42,78 @@ export function DashboardProposalCard(props) {
 
   return (
     <Box
+      py="xl"
+      px={{ base: 'lg', md: 'xl' }}
       className={`${classes.wrapper} ${hovered && classes.wrapperHovered}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <Stack spacing="lg">
-        <Stack spacing="sm">
-          <Text
-            lineClamp={1}
-            className={`${classes.title} ${
-              hovered && classes.titleHovered
-            } body-md`}
+      <Flex direction={{ base: 'column', md: 'row' }} gap="2xl" w="100%">
+        <Stack spacing="lg">
+          {/* ... Cover Letter Preview */}
+
+          <CustomSuspense
+            dependency={coverLetter}
+            fallback={<Skeleton height={16} w="100%" />}
           >
-            {coverLetter}
-          </Text>
+            <Text lineClamp={2} className="body-md">
+              {coverLetter}
+            </Text>
+          </CustomSuspense>
+
+          {/* ... Pricing .... */}
+          <CustomSuspense>
+            <Text className="h1" fw={'700!important'}>{`${displayNumberInNaira(
+              cost || 0
+            )}/${deliveryTime}`}</Text>
+          </CustomSuspense>
+
+          {/* ... Date & Author .... */}
+          <Flex
+            w="100%"
+            direction={{ base: 'column', md: 'row' }}
+            gap={{ base: 'lg', md: 'xl' }}
+          >
+            <CustomSuspense
+              dependency={submissionDate}
+              fallback={<Skeleton height={16} width={80} />}
+            >
+              <Group spacing="xs">
+                {iconCreator({ icon: Clock, sizeOverride: 24 })}
+                <Group spacing="xs">
+                  <Text className="label-md" fw="500!important" c="neutral.7">
+                    Received:
+                  </Text>
+                  <Text className="label-md" fw="500!important">
+                    {submissionDate}
+                  </Text>
+                </Group>
+              </Group>
+            </CustomSuspense>
+            {/* .... */}
+            <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+              <Divider orientation="vertical" />
+            </MediaQuery>
+            {/* .... */}
+            <CustomSuspense
+              dependency={authorName}
+              fallback={<Skeleton height={16} width={80} />}
+            >
+              <Badge
+                variant="light"
+                leftSection={iconCreator({
+                  icon: ProfileCircle,
+                  sizeOverride: 24,
+                })}
+              >
+                {authorName}
+              </Badge>
+            </CustomSuspense>
+          </Flex>
         </Stack>
 
-        <Group position="apart">
-          <Flex gap="md">
-            <Group spacing="xs">
-              <Group spacing="xs">
-                {iconCreator({ icon: Clock, sizeOverride: 16 })}
-                <Text className="label-sm" fw="700!important">
-                  Received:
-                </Text>
-              </Group>
-              <Text className="label-sm" fw="700!important">
-                {submissionDate}
-              </Text>
-            </Group>
-
-            <Divider orientation="vertical" />
-
-            <Group spacing="xs">
-              <Group spacing="xs">
-                {iconCreator({ icon: ProfileCircle, sizeOverride: 16 })}
-                <Text className="label-sm" fw="700!important">
-                  Creator:
-                </Text>
-              </Group>
-              <Text className="label-sm" fw="700!important">
-                {authorName}
-              </Text>
-            </Group>
-          </Flex>
-
-          <Text
-            className="label-md"
-            fw={'700!important'}
-          >{`${displayNumberInNaira(cost)}/${deliveryTime}`}</Text>
-        </Group>
-
-        <Group position="apart">
-          <Flex gap="md">
-            <Button variant="outline">Hire now</Button>
-            <ActionIcon size="lg" variant="light">
-              {iconCreator({ icon: Trash, colorOverride: colors.danger[8] })}
-            </ActionIcon>
-
-            <ActionIcon size="lg" variant="light" onClick={showCoverLetter}>
-              {iconCreator({ icon: EyeAlt })}
-            </ActionIcon>
-          </Flex>
-          <Badge>{status}</Badge>
-        </Group>
-      </Stack>
+        {/* ... CTA .... */}
+      </Flex>
     </Box>
   );
 }
