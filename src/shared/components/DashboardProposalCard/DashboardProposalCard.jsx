@@ -106,7 +106,7 @@ export function DashboardProposalCard(props) {
                 size="xs"
                 radius={9999}
                 variant="light"
-                leftSection={iconCreator({
+                leftIcon={iconCreator({
                   icon: ProfileCircle,
                   sizeOverride: 24,
                 })}
