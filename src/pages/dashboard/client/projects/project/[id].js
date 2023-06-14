@@ -78,148 +78,154 @@ export default function Project() {
     <PageContainer.Marketplace>
       <DashboardGoBackButtonBar />
 
-      <DashboardSectionCardNew contentFullWidth padSection>
-        <Stack spacing="xl">
-          <div>
-            {/* ... Status Badge goes here ...  */}
-            <CustomSuspense
-              dependency={project?.status}
-              fallback={<Skeleton width={80} height={120} radius={9999} />}
+      <Stack spacing="2xl">
+        <DashboardSectionCardNew contentFullWidth padSection>
+          <Stack spacing="xl">
+            <div>
+              {/* ... Status Badge goes here ...  */}
+              <CustomSuspense
+                dependency={project?.status}
+                fallback={<Skeleton width={80} height={120} radius={9999} />}
+              >
+                <Badge size="lg" variant="filled">
+                  {project?.status}
+                </Badge>
+              </CustomSuspense>
+            </div>
+
+            <Flex
+              w="100%"
+              gap={{ base: 'xl', md: 0 }}
+              direction={{ base: 'column', md: 'row' }}
+              justify={{ base: 'flex-start', md: 'space-between' }}
             >
-              <Badge size="lg" variant="filled">
-                {project?.status}
-              </Badge>
-            </CustomSuspense>
-          </div>
-
-          <Flex
-            w="100%"
-            gap={{ base: 'xl', md: 0 }}
-            direction={{ base: 'column', md: 'row' }}
-            justify={{ base: 'flex-start', md: 'space-between' }}
-          >
-            {/* ... Title goes here ... */}
-            <CustomSuspense
-              dependency={project?.title}
-              fallback={<Skeleton width={80} height={80} />}
-            >
-              <Title
-                className="h1"
-                fw={'700!important'}
-                maw={692}
-                tt={'capitalize'}
-              >
-                {project?.title}
-              </Title>
-            </CustomSuspense>
-
-            {/* ... Budget Price goes here ... */}
-            <Stack spacing={0}>
-              {/* ... For Large Screens ...  */}
+              {/* ... Title goes here ... */}
               <CustomSuspense
-                dependency={project?.budget}
-                fallback={<Skeleton width={80} height={16} />}
+                dependency={project?.title}
+                fallback={<Skeleton width={80} height={80} />}
               >
-                <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-                  <Text className="h2" fw={'500!important'}>
-                    {displayNumberInNaira(project?.budget || 0)}
-                  </Text>
-                </MediaQuery>
+                <Title
+                  className="h1"
+                  fw={'700!important'}
+                  maw={692}
+                  tt={'capitalize'}
+                >
+                  {project?.title}
+                </Title>
               </CustomSuspense>
 
-              <CustomSuspense
-                dependency={project?.pricingType}
-                fallback={<Skeleton width={80} height={16} />}
-              >
-                <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-                  <Text
-                    className="label-lg"
-                    ml="auto"
-                    fw={'500!important'}
-                    c="neutral.6"
-                    tt="capitalize"
-                  >
-                    {project?.pricingType}
-                  </Text>
-                </MediaQuery>
-              </CustomSuspense>
+              {/* ... Budget Price goes here ... */}
+              <Stack spacing={0}>
+                {/* ... For Large Screens ...  */}
+                <CustomSuspense
+                  dependency={project?.budget}
+                  fallback={<Skeleton width={80} height={16} />}
+                >
+                  <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
+                    <Text className="h2" fw={'500!important'}>
+                      {displayNumberInNaira(project?.budget || 0)}
+                    </Text>
+                  </MediaQuery>
+                </CustomSuspense>
 
-              {/* ... For Small Screens ...  */}
+                <CustomSuspense
+                  dependency={project?.pricingType}
+                  fallback={<Skeleton width={80} height={16} />}
+                >
+                  <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
+                    <Text
+                      className="label-lg"
+                      ml="auto"
+                      fw={'500!important'}
+                      c="neutral.6"
+                      tt="capitalize"
+                    >
+                      {project?.pricingType}
+                    </Text>
+                  </MediaQuery>
+                </CustomSuspense>
 
-              <CustomSuspense
-                dependency={project?.budget}
-                fallback={<Skeleton width={80} height={16} />}
-              >
-                <MediaQuery largerThan="md" styles={{ display: 'none' }}>
-                  <Text className="h1" fw={'500!important'}>
-                    {displayNumberInNaira(project?.budget || 0)}
-                  </Text>
-                </MediaQuery>
-              </CustomSuspense>
+                {/* ... For Small Screens ...  */}
 
-              <CustomSuspense
-                dependency={project?.pricingType}
-                fallback={<Skeleton width={80} height={16} />}
-              >
-                <MediaQuery largerThan="md" styles={{ display: 'none' }}>
-                  <Text className="label-md" fw={'500!important'} c="neutral.6">
-                    {project?.pricingType}
-                  </Text>
-                </MediaQuery>
-              </CustomSuspense>
-            </Stack>
-          </Flex>
+                <CustomSuspense
+                  dependency={project?.budget}
+                  fallback={<Skeleton width={80} height={16} />}
+                >
+                  <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+                    <Text className="h1" fw={'500!important'}>
+                      {displayNumberInNaira(project?.budget || 0)}
+                    </Text>
+                  </MediaQuery>
+                </CustomSuspense>
 
-          {/* ... Description goes here ... */}
-          <CustomSuspense
-            dependency={project?.description}
-            fallback={
-              <Stack w="100%">
-                <Skeleton w="100%" />
-                <Skeleton w="100%" />
-                <Skeleton w="70%" />
+                <CustomSuspense
+                  dependency={project?.pricingType}
+                  fallback={<Skeleton width={80} height={16} />}
+                >
+                  <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+                    <Text
+                      className="label-md"
+                      fw={'500!important'}
+                      c="neutral.6"
+                    >
+                      {project?.pricingType}
+                    </Text>
+                  </MediaQuery>
+                </CustomSuspense>
               </Stack>
-            }
-          >
-            <Text className="body-md">{project?.description}</Text>
-          </CustomSuspense>
+            </Flex>
 
-          {/* ... Options card goes here ... */}
-          <SimpleGrid
-            cols={1}
-            breakpoints={[
-              { minWidth: 'md', cols: 2 },
-              { minWidth: 'lg', cols: 4 },
-            ]}
-          >
-            {/* ... Items card goes here ... */}
-            <OptionCard
-              icon={ViewGrid}
-              label="Category"
-              content={project?.category}
-            />
-            <OptionCard
-              icon={Hourglass}
-              label="Expiry Date"
-              content={project?.expires}
-            />
-            <OptionCard
-              icon={LargeSuitcase}
-              label="Pricing Type"
-              content={project?.pricingType}
-            />
-            <OptionCard
-              icon={HandCash}
-              label="Experience Level"
-              content={project?.experienceLevel}
-            />
-          </SimpleGrid>
-        </Stack>
-      </DashboardSectionCardNew>
+            {/* ... Description goes here ... */}
+            <CustomSuspense
+              dependency={project?.description}
+              fallback={
+                <Stack w="100%">
+                  <Skeleton w="100%" />
+                  <Skeleton w="100%" />
+                  <Skeleton w="70%" />
+                </Stack>
+              }
+            >
+              <Text className="body-md">{project?.description}</Text>
+            </CustomSuspense>
 
-        {/* ... Proposals Received ... */}
-      {/* <DashboardSectionCardNew contentFullWidth>
-      </DashboardSectionCardNew> */}
+            {/* ... Options card goes here ... */}
+            <SimpleGrid
+              cols={1}
+              breakpoints={[
+                { minWidth: 'md', cols: 2 },
+                { minWidth: 'lg', cols: 4 },
+              ]}
+            >
+              {/* ... Items card goes here ... */}
+              <OptionCard
+                icon={ViewGrid}
+                label="Category"
+                content={project?.category}
+              />
+              <OptionCard
+                icon={Hourglass}
+                label="Expiry Date"
+                content={project?.expires}
+              />
+              <OptionCard
+                icon={LargeSuitcase}
+                label="Pricing Type"
+                content={project?.pricingType}
+              />
+              <OptionCard
+                icon={HandCash}
+                label="Experience Level"
+                content={project?.experienceLevel}
+              />
+            </SimpleGrid>
+          </Stack>
+        </DashboardSectionCardNew>
+
+        <DashboardSectionCardNew contentFullWidth>
+          {/* ... Proposals Received ... */}
+        </DashboardSectionCardNew>
+      </Stack>
     </PageContainer.Marketplace>
   );
 }
