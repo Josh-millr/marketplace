@@ -225,16 +225,16 @@ function Proposals() {
       {proposals.length !== 0 ? (
         proposals.map((proposal) => (
           <DashboardProposalCard
-            cost={proposal.cost}
-            status={proposal.status}
-            key={proposal.proposalId}
-            category={proposal.category}
-            authorId={proposal.proposalId}
+            cost={proposal?.cost}
+            status={proposal?.status}
+            key={proposal?.proposalId}
+            category={proposal?.category}
+            authorId={proposal?.proposalId}
             setCoverLetter={setCoverLetter}
-            authorName={proposal.authorName}
-            coverLetter={proposal.coverLetter}
-            deliveryTime={proposal.deliveryTime}
-            submissionDate={proposal.submissionDate}
+            authorName={proposal?.author?.name}
+            coverLetter={proposal?.coverLetter}
+            deliveryTime={proposal?.deliveryTime}
+            submissionDate={proposal?.submissionDate}
           />
         ))
       ) : (
