@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import {
   Text,
-  ActionIcon,
   Badge,
   useMantineTheme,
   Stack,
@@ -18,8 +17,9 @@ import { Clock, ProfileCircle, Cancel } from 'iconoir-react';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
-import { useStyles } from './style.DashboardProposalCard';
+
 import { CustomSuspense } from '../CustomSuspense';
+import { useStyles } from './style.DashboardProposalCard';
 
 export function DashboardProposalCard(props) {
   const {
@@ -104,6 +104,7 @@ export function DashboardProposalCard(props) {
               fallback={<Skeleton height={16} width={80} />}
             >
               <Badge
+                size="lg"
                 variant="light"
                 leftSection={iconCreator({
                   icon: ProfileCircle,
