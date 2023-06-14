@@ -1,17 +1,16 @@
 import { useState } from 'react';
-
 import {
-  Text,
-  useMantineTheme,
-  ActionIcon,
-  Stack,
-  Divider,
-  Group,
-  Skeleton,
-  Button,
-  Flex,
   Box,
+  Text,
+  Flex,
+  Group,
+  Stack,
+  Button,
+  Divider,
+  Skeleton,
+  ActionIcon,
   MediaQuery,
+  useMantineTheme,
 } from '@mantine/core';
 import { Clock, ProfileCircle, Cancel, Page } from 'iconoir-react';
 
@@ -24,12 +23,12 @@ import { useStyles } from './style.DashboardProposalCard';
 export function DashboardProposalCard(props) {
   const [hovered, setHovered] = useState(false);
 
-  const { setCoverLetter, ...proposal } = props;
+  const { displayCoverLetter, ...proposal } = props;
 
   const { colors } = useMantineTheme();
   const { classes } = useStyles();
 
-  const showCoverLetter = () => setCoverLetter(proposal?.coverLetter);
+  const showCoverLetter = () => displayCoverLetter(proposal?.coverLetter);
 
   return (
     <Box
@@ -111,7 +110,7 @@ export function DashboardProposalCard(props) {
 
         {/* ... CTA .... */}
         <Flex direction="row" gap="lg">
-          <ActionIcon variant="light">
+          <ActionIcon variant="light" onClick={showCoverLetter}>
             {iconCreator({ icon: Page, sizeOverride: 24 })}
           </ActionIcon>
           <ActionIcon variant="light">

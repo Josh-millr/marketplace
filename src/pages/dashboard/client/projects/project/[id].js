@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+import { useDisclosure } from '@mantine/hooks';
 import {
   Flex,
   Text,
@@ -7,6 +8,7 @@ import {
   Title,
   Paper,
   Stack,
+  Drawer,
   Skeleton,
   SimpleGrid,
   MediaQuery,
@@ -218,9 +220,18 @@ function ProjectDetail() {
 function Proposals() {
   const [proposals, setProposals] = useState(projectDemo.proposals);
   const [coverLetter, setCoverLetter] = useState('');
+  const [opened, { open, close }] = useDisclosure();
+
+  const displayCoverLetter = (letter) => {
+    setCoverLetter(letter);
+  };
 
   return (
     <DashboardSectionCardNew contentFullWidth title="Proposals Pending">
+      <Drawer opened={opened} onClose={close} title="Cover Letter">
+        {coverLetter}
+      </Drawer>
+
       {/* ... Proposals Received ... */}
       {proposals.length !== 0 ? (
         proposals.map((proposal) => (
@@ -230,9 +241,9 @@ function Proposals() {
             key={proposal?.proposalId}
             category={proposal?.category}
             authorId={proposal?.proposalId}
-            setCoverLetter={setCoverLetter}
             authorName={proposal?.author?.name}
             coverLetter={proposal?.coverLetter}
+            showCoverLetter={displayCoverLetter}
             deliveryTime={proposal?.deliveryTime}
             submissionDate={proposal?.submissionDate}
           />
