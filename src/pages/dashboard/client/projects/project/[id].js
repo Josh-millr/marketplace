@@ -35,7 +35,7 @@ export default function Project() {
       <DashboardGoBackButtonBar />
 
       <DashboardSectionCardNew contentFullWidth padSection>
-        <Stack spacing="2xl">
+        <Stack spacing="xl">
           <div>
             <CustomSuspense
               dependency={project?.status}
@@ -47,96 +47,90 @@ export default function Project() {
             </CustomSuspense>
           </div>
 
-          <Flex direction="column" gap={{ base: 'xl', md: '3xl' }}>
-            <Flex
-              w="100%"
-              gap={{ base: 'xl', md: 0 }}
-              direction={{ base: 'column', md: 'row' }}
-              justify={{ base: 'flex-start', md: 'space-between' }}
+          <Flex
+            w="100%"
+            gap={{ base: 'xl', md: 0 }}
+            direction={{ base: 'column', md: 'row' }}
+            justify={{ base: 'flex-start', md: 'space-between' }}
+          >
+            {/* ... Title goes here ... */}
+            <CustomSuspense
+              dependency={project?.title}
+              fallback={<Skeleton width={80} height={80} />}
             >
-              {/* ... Title goes here ... */}
+              <Title className="h1" fw={'700!important'} maw={692}>
+                {project?.title}
+              </Title>
+            </CustomSuspense>
+
+            {/* ... Budget Price goes here ... */}
+            <Stack spacing={0}>
+              {/* ... For Large Screens ...  */}
               <CustomSuspense
-                dependency={project?.title}
-                fallback={<Skeleton width={80} height={80} />}
+                dependency={project?.budget}
+                fallback={<Skeleton width={80} height={16} />}
               >
-                <Title className="h1" fw={'700!important'} maw={692}>
-                  {project?.title}
-                </Title>
+                <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
+                  <Text className="h2" fw={'500!important'}>
+                    {displayNumberInNaira(project?.budget || 0)}
+                  </Text>
+                </MediaQuery>
               </CustomSuspense>
 
-              {/* ... Budget Price goes here ... */}
-              <Stack spacing={0}>
-                {/* ... For Large Screens ...  */}
-                <CustomSuspense
-                  dependency={project?.budget}
-                  fallback={<Skeleton width={80} height={16} />}
-                >
-                  <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-                    <Text className="h2" fw={'500!important'}>
-                      {displayNumberInNaira(project?.budget || 0)}
-                    </Text>
-                  </MediaQuery>
-                </CustomSuspense>
+              <CustomSuspense
+                dependency={project?.pricingType}
+                fallback={<Skeleton width={80} height={16} />}
+              >
+                <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
+                  <Text
+                    className="label-lg"
+                    ml="auto"
+                    fw={'500!important'}
+                    c="neutral.6"
+                  >
+                    {project?.pricingType}
+                  </Text>
+                </MediaQuery>
+              </CustomSuspense>
 
-                <CustomSuspense
-                  dependency={project?.pricingType}
-                  fallback={<Skeleton width={80} height={16} />}
-                >
-                  <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
-                    <Text
-                      className="label-lg"
-                      ml="auto"
-                      fw={'500!important'}
-                      c="neutral.6"
-                    >
-                      {project?.pricingType}
-                    </Text>
-                  </MediaQuery>
-                </CustomSuspense>
+              {/* ... For Small Screens ...  */}
 
-                {/* ... For Small Screens ...  */}
+              <CustomSuspense
+                dependency={project?.budget}
+                fallback={<Skeleton width={80} height={16} />}
+              >
+                <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+                  <Text className="h1" fw={'500!important'}>
+                    {displayNumberInNaira(project?.budget || 0)}
+                  </Text>
+                </MediaQuery>
+              </CustomSuspense>
 
-                <CustomSuspense
-                  dependency={project?.budget}
-                  fallback={<Skeleton width={80} height={16} />}
-                >
-                  <MediaQuery largerThan="md" styles={{ display: 'none' }}>
-                    <Text className="h1" fw={'500!important'}>
-                      {displayNumberInNaira(project?.budget || 0)}
-                    </Text>
-                  </MediaQuery>
-                </CustomSuspense>
-
-                <CustomSuspense
-                  dependency={project?.pricingType}
-                  fallback={<Skeleton width={80} height={16} />}
-                >
-                  <MediaQuery largerThan="md" styles={{ display: 'none' }}>
-                    <Text
-                      className="label-md"
-                      fw={'500!important'}
-                      c="neutral.6"
-                    >
-                      {project?.pricingType}
-                    </Text>
-                  </MediaQuery>
-                </CustomSuspense>
-              </Stack>
-            </Flex>
-
-            <CustomSuspense
-              dependency={project?.description}
-              fallback={
-                <Stack w="100%">
-                  <Skeleton w="100%" />
-                  <Skeleton w="100%" />
-                  <Skeleton w="70%" />
-                </Stack>
-              }
-            >
-              <Text className="body-md">{project?.description}</Text>
-            </CustomSuspense>
+              <CustomSuspense
+                dependency={project?.pricingType}
+                fallback={<Skeleton width={80} height={16} />}
+              >
+                <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+                  <Text className="label-md" fw={'500!important'} c="neutral.6">
+                    {project?.pricingType}
+                  </Text>
+                </MediaQuery>
+              </CustomSuspense>
+            </Stack>
           </Flex>
+
+          <CustomSuspense
+            dependency={project?.description}
+            fallback={
+              <Stack w="100%">
+                <Skeleton w="100%" />
+                <Skeleton w="100%" />
+                <Skeleton w="70%" />
+              </Stack>
+            }
+          >
+            <Text className="body-md">{project?.description}</Text>
+          </CustomSuspense>
         </Stack>
       </DashboardSectionCardNew>
 
