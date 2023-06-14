@@ -10,6 +10,8 @@ export function SectionBodyNew(props) {
   const matchPadding = matchMd ? 24 : `${24} ${0}`;
   const padding = padSection ? matchPadding : 0;
 
+  console.log('padding is:', padding);
+
   const sectionWidth = contentFullWidth ? '100%' : 800;
 
   return fixedHeight ? (
