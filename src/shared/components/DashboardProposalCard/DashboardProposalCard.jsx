@@ -14,7 +14,7 @@ import {
   Box,
   MediaQuery,
 } from '@mantine/core';
-import { Clock, ProfileCircle, Trash, EyeAlt } from 'iconoir-react';
+import { Clock, ProfileCircle, Cancel } from 'iconoir-react';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
