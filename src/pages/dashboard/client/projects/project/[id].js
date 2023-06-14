@@ -78,7 +78,7 @@ export default function Project() {
     <PageContainer.Marketplace>
       <DashboardGoBackButtonBar />
 
-      <Stack spacing="2xl">
+      <Stack spacing="2xl" mb="3xl">
         <DashboardSectionCardNew contentFullWidth padSection>
           <Stack spacing="xl">
             <div>
