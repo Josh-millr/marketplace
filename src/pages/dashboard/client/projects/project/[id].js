@@ -40,13 +40,18 @@ function OptionCard({ icon: Icon, label, content }) {
             dependency={content}
             fallback={<Skeleton width={40} height={16} />}
           >
-            <Title className="sub-h1" tt="capitalize" m="auto">
+            <Title
+              className="label-md"
+              tt="capitalize"
+              m="auto"
+              fw={'700!important'}
+            >
               {content}
             </Title>
           </CustomSuspense>
           <CustomSuspense
             dependency={label}
-            fallback={<Skeleton width={40} height={16} m="auto" /> }
+            fallback={<Skeleton width={40} height={16} m="auto" />}
           >
             <Text className="label-md" c="neutral.6" tt="capitalize" m="auto">
               {label}
