@@ -216,14 +216,27 @@ function ProjectDetail() {
 }
 
 function Proposals() {
-  const [proposals, setProposals] = useState([]);
+  const [proposals, setProposals] = useState(projectDemo.proposals);
   const [coverLetter, setCoverLetter] = useState('');
 
   return (
     <DashboardSectionCardNew contentFullWidth>
       {/* ... Proposals Received ... */}
       {proposals.length !== 0 ? (
-        <>{/* ... Content goes here ... */}</>
+        proposals.map((proposal) => (
+          <DashboardProposalCard
+            cost={proposal.cost}
+            status={proposal.status}
+            key={proposal.proposalId}
+            category={proposal.category}
+            authorId={proposal.proposalId}
+            setCoverLetter={setCoverLetter}
+            authorName={proposal.authorName}
+            coverLetter={proposal.coverLetter}
+            deliveryTime={proposal.deliveryTime}
+            submissionDate={proposal.submissionDate}
+          />
+        ))
       ) : (
         <SectionEmptyBanner sectionLabel="Proposals" />
       )}
