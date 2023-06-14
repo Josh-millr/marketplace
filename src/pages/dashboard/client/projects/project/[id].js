@@ -1,15 +1,19 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import {
-  Stack,
   Flex,
-  Badge,
-  Skeleton,
-  Title,
   Text,
+  Badge,
+  Title,
+  Paper,
+  Stack,
+  Skeleton,
+  SimpleGrid,
   MediaQuery,
 } from '@mantine/core';
+import { ViewGrid, Hourglass, LargeSuitcase, HandCash } from 'iconoir-react';
 
+import { iconCreator } from '@/shared/utils/iconCreator';
 import { CustomSuspense } from '@/shared/components/CustomSuspense';
 import { projectDemo } from '@/shared/constants/projectDemo';
 import { PageContainer } from '@/shared/components/PageContainer';
@@ -18,6 +22,33 @@ import { SectionEmptyBanner } from '@/shared/components/SectionEmptyBanner';
 import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCardNew';
 import { DashboardProposalCard } from '@/shared/components/DashboardProposalCard';
 import { DashboardGoBackButtonBar } from '@/shared/components/DashboardGoBackButtonBar';
+
+function OptionCard({ icon: Icon, label, content }) {
+  return (
+    <Paper withBorder w="100%">
+      <Stack spacing="xl" w="100%">
+        {iconCreator({ icon: Icon, sizeOverride: 32 })}
+
+        <Stack spacing="xs">
+          <CustomSuspense
+            dependency={content}
+            fallback={<Skeleton width={40} height={16} />}
+          >
+            <Title className="sub-h1">{content}</Title>
+          </CustomSuspense>
+          <CustomSuspense
+            dependency={label}
+            fallback={<Skeleton width={40} height={16} />}
+          >
+            <Text className="label-md" c="neutral.6">
+              {label}
+            </Text>
+          </CustomSuspense>
+        </Stack>
+      </Stack>
+    </Paper>
+  );
+}
 
 export default function Project() {
   const [project, setProject] = useState(projectDemo);
@@ -37,6 +68,7 @@ export default function Project() {
       <DashboardSectionCardNew contentFullWidth padSection>
         <Stack spacing="xl">
           <div>
+            {/* ... Status Badge goes here ...  */}
             <CustomSuspense
               dependency={project?.status}
               fallback={<Skeleton width={80} height={120} radius={9999} />}
@@ -119,6 +151,7 @@ export default function Project() {
             </Stack>
           </Flex>
 
+          {/* ... Description goes here ... */}
           <CustomSuspense
             dependency={project?.description}
             fallback={
@@ -131,6 +164,37 @@ export default function Project() {
           >
             <Text className="body-md">{project?.description}</Text>
           </CustomSuspense>
+
+          {/* ... Options card goes here ... */}
+          <SimpleGrid
+            cols={1}
+            breakpoints={[
+              { minWidth: 'md', cols: 2 },
+              { minWidth: 'lg', cols: 4 },
+            ]}
+          >
+            {/* ... Items card goes here ... */}
+            <OptionCard
+              icon={ViewGrid}
+              label="Category"
+              content={project?.category}
+            />
+            <OptionCard
+              icon={Hourglass}
+              label="Expiry Date"
+              content={project?.expires}
+            />
+            <OptionCard
+              icon={LargeSuitcase}
+              label="Pricing Type"
+              content={project?.pricingType}
+            />
+            <OptionCard
+              icon={HandCash}
+              label="Experience Level"
+              content={project?.experienceLevel}
+            />
+          </SimpleGrid>
         </Stack>
       </DashboardSectionCardNew>
 
