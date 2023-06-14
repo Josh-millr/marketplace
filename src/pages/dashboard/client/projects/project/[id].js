@@ -8,6 +8,7 @@ import {
   Title,
   Text,
   MediaQuery,
+  Box,
 } from '@mantine/core';
 
 import { CustomSuspense } from '@/shared/components/CustomSuspense';
@@ -114,7 +115,7 @@ export default function Project() {
       <DashboardSectionCardNew contentFullWidth>
         {/* ... Proposals Received ... */}
         <MediaQuery largerThan="md" styles={{ display: 'none' }}>
-          <div>ajsdbasdasjd</div>
+          <Box>ajsdbasdasjd</Box>
         </MediaQuery>
       </DashboardSectionCardNew>
     </PageContainer.Marketplace>
