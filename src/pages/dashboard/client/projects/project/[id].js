@@ -71,7 +71,7 @@ export default function Project() {
               >
                 <MediaQuery smallerThan="md" styles={{ display: 'none' }}>
                   <Text className="h2" fw={'500!important'}>
-                    {project?.budget}
+                    {displayNumberInNaira(project?.budget || 0)}
                   </Text>
                 </MediaQuery>
               </CustomSuspense>
@@ -82,7 +82,7 @@ export default function Project() {
               >
                 <MediaQuery largerThan="md" styles={{ display: 'none' }}>
                   <Text className="h1" fw={'500!important'}>
-                    {project?.budget}
+                    {displayNumberInNaira(project?.budget || 0)}
                   </Text>
                 </MediaQuery>
               </CustomSuspense>
