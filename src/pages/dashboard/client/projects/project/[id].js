@@ -226,6 +226,10 @@ function Proposals() {
     setCoverLetter(letter);
   };
 
+  useEffect(() => {
+    if (coverLetter.length > 0) open();
+  }, [coverLetter]);
+
   return (
     <DashboardSectionCardNew contentFullWidth title="Proposals Pending">
       <Drawer opened={opened} onClose={close} title="Cover Letter">
