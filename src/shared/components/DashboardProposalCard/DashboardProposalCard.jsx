@@ -36,7 +36,6 @@ const ProjectTitle = memo(({ title, id }) => (
       <Button
         compact
         radius={9999}
-        variant="light"
         color="gray"
         leftIcon={iconCreator({ icon: IconLink })}
       >
