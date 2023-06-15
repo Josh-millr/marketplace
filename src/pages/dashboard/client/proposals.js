@@ -8,7 +8,6 @@ import { SectionEmptyBanner } from '@/shared/components/SectionEmptyBanner';
 import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
 import { DashboardProposalCard } from '@/shared/components/DashboardProposalCard';
 import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCardNew';
-import { dashboardProposalsPreviewDemo } from '@/shared/constants/dashboardProposalsPreviewDemo';
 
 function Proposals() {
   const [proposals, setProposals] = useState(projectDemo.proposals || []);
@@ -44,6 +43,8 @@ function Proposals() {
               key={proposal?.proposalId}
               category={proposal?.category}
               authorId={proposal?.proposalId}
+              projectId={proposal?.projectId}
+              projectTitle={proposal?.projectTitle}
               authorName={proposal?.author?.name}
               coverLetter={proposal?.coverLetter}
               showCoverLetter={displayCoverLetter}

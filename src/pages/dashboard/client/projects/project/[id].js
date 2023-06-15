@@ -267,8 +267,4 @@ function Project() {
   );
 }
 
-export async function getStaticProps() {
-  return { props: {} };
-}
-
 export default Project;

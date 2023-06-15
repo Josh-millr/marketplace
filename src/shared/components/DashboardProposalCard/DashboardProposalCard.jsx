@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { memo } from 'react';
 import {
   Box,
@@ -12,13 +13,39 @@ import {
   MediaQuery,
   useMantineTheme,
 } from '@mantine/core';
-import { Clock, ProfileCircle, Cancel, Page } from 'iconoir-react';
+import {
+  Clock,
+  ProfileCircle,
+  Cancel,
+  Page,
+  Link as IconLink,
+} from 'iconoir-react';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
 
 import { CustomSuspense } from '../CustomSuspense';
 import { useStyles } from './style.DashboardProposalCard';
+
+const ProjectTitle = memo(({ title, id }) => (
+  <CustomSuspense
+    dependency={title}
+    fallback={<Skeleton height={16} w="60%" />}
+  >
+    <Link href={`/dashboard/client/projects/project/${id}`}>
+      <Button
+        radius={9999}
+        variant="light"
+        color="neutral.4"
+        leftIcon={iconCreator({ icon: IconLink })}
+      >
+        <Text lineClamp={1} className="body-md">
+          {title}
+        </Text>
+      </Button>
+    </Link>
+  </CustomSuspense>
+));
 
 export const DashboardProposalCard = memo((props) => {
   const { showCoverLetter, ...proposal } = props;
@@ -49,6 +76,13 @@ export const DashboardProposalCard = memo((props) => {
               proposal?.cost || 0
             )}/${proposal?.deliveryTime}`}</Text>
           </CustomSuspense>
+
+          {proposal?.projectTitle && (
+            <ProjectTitle
+              title={proposal?.projectTitle}
+              id={proposal?.projectId}
+            />
+          )}
 
           {/* ... Date & Author .... */}
           <Flex
