@@ -34,9 +34,10 @@ const ProjectTitle = memo(({ title, id }) => (
   >
     <Link href={`/dashboard/client/projects/project/${id}`}>
       <Button
+        compact
         radius={9999}
         variant="light"
-        color="neutral.4"
+        color="gray"
         leftIcon={iconCreator({ icon: IconLink })}
       >
         <Text lineClamp={1} className="body-md">
