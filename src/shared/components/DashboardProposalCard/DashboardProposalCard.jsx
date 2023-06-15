@@ -21,8 +21,6 @@ import { CustomSuspense } from '../CustomSuspense';
 import { useStyles } from './style.DashboardProposalCard';
 
 export const DashboardProposalCard = memo((props) => {
-  const [hovered, setHovered] = useState(false);
-
   const { showCoverLetter, ...proposal } = props;
 
   const { colors } = useMantineTheme();
@@ -31,13 +29,7 @@ export const DashboardProposalCard = memo((props) => {
   const showLetter = () => showCoverLetter(proposal?.coverLetter);
 
   return (
-    <Box
-      py="xl"
-      px={{ base: '0', md: 'xl' }}
-      className={`${classes.wrapper} ${hovered && classes.wrapperHovered}`}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <Box py="xl" px={{ base: '0', md: 'xl' }} className={`${classes.wrapper}`}>
       <Flex direction={{ base: 'column', md: 'row' }} gap="2xl" w="100%">
         <Stack spacing="lg">
           {/* ... Cover Letter Preview */}
