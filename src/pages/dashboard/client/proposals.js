@@ -1,17 +1,18 @@
-import { useState } from "react";
-import { Box, Drawer } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useState } from 'react';
+import { Drawer } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 
-import { projectDemo } from "@/shared/constants/projectDemo";
-import { PageContainer } from "@/shared/components/PageContainer";
-import { DashboardPageHeader } from "@/shared/components/DashboardPageHeader";
-import { DashboardSectionCardNew } from "@/shared/components/DashboardSectionCardNew";
-import { dashboardProposalsPreviewDemo } from "@/shared/constants/dashboardProposalsPreviewDemo";
-import { DashboardProposalCard } from "@/shared/components/DashboardProposalCard";
+import { projectDemo } from '@/shared/constants/projectDemo';
+import { PageContainer } from '@/shared/components/PageContainer';
+import { SectionEmptyBanner } from '@/shared/components/SectionEmptyBanner';
+import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
+import { DashboardProposalCard } from '@/shared/components/DashboardProposalCard';
+import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCardNew';
+import { dashboardProposalsPreviewDemo } from '@/shared/constants/dashboardProposalsPreviewDemo';
 
 function Proposals() {
   const [proposals, setProposals] = useState(projectDemo.proposals || []);
-  const [coverLetter, setCoverLetter] = useState("");
+  const [coverLetter, setCoverLetter] = useState('');
   const [opened, { open, close }] = useDisclosure();
 
   const displayCoverLetter = async (letter) => {
@@ -29,7 +30,7 @@ function Proposals() {
           onClose={close}
           title="Cover Letter"
           position="right"
-          size={"xl"}
+          size={'xl'}
         >
           {coverLetter}
         </Drawer>
