@@ -210,7 +210,7 @@ const ProjectDetail = memo(() => {
 });
 
 const Proposals = memo(() => {
-  const [proposals, setProposals] = useState(projectDemo.proposals);
+  const [proposals, setProposals] = useState(projectDemo.proposals || []);
   const [coverLetter, setCoverLetter] = useState('');
   const [opened, { open, close }] = useDisclosure();
 
@@ -232,7 +232,7 @@ const Proposals = memo(() => {
       </Drawer>
 
       {/* ... Proposals Received ... */}
-      {proposals.length !== 0 ? (
+      {proposals?.length !== 0 ? (
         proposals.map((proposal) => (
           <DashboardProposalCard
             cost={proposal?.cost}
