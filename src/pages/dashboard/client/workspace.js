@@ -30,7 +30,7 @@ function Workspace() {
             Canceled
           </Tabs.Panel>
         </Tabs>
-        {[].length === 0 && <SectionEmptyBanner sectionLabel="notifications" />}
+        {[].length === 0 && <SectionEmptyBanner sectionLabel="No jobs" />}
       </DashboardSectionCardNew>
     </PageContainer.Marketplace>
   );
