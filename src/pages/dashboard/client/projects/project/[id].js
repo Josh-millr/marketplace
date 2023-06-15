@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { useDisclosure } from '@mantine/hooks';
 import {
   Flex,
@@ -25,47 +25,39 @@ import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCar
 import { DashboardProposalCard } from '@/shared/components/DashboardProposalCard';
 import { DashboardGoBackButtonBar } from '@/shared/components/DashboardGoBackButtonBar';
 
-function OptionCard({ icon: Icon, label, content }) {
-  return (
-    <Paper withBorder w="100%" py="xl">
-      <Flex
-        direction="column"
-        gap="xl"
-        w="100%"
-        justify="center"
-        align="center"
-      >
-        {iconCreator({ icon: Icon, sizeOverride: 32, strokeOverride: 1 })}
+const OptionCard = memo(({ icon: Icon, label, content }) => (
+  <Paper withBorder w="100%" py="xl">
+    <Flex direction="column" gap="xl" w="100%" justify="center" align="center">
+      {iconCreator({ icon: Icon, sizeOverride: 32, strokeOverride: 1 })}
 
-        <Stack spacing="xs">
-          <CustomSuspense
-            dependency={content}
-            fallback={<Skeleton width={40} height={16} />}
+      <Stack spacing="xs">
+        <CustomSuspense
+          dependency={content}
+          fallback={<Skeleton width={40} height={16} />}
+        >
+          <Title
+            className="label-md"
+            tt="capitalize"
+            m="auto"
+            fw={'700!important'}
           >
-            <Title
-              className="label-md"
-              tt="capitalize"
-              m="auto"
-              fw={'700!important'}
-            >
-              {content}
-            </Title>
-          </CustomSuspense>
-          <CustomSuspense
-            dependency={label}
-            fallback={<Skeleton width={40} height={16} m="auto" />}
-          >
-            <Text className="label-md" c="neutral.6" tt="capitalize" m="auto">
-              {label}
-            </Text>
-          </CustomSuspense>
-        </Stack>
-      </Flex>
-    </Paper>
-  );
-}
+            {content}
+          </Title>
+        </CustomSuspense>
+        <CustomSuspense
+          dependency={label}
+          fallback={<Skeleton width={40} height={16} m="auto" />}
+        >
+          <Text className="label-md" c="neutral.6" tt="capitalize" m="auto">
+            {label}
+          </Text>
+        </CustomSuspense>
+      </Stack>
+    </Flex>
+  </Paper>
+));
 
-function ProjectDetail() {
+const ProjectDetail = memo(() => {
   const [project, setProject] = useState(projectDemo);
 
   const router = useRouter();
@@ -215,9 +207,9 @@ function ProjectDetail() {
       </Stack>
     </DashboardSectionCardNew>
   );
-}
+});
 
-function Proposals() {
+const Proposals = memo(() => {
   const [proposals, setProposals] = useState(projectDemo.proposals);
   const [coverLetter, setCoverLetter] = useState('');
   const [opened, { open, close }] = useDisclosure();
@@ -260,7 +252,8 @@ function Proposals() {
       )}
     </DashboardSectionCardNew>
   );
-}
+});
+
 export default function Project() {
   return (
     <PageContainer.Marketplace>
