@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDisclosure } from '@mantine/hooks';
 import {
   Flex,
@@ -222,13 +222,10 @@ function Proposals() {
   const [coverLetter, setCoverLetter] = useState('');
   const [opened, { open, close }] = useDisclosure();
 
-  const displayCoverLetter = (letter) => {
+  const displayCoverLetter = async (letter) => {
     setCoverLetter(letter);
+    open();
   };
-
-  useEffect(() => {
-    if (coverLetter.length > 0) open();
-  }, [coverLetter, opened]);
 
   return (
     <DashboardSectionCardNew contentFullWidth title="Proposals Pending">
