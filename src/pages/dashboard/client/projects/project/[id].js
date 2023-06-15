@@ -254,7 +254,7 @@ const Proposals = memo(() => {
   );
 });
 
-export default function Project() {
+function Project() {
   return (
     <PageContainer.Marketplace>
       <DashboardGoBackButtonBar />
@@ -266,3 +266,9 @@ export default function Project() {
     </PageContainer.Marketplace>
   );
 }
+
+export async function getStaticProps() {
+  return { props: {} };
+}
+
+export default Project;
