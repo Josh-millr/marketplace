@@ -1,9 +1,9 @@
-import { Tabs } from "@mantine/core";
+import { Tabs } from '@mantine/core';
 
-import { PageContainer } from "@/shared/components/PageContainer";
-import { SectionEmptyBanner } from "@/shared/components/SectionEmptyBanner";
-import { DashboardPageHeader } from "@/shared/components/DashboardPageHeader";
-import { DashboardSectionCardNew } from "@/shared/components/DashboardSectionCardNew";
+import { PageContainer } from '@/shared/components/PageContainer';
+import { SectionEmptyBanner } from '@/shared/components/SectionEmptyBanner';
+import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
+import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCardNew';
 
 function Workspace() {
   return (
