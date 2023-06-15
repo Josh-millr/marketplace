@@ -228,7 +228,7 @@ function Proposals() {
 
   useEffect(() => {
     if (coverLetter.length > 0 && opened === false) open();
-    if (coverLetter.length > 0 && opened === true) setCoverLetter('');
+    if (coverLetter.length > 0 && opened === true) close();
   }, [coverLetter, opened]);
 
   return (
