@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { SectionEmptyBanner } from '@/shared/components/SectionEmptyBanner';
-import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCardNew';
+import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCardNew'; 
 import {
   DashboardStatsCardBanner,
   DashboardOngoingJobsStatsCard,
