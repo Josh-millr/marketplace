@@ -16,6 +16,7 @@ import { ErrorBoundaryAppRoot } from '@/shared/components/ErrorBoundary';
 import { authenticateUserApi } from '@/shared/services/authenticateUserApi';
 import { InitStateProvider } from '@/shared/providers/InitStateProvider';
 import '@/styles/globals.css';
+import { ConversationProvider } from '@/context/ConversationContext';
 
 const dmSans = DMSans({
   subsets: ['latin'],
@@ -62,9 +63,11 @@ function AppRoot({ Component, pageProps, userData, currPath }) {
                 <PageLoadingBar />
                 <Notifications position="top-center" zIndex={2077} limit={5} />
                 <InitStateProvider userData={userData} />
+                <ConversationProvider>
                 <Layout pagePath={currPath}>
                   <Component {...pageProps} />
-                </Layout>
+                  </Layout>
+                  </ConversationProvider>
               </main>
             </ErrorBoundaryAppRoot>
           </Provider>

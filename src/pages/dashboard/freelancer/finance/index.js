@@ -69,7 +69,7 @@ function Finance() {
 
     return (
         <div style={{ backgroundColor: useMediaQuery(`(max-width:75em)`) ? '#ffffff' : '#F0EFEB' }}>
-    <PageContainer.Dashboard>
+     <PageContainer.Dashboard layout="freelancer">
       <DashboardPageHeader
         title="My Finance"
         descr="View your overall financial statements and report"

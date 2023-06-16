@@ -20,7 +20,7 @@ export default function Profile() {
   return (
     <div style={{ backgroundColor: useMediaQuery(`(max-width:75em)`) ? '#ffffff' : '#F0EFEB' }}>
 
-       <PageContainer layout="freelancer">
+    <PageContainer.Dashboard layout="freelancer">
       <DashboardPageHeader
         title="My Profile"
         showButton
@@ -30,7 +30,8 @@ export default function Profile() {
         />
       
     {isLargeScreen ? (
-        <div style={{ margin: '0 auto', }} >
+          <div style={{ margin: '0 auto', }} >
+           <Stack spacing="xl">
           <DashboardProfileCard contentFullWidth title="Personal Information">
            <PersonalInformationProfileForm/>
           </DashboardProfileCard>
@@ -48,7 +49,8 @@ export default function Profile() {
           </DashboardProfileCard>
           <DashboardProfileCard contentFullWidth title="Delete">
             <DeleteProfile/>
-          </DashboardProfileCard>
+              </DashboardProfileCard>
+            </Stack>
     </div >
     ) : (
       <div style={{ margin: '0 auto' }}>
@@ -92,7 +94,7 @@ export default function Profile() {
         </div>
   )
         }
-        </PageContainer>
+        </PageContainer.Dashboard>
       </div>
   );
 }
