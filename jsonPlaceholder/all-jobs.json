@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "title": "Some title...",
+        "title": "Background research (Context study, Market study, technology trend, future projections)",
         "freelancer": {
             "name": "James magnus",
             "id": "josh-miller",
@@ -13,7 +13,7 @@
     },
     {
         "id": 2,
-        "title": "Some title...",
+        "title": "Background research (Context study, Market study, technology trend, future projections)",
         "freelancer": {
             "name": "James magnus",
             "id": "josh-miller",
@@ -25,7 +25,7 @@
     },
     {
         "id": 3,
-        "title": "Some title...",
+        "title": "Background research (Context study, Market study, technology trend, future projections)",
         "freelancer": {
             "name": "James magnus",
             "id": "josh-miller",
