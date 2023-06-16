@@ -15,7 +15,13 @@ import {
 import { CustomSuspense } from '../CustomSuspense';
 
 export const DashboardClientWorkspaceCard = memo((props) => (
-  <Flex gap="xl" p="xl" direction={'column'} w={'100%'}>
+  <Flex
+    py="xl"
+    gap="xl"
+    w={'100%'}
+    direction={'column'}
+    px={{ base: 0, md: 'xl' }}
+  >
     <Flex w={'100%'} justify={{ base: 'column', md: 'space-between' }}>
       <Flex gap="xs" direction={'column'}>
         <CustomSuspense
