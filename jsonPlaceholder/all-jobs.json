@@ -9,7 +9,7 @@
             "locale": "en-us"
         },
         "dueDate": "1st April 2020",
-        "status": "1st April 2020"
+        "status": "in progress"
     },
     {
         "id": 2,
@@ -21,7 +21,7 @@
             "locale": "en-us"
         },
         "dueDate": "1st April 2020",
-        "status": "1st April 2020"
+        "status": "in progress"
     },
     {
         "id": 3,
@@ -33,6 +33,6 @@
             "locale": "en-us"
         },
         "dueDate": "1st April 2020",
-        "status": "1st April 2020"
+        "status": "in progress"
     }
 ]

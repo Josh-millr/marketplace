@@ -30,7 +30,7 @@ function Workspace() {
 
           <Tabs.Panel value="ongoing" pt="xs">
             {jobs
-              .filter((job) => job.status === 'ongoing')
+              .filter((job) => job.status === 'in progress')
               .map(({ id, title, status, dueDate, freelancer }) => (
                 <DashboardClientWorkspaceCard
                   key={id}
@@ -46,7 +46,7 @@ function Workspace() {
 
           <Tabs.Panel value="completed" pt="xs">
             {jobs
-              .filter((job) => job.status === 'ongoing')
+              .filter((job) => job.status === 'completed')
               .map(({ id, title, status, dueDate, freelancer }) => (
                 <DashboardClientWorkspaceCard
                   key={id}
@@ -62,7 +62,7 @@ function Workspace() {
 
           <Tabs.Panel value="cancelled" pt="xs">
             {jobs
-              .filter((job) => job.status === 'ongoing')
+              .filter((job) => job.status === 'cancelled')
               .map(({ id, title, status, dueDate, freelancer }) => (
                 <DashboardClientWorkspaceCard
                   key={id}
@@ -76,7 +76,7 @@ function Workspace() {
               ))}
           </Tabs.Panel>
         </Tabs>
-        {[].length === 0 && <SectionEmptyBanner sectionLabel="No jobs" />}
+        {jobs.length === 0 && <SectionEmptyBanner sectionLabel="Jobs" />}
       </DashboardSectionCardNew>
     </PageContainer.Marketplace>
   );
