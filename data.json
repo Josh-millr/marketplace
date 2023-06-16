@@ -1,0 +1,140 @@
+{
+    "conversation_list": [
+        {
+            "id": 1,
+            "sender": {
+                "name": "Darlene Robertson",
+                "avatar":" /images/avatar/JPG/avatar.avatar1-640x640.jpg"
+              },
+           "service": "Need French linguistics to compare with an article for an anchor podcast",
+            "timestamp": "10:00 AM",
+            "unread": true,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "text": "Hello, how are you?"
+                },
+                {
+                  "me": true ,
+                  "text": "I am good, thanks!"
+                },
+                {
+                  "me": false ,
+                  "text": "I need your service"
+                }
+            ]
+          },
+          {
+            "id": 2,
+            "sender": {
+                "name": "Matthew Olaoluwa",
+                "avatar":" /images/avatar/JPG/avatar.avatar2-640x640.jpg"
+              },
+            "service": "SEO Expert needed",
+            "timestamp": "10:00 AM",
+            "unread": true,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "text": "Hello, how are you?"
+                },
+                {
+                  "me": true ,
+                  "text": "I am good, thanks!"
+                },
+               {
+                  "me": false,
+                  "text": "Would you be available for work."
+                } 
+            ]
+          },
+          {
+            "id": 3,
+            "sender": {
+                "name": "Isaac Oluwatemilorun",
+                "avatar": "/images/avatar/JPG/avatar.avatar3-640x640.jpg"
+              },
+            "service": "Need French linguistics to compare with an article for",
+            "timestamp": "10:00 AM",
+            "unread": true,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "text": "Hello, how are you?"
+                },
+                {
+                  "me": true ,
+                  "text": "I am good, thanks!"
+                },
+                {
+                  "me": false ,
+                  "text": "I need your service"
+                }
+            ]
+          },
+          {
+            "id": 4,
+            "sender": {
+                "name": "Samuel Olukoju",
+                "avatar": "/images/avatar/JPG/avatar.avatar4-640x640.jpg"
+              },
+            "service": "Logo design needed for pool business",
+            "timestamp": "10:00 AM",
+            "unread": true,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "text": "Hello, how are you?"
+                },
+                {
+                  "me": true ,
+                  "text": "I am good, thanks!"
+                },
+                {
+                  "me": false,
+                  "text": "Would you be available for work."
+                }
+            ]
+          },
+          {
+            "id": 5,
+            "sender": {
+                "name": "Hellena John",
+                "avatar": "/images/avatar/JPG/avatar.avatar5-640x640.jpg"
+              },
+            "service": "Need French linguistics to compare with an article for",
+            "timestamp": "10:00 AM",
+            "unread": true,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "text": "Hello, how are you?"
+                },
+                {
+                  "me": true ,
+                  "text": "I am good, thanks!"
+                }
+            ]
+          },
+          {
+            "id": 6,
+            "sender": {
+                "name": "Edwin Martins",
+                "avatar": "/images/avatar/JPG/avatar.avatar1-640x640.jpg"
+              },
+            "service": "SEO Expert needed",
+            "timestamp": "10:00 AM",
+            "unread": false,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "text": "Hello, how are you?"
+                },
+                {
+                  "me": true ,
+                  "text": "I am good, thanks!"
+                }
+            ]
+          }
+      ]
+}

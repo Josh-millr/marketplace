@@ -1,0 +1,156 @@
+{
+    "conversation_list": [
+        {
+            "id": 1,
+            "sender": {
+                "name": "Darlene Robertson",
+                "avatar":" /images/avatar/JPG/avatar.avatar1-640x640.jpg"
+              },
+           "service": "Need French linguistics to compare with an article for an anchor podcast",
+            "timestamp": "10:00 am",
+            "unread": true,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "message": "Hello, how are you?",
+                  "timestamp":"2023-06-15T10:00:00Z"
+                },
+                {
+                  "me": true ,
+                  "message": "I am good, thanks!",
+                  "timestamp":"2023-06-15T10:05:00Z"
+                },
+                {
+                  "me": false ,
+                  "message": "I need your service",
+                  "timestamp":"2023-06-15T10:10:00Z"
+                }
+            ]
+          },
+          {
+            "id": 2,
+            "sender": {
+                "name": "Matthew Olaoluwa",
+                "avatar":" /images/avatar/JPG/avatar.avatar2-640x640.jpg"
+              },
+            "service": "SEO Expert needed",
+            "timestamp": "10:00 am",
+            "unread": true,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "message": "Hello, how are you?",
+                  "timestamp":"2023-06-15T10:00:00Z"
+                },
+                {
+                  "me": true ,
+                  "message": "I am good, thanks!",
+                  "timestamp":"2023-06-15T10:02:00Z"
+                },
+               {
+                  "me": false,
+                  "message": "Would you be available for work.",
+                  "timestamp":"2023-06-15T10:20:00Z"
+                } 
+            ]
+          },
+          {
+            "id": 3,
+            "sender": {
+                "name": "Isaac Oluwatemilorun",
+                "avatar": "/images/avatar/JPG/avatar.avatar3-640x640.jpg"
+              },
+            "service": "Need French linguistics to compare with an article for",
+            "timestamp": "10:00 am",
+            "unread": true,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "message": "Hello, how are you?",
+                  "timestamp":"2023-06-15T10:00:00Z"
+                },
+                {
+                  "me": true ,
+                  "message": "I am good, thanks!",
+                  "timestamp":"2023-06-15T10:10:00Z"
+                },
+                {
+                  "me": false ,
+                  "message": "I need your service",
+                  "timestamp":"2023-06-15T10:15:00Z"
+                }
+            ]
+          },
+          {
+            "id": 4,
+            "sender": {
+                "name": "Samuel Olukoju",
+                "avatar": "/images/avatar/JPG/avatar.avatar4-640x640.jpg"
+              },
+            "service": "Logo design needed for pool business",
+            "timestamp": "10:00 am",
+            "unread": true,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "message": "Hello, how are you?",
+                  "timestamp":"2023-06-15T10:00:00Z"
+                },
+                {
+                  "me": true ,
+                  "message": "I am good, thanks!",
+                  "timestamp":"2023-06-15T10:25:00Z"
+                },
+                {
+                  "me": false,
+                  "message": "Would you be available for work.",
+                  "timestamp":"2023-06-15T10:30:00Z"
+                }
+            ]
+          },
+          {
+            "id": 5,
+            "sender": {
+                "name": "Hellena John",
+                "avatar": "/images/avatar/JPG/avatar.avatar5-640x640.jpg"
+              },
+            "service": "Need French linguistics to compare with an article for",
+            "timestamp": "10:00 am",
+            "unread": true,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "message": "Hello, how are you?",
+                  "timestamp":"2023-06-15T10:00:00Z"
+                },
+                {
+                  "me": true ,
+                  "message": "I am good, thanks!",
+                  "timestamp":"2023-06-15T10:10:40Z"
+                }
+            ]
+          },
+          {
+            "id": 6,
+            "sender": {
+                "name": "Edwin Martins",
+                "avatar": "/images/avatar/JPG/avatar.avatar1-640x640.jpg"
+              },
+            "service": "SEO Expert needed",
+            "timestamp": "10:00 am",
+            "unread": false,
+            "chatHistory": [
+                {
+                  "me": false ,
+                  "message": "Hello, how are you?",
+                  "timestamp":"2023-06-15T10:00:00Z"
+                },
+                {
+                  "me": true ,
+                  "message": "I am good, thanks!",
+                  "timestamp":"2023-06-15T10:20:00Z"
+                }
+            ]
+          }
+      ]
+}

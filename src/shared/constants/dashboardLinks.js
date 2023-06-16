@@ -43,7 +43,7 @@ export const freelancerDashboardLinks = [
     link: '/dashboard/freelancer/withdrawal',
   },
   {
-    title: 'My Finance',
+    title: 'Finance',
     icon: Notes,
     link: '/dashboard/freelancer/finance',
   },
