@@ -24,12 +24,20 @@ export const DashboardClientWorkspaceCard = memo((props) => (
   >
     <Flex w={'100%'} justify={{ base: 'column', md: 'space-between' }}>
       <Flex gap="xs" direction={'column'}>
-        <CustomSuspense
-          dependency={props?.status}
-          fallback={<Skeleton height={16} width={100} />}
-        >
-          <Badge size="md">{props.status}</Badge>
-        </CustomSuspense>
+        <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+          <div>
+            <CustomSuspense
+              dependency={props?.status}
+              fallback={<Skeleton height={16} width={100} />}
+            >
+              <div>
+                <Badge variant="filled" size="lg">
+                  {props.status}
+                </Badge>
+              </div>
+            </CustomSuspense>
+          </div>
+        </MediaQuery>
         {/* ... */}
         <CustomSuspense
           dependency={props?.title}
