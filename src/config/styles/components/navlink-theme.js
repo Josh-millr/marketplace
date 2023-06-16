@@ -1,7 +1,7 @@
 export const NavLinkTheme = {
-  styles: () => ({
+  styles: (theme) => ({
     root: {
-      borderRadius: '0px 8px 8px 0px',
+      padding: `${theme.spacing.md} ${theme.spacing.xl}`,
     },
   }),
 };

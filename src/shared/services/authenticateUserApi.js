@@ -1,7 +1,7 @@
 import { HamzryAPI } from '@/config/api/HamzryAPI';
 import { serverDown } from '../constants/feedbackMessage';
 
-// Authenticated the user session token and return the associated user datd
+// Authenticated the user session token and return the associated user data
 
 export const authenticateUserApi = async (sessionToken) => {
   const endpoint = '/verify-token';

@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "Background research (Context study, Market study, technology trend, future projections)",
+        "freelancer": {
+            "name": "James magnus",
+            "id": "josh-miller",
+            "img": "http://placehold.it/",
+            "locale": "en-us"
+        },
+        "dueDate": "1st April 2020",
+        "status": "in progress"
+    },
+    {
+        "id": 2,
+        "title": "Background research (Context study, Market study, technology trend, future projections)",
+        "freelancer": {
+            "name": "James magnus",
+            "id": "josh-miller",
+            "img": "http://placehold.it/",
+            "locale": "en-us"
+        },
+        "dueDate": "1st April 2020",
+        "status": "in progress"
+    },
+    {
+        "id": 3,
+        "title": "Background research (Context study, Market study, technology trend, future projections)",
+        "freelancer": {
+            "name": "James magnus",
+            "id": "josh-miller",
+            "img": "http://placehold.it/",
+            "locale": "en-us"
+        },
+        "dueDate": "1st April 2020",
+        "status": "in progress"
+    }
+]

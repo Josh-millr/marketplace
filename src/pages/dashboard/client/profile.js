@@ -17,7 +17,7 @@ import { useForm } from "@mantine/form";
 import { iconCreator } from "@/shared/utils/iconCreator";
 import { PageContainer } from "@/shared/components/PageContainer";
 import { DashboardPageHeader } from "@/shared/components/DashboardPageHeader";
-import { DashboardSectionCard } from "@/shared/components/DashboardSectionCard";
+import { DashboardSectionCardNew } from "@/shared/components/DashboardSectionCardNew";
 import { ProfilePictureActionMenu } from "@/shared/components/ProfilePictureActionMenu";
 
 function BuyerProfile(props) {
@@ -32,7 +32,7 @@ function BuyerProfile(props) {
         descr="View and manage your account profile"
       />
 
-      <DashboardSectionCard withTitle title="Basic Info" padSection>
+      <DashboardSectionCardNew title="Basic Info" padSection>
         <Stack>
           {/* Profile Picture */}
           <Group spacing="xl">
@@ -175,7 +175,7 @@ function BuyerProfile(props) {
 
           {/* Add more contents.. */}
         </Stack>
-      </DashboardSectionCard>
+      </DashboardSectionCardNew>
     </PageContainer.Marketplace>
   );
 }

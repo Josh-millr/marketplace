@@ -11,6 +11,7 @@ import {
 // import { withAuthRedirect } from '@/shared/hocs/withAuthRedirect';
 
 export default function Home() {
+
   return (
     <>
       <HomepageHeroSection />

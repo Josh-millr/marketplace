@@ -1,10 +1,14 @@
 import {
-  Coins,
-  Notes,
   Mail,
+  Notes,
+  Coins,
   ViewGrid,
+  PageEdit,
+  MessageText,
+  MultiplePages,
   LargeSuitcase,
   ClipboardCheck,
+  DatabaseScript,
 } from 'iconoir-react';
 
 export const freelancerDashboardLinks = [
@@ -62,53 +66,43 @@ export const freelancerDashboardLinks = [
 
 export const clientDashboardLinks = [
   {
-    title: 'Home',
+    title: 'Dashboard',
     icon: ViewGrid,
     link: '/dashboard/client',
   },
   {
     title: 'My Projects',
-    icon: LargeSuitcase,
-    link: '/dashboard/client/projects/',
+    icon: MultiplePages,
+    link: '/dashboard/client/projects',
   },
-  // {
-  //   title: 'Proposals',
-  //   icon: Notes,
-  //   link: '/dashboard/client/proposals',
-  // },
-  // {
-  //   title: 'Reviews',
-  //   icon: ClipboardCheck,
-  //   link: '/dashboard/client/review',
-  // },
-  // {
-  //   title: 'Messages',
-  //   icon: Mail,
-  //   link: '/dashboard/client/message',
-  // },
-  // {
-  //   title: 'Payout',
-  //   icon: Coins,
-  //   link: '/dashboard/freelancer/payout',
-  // },
-  // {
-  //   title: 'Finance',
-  //   icon: Notes,
-  //   link: '/dashboard/freelancer/finance',
-  // },
-  // {
-  //   title: 'Contracts',
-  //   icon: Notes,
-  //   link: '/dashboard/freelancer/contracts',
-  // },
-  // {
-  //   title: 'Create Projects',
-  //   icon: Notes,
-  //   link: '/dashboard/client/create-project',
-  // },
-  // {
-  //   title: 'My Profile',
-  //   icon: Notes,
-  //   link: '/dashboard/freelancer/profile',
-  // },
+  {
+    title: 'Messages',
+    icon: Mail,
+    link: '/dashboard/client/message',
+  },
+  {
+    title: 'Proposals',
+    icon: PageEdit,
+    link: '/dashboard/client/proposals',
+  },
+  {
+    title: 'Payment',
+    icon: Coins,
+    link: '/dashboard/client/payment',
+  },
+  {
+    title: 'Contracts',
+    icon: DatabaseScript,
+    link: '/dashboard/client/contracts',
+  },
+  {
+    title: 'Reviews',
+    icon: MessageText,
+    link: '/dashboard/client/review',
+  },
+  {
+    title: 'My Workspace',
+    icon: LargeSuitcase,
+    link: '/dashboard/client/workspace',
+  },
 ];
