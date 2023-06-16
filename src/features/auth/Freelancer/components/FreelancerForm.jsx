@@ -1,246 +1,87 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { Stepper, Center } from "@mantine/core";
 import {
-  Stepper,
-  Button,
-  Group,
-  Center,
-  Progress,
-  Text,
-  Paper,
-} from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
-import {
-  IconMathGreater,
   IconNumber1,
   IconNumber2,
   IconNumber3,
   IconNumber4,
-} from '@tabler/icons-react';
-import FormDataProvider from '@/shared/providers/FormDataProvider';
-import { PersonalInformationForm } from './PersonalInformationForm';
-import { ProfessionalInformationForm } from './ProfessionalInformationForm';
-import { ExperienceInformationForm } from './ExperienceInformationForm';
-import { ContactInformationForm } from './ContactInformationForm';
-import { OnboardingSuccess } from './OnboardingSuccess';
+} from "@tabler/icons-react";
+
+import FormDataProvider from "@/shared/providers/FormDataProvider";
+import { PageContainer } from "@/shared/components/PageContainer";
+
+import { OnboardingSuccess } from "./OnboardingSuccess";
+import { ContactInformationForm } from "./ContactInformationForm";
+import { PersonalInformationForm } from "./PersonalInformationForm";
+import { ExperienceInformationForm } from "./ExperienceInformationForm";
+import { ProfessionalInformationForm } from "./ProfessionalInformationForm";
 
 export function FreelancerForm() {
-  const totalSteps = 4;
   const [active, setActive] = useState(0);
-  const [activeStep, setActiveStep] = useState(0);
-  const [highestStepVisited, setHighestStepVisited] = useState(active);
-  const progress = ((activeStep + 1) / totalSteps) * 100;
-  const isLargeScreen = useMediaQuery('(min-width: 75em)');
 
-  const handleStepChange = (nextStep) => {
-    const isOutOfBounds = nextStep > 3 || nextStep < 0;
-
-    if (isOutOfBounds) {
-      return;
-    }
-
-    setActive(nextStep);
-    setHighestStepVisited((hSC) => Math.max(hSC, nextStep));
+  const stepControls = {
+    prev() {
+      setActive((current) => (current > 0 ? current - 1 : current));
+    },
+    next() {
+      setActive((current) => (current < 3 ? current + 1 : current));
+    },
   };
 
-  const shouldAllowSelectStep = (step) =>
-    highestStepVisited >= step && active !== step;
-
-  // const handleSubmit = () => {
-  //   //sUBMIT
-  // };
-
-  const handleNextStep = () => {
-    setActiveStep((prevStep) => Math.min(prevStep + 1, totalSteps - 1));
-  };
-
-  const handlePreviousStep = () => {
-    setActiveStep((prevStep) => Math.max(prevStep - 1, 0));
-  };
   return (
-    <>
-      {isLargeScreen ? (
-        <div style={{ margin: '0 auto' }}>
-          <FormDataProvider
-          // onSubmit={handleSubmit}
-          >
-            <Stepper
-              color="green"
-              size="xs"
-              active={active}
-              onStepClick={setActive}
-              breakpoint="md"
+    <PageContainer layout="marketplace">
+      <PageContainer.Marketplace>
+        <FormDataProvider>
+          <Stepper active={active} onStepClick={setActive} size="sm">
+            <Stepper.Step
+              label="Personal Info"
+              completedIcon={<IconNumber1 size="1.1rem" />}
             >
-              <Stepper.Step
-                label="Personal Info"
-                completedIcon={<IconNumber1 size="1.1rem" />}
-                allowStepSelect={shouldAllowSelectStep(0)}
-              >
-                <PersonalInformationForm />
-              </Stepper.Step>
-              <Stepper.Step
-                label="Professional Info"
-                completedIcon={<IconNumber2 size="1.1rem" />}
-                allowStepSelect={shouldAllowSelectStep(1)}
-              >
-                <ProfessionalInformationForm />
-              </Stepper.Step>
-              <Stepper.Step
-                label="Experience Info"
-                completedIcon={<IconNumber3 size="1.1rem" />}
-                allowStepSelect={shouldAllowSelectStep(2)}
-              >
-                <ExperienceInformationForm />
-              </Stepper.Step>
-              <Stepper.Step
-                label="Contact Info"
-                completedIcon={<IconNumber4 size="1.1rem" />}
-                allowStepSelect={shouldAllowSelectStep(3)}
-              >
-                <ContactInformationForm />
-              </Stepper.Step>
-              <Stepper.Step
-                label="Done"
-                allowStepSelect={shouldAllowSelectStep(4)}
-              >
-                <OnboardingSuccess />
-              </Stepper.Step>
+              <PersonalInformationForm goNextStep={stepControls.next} />
+            </Stepper.Step>
 
-              <Stepper.Completed>
-                <Center>
-                  Completed, click back button to get to the previous step
-                </Center>
-              </Stepper.Completed>
-            </Stepper>
-          </FormDataProvider>
-          <Group position="left" mt="xl">
-            <Button
-              variant="subtle"
-              color="teal"
-              size="sm"
-              leftIcon={<IconMathGreater size="1rem" />}
-              onClick={() => handleStepChange(active - 1)}
-              disabled={active === 0}
+            <Stepper.Step
+              label="Professional Info"
+              completedIcon={<IconNumber2 size="1.1rem" />}
             >
-              Go Back
-            </Button>
-            {active === 3 ? (
-              <Button type="submit" form="formData">
-                Finish
-              </Button>
-            ) : (
-              <Button onClick={() => handleStepChange(active + 1)}>
-                Next step
-              </Button>
-            )}
-          </Group>
-        </div>
-      ) : (
-        <div style={{ margin: '0 auto' }}>
-          <FormDataProvider
-          // onSubmit={handleSubmit}
-          >
-            <Text variant="h4" align="center" style={{ marginBottom: '1rem' }}>
-              Current Progress - {progress}%
-            </Text>
+              <ProfessionalInformationForm
+                goPrevStep={stepControls.prev}
+                goNextStep={stepControls.next}
+              />
+            </Stepper.Step>
 
-            <Progress
-              value={progress}
-              color="green"
-              striped
-              style={{ marginBottom: '2rem' }}
-            />
-
-            <Paper padding="lg">
-              {activeStep === 0 && (
-                <>
-                  <Text
-                    variant="h2"
-                    align="center"
-                    style={{ marginBottom: '1rem' }}
-                  >
-                    Personal Information
-                  </Text>
-                  <PersonalInformationForm onNextStep={handleNextStep} />
-                </>
-              )}
-
-              {activeStep === 1 && (
-                <>
-                  <Text
-                    variant="h2"
-                    align="center"
-                    style={{ marginBottom: '1rem' }}
-                  >
-                    Professional Information
-                  </Text>
-                  <ProfessionalInformationForm
-                    onNextStep={handleNextStep}
-                    onPreviousStep={handlePreviousStep}
-                  />
-                </>
-              )}
-
-              {activeStep === 2 && (
-                <>
-                  <Text
-                    variant="h2"
-                    align="center"
-                    style={{ marginBottom: '1rem' }}
-                  >
-                    Experience Information
-                  </Text>
-                  <ExperienceInformationForm
-                    onNextStep={handleNextStep}
-                    onPreviousStep={handlePreviousStep}
-                  />
-                </>
-              )}
-
-              {activeStep === 3 && (
-                <>
-                  <Text
-                    variant="h2"
-                    align="center"
-                    style={{ marginBottom: '1rem' }}
-                  >
-                    Contact Information
-                  </Text>
-                  <ContactInformationForm
-                    // onSubmit={handleSubmit}
-                    onPreviousStep={handlePreviousStep}
-                  />
-                </>
-              )}
-            </Paper>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                marginTop: '2rem',
-              }}
+            <Stepper.Step
+              label="Experience Info"
+              completedIcon={<IconNumber3 size="1.1rem" />}
             >
-              {activeStep > 0 && (
-                <Button onClick={handlePreviousStep}>Go Back</Button>
-              )}
+              <ExperienceInformationForm
+                goPrevStep={stepControls.prev}
+                goNextStep={stepControls.next}
+              />
+            </Stepper.Step>
 
-              {activeStep < totalSteps - 1 && (
-                <Button onClick={handleNextStep} variant="filled">
-                  Next
-                </Button>
-              )}
+            <Stepper.Step
+              label="Contact Info"
+              completedIcon={<IconNumber4 size="1.1rem" />}
+            >
+              <ContactInformationForm
+                goPrevStep={stepControls.prev}
+                goNextStep={stepControls.next}
+              />
+            </Stepper.Step>
 
-              {activeStep === totalSteps - 1 && (
-                <Button
-                  // onClick={handleSubmit}
-                  variant="filled"
-                >
-                  Finish
-                </Button>
-              )}
-            </div>
-          </FormDataProvider>
-        </div>
-      )}
-    </>
+            <Stepper.Step label="Done">
+              <OnboardingSuccess />
+            </Stepper.Step>
+
+            <Stepper.Completed>
+              <Center>
+                Completed, click back button to get to the previous step
+              </Center>
+            </Stepper.Completed>
+          </Stepper>
+        </FormDataProvider>
+      </PageContainer.Marketplace>
+    </PageContainer>
   );
 }

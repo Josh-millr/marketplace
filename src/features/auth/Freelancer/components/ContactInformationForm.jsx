@@ -1,132 +1,126 @@
-import { useState } from 'react';
-import {
-  Container,
-  Paper,
-  TextInput,
-  Divider,
-  Text,
-  Grid,
-} from '@mantine/core';
+import { useContext } from "react";
+import { useDispatch } from "react-redux";
+import { useForm } from "@mantine/form";
+import { Flex, TextInput, Text, Grid, Stack, Button } from "@mantine/core";
+import { Instagram, Twitter, Facebook } from "iconoir-react";
 
-import {
-  IconBrandFacebookFilled,
-  IconBrandInstagram,
-  IconBrandTwitterFilled,
-} from '@tabler/icons-react';
+import { userActions } from "@/state/user/userReducer";
+import { FormDataContext } from "@/shared/providers/FormDataProvider";
+import { registerUserAsFreelancerApi } from "@/shared/services/registerUserAsFreelancerApi";
 
-export function ContactInformationForm() {
-  const [facebook, setFacebook] = useState('');
-  const [instagram, setInstagram] = useState('');
-  const [twitter, setTwitter] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('+234');
+import { iconCreator } from "@/shared/utils/iconCreator";
+import { FormSectionHeader } from "./Elements/FormSectionHeader";
+
+export function ContactInformationForm({ goNextStep, goPrevStep }) {
+  const { getData, getAllData } = useContext(FormDataContext);
+
+  const form = useForm({
+    initialValues: {
+      contact: {
+        phone: "(234)-",
+        social: {
+          facebook: "",
+          twitter: "",
+          instagram: "",
+        },
+      },
+    },
+  });
+
+  const submitForm = form.onSubmit(async (values) => {
+    const isFormValid = form.isValid();
+    if (isFormValid !== true) return null;
+
+    const contactPrev = getData(["contact"]);
+
+    const contactUpdated = { ...contactPrev.contact, ...values.contact };
+
+    const allFormData = getAllData();
+
+    try {
+      console.log("Submitting...");
+      const response = await registerUserAsFreelancerApi({
+        ...allFormData,
+        contact: contactUpdated,
+      });
+
+      // Update the store with the user freelanec data
+
+      // Show a success notification
+
+      // Push the user to the freelancer marketplace
+    } catch (error) {
+      console.log("There was an error!");
+    }
+  });
 
   return (
-    <Container
-      style={{ display: 'flex', justifyContent: 'center', marginTop: '1em' }}
-    >
-      <Paper>
-        <Text
-          variant="h1"
-          size="lg"
-          style={{ textAlign: 'left', marginBottom: '1rem' }}
-        >
-          Contact Information
-        </Text>
-        <Text
-          variant="h2"
-          size="md"
-          style={{ textAlign: 'left', marginBottom: '1rem' }}
-        >
-          This is your time to shine. Let potential buyers know what you do best
-          and how you gained your skills, certifications and experience.
-        </Text>
-
-        <Divider style={{ margin: '1rem 0' }} />
-
-        <Text
-          variant="h2"
-          size="md"
-          style={{ textAlign: 'left', marginBottom: '1rem', marginTop: '1em' }}
-        >
-          Social media accounts
-        </Text>
-        <Grid>
-          <Grid.Col>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <IconBrandFacebookFilled
-                style={{ color: 'blue', marginRight: '0.5rem' }}
-              />
-              <TextInput
-                iconColor="blue"
-                iconPosition="left"
-                placeholder="@username"
-                value={facebook}
-                onChange={(event) => setFacebook(event.currentTarget.value)}
-                style={{ flex: 1, marginBottom: '1rem' }}
-              />
-            </div>
-          </Grid.Col>
-          <Grid.Col>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <IconBrandInstagram style={{ marginRight: '0.5rem' }} />
-              <TextInput
-                iconColor="purple"
-                iconPosition="left"
-                placeholder="@username"
-                value={instagram}
-                onChange={(event) => setInstagram(event.currentTarget.value)}
-                style={{ flex: 1, marginBottom: '1rem' }}
-              />
-            </div>
-          </Grid.Col>
-
-          <Grid.Col>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <IconBrandTwitterFilled
-                style={{ color: 'blue', marginRight: '0.5rem' }}
-              />
-              <TextInput
-                iconPosition="left"
-                value={twitter}
-                placeholder="@username"
-                onChange={(event) => setTwitter(event.currentTarget.value)}
-                style={{ flex: 1, marginBottom: '1rem' }}
-              />
-            </div>
-          </Grid.Col>
-        </Grid>
-
-        <Divider style={{ margin: '1rem 0' }} />
-
-        <Text
-          variant="h2"
-          size="md"
-          style={{ textAlign: 'left', marginBottom: '1rem', marginTop: '1em' }}
-        >
-          Phone number
-        </Text>
-        <Text
-          variant="h2"
-          size="md"
-          style={{ textAlign: 'left', marginBottom: '1rem' }}
-        >
-          We need your phone number to keep your account safe. We&apos;ll never
-          share your phone number.
-        </Text>
-        <TextInput
-          value={phoneNumber}
-          placeholder="Enter phone number"
-          onChange={({ currentTarget: { value } }) => {
-            if (!value.startsWith('+234')) {
-              setPhoneNumber(`+234${value}`);
-            } else {
-              setPhoneNumber(value);
-            }
-          }}
-          style={{ marginBottom: '1rem' }}
+    <Grid gutterMd="xl" pt="2xl">
+      {/* Column 1 */}
+      <Grid.Col span={12} md={5} orderMd={2}>
+        <FormSectionHeader
+          title="Contact Information"
+          description="This is your time to shine. Let potential buyers know what you do best
+          and how you gained your skills, certifications and experience."
         />
-        <Divider style={{ margin: '1rem 0' }} />
-      </Paper>
-    </Container>
+      </Grid.Col>
+
+      {/* Column 2 */}
+      <Grid.Col span={12} md={7} orderMd={1} pr={{ base: 0, lg: "5xl" }}>
+        <form onSubmit={submitForm}>
+          <Stack spacing="2xl" w="100%">
+            <Stack spacing="xl">
+              {/* Facebook account input */}
+              <Text className="sub-h1">Social media accounts</Text>
+
+              <Flex gap="lg">
+                {iconCreator({ icon: Facebook })}
+                <TextInput
+                  w="100%"
+                  placeholder="@username"
+                  {...form.getInputProps("contact.social.facebook")}
+                />
+              </Flex>
+
+              {/* Twitter Account Input  */}
+              <Flex gap="lg">
+                {iconCreator({ icon: Twitter })}
+                <TextInput
+                  w="100%"
+                  placeholder="@twitter_username"
+                  {...form.getInputProps("contact.social.twitter")}
+                />
+              </Flex>
+
+              {/* Instagram Account Input  */}
+              <Flex gap="lg">
+                {iconCreator({ icon: Instagram })}
+                <TextInput
+                  w="100%"
+                  placeholder="@instagram_username"
+                  {...form.getInputProps("contact.social.instagram")}
+                />
+              </Flex>
+            </Stack>
+
+            <TextInput
+              w="100%"
+              title="Phone number"
+              description="We need your phone number to keep your account safe. We'll
+              never share your phone number."
+              placeholder="Enter phone number"
+              {...form.getInputProps("contact.phone")}
+            />
+
+            <Flex gap="sm" direction={{ base: "column", sm: "row" }} w="100%">
+              <Button variant="outline" color="gray" onClick={goPrevStep}>
+                Go Back
+              </Button>
+              <Button type="submit">Continue</Button>
+            </Flex>
+          </Stack>
+        </form>
+      </Grid.Col>
+    </Grid>
   );
 }

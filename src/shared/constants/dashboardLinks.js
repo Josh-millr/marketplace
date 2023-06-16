@@ -1,16 +1,16 @@
 import {
-  LargeSuitcase,
-  Notes,
-  HomeAltSlim,
-  Mail,
-  ClipboardCheck,
   Coins,
+  Notes,
+  Mail,
+  ViewGrid,
+  LargeSuitcase,
+  ClipboardCheck,
 } from 'iconoir-react';
 
 export const freelancerDashboardLinks = [
   {
-    title: 'Home',
-    icon: HomeAltSlim,
+    title: 'Dashboard',
+    icon: ViewGrid,
     link: '/dashboard/freelancer',
   },
   {
@@ -18,41 +18,41 @@ export const freelancerDashboardLinks = [
     icon: LargeSuitcase,
     link: '/dashboard/freelancer/services',
   },
-  // {
-  //   title: 'My Proposals',
-  //   icon: Notes,
-  //   link: '/dashboard/freelancer/proposals',
-  // },
+  {
+    title: 'My Proposals',
+    icon: Notes,
+    link: '/dashboard/freelancer/proposals',
+  },
   {
     title: 'Messages',
     icon: Mail,
     link: '/dashboard/freelancer/message',
   },
-  // {
-  //   title: 'Reviews',
-  //   icon: ClipboardCheck,
-  //   link: '/dashboard/freelancer/review',
-  // },
-  // {
-  //   title: 'Payout',
-  //   icon: Coins,
-  //   link: '/dashboard/freelancer/payout',
-  // },
+  {
+    title: 'Reviews',
+    icon: ClipboardCheck,
+    link: '/dashboard/freelancer/review',
+  },
+  {
+    title: 'Withdrawal',
+    icon: Coins,
+    link: '/dashboard/freelancer/withdrawal',
+  },
   {
     title: 'Finance',
     icon: Notes,
     link: '/dashboard/freelancer/finance',
   },
-  // {
-  //   title: 'Contracts',
-  //   icon: Notes,
-  //   link: '/dashboard/freelancer/contracts',
-  // },
-  // {
-  //   title: 'Create Service',
-  //   icon: Notes,
-  //   link: '/dashboard/freelancer/create-service',
-  // },
+  {
+    title: 'Contracts',
+    icon: Notes,
+    link: '/dashboard/freelancer/contracts',
+  },
+  {
+    title: 'Manage Jobs',
+    icon: Notes,
+    link: '/dashboard/freelancer/manage',
+  },
   {
     title: 'My Profile',
     icon: Notes,
@@ -63,7 +63,7 @@ export const freelancerDashboardLinks = [
 export const clientDashboardLinks = [
   {
     title: 'Home',
-    icon: HomeAltSlim,
+    icon: ViewGrid,
     link: '/dashboard/client',
   },
   {

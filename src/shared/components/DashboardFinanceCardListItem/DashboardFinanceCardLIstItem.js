@@ -50,7 +50,7 @@ export const DashboardFinanceCardListItem = memo((props) => {
       justify="space-between"
     >
       <Grid.Col span="auto">
-        <Stack spacing="md">
+        <Stack spacing="lg">
           {/* Service Title */}
           <CustomSuspense
             dependency={title}

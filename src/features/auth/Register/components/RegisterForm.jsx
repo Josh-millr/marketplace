@@ -1,5 +1,5 @@
-import FormDataProvider from '@/shared/providers/FormDataProvider';
 import withStepper from '@/shared/hocs/withStepper';
+import FormDataProvider from '@/shared/providers/FormDataProvider';
 
 import { FullForm } from './FullForm';
 import { EmailForm } from './EmailForm';
