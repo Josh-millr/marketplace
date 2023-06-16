@@ -22,33 +22,35 @@ export const DashboardClientWorkspaceCard = memo((props) => (
     direction={'column'}
     px={{ base: 0, md: 'xl' }}
   >
-    <Flex w={'100%'} justify={{ base: 'column', md: 'space-between' }}>
-      <Flex gap="xs" direction={'column'}>
-        <MediaQuery largerThan="md" styles={{ display: 'none' }}>
-          <div>
-            <CustomSuspense
-              dependency={props?.status}
-              fallback={<Skeleton height={16} width={100} />}
-            >
-              <div>
-                <Badge variant="filled" size="lg">
-                  {props.status}
-                </Badge>
-              </div>
-            </CustomSuspense>
-          </div>
-        </MediaQuery>
-        {/* ... */}
-        <CustomSuspense
-          dependency={props?.title}
-          fallback={<Skeleton height={16} width="100%" />}
-        >
-          <Text className="body-md" lineClamp={1}>
-            {props.title}
-          </Text>
-        </CustomSuspense>
-      </Flex>
-      <Divider />
+    <Flex
+      gap="xl"
+      w={'100%'}
+      direction={'column'}
+      justify={{ base: 'column', md: 'space-between' }}
+    >
+      <MediaQuery largerThan="md" styles={{ display: 'none' }}>
+        <div>
+          <CustomSuspense
+            dependency={props?.status}
+            fallback={<Skeleton height={16} width={100} />}
+          >
+            <div>
+              <Badge variant="filled" size="lg">
+                {props.status}
+              </Badge>
+            </div>
+          </CustomSuspense>
+        </div>
+      </MediaQuery>
+      {/* ... */}
+      <CustomSuspense
+        dependency={props?.title}
+        fallback={<Skeleton height={16} width="100%" />}
+      >
+        <Text className="body-md" lineClamp={1}>
+          {props.title}
+        </Text>
+      </CustomSuspense>
       <Button variant="subtle">View details</Button>
     </Flex>
 
