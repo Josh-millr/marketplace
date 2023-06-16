@@ -25,8 +25,8 @@ export const DashboardClientWorkspaceCard = memo((props) => (
     <Flex
       gap="xl"
       w={'100%'}
-      direction={'column'}
-      justify={{ base: 'column', md: 'space-between' }}
+      direction={{ base: 'column', md: 'row' }}
+      justify={{ base: 'flex-start', md: 'space-between' }}
     >
       <MediaQuery largerThan="md" styles={{ display: 'none' }}>
         <div>
