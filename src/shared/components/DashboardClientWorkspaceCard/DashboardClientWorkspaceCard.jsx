@@ -26,6 +26,7 @@ export const DashboardClientWorkspaceCard = memo((props) => (
       gap="xl"
       w={'100%'}
       direction={{ base: 'column', md: 'row' }}
+      align={{ base: 'flex-start', md: 'space-between' }}
       justify={{ base: 'flex-start', md: 'space-between' }}
     >
       <MediaQuery largerThan="md" styles={{ display: 'none' }}>
@@ -51,6 +52,7 @@ export const DashboardClientWorkspaceCard = memo((props) => (
           {props.title}
         </Text>
       </CustomSuspense>
+      {/* ... */}
       <Button variant="subtle">View details</Button>
     </Flex>
 
