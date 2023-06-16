@@ -1,11 +1,21 @@
+import { useState, useEffect } from 'react';
 import { Tabs } from '@mantine/core';
 
+import { getAllJobs } from '@/shared/services/getAllJobs';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { SectionEmptyBanner } from '@/shared/components/SectionEmptyBanner';
 import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
 import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCardNew';
+import { DashboardClientWorkspaceCard } from '@/shared/components/DashboardClientWorkspaceCard';
 
 function Workspace() {
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    getAllJobs().then((data) => {
+      setJobs(data);
+    });
+  }, []);
   return (
     <PageContainer.Marketplace>
       <DashboardPageHeader title="My Workspace" />
@@ -19,15 +29,51 @@ function Workspace() {
           </Tabs.List>
 
           <Tabs.Panel value="ongoing" pt="xs">
-            Ongoing
+            {jobs
+              .filter((job) => job.status === 'ongoing')
+              .map(({ id, title, status, dueDate, freelancer }) => (
+                <DashboardClientWorkspaceCard
+                  key={id}
+                  title={title}
+                  status={status}
+                  dueDate={dueDate}
+                  freelancerName={freelancer?.name}
+                  freelancerUsername={freelancer?.id}
+                  freelancerAvatar={freelancer?.img}
+                />
+              ))}
           </Tabs.Panel>
 
           <Tabs.Panel value="completed" pt="xs">
-            Completed
+            {jobs
+              .filter((job) => job.status === 'ongoing')
+              .map(({ id, title, status, dueDate, freelancer }) => (
+                <DashboardClientWorkspaceCard
+                  key={id}
+                  title={title}
+                  status={status}
+                  dueDate={dueDate}
+                  freelancerName={freelancer?.name}
+                  freelancerUsername={freelancer?.id}
+                  freelancerAvatar={freelancer?.img}
+                />
+              ))}
           </Tabs.Panel>
 
           <Tabs.Panel value="cancelled" pt="xs">
-            Canceled
+            {jobs
+              .filter((job) => job.status === 'ongoing')
+              .map(({ id, title, status, dueDate, freelancer }) => (
+                <DashboardClientWorkspaceCard
+                  key={id}
+                  title={title}
+                  status={status}
+                  dueDate={dueDate}
+                  freelancerName={freelancer?.name}
+                  freelancerUsername={freelancer?.id}
+                  freelancerAvatar={freelancer?.img}
+                />
+              ))}
           </Tabs.Panel>
         </Tabs>
         {[].length === 0 && <SectionEmptyBanner sectionLabel="No jobs" />}
