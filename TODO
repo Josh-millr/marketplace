@@ -1,18 +1,17 @@
 
 General Project Todo:
-  ☐ Create the search page for the freelancer section
-  ☐ Implement the messaging for the freelancer and the client section
-  ☐ Implement the notification system
-  ☐ Implement the payment and checkout 
-  ☐ Create the Manage Job section for the freelancer and client section
-  ☐ Style and implement the error boundary
-  ☐ Fix and manage errors gracefully
-  ☐ Implement and test all the existing API
-  ☐ Create the remaining pages for the client dashboard
-  ☐ Document the codebase
-  ☐ Implement the account switcher functionality
-  ☐ Fix page breadcrumb
-  ☐ Add local time conversion
+  ☐ @critical Fix layout glitch
+  ☐ @critical Implement the messaging for the freelancer and the client section
+  ☐ @critical Implement the notification system
+  ✔ @high Add local time conversion @started(23-06-09 15:39) @done(23-06-10 13:26) @lasted(21h47m31s)
+  ☐ @high Format the time & date structure to fit use
+  ☐ @high Implement the account switcher functionality
+  ☐ @high Fix and manage errors gracefully
+  ☐ @low Document the codebase
+  ☐ @low Fix page breadcrumb
+  ☐ @low Fix the UI and function of "//src/shared/components/DashboardSectionCard"
+  ☐ @low Style and implement the error boundary
+  ☐ @low Fix the desktop search from premature opening on hover
 
 Onboarding Todos:
   ☐ @low Sanitize the input fields in the general input form form attacks
@@ -20,16 +19,35 @@ Onboarding Todos:
   ☐ 
 
 Freelancer Marketplace Todos:
-  ☐ 
+  ☐ @high Implement the API for freelancer Profile
+  ☐ @high Implement all te API required for Freelancer profile profile page
+  ☐ @high Add portfolio section tot he freelaner profile page
+  ☐ @high Create the search page
+  ☐ @low Implement the "contact me" and "share me" button with options to share to social media & email
 
 
 Freelancer Dashboard Todos:
+  ☐ @critical Create the Manage Job section
+  ☐ @high Create an order page where client can view all orders and create custom order + Implement API
   ☐ 
 
 
 Client Marketplace Todos:
-  ☐ 
+  ☐ @high Implement the payment checkout feature
 
 
 Client Dashboard Todos:
-  ☐ 
+  ☐ @critical Create the Manage Job section
+  ☐ @high Create the client profile page & form functionality @started(23-06-10 13:50)
+  ☐ @high Create the Data-Structure and implement the API for changing client info
+  ☐ @high Fix the project list cards and vertualize the list
+  ☐ @high Implement the API for the Client Active Projects listing
+  ☐ @high Add the Project preview page or popup that opens when user click on active project from the list + Implement the API
+  ☐ @high Implement the delete functionality for deletin active project from dashboard + Implement the API
+  ☐ @high Implement the "View Proposal" tha allows client view the list of proposal/s for an active projects + Implement the API
+  ☐ @high Add the "Proposals" page to view all proposals, accept & reject proposals + Implement the API
+  ☐ @high Add the "Create New Project" page + Implement the API
+  ☐ @high Implement Hire freelancer functionanlity in the proposal details in the My Project page 
+  ☐ @low Implement the proposal delete functionanlity in the proposal details in the My Project page 
+  ☐ @low Add virtualization to te table in the project page
+  ☐ @low Add a new section in te dashboard homepage to display recent proposals received

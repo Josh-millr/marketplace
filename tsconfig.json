@@ -30,7 +30,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
-    "**/*.jsx",
+    "**/*.jsx", "src/shared/constants/dashboardProposalsPreviewDemo.tx",
   ],
   "exclude": [
     "node_modules"

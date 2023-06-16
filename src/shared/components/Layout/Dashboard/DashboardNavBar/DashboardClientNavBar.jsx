@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { useSelector } from 'react-redux';
 import { useViewportSize } from '@mantine/hooks';
 import { Navbar, Flex, ScrollArea, Space } from '@mantine/core';
 
@@ -7,11 +7,15 @@ import { clientDashboardLinks } from '@/shared/constants/dashboardLinks';
 import {
   NavItem,
   NavSectionTitle,
+  BackToMarketplace,
   DashboardNavBarMobileHeader,
 } from '../Elements';
 
 export function DashboardClientNavBar({ hidden, hide }) {
   const { height } = useViewportSize();
+
+  const { user } = useSelector((state) => state.user);
+  const { role } = user;
 
   return (
     <Navbar height={height} width={{ md: 224 }} hidden={hidden}>
@@ -19,31 +23,27 @@ export function DashboardClientNavBar({ hidden, hide }) {
         <DashboardNavBarMobileHeader hide={hide} />
       </Navbar.Section>
 
-      <Navbar.Section grow component={ScrollArea} pr="sm">
+      <Navbar.Section>
+        <BackToMarketplace role={role} />
+      </Navbar.Section>
+
+      <Navbar.Section grow component={ScrollArea}>
         <Flex direction="column" gap={{ base: '0px', md: 'xl' }}>
           <div>
             <NavSectionTitle title="Start" />
-            {/* start Links */}
+            {/* Start Links */}
             {clientDashboardLinks.slice(0, 7).map(({ title, link, icon }) => (
               <NavItem key={title} title={title} link={link} icon={icon} />
             ))}
           </div>
 
-          {/* organize Manage Links */}
-          {/* <div>
+          {/* Organize Manage Links */}
+          <div>
             <NavSectionTitle title="Organize and Manage" />
-            {clientDashboardLinks.slice(7, 9).map(({ title, link, icon }) => (
+            {clientDashboardLinks.slice(7, 8).map(({ title, link, icon }) => (
               <NavItem key={title} title={title} link={link} icon={icon} />
             ))}
-          </div> */}
-
-          {/* accounts Links */}
-          {/* <div>
-            <NavSectionTitle title="Account" />
-            {clientDashboardLinks.slice(7, 9).map(({ title, link, icon }) => (
-              <NavItem key={title} title={title} link={link} icon={icon} />
-            ))}
-          </div> */}
+          </div>
         </Flex>
         <Space h={100} />
       </Navbar.Section>

@@ -1,109 +1,154 @@
-import { useState } from 'react';
-
+import Link from 'next/link';
+import { memo } from 'react';
 import {
-  Text,
-  ActionIcon,
-  Badge,
-  useMantineTheme,
-  Stack,
-  Divider,
-  Group,
-  Button,
-  Flex,
   Box,
+  Text,
+  Flex,
+  Group,
+  Stack,
+  Button,
+  Divider,
+  Skeleton,
+  ActionIcon,
+  MediaQuery,
+  useMantineTheme,
 } from '@mantine/core';
-import { Clock, ProfileCircle, Trash, EyeAlt } from 'iconoir-react';
+import {
+  Clock,
+  ProfileCircle,
+  Cancel,
+  Page,
+  Link as IconLink,
+} from 'iconoir-react';
 
 import { iconCreator } from '@/shared/utils/iconCreator';
 import { displayNumberInNaira } from '@/shared/utils/displayNumberInNaira';
+
+import { CustomSuspense } from '../CustomSuspense';
 import { useStyles } from './style.DashboardProposalCard';
 
-export function DashboardProposalCard(props) {
-  const {
-    cost,
-    status,
-    authorId,
-    setCoverLetter,
-    authorName,
-    coverLetter,
-    deliveryTime,
-    submissionDate,
-  } = props;
+const ProjectTitle = memo(({ title, id }) => (
+  <CustomSuspense
+    dependency={title}
+    fallback={<Skeleton height={16} w="60%" />}
+  >
+    <Link href={`/dashboard/client/projects/project/${id}`}>
+      <Button
+        compact
+        radius={9999}
+        color="gray"
+        leftIcon={iconCreator({ icon: IconLink })}
+      >
+        <Text lineClamp={1} className="body-md">
+          {title}
+        </Text>
+      </Button>
+    </Link>
+  </CustomSuspense>
+));
 
-  const [hovered, setHovered] = useState(false);
+export const DashboardProposalCard = memo((props) => {
+  const { showCoverLetter, ...proposal } = props;
+
   const { colors } = useMantineTheme();
-
   const { classes } = useStyles();
 
-  const showCoverLetter = () => setCoverLetter(coverLetter);
+  const showLetter = () => showCoverLetter(proposal?.coverLetter);
 
   return (
-    <Box
-      className={`${classes.wrapper} ${hovered && classes.wrapperHovered}`}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <Stack spacing="lg">
-        <Stack spacing="sm">
-          <Text
-            lineClamp={1}
-            className={`${classes.title} ${
-              hovered && classes.titleHovered
-            } body-md`}
+    <Box py="xl" px={{ base: '0', md: 'xl' }} className={`${classes.wrapper}`}>
+      <Flex direction={{ base: 'column', md: 'row' }} gap="2xl" w="100%">
+        <Stack spacing="lg">
+          {/* ... Cover Letter Preview */}
+
+          <CustomSuspense
+            dependency={proposal?.coverLetter}
+            fallback={<Skeleton height={16} w="100%" />}
           >
-            {coverLetter}
-          </Text>
+            <Text lineClamp={2} className="body-md">
+              {proposal?.coverLetter}
+            </Text>
+          </CustomSuspense>
+
+          {/* ... Pricing .... */}
+          <CustomSuspense>
+            <Text className="h1" fw={'700!important'}>{`${displayNumberInNaira(
+              proposal?.cost || 0
+            )}/${proposal?.deliveryTime}`}</Text>
+          </CustomSuspense>
+
+          {proposal?.projectTitle && (
+            <ProjectTitle
+              title={proposal?.projectTitle}
+              id={proposal?.projectId}
+            />
+          )}
+
+          {/* ... Date & Author .... */}
+          <Flex
+            w="100%"
+            direction={{ base: 'column', md: 'row' }}
+            gap={{ base: 'lg', md: 'xl' }}
+          >
+            <CustomSuspense
+              dependency={proposal?.submissionDate}
+              fallback={<Skeleton height={16} width={80} />}
+            >
+              <Group spacing="sm">
+                {iconCreator({
+                  icon: Clock,
+                  colorOverride: colors.neutral[6],
+                })}
+                <Group spacing="xs">
+                  <Text className="label-md" fw="500!important" c="neutral.6">
+                    Received:
+                  </Text>
+                  <Text className="label-md" fw="500!important">
+                    {proposal?.submissionDate}
+                  </Text>
+                </Group>
+              </Group>
+            </CustomSuspense>
+            {/* .... */}
+            <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+              <Divider orientation="vertical" />
+            </MediaQuery>
+            {/* .... */}
+            <CustomSuspense
+              dependency={proposal?.authorName}
+              fallback={<Skeleton height={16} width={80} />}
+            >
+              <div>
+                <Button
+                  size="xs"
+                  radius={9999}
+                  variant="light"
+                  leftIcon={iconCreator({
+                    icon: ProfileCircle,
+                  })}
+                >
+                  {proposal?.authorName}
+                </Button>
+              </div>
+            </CustomSuspense>
+          </Flex>
         </Stack>
 
-        <Group position="apart">
-          <Flex gap="md">
-            <Group spacing="xs">
-              <Group spacing="xs">
-                {iconCreator({ icon: Clock, sizeOverride: 16 })}
-                <Text className="label-sm" fw="700!important">
-                  Received:
-                </Text>
-              </Group>
-              <Text className="label-sm" fw="700!important">
-                {submissionDate}
-              </Text>
-            </Group>
-
-            <Divider orientation="vertical" />
-
-            <Group spacing="xs">
-              <Group spacing="xs">
-                {iconCreator({ icon: ProfileCircle, sizeOverride: 16 })}
-                <Text className="label-sm" fw="700!important">
-                  Creator:
-                </Text>
-              </Group>
-              <Text className="label-sm" fw="700!important">
-                {authorName}
-              </Text>
-            </Group>
-          </Flex>
-
-          <Text
-            className="label-md"
-            fw={'700!important'}
-          >{`${displayNumberInNaira(cost)}/${deliveryTime}`}</Text>
-        </Group>
-
-        <Group position="apart">
-          <Flex gap="md">
-            <Button variant="outline">Hire now</Button>
-            <ActionIcon size="lg" variant="light">
-              {iconCreator({ icon: Trash, colorOverride: colors.danger[8] })}
-            </ActionIcon>
-
-            <ActionIcon size="lg" variant="light" onClick={showCoverLetter}>
-              {iconCreator({ icon: EyeAlt })}
-            </ActionIcon>
-          </Flex>
-          <Badge>{status}</Badge>
-        </Group>
-      </Stack>
+        {/* ... CTA .... */}
+        <Flex direction="row" gap="lg">
+          <ActionIcon variant="light" onClick={showLetter}>
+            {iconCreator({ icon: Page, sizeOverride: 24 })}
+          </ActionIcon>
+          <ActionIcon variant="light">
+            {iconCreator({
+              icon: Cancel,
+              sizeOverride: 24,
+              colorOverride: colors.danger[7],
+            })}
+          </ActionIcon>
+          <Button>Hire</Button>
+        </Flex>
+      </Flex>
     </Box>
   );
-}
+});

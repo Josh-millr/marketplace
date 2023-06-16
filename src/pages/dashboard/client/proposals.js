@@ -1,40 +1,61 @@
-import { Box } from "@mantine/core";
-import { v4 as uuidv4 } from "uuid";
+import { useState } from 'react';
+import { Drawer } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 
-import { PageContainer } from "@/shared/components/PageContainer";
-import { DashboardPageHeader } from "@/shared/components/DashboardPageHeader";
-import { DashboardSectionCard } from "@/shared/components/DashboardSectionCard";
-import { DashboardProposalPreviewCard } from "@/shared/components/DashboardProposalPreviewCard";
-import { dashboardProposalsPreviewDemo } from "@/shared/constants/dashboardProposalsPreviewDemo";
+import { projectDemo } from '@/shared/constants/projectDemo';
+import { PageContainer } from '@/shared/components/PageContainer';
+import { SectionEmptyBanner } from '@/shared/components/SectionEmptyBanner';
+import { DashboardPageHeader } from '@/shared/components/DashboardPageHeader';
+import { DashboardProposalCard } from '@/shared/components/DashboardProposalCard';
+import { DashboardSectionCardNew } from '@/shared/components/DashboardSectionCardNew';
 
 function Proposals() {
+  const [proposals, setProposals] = useState(projectDemo.proposals || []);
+  const [coverLetter, setCoverLetter] = useState('');
+  const [opened, { open, close }] = useDisclosure();
+
+  const displayCoverLetter = async (letter) => {
+    setCoverLetter(letter);
+    open();
+  };
+
   return (
     <PageContainer.Marketplace>
       <DashboardPageHeader title="Proposals" />
 
-      <DashboardSectionCard
-        title="Received Proposals"
-        withTitle
-        contentFullWidth
-      >
-        <Box>
-          {dashboardProposalsPreviewDemo.map((proposal) => {
-            const itemId = uuidv4();
-            return (
-              <DashboardProposalPreviewCard
-                key={itemId}
-                cost={proposal.cost}
-                category={proposal.category}
-                projectTitle={proposal.projectTitle}
-                deliveryTime={proposal.deliveryTime}
-                submissionDate={proposal.submissionDate}
-                authorName={proposal.author.name}
-                status={proposal.status}
-              />
-            );
-          })}
-        </Box>
-      </DashboardSectionCard>
+      <DashboardSectionCardNew contentFullWidth title="Proposals Pending">
+        <Drawer
+          opened={opened}
+          onClose={close}
+          title="Cover Letter"
+          position="right"
+          size={'xl'}
+        >
+          {coverLetter}
+        </Drawer>
+
+        {/* ... Proposals Received ... */}
+        {proposals.length !== 0 ? (
+          proposals.map((proposal) => (
+            <DashboardProposalCard
+              cost={proposal?.cost}
+              status={proposal?.status}
+              key={proposal?.proposalId}
+              category={proposal?.category}
+              authorId={proposal?.proposalId}
+              projectId={proposal?.projectId}
+              projectTitle={proposal?.projectTitle}
+              authorName={proposal?.author?.name}
+              coverLetter={proposal?.coverLetter}
+              showCoverLetter={displayCoverLetter}
+              deliveryTime={proposal?.deliveryTime}
+              submissionDate={proposal?.submissionDate}
+            />
+          ))
+        ) : (
+          <SectionEmptyBanner sectionLabel="Proposals" />
+        )}
+      </DashboardSectionCardNew>
     </PageContainer.Marketplace>
   );
 }

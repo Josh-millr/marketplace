@@ -8,7 +8,7 @@ export const projectDemo = {
     'I need someone who is and expert in logo design. some one who can draw exactly what I need for my clothing brand. Would like if you were very proficient in affinity designer or adobe, or what ever software you use. I already have a font that I like very much, but I need the font to fit my Clothing brands title. So I need an artist that can take an existing font and make it exactly the same way for my clothing brand title.  I need someone who is and expert in logo design. some one who can draw exactly what I need for my clothing brand. Would like if you were very proficient in affinity designer or adobe, or what ever software you use. I already have a font that I like very much, but I need the font to fit my Clothing brands title. So I need an artist that can take an existing font and make it exactly the same way for my clothing brand title.',
   experienceLevel: 'intermediate',
   estimatedTime: 'Less than 1 month',
-  proposalsRecived: 2,
+  proposalsReveived: 2,
   timePosted: 5,
   skills: [
     'logo design',
@@ -22,7 +22,7 @@ export const projectDemo = {
   totalAmountSpent: 120000, // remove
   expires: 'Nov 11, 2023',
   budget: 2884000, // was previously `cost`
-  pricingtype: 'fixed',
+  pricingType: 'fixed',
   status: 'published',
   proposals: [
     {
@@ -30,8 +30,10 @@ export const projectDemo = {
         name: 'John Samuel Philip',
         id: 'john-samuel',
       },
-      projectId: 7654757,
+      projectTitle:
+        'Background research (Context study, Market study, technology trend, future projections)',
       proposalId: 91848739247,
+      projectId: 7654757,
       submissionDate: 'April 01, 2022',
       category: 'Web & App Design',
       cost: 9712318000,
@@ -46,6 +48,8 @@ export const projectDemo = {
         id: 'john-samuel',
       },
       projectId: 7654757,
+      projectTitle:
+        'Background research (Context study, Market study, technology trend, future projections)',
       proposalId: 91848739247,
       submissionDate: 'April 01, 2022',
       category: 'Web & App Design',
