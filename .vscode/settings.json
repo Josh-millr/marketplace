@@ -9,5 +9,8 @@
         "Neue",
         "Tahoma",
         "Univers"
+    ],
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "current-working"
     ]
 }
